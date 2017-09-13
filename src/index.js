@@ -6,7 +6,7 @@ function response (resolve, err, req, res, obj) {
 }
 function appendcustom (id, actions, target, route, client) {
 	for (let custom of actions) {
-		if (custom.indexOf(':')) {
+		if (custom.indexOf(':') > -1) {
 			let ar = custom.split(':');
 			if (ar.length >= 3 && ar[0] === 'single' && id) {
 				let path = `${route}/${id}/${ar[1]}`;

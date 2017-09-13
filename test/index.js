@@ -9,6 +9,11 @@ describe('Linodes', function () {
 		assert.ok(app.linode.instances.list);
 		assert.ok(app.linode.instances.create);
 		assert.ok(app.linode.instances(1));
+
+		assert.ok(await app.linode.instances.create({}));
+		assert.ok(await app.linode.instances(1).update());
+		assert.ok(await app.linode.instances(1).delete());
+
 		assert.ok(app.linode.instances(1).get);
 		assert.ok(app.linode.instances(1).update);
 		assert.ok(app.linode.instances(1).delete);
@@ -21,6 +26,9 @@ describe('Linodes', function () {
 		assert.ok(app.linode.instances(1).resize);
 		assert.ok(app.linode.instances(1).shutdown);
 		assert.ok(app.linode.instances(1).volumes);
+
+		assert.ok(app.linode.instances(1).volumes());
+		assert.ok(app.linode.instances(1).volumes({}));
 	});
 	it('Backups', async function () {
 		assert.ok(app.linode.instances(1).backups, 'get /linode/instances/:id/backups');
@@ -50,6 +58,9 @@ describe('Linodes', function () {
 		assert.ok(app.linode.distributions);
 		assert.ok(app.linode.distributions.list, 'get /linode/distributions');
 		assert.ok(app.linode.distributions(1).get, 'get /linode/distributions/:id');
+		assert.ok(await app.linode.distributions.list());
+		assert.ok(await app.linode.distributions('linode/slackware14.1').get());
+		assert.ok(await app.linode.distributions());
 	});
 	it('IPs', async function () {
 		assert.ok(app.linode.instances(1).ips);
@@ -73,6 +84,7 @@ describe('Linodes', function () {
 	it('Stats', async function () {
 		assert.ok(app.linode.instances(1).stats, 'get /linode/instances/:id/stats');
 		assert.ok(app.linode.instances(1).stats.year(1).month(1).get, 'get /linode/instances/:id/stats/:year/:month');
+		assert.ok(app.linode.instances(1).stats.year(1).month(1).get());
 	});
 	it('Types', async function () {
 		assert.ok(app.linode.types);
@@ -97,6 +109,9 @@ describe('Profie', function () {
 		assert.ok(app.profile.get, 'get /profile');
 		assert.ok(app.profile.grants, 'get /profile/grants');
 		assert.ok(app.profile.password, 'post /profile/grants');
+
+		assert.ok(app.profile.grants());
+		assert.ok(app.profile.password({}));
 	});
 	it('Two-Factor Authentication', function () {
 		assert.ok(app.profile.tfaDisable, 'post /profile/tfa-disable');

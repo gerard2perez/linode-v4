@@ -1,0 +1,37 @@
+---
+branches:
+  only:
+    - master
+    - v2
+services:
+  - mongodb
+language: node_js
+node_js:
+  - "7.10.1"
+  - "8.5.0"
+sudo: required
+env:
+  - CXX=g++-4.8
+addons:
+  apt:
+    sources:
+    - ubuntu-toolchain-r-test
+    packages:
+    - gcc-4.8
+    - g++-4.8
+cache:
+  directories:
+    - node_modules
+before_install:
+  - npm config set spin false
+  - npm install -g semantic-release
+  - npm install -g codeclimate-test-reporter
+install:
+  - npm i .
+script:
+  - npm run eslint
+  - npm run cover
+after_success:
+    - npm run export
+    - npm run codeclimate:report
+    - npm run semantic-release
