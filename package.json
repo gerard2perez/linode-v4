@@ -1,0 +1,77 @@
+{
+  "name": "linode-v4",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "jsdoc": "jsdoc -R README.md src -r & esdoc",
+    "cover": "nyc npm t",
+    "export": "koaton-exporter src/*.js src/**/*.js ./ -r src/ -t v2",
+    "test": "mocha test/index.js --compilers js:babel-register",
+	"test:live": "npm t -- -w"
+  },
+  "author": "Gerardo Pérez Pérez (gerard2perez@outlook.com)",
+  "license": "MIT",
+  "dependencies": {
+    "restify-clients": "^1.5.1"
+  },
+  "devDependencies": {
+    "babel-plugin-istanbul": "^4.1.4",
+    "babel-plugin-transform-decorators": "^6.24.1",
+    "babel-plugin-transform-decorators-legacy": "^1.3.4",
+    "babel-preset-env": "^1.5.2",
+    "esdoc": "^1.0.0-alpha.8",
+    "esdoc-importpath-plugin": "^1.0.1",
+    "esdoc-standard-plugin": "^1.0.0",
+    "eslint": "^4.0.0",
+    "eslint-config-happiness": "^10.2.1",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-node": "^5.1.1",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "koaton-exporter": "^1.3.0",
+    "mocha": "^3.4.2",
+    "nyc": "^11.0.2"
+  },
+  "nyc": {
+    "lines": 99,
+    "statements": 99,
+    "functions": 99,
+    "branches": 99,
+    "reporter": [
+      "lcov",
+      "text"
+    ],
+    "include": [
+      "src/**"
+    ],
+    "exclude": [
+      "src/support/include.js",
+      "src/support/globals.js",
+      "src/support/consoleLines.js"
+    ],
+    "sourceMap": false,
+    "instrument": false,
+    "cache": true,
+    "check-coverage": false,
+    "all": false,
+    "report-dir": "./coverage"
+  },
+  "babel": {
+    "plugins": [
+      "babel-plugin-transform-koaton-es6-modules",
+      "transform-decorators-legacy",
+      "istanbul"
+    ],
+    "ignore": [
+      "serverconf",
+      "config/",
+      "docs/",
+      "lib/",
+      "node_modules/",
+      "templates/",
+      "testcoverage/",
+      "testingapp/"
+    ]
+  }
+}
