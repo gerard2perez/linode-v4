@@ -36,5 +36,26 @@ export default {
 				}
 			}
 		}
+	},
+	networking: {
+		actions: ['ip-assign:post'],
+		collections: {
+			ipv4: {
+				actions: ['list', 'get', 'create', 'update', 'delete']
+			},
+			ipv6: {
+				actions: ['list', 'get', 'update']
+			}
+		}
+	},
+	regions: {
+		actions: ['list', 'get']
+	},
+	support: {
+		collection: {
+			tickets: {
+				actions: ['list', 'get', 'create', 'update', 'delete', 'single:attachments:post', 'single:replies:post']
+			}
+		}
 	}
 };

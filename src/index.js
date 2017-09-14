@@ -1,4 +1,5 @@
 import { createJsonClient } from 'restify-clients';
+import sanitize from './sanitize';
 import spec from './spec';
 
 function response (resolve, err, req, res, obj) {
@@ -10,10 +11,11 @@ function appendcustom (id, actions, target, route, client) {
 			let ar = custom.split(':');
 			if (ar.length >= 3 && ar[0] === 'single' && id) {
 				let path = `${route}/${id}/${ar[1]}`;
+				let command = sanitize(ar[1]);
 				if (ar[3] && ar[3] === 'noargs') {
 					path = `${route}/${id}}`;
 				}
-				target[ar[1]] = function (data) {
+				target[command] = function (data) {
 					return new Promise(function (resolve) {
 						if (data) {
 							client[ar[2]](path, data, response.bind(null, resolve));
@@ -23,7 +25,7 @@ function appendcustom (id, actions, target, route, client) {
 					});
 				};
 			} else if (ar.length === 2 && !id) {
-				target[ar[0]] = function (data) {
+				target[sanitize(ar[0])] = function (data) {
 					return new Promise(function (resolve) {
 						if (data) {
 							client[ar[1]](`${route}/${ar[0]}`, data, response.bind(null, resolve));
@@ -66,7 +68,7 @@ function makeapi (route, collection) {
 			appendcustom(id, collection.actions, res, route, client);
 		}
 		for (const k in collection.collections) {
-			res[k] = makeapi.bind(this)(`${route}/${id}/${k}`, collection.collections[k]);
+			res[sanitize(k)] = makeapi.bind(this)(`${route}/${id}/${k}`, collection.collections[k]);
 		}
 		return res;
 	};
