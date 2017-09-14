@@ -11,7 +11,8 @@ describe('Account', function () {
 		assert.ok(app.account.clients(1).update);
 		assert.ok(app.account.clients(1).delete);
 		assert.ok(app.account.clients(1).reset_secret);
-		assert.ok(app.account.clients(1).thumbnai);
+		assert.ok(app.account.clients(1).thumbnai.list);
+		assert.ok(app.account.clients(1).thumbnai.update);
 	});
 	it('Events', async function () {
 		assert.ok(app.account.events.list);

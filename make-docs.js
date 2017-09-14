@@ -36,32 +36,34 @@ function link (path, ref) {
 	}
 	return `[/${path}](https://developers.linode.com/v4/reference/endpoints/${path})`;
 }
-function renderActions (path, spec, generateHeader = true) {
+function renderActions (path, spec, generateHeader = true, appenned = false) {
+	let paramname = spec.paramname || 'id';
 	let actions = spec.actions || [];
-	let appPath = path.replace(/\//g, '.').replace(/:id/g, '(id)');
+	let appPath = path.replace(/\/:([^\/]*)\//g, '($1).').replace(/\//g, '.');
 	let data = `### ${path.split('/').pop()}\n`;
 	if (generateHeader && actions.length) {
 		data += `|Command|API Reference|\n|---|---|\n`;
 	} else {
 
 	}
+	let parameter = appenned ? '' : `(${paramname})`;
 	if (actions.includes('list')) {
-		data += `|app.${appPath}.list()|${link(path)}\n`;
+		data += `|app.${appPath}.list()|${link(path + '#get')}\n`;
 	}
 	if (actions.includes('create')) {
-		data += `|app.${appPath}.create(data)|${link(path)}\n`;
+		data += `|app.${appPath}.create(data)|${link(path + '#post')}\n`;
 	}
 	if (actions.includes('get')) {
-		data += `|app.${appPath}(id).get()|${link(path + '/:id#get')}\n`;
+		data += `|app.${appPath}.get()|${link(path + `/:${paramname}#get`)}\n`;
 	}
 	if (actions.includes('update')) {
-		data += `|app.${appPath}(id).update(data)|${link(path + '/:id#put')}\n`;
+		data += `|app.${appPath}${parameter}.update(data)|${link(path + `/:${paramname}#put`)}\n`;
 	}
 	if (actions.includes('delete')) {
-		data += `|app.${appPath}(id).delete()|${link(path + '/:id#del')}\n`;
+		data += `|app.${appPath}${parameter}.delete()|${link(path + `/:${paramname}#delete`)}\n`;
 	}
 	if (spec.query) {
-		data += `|app.${appPath}(id).${spec.query.map(p => `${p}(data)`).join('.')}.get()|${link(`${path}/:${spec.query.join('/:')}#get`)}\n`;
+		data += `|app.${appPath}${parameter}.${spec.query.map(p => `${p}(data)`).join('.')}.get()|${link(`${path}/:${spec.query.join('/:')}#get`)}\n`;
 	}
 	for (const action of actions) {
 		if (action.includes(':')) {
@@ -69,9 +71,9 @@ function renderActions (path, spec, generateHeader = true) {
 			if (params[0] === 'single') {
 				let last = params.pop();
 				if (last === 'noargs') {
-					data += `|app.${appPath}(id).${params[1]}()|${link(path + `/:id#${params[2]}`)}\n`;
+					data += `|app.${appPath}(${paramname}).${params[1]}()|${link(path + `/:${paramname}#${params[2]}`)}\n`;
 				} else {
-					data += `|app.${appPath}(id).${params[1]}()|${link(path + `/:id/${params[1]}#${last}`)}\n`;
+					data += `|app.${appPath}(${paramname}).${params[1]}()|${link(path + `/:${paramname}/${params[1]}#${last}`)}\n`;
 				}
 			} else {
 				data += `|app.${appPath}.${params[0]}()|${link(path + `/${params[0]}#${params[1]}`)}\n`;
@@ -79,7 +81,11 @@ function renderActions (path, spec, generateHeader = true) {
 		}
 	}
 	for (const collection in spec.collections) {
-		data += renderActions(`${path}${actions.length ? '/:id/' : '/'}${collection}`, spec.collections[collection], true);
+		let sp = !actions.length ? '/' : `/:${paramname}/`;
+		if (spec.collections[collection].flatten) {
+			sp = '/';
+		}
+		data += renderActions(`${path}${sp}${collection}`, spec.collections[collection], true, spec.collections[collection].flatten);
 	}
 	return data;
 }

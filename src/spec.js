@@ -14,22 +14,29 @@ export default {
 				actions: ['list', 'get']
 			},
 			volumes: {
-				actions: ['list', 'get', 'create', 'update', 'delete', 'single:attach:post', 'single:detach:post']
+				actions: ['list', 'get', 'create', 'update', 'delete', 'attach:post:single', 'detach:post:single']
 			},
 			instances: {
-				actions: ['list', 'get', 'create', 'update', 'delete', 'single:boot:post', 'single:clone:post', 'single:kvmify:post', 'single:mutate:post', 'single:reboot:post', 'single:rebuild:post', 'single:rescue:post', 'single:resize:post', 'single:shutdown:post', 'single:volumes:post'],
+				actions: ['list', 'get', 'create', 'update', 'delete', 'boot:post:single', 'clone:post:single', 'kvmify:post:single', 'mutate:post:single', 'reboot:post:single', 'rebuild:post:single', 'rescue:post:single', 'resize:post:single', 'shutdown:post:single', 'volumes:post:single'],
 				collections: {
 					backups: {
-						actions: ['list', 'get', 'create', 'single:restore:post', 'cancel:post', 'enable:post']
+						actions: ['list', 'create', 'restore:post:single', 'cancel:post', 'enable:post']
 					},
 					configs: {
 						actions: ['list', 'get', 'create', 'update', 'delete']
 					},
 					disks: {
-						actions: ['list', 'get', 'single:duplicate:post:noargs', 'create', 'update', 'delete', 'single:password:post', 'single:resize:post']
+						actions: ['list', 'get', 'duplicate:post:noargs:single', 'create', 'update', 'delete', 'password:post:single', 'resize:post:single']
 					},
 					ips: {
-						actions: ['list', 'get', 'create', 'update', 'delete', 'sharing:post']
+						paramname: 'ip_address',
+						actions: ['list', 'get', 'create', 'update', 'delete'],
+						appendCollections: true,
+						collections: {
+							sharing: {
+								actions: ['list', 'update:put:noargs', 'delete:del:noargs']
+							}
+						}
 					},
 					stats: {
 						actions: ['list'],
@@ -51,7 +58,7 @@ export default {
 		actions: ['list', 'create', 'get', 'update', 'delete'],
 		collections: {
 			configs: {
-				actions: ['list', 'create', 'get', 'delete', 'single:ssl:post'],
+				actions: ['list', 'create', 'get', 'delete', 'ssl:post:single'],
 				collections: {
 					nodes: {
 						actions: ['list', 'get', 'create', 'update', 'delete']
@@ -64,9 +71,13 @@ export default {
 		actions: ['ip-assign:post'],
 		collections: {
 			ipv4: {
+				flatten: true,
+				paramname: 'address',
 				actions: ['list', 'get', 'create', 'update', 'delete']
 			},
 			ipv6: {
+				flatten: true,
+				paramname: 'address',
 				actions: ['list', 'get', 'update']
 			}
 		}
@@ -77,17 +88,17 @@ export default {
 	support: {
 		collections: {
 			tickets: {
-				actions: ['list', 'get', 'create', 'update', 'delete', 'single:attachments:post', 'single:replies:post']
+				actions: ['list', 'get', 'create', 'update', 'delete', 'attachments:post:single', 'replies:post:single']
 			}
 		}
 	},
 	account: {
 		collections: {
 			clients: {
-				actions: ['list', 'get', 'create', 'update', 'delete', 'single:reset_secret:post', 'single:thumbnai:post']
+				actions: ['list', 'get', 'create', 'update', 'delete', 'reset_secret:post:single', 'thumbnai:post:single']
 			},
 			events: {
-				actions: ['list', 'get', 'single:read:post', 'single:seen:post']
+				actions: ['list', 'get', 'read:post:single', 'seen:post:single']
 			},
 			settings: {
 				actions: ['list', 'update:put:noargs']
@@ -96,14 +107,19 @@ export default {
 				actions: ['list', 'get', 'create', 'update', 'delete']
 			},
 			users: {
-				actions: ['list', 'get', 'create', 'update', 'delete', 'single:password:post'],
+				paramname: 'username',
+				actions: ['list', 'get', 'create', 'update', 'delete', 'password:post:single'],
 				collections: {
 					grants: {
-						actions: ['list', 'update:put:noargs']
+						paramname: 'username',
+						actions: ['list', 'update:put:nopath:noargs']
 					}
 				}
 			}
 		}
+	},
+	profile: {
+		actions: ['get:get:nopath:noargs', 'grants:get:noargs', 'password:post:noargs', 'tfa-disable:post:noargs', 'tfa-enable:post:noargs', 'tfa-enable-confirm:post:noargs']
 	}
 
 };

@@ -1,45 +1,35 @@
 import { createJsonClient } from 'restify-clients';
 import sanitize from './sanitize';
 import spec from './spec';
-
+function makerequest (client, method, path, hasparams = false, data) {
+	if (hasparams && data) {
+		throw new Error(`this function requires some argumes. Check: https://developers.linode.com/v4/reference/${path}`);
+	}
+	return new Promise(function (resolve) {
+		let args = [path, data].filter(f => f);
+		client[method](...args, response.bind(null, resolve));
+	});
+}
 function response (resolve, err, req, res, obj) {
 	resolve(obj);
 }
 function appendcustom (id, actions, target, route, client) {
 	for (let custom of actions) {
 		if (custom.indexOf(':') > -1) {
-			let ar = custom.split(':');
-			if (ar.length >= 3 && ar[0] === 'single' && id) {
-				let path = `${route}/${id}/${ar[1]}`;
-				let command = sanitize(ar[1]);
-				if (ar[3] && ar[3] === 'noargs') {
-					path = `${route}/${id}}`;
+			let single = custom.includes('single');
+			if ((single && id) || !id) {
+				let noargs = custom.includes('noargs');
+				let nopath = custom.includes('nopath');
+				let [rawcommand, method] = custom.split(':');
+				let command = sanitize(rawcommand);
+				let path = route;
+				if (!noargs && id) {
+					path += `/${id}`;
 				}
-				target[command] = function (data) {
-					return new Promise(function (resolve) {
-						if (data) {
-							client[ar[2]](path, data, response.bind(null, resolve));
-						} else {
-							client[ar[2]](path, response.bind(null, resolve));
-						}
-					});
-				};
-			} else if (!id) {
-				let path = `${route}/${ar[0]}`;
-				let command = sanitize(ar[1]);
-				let last = ar.pop();
-				if (last === 'noargs') {
-					path = route;
+				if (!nopath) {
+					path += `/${rawcommand}`;
 				}
-				target[sanitize(ar[0])] = function (data) {
-					return new Promise(function (resolve) {
-						if (data) {
-							client[command](path, data, response.bind(null, resolve));
-						} else {
-							client[command](path, response.bind(null, resolve));
-						}
-					});
-				};
+				target[command] = makerequest.bind(null, client, method, path, !noargs);
 			}
 		}
 	}
@@ -51,18 +41,15 @@ function makeapi (route, collection) {
 		let res = {};
 		if (id) {
 			if (collection.actions.indexOf('get') > -1) {
-				res.get = function () {
-					return new Promise(function (resolve) {
-						client.get(`${route}/${id}`, response.bind(null, resolve));
-					});
-				};
+				res.get = makerequest.bind(null, client, 'get', `${route}/${id}`, false);
+				// function () {
+				// 	return new Promise(function (resolve) {
+				// 		client.get(`${route}/${id}`, response.bind(null, resolve));
+				// 	});
+				// };
 			}
 			if (collection.actions.indexOf('delete') > -1) {
-				res.delete = function () {
-					return new Promise(function (resolve) {
-						client.del(`${route}/${id}`, response.bind(null, resolve));
-					});
-				};
+				res.delete = makerequest.bind(null, client, 'del', `${route}/${id}`, false);
 			}
 			if (collection.actions.indexOf('update') > -1) {
 				res.update = function (data = {}) {
@@ -111,7 +98,7 @@ function makeapi (route, collection) {
 			});
 		};
 	}
-	if (collection.actions.length < 2) {
+	if (collection.actions.length < 2 || collection.appendCollections) {
 		for (const k in collection.collections) {
 			handler[k] = makeapi.bind(this)(`${route}/${k}`, collection.collections[k]);
 		}
