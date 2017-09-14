@@ -1,16 +1,7 @@
 import spec from './src/spec';
 import { writeFileSync } from 'fs';
 
-let usage = `
-<style>
-table {
-	width: 100%;
-}
-table th{
-	width: 50%;
-}
-</style>
-# Linode v4 API
+let usage = `# Linode v4 API
 
 This is a promise-based clinet for the [Linode API](https://developers.linode.com/v4/introduction) version 4
 
@@ -43,7 +34,7 @@ function link (path, ref) {
 	if (!ref) {
 		ref = path;
 	}
-	return `[/${path}](https://developers.linode.com/v4/reference/${path})`;
+	return `[/${path}](https://developers.linode.com/v4/reference/endpoints/${path})`;
 }
 function renderActions (path, spec, generateHeader = true) {
 	let actions = spec.actions || [];

@@ -23,5 +23,18 @@ export default {
 		collections: {
 			records: {actions: ['list', 'get', 'create', 'update', 'delete']}
 		}
+	},
+	nodebalancers: {
+		actions: ['list', 'create', 'get', 'update', 'delete'],
+		collections: {
+			configs: {
+				actions: ['list', 'create', 'get', 'delete', 'single:ssl:post'],
+				collections: {
+					nodes: {
+						actions: ['list', 'get', 'create', 'update', 'delete']
+					}
+				}
+			}
+		}
 	}
 };
