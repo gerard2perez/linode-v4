@@ -24,13 +24,19 @@ function appendcustom (id, actions, target, route, client) {
 						}
 					});
 				};
-			} else if (ar.length === 2 && !id) {
+			} else if (!id) {
+				let path = `${route}/${ar[0]}`;
+				let command = sanitize(ar[1]);
+				let last = ar.pop();
+				if (last === 'noargs') {
+					path = route;
+				}
 				target[sanitize(ar[0])] = function (data) {
 					return new Promise(function (resolve) {
 						if (data) {
-							client[ar[1]](`${route}/${ar[0]}`, data, response.bind(null, resolve));
+							client[command](path, data, response.bind(null, resolve));
 						} else {
-							client[ar[1]](`${route}/${ar[0]}`, response.bind(null, resolve));
+							client[command](path, response.bind(null, resolve));
 						}
 					});
 				};
@@ -105,7 +111,6 @@ function makeapi (route, collection) {
 			});
 		};
 	}
-
 	if (collection.actions.length < 2) {
 		for (const k in collection.collections) {
 			handler[k] = makeapi.bind(this)(`${route}/${k}`, collection.collections[k]);

@@ -5,7 +5,6 @@ const app = new Linode('abc_token');
 
 describe('Support', function () {
 	it('tikets', async function () {
-		console.log(app.support);
 		assert.ok(app.support.tickets.list);
 		assert.ok(app.support.tickets.create);
 		assert.ok(app.support.tickets(1).get);
