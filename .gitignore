@@ -19,3 +19,4 @@ testingapp
 /views/
 /middleware/
 /index.js
+/spec.js

@@ -8,7 +8,6 @@ describe('Linodes', function () {
 		assert.ok(app.linode.instances);
 		assert.ok(app.linode.instances.list);
 		assert.ok(app.linode.instances.create);
-		assert.ok(app.linode.instances(1));
 
 		assert.ok(await app.linode.instances.create({}));
 		assert.ok(await app.linode.instances(1).update());
@@ -31,8 +30,9 @@ describe('Linodes', function () {
 		assert.ok(app.linode.instances(1).volumes({}));
 	});
 	it('Backups', async function () {
-		assert.ok(app.linode.instances(1).backups, 'get /linode/instances/:id/backups');
+		assert.ok(app.linode.instances(1).backups.list, 'get /linode/instances/:id/backups');
 		assert.ok(app.linode.instances(1).backups.create, 'post /linode/instances/:id/backups');
+		assert.ok(app.linode.instances(1).backups(1).get, 'get /linode/instances/:id/backups/:id');
 		assert.ok(app.linode.instances(1).backups(1).restore, 'post /linode/instances/:id/backups/:id/restore');
 		assert.ok(app.linode.instances(1).backups.cancel);
 		assert.ok(app.linode.instances(1).backups.enable);

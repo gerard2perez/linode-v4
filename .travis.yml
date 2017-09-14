@@ -2,9 +2,6 @@
 branches:
   only:
     - master
-    - v2
-services:
-  - mongodb
 language: node_js
 node_js:
   - "7.10.1"
