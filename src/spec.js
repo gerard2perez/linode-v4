@@ -80,6 +80,30 @@ export default {
 				actions: ['list', 'get', 'create', 'update', 'delete', 'single:attachments:post', 'single:replies:post']
 			}
 		}
+	},
+	account: {
+		collections: {
+			clients: {
+				actions: ['list', 'get', 'create', 'update', 'delete', 'single:reset_secret:post', 'single:thumbnai:post']
+			},
+			events: {
+				actions: ['list', 'get', 'single:read:post', 'single:seen:post']
+			},
+			settings: {
+				actions: ['list', 'update:put:noargs']
+			},
+			tokens: {
+				actions: ['list', 'get', 'create', 'update', 'delete']
+			},
+			users: {
+				actions: ['list', 'get', 'create', 'update', 'delete', 'single:password:post'],
+				collections: {
+					grants: {
+						actions: ['list', 'update:put:noargs']
+					}
+				}
+			}
+		}
 	}
 
 };
