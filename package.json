@@ -19,6 +19,11 @@
 	"dependencies": {
 		"restify-clients": "^1.5.1"
 	},
+	"files": [
+      "*.js",
+      "README.md",
+      "LICENSE"
+    ],
 	"devDependencies": {
 		"babel-plugin-istanbul": "^4.1.4",
 		"babel-preset-env": "^1.5.2",
