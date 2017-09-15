@@ -56,7 +56,6 @@ If you find a command missing or wrong, please open an Issue or make a PR.
 			total += `### ${parts[0]}\n|Commands|API Reference|\n|---|---|\n`;
 			titles[parts[0]] = true;
 		}
-		let is = '';
 		let root = spec[parts[0]];
 		let bottomItem = parts[0];
 		parts.shift();
@@ -77,7 +76,7 @@ If you find a command missing or wrong, please open an Issue or make a PR.
 			} else if (root.collections && root.collections[part]) {
 				root = root.collections[part];
 			} else {
-				root = null;
+				// root = null;
 				if (findAction) {
 					root = 'actions';
 					break;
@@ -126,7 +125,6 @@ If you find a command missing or wrong, please open an Issue or make a PR.
 		command = command.replace('(id)(id)', '.year(n).month(m)');
 		path += `#${method}`.replace('#del', '#delete');
 		path = `[${path}](https://developers.linode.com/v4/reference/endpoints/${path})`;
-		// let Reference = command.replace('app.', '').replace(/\./g, '/')
 		total += `|app.${command}|${path}|\n`;
 		appendFileSync('./README.md', total);
 		equal(a, b, c);

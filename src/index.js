@@ -2,6 +2,11 @@ import { createJsonClient } from 'restify-clients';
 import sanitize from './sanitize';
 import spec from './spec';
 let customFn = null;
+let mapme = {
+	get: 'get',
+	delete: 'del',
+	update: 'put'
+};
 Array.prototype.peek = function (item) { // eslint-disable-line
 	let index = this.indexOf(item);
 	if (index > -1) {
@@ -9,16 +14,13 @@ Array.prototype.peek = function (item) { // eslint-disable-line
 	}
 	return item;
 };
-function makerequest (client, method, path, hasparams = false, data) {
+function makerequest (client, method, path, hasparams, data) {
 	if (hasparams && !data) {
 		throw new Error(`this function requires some arguments. Check: https://developers.linode.com/v4/reference/endpoints${path.replace('v4/', '')}#${method}`);
 	} else if (!hasparams && data) {
 		throw new Error(`this function cannot have arguments. Check: https://developers.linode.com/v4/reference/endpoints${path.replace('v4/', '')}#${method}`);
 	}
 	return new Promise(function (resolve) {
-		if (data && typeof data !== 'object') {
-			path += `/${data}`;
-		}
 		let args = [path, data].filter(f => f);
 		if (customFn) {
 			return customFn(client, method, path, hasparams, data, resolve);
@@ -41,9 +43,6 @@ function appendcustom (id, actions, target, route, client) {
 				let [rawcommand, method] = custom.split(':');
 				let command = sanitize(rawcommand);
 				let path = route;
-				if (!noargs && id) {
-					path += `/${id}`;
-				}
 				if (!nopath) {
 					path += `/${rawcommand}`;
 				}
@@ -53,30 +52,23 @@ function appendcustom (id, actions, target, route, client) {
 		}
 	}
 }
-let mapme = {
-	get: 'get',
-	delete: 'del',
-	update: 'put'
-};
 function makeapi (route, collection) {
 	collection.actions = collection.actions || [];
 	let raw1, raw2;
 	let client = this.client;
 	let handler = (id) => {
 		let res = {};
-		if (id) {
-			let url = `${route}/${id}`;
-			// let actions = collection.actions.slice();
-			raw1.forEach(ac => {
-				let method = mapme[ac];
-				if (method) {
-					res[ac] = makerequest.bind(null, client, method, url, method === 'put');
-					res[ac].url = url;
-					res[ac].method = method;
-				}
-			});
-			appendcustom(id, raw2, res, url, client);
-		}
+		let url = `${route}/${id}`;
+		raw1.forEach(ac => {
+			let method = mapme[ac];
+			/* istanbul ignore else */
+			if (method) {
+				res[ac] = makerequest.bind(null, client, method, url, method === 'put');
+				res[ac].url = url;
+				res[ac].method = method;
+			}
+		});
+		appendcustom(id, raw2, res, url, client);
 		for (const k in collection.collections) {
 			res[sanitize(k)] = makeapi.bind(this)(`${route}/${id}/${k}`, collection.collections[k]);
 		}
