@@ -12,7 +12,7 @@ export default {
 						actions: ['list', 'get', 'create', 'update', 'delete']
 					},
 					disks: {
-						actions: ['list', 'get', 'duplicate:post:noargs:single', 'create', 'update', 'delete', 'password:post:single', 'resize:post:single']
+						actions: ['list', 'get', 'duplicate:post:noargs:nopath:single', 'create', 'update', 'delete', 'password:post:single', 'resize:post:single']
 					},
 					ips: {
 						paramname: 'ip_address',
@@ -91,7 +91,7 @@ export default {
 		appendCollections: true,
 		collections: {
 			tickets: {
-				actions: ['list', 'get', 'create', 'update', 'delete', 'attachments:post:single', 'replies:post:single']
+				actions: ['list', 'get', 'create', 'attachments:post:single', 'replies:post:single']
 			}
 		}
 	},
@@ -103,7 +103,7 @@ export default {
 				actions: ['list', 'get', 'create', 'update', 'delete', 'reset_secret:post:single'],
 				collections: {
 					thumbnail: {
-						actions: ['get:get:noargs:nopath', 'update:put:nopath:hasargs']
+						actions: ['list', 'update:put:nopath:hasargs']
 					}
 				}
 			},
@@ -121,7 +121,6 @@ export default {
 				actions: ['list', 'get', 'create', 'update', 'delete', 'password:post:single'],
 				collections: {
 					grants: {
-						paramname: 'username',
 						actions: ['get:get:noargs:nopath', 'update:put:nopath:hasargs']
 					}
 				}
@@ -129,6 +128,6 @@ export default {
 		}
 	},
 	profile: {
-		actions: ['get:get:nopath:noargs', 'grants:get:noargs', 'password:post:noargs', 'tfa-disable:post:noargs', 'tfa-enable:post:noargs', 'tfa-enable-confirm:post:noargs']
+		actions: ['update:put:hasargs:nopath', 'get:get:nopath:noargs', 'grants:get:noargs', 'password:post:noargs', 'tfa-disable:post:noargs', 'tfa-enable:post:noargs', 'tfa-enable-confirm:post:noargs']
 	}
 };

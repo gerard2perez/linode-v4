@@ -36,7 +36,7 @@ function appendcustom (id, actions, target, route, client) {
 			let single = custom.includes('single');
 			if ((single && id) || !id) {
 				let noargs = single || custom.includes('noargs') || (!single && !id);
-				noargs =  noargs && !custom.includes('hasargs');
+				noargs = noargs && !custom.includes('hasargs');
 				let nopath = custom.includes('nopath');
 				let [rawcommand, method] = custom.split(':');
 				let command = sanitize(rawcommand);

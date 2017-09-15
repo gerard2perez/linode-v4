@@ -12,7 +12,7 @@
 		"commit": "npm run make & git add -A & git-cz",
 		"test:live": "npm t -- -w",
 		"semantic-release": "semantic-release pre && npm publish && semantic-release post",
-		"make": "node babel.js make-docs.js"
+		"make": "cross-env DOCS=true npm t"
 	},
 	"author": "Gerardo Pérez Pérez (gerard2perez@outlook.com)",
 	"license": "MIT",
@@ -22,7 +22,6 @@
 	"devDependencies": {
 		"babel-plugin-istanbul": "^4.1.4",
 		"babel-preset-env": "^1.5.2",
-		"babel-register": "^6.26.0",
 		"esdoc": "^1.0.0-alpha.8",
 		"esdoc-importpath-plugin": "^1.0.1",
 		"esdoc-standard-plugin": "^1.0.0",
