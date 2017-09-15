@@ -4,5 +4,5 @@ require('./nodebalancers');
 require('./networking');
 require('./regions');
 require('./support');
-// require('./account');
+require('./account');
 require('./profile');

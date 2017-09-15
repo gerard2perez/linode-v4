@@ -1,22 +1,19 @@
-import Linode from '../src';
 import * as assert from 'assert';
-
-const app = new Linode('abc_token');
+import app from './instance';
 
 describe('Domains', function () {
 	it('Domain', async function () {
-		assert.ok(app.domains);
-		assert.ok(app.domains.list);
-		assert.ok(app.domains.create);
-		assert.ok(app.domains(1).get);
-		assert.ok(app.domains(1).update);
-		assert.ok(app.domains(1).delete);
+		assert.equal(await app.domains.list(), 'get /v4/domains');
+		assert.equal(await app.domains.create({}), 'post /v4/domains');
+		assert.equal(await app.domains(1).get(), 'get /v4/domains/1');
+		assert.equal(await app.domains(1).update({}), 'put /v4/domains/1');
+		assert.equal(await app.domains(1).delete(), 'del /v4/domains/1');
 	});
 	it('Records', async function () {
-		assert.ok(app.domains(1).records.list, 'get /domains/:id/records');
-		assert.ok(app.domains(1).records.create, 'post /domains/:id/records');
-		assert.ok(app.domains(1).records(1).get, 'get /domains/:id/records/:id');
-		assert.ok(app.domains(1).records(1).update, 'put /domains/:id/records/:id');
-		assert.ok(app.domains(1).records(1).delete, 'del /domains/:id/records/:id');
+		assert.equal(await app.domains(1).records.list(), 'get /v4/domains/1/records');
+		assert.equal(await app.domains(1).records.create({}), 'post /v4/domains/1/records');
+		assert.equal(await app.domains(1).records(1).get(), 'get /v4/domains/1/records/1');
+		assert.equal(await app.domains(1).records(1).update({}), 'put /v4/domains/1/records/1');
+		assert.equal(await app.domains(1).records(1).delete(), 'del /v4/domains/1/records/1');
 	});
 });

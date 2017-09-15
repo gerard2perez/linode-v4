@@ -1,31 +1,28 @@
-import Linode from '../src';
 import * as assert from 'assert';
-
-const app = new Linode('abc_token');
+import app from './instance';
 
 describe('NodeBalancer', function () {
 	it('/', async function () {
-		assert.ok(app.nodebalancers);
-		assert.ok(app.nodebalancers.list);
-		assert.ok(app.nodebalancers.create);
-		assert.ok(app.nodebalancers(1).get);
-		assert.ok(app.nodebalancers(1).update);
-		assert.ok(app.nodebalancers(1).delete);
+		assert.ok(await app.nodebalancers);
+		assert.equal(await app.nodebalancers.list(), 'get /v4/nodebalancers');
+		assert.equal(await app.nodebalancers.create({}), 'post /v4/nodebalancers');
+		assert.equal(await app.nodebalancers(1).get(), 'get /v4/nodebalancers/1');
+		assert.equal(await app.nodebalancers(1).update({}), 'put /v4/nodebalancers/1');
+		assert.equal(await app.nodebalancers(1).delete(), 'del /v4/nodebalancers/1');
 	});
 	it('Configs', async function () {
-		assert.ok(app.nodebalancers(1).configs.list, 'get /nodebalancers/:id/configs');
-		assert.ok(app.nodebalancers(1).configs.create, 'post /nodebalancers/:id/configs');
-		assert.ok(app.nodebalancers(1).configs(1).get, 'get /nodebalancers/:id/configs/:id');
-		assert.ok(app.nodebalancers(1).configs(1).delete, 'del /nodebalancers/:id/configs/:id');
-		assert.ok(app.nodebalancers(1).configs(1).ssl, 'del /nodebalancers/:id/configs/:id');
+		assert.equal(await app.nodebalancers(1).configs.list(), 'get /v4/nodebalancers/1/configs');
+		assert.equal(await app.nodebalancers(1).configs.create({}), 'post /v4/nodebalancers/1/configs');
+		assert.equal(await app.nodebalancers(1).configs(1).get(), 'get /v4/nodebalancers/1/configs/1');
+		assert.equal(await app.nodebalancers(1).configs(1).delete(), 'del /v4/nodebalancers/1/configs/1');
+		assert.equal(await app.nodebalancers(1).configs(1).ssl(), 'post /v4/nodebalancers/1/configs/1/ssl');
 	});
 	it('Configs/Nodes', async function () {
-		assert.ok(app.nodebalancers(1).configs(1).nodes.list, 'get /nodebalancers/:id/configs/:id/nodes');
-		assert.ok(app.nodebalancers(1).configs(1).nodes.create, 'get /nodebalancers/:id/configs/:id/nodes');
-		assert.ok(app.nodebalancers(1).configs(1).nodes.list, 'get /nodebalancers/:id/configs/:id/nodes');
+		assert.equal(await app.nodebalancers(1).configs(1).nodes.list(), 'get /v4/nodebalancers/1/configs/1/nodes');
+		assert.equal(await app.nodebalancers(1).configs(1).nodes.create({}), 'post /v4/nodebalancers/1/configs/1/nodes');
 
-		assert.ok(app.nodebalancers(1).configs(1).nodes(1).get, 'get /nodebalancers/:id/configs/:id/nodes/:id');
-		assert.ok(app.nodebalancers(1).configs(1).nodes(1).update, 'post /nodebalancers/:id/configs/:id/nodes/:id');
-		assert.ok(app.nodebalancers(1).configs(1).nodes(1).delete, 'del /nodebalancers/:id/configs/:id/nodes/:id');
+		assert.equal(await app.nodebalancers(1).configs(1).nodes(1).get(), 'get /v4/nodebalancers/1/configs/1/nodes/1');
+		assert.equal(await app.nodebalancers(1).configs(1).nodes(1).update({}), 'put /v4/nodebalancers/1/configs/1/nodes/1');
+		assert.equal(await app.nodebalancers(1).configs(1).nodes(1).delete(), 'del /v4/nodebalancers/1/configs/1/nodes/1');
 	});
 });

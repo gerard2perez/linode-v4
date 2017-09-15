@@ -1,20 +1,15 @@
-import Linode from '../src';
 import * as assert from 'assert';
-
-const app = new Linode('abc_token');
+import app from './instance';
 
 describe('Profie', function () {
-	it('Profile', function () {
-		assert.ok(app.profile.get, 'get /profile');
-		assert.ok(app.profile.grants, 'get /profile/grants');
-		assert.ok(app.profile.password, 'post /profile/grants');
-
-		assert.ok(app.profile.grants());
-		assert.ok(app.profile.password({}));
+	it('Profile', async function () {
+		assert.equal(await app.profile.get(), 'get /v4/profile');
+		assert.equal(await app.profile.grants(), 'get /v4/profile/grants');
+		assert.equal(await app.profile.password(), 'post /v4/profile/password');
 	});
-	it('Two-Factor Authentication', function () {
-		assert.ok(app.profile.tfaDisable, 'post /profile/tfa-disable');
-		assert.ok(app.profile.tfaEnable, 'post /profile/tfa-disable');
-		assert.ok(app.profile.tfaEnableConfirm, 'post /profile/tfa-enable-confirm');
+	it('Two-Factor Authentication', async function () {
+		assert.equal(await app.profile.tfaDisable(), 'post /v4/profile/tfa-disable');
+		assert.equal(await app.profile.tfaEnable(), 'post /v4/profile/tfa-enable');
+		assert.equal(await app.profile.tfaEnableConfirm(), 'post /v4/profile/tfa-enable-confirm');
 	});
 });

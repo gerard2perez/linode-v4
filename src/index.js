@@ -1,13 +1,30 @@
 import { createJsonClient } from 'restify-clients';
 import sanitize from './sanitize';
 import spec from './spec';
+let customFn = null;
+Array.prototype.peek = function (item) { // eslint-disable-line
+	let index = this.indexOf(item);
+	if (index > -1) {
+		this.splice(index, 1);
+	}
+	return item;
+};
 function makerequest (client, method, path, hasparams = false, data) {
-	if (hasparams && data) {
-		throw new Error(`this function requires some argumes. Check: https://developers.linode.com/v4/reference/${path}`);
+	if (hasparams && !data) {
+		throw new Error(`this function requires some arguments. Check: https://developers.linode.com/v4/reference/endpoints${path.replace('v4/', '')}#${method}`);
+	} else if (!hasparams && data) {
+		throw new Error(`this function cannot have arguments. Check: https://developers.linode.com/v4/reference/endpoints${path.replace('v4/', '')}#${method}`);
 	}
 	return new Promise(function (resolve) {
+		if (data && typeof data !== 'object') {
+			path += `/${data}`;
+		}
 		let args = [path, data].filter(f => f);
-		client[method](...args, response.bind(null, resolve));
+		if (customFn) {
+			return customFn(client, method, path, hasparams, data, resolve);
+		} else {
+			client[method](...args, response.bind(null, resolve));
+		}
 	});
 }
 function response (resolve, err, req, res, obj) {
@@ -18,7 +35,8 @@ function appendcustom (id, actions, target, route, client) {
 		if (custom.indexOf(':') > -1) {
 			let single = custom.includes('single');
 			if ((single && id) || !id) {
-				let noargs = custom.includes('noargs');
+				let noargs = single || custom.includes('noargs') || (!single && !id);
+				noargs =  noargs && !custom.includes('hasargs');
 				let nopath = custom.includes('nopath');
 				let [rawcommand, method] = custom.split(':');
 				let command = sanitize(rawcommand);
@@ -29,36 +47,35 @@ function appendcustom (id, actions, target, route, client) {
 				if (!nopath) {
 					path += `/${rawcommand}`;
 				}
-				target[command] = makerequest.bind(null, client, method, path, !noargs);
+				// console.log({method, path, single, id, noargs});
+				target[command] = makerequest.bind(target[command], client, method, path, !noargs);
 			}
 		}
 	}
 }
+let mapme = {
+	get: 'get',
+	delete: 'del',
+	update: 'put'
+};
 function makeapi (route, collection) {
 	collection.actions = collection.actions || [];
+	let raw1, raw2;
 	let client = this.client;
 	let handler = (id) => {
 		let res = {};
 		if (id) {
-			if (collection.actions.indexOf('get') > -1) {
-				res.get = makerequest.bind(null, client, 'get', `${route}/${id}`, false);
-				// function () {
-				// 	return new Promise(function (resolve) {
-				// 		client.get(`${route}/${id}`, response.bind(null, resolve));
-				// 	});
-				// };
-			}
-			if (collection.actions.indexOf('delete') > -1) {
-				res.delete = makerequest.bind(null, client, 'del', `${route}/${id}`, false);
-			}
-			if (collection.actions.indexOf('update') > -1) {
-				res.update = function (data = {}) {
-					return new Promise(function (resolve) {
-						client.put(`${route}/${id}`, data, response.bind(null, resolve));
-					});
-				};
-			}
-			appendcustom(id, collection.actions, res, route, client);
+			let url = `${route}/${id}`;
+			// let actions = collection.actions.slice();
+			raw1.forEach(ac => {
+				let method = mapme[ac];
+				if (method) {
+					res[ac] = makerequest.bind(null, client, method, url, method === 'put');
+					res[ac].url = url;
+					res[ac].method = method;
+				}
+			});
+			appendcustom(id, raw2, res, url, client);
 		}
 		for (const k in collection.collections) {
 			res[sanitize(k)] = makeapi.bind(this)(`${route}/${id}/${k}`, collection.collections[k]);
@@ -66,20 +83,20 @@ function makeapi (route, collection) {
 		return res;
 	};
 	if (collection.actions.indexOf('create') > -1) {
-		handler.create = (data) => {
-			return new Promise(function (resolve) {
-				client.post(`${route}`, data, response.bind(null, resolve));
-			});
-		};
+		handler.create = makerequest.bind(null, client, 'post', `${route}`, true);
 	}
 	if (collection.actions.indexOf('list') > -1) {
-		handler.list = () => {
-			return new Promise(function (resolve) {
-				client.get(`${route}`, response.bind(null, resolve));
-			});
-		};
+		handler.list = makerequest.bind(null, client, 'get', `${route}`, false);
 	}
-
+	raw1 = collection.actions.filter(d => !d.includes(':'));
+	raw2 = collection.actions.filter(d => d.includes(':'));
+	// console.log('---');
+	// console.log(raw1);
+	// console.log(raw2);
+	// console.log(collection.actions);
+	// console.log('---');
+	raw1.peek('list');
+	raw1.peek('create');
 	if (collection.query) {
 		let root = handler;
 		let send = route;
@@ -93,12 +110,15 @@ function makeapi (route, collection) {
 			root = root[query];
 		}
 		root.get = () => {
-			return new Promise(function (resolve) {
-				client.get(`${send}`, response.bind(null, resolve));
-			});
+			return makerequest.bind(null, client, 'get', send, false)();
 		};
+		//  = () => {
+		// 	return new Promise(function (resolve) {
+		// 		client.get(`${send}`, response.bind(null, resolve));
+		// 	});
+		// };
 	}
-	if (collection.actions.length < 2 || collection.appendCollections) {
+	if (collection.appendCollections) {
 		for (const k in collection.collections) {
 			handler[k] = makeapi.bind(this)(`${route}/${k}`, collection.collections[k]);
 		}
@@ -108,7 +128,8 @@ function makeapi (route, collection) {
 }
 
 export default class Linode {
-	constructor (token) {
+	constructor (token, fn = null) {
+		customFn = fn;
 		Object.defineProperty(this, 'client', {
 			enumerable: false,
 			writable: false,

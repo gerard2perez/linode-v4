@@ -1,11 +1,9 @@
-import Linode from '../src';
 import * as assert from 'assert';
-
-const app = new Linode('abc_token');
+import app from './instance';
 
 describe('Regions', function () {
 	it('/', async function () {
-		assert.ok(app.regions.list);
-		assert.ok(app.regions(1).get);
+		assert.equal(await app.regions.list(), 'get /v4/regions');
+		assert.equal(await app.regions(1).get(), 'get /v4/regions/1');
 	});
 });

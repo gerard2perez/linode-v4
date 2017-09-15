@@ -1,23 +1,9 @@
 export default {
 	linode: {
+		appendCollections: true,
 		collections: {
-			distributions: {
-				actions: ['list', 'get']
-			},
-			kernels: {
-				actions: ['list', 'get']
-			},
-			stackscripts: {
-				actions: ['list', 'get', 'create', 'update', 'delete']
-			},
-			types: {
-				actions: ['list', 'get']
-			},
-			volumes: {
-				actions: ['list', 'get', 'create', 'update', 'delete', 'attach:post:single', 'detach:post:single']
-			},
 			instances: {
-				actions: ['list', 'get', 'create', 'update', 'delete', 'boot:post:single', 'clone:post:single', 'kvmify:post:single', 'mutate:post:single', 'reboot:post:single', 'rebuild:post:single', 'rescue:post:single', 'resize:post:single', 'shutdown:post:single', 'volumes:post:single'],
+				actions: ['list', 'get', 'create', 'update', 'delete', 'boot:post:single', 'clone:post:single', 'kvmify:post:single', 'mutate:post:single', 'reboot:post:single', 'rebuild:post:single', 'rescue:post:single', 'resize:post:single', 'shutdown:post:single', 'volumes:get:single'],
 				collections: {
 					backups: {
 						actions: ['list', 'create', 'restore:post:single', 'cancel:post', 'enable:post']
@@ -34,7 +20,7 @@ export default {
 						appendCollections: true,
 						collections: {
 							sharing: {
-								actions: ['list', 'update:put:noargs', 'delete:del:noargs']
+								actions: ['list', 'update:put:nopath:hasargs', 'delete:del:nopath:noargs']
 							}
 						}
 					},
@@ -43,6 +29,21 @@ export default {
 						query: ['year', 'month']
 					}
 				}
+			},
+			distributions: {
+				actions: ['list', 'get']
+			},
+			kernels: {
+				actions: ['list', 'get']
+			},
+			stackscripts: {
+				actions: ['list', 'get', 'create', 'update', 'delete']
+			},
+			types: {
+				actions: ['list', 'get']
+			},
+			volumes: {
+				actions: ['list', 'get', 'create', 'update', 'delete', 'attach:post:single', 'detach:post:single']
 			}
 		}
 	},
@@ -69,6 +70,7 @@ export default {
 	},
 	networking: {
 		actions: ['ip-assign:post'],
+		appendCollections: true,
 		collections: {
 			ipv4: {
 				flatten: true,
@@ -86,6 +88,7 @@ export default {
 		actions: ['list', 'get']
 	},
 	support: {
+		appendCollections: true,
 		collections: {
 			tickets: {
 				actions: ['list', 'get', 'create', 'update', 'delete', 'attachments:post:single', 'replies:post:single']
@@ -93,15 +96,22 @@ export default {
 		}
 	},
 	account: {
+		appendCollections: true,
 		collections: {
 			clients: {
-				actions: ['list', 'get', 'create', 'update', 'delete', 'reset_secret:post:single', 'thumbnai:post:single']
+				appendCollections: true,
+				actions: ['list', 'get', 'create', 'update', 'delete', 'reset_secret:post:single'],
+				collections: {
+					thumbnail: {
+						actions: ['get:get:noargs:nopath', 'update:put:nopath:hasargs']
+					}
+				}
 			},
 			events: {
 				actions: ['list', 'get', 'read:post:single', 'seen:post:single']
 			},
 			settings: {
-				actions: ['list', 'update:put:noargs']
+				actions: ['list', 'update:put:nopath:hasargs']
 			},
 			tokens: {
 				actions: ['list', 'get', 'create', 'update', 'delete']
@@ -112,7 +122,7 @@ export default {
 				collections: {
 					grants: {
 						paramname: 'username',
-						actions: ['list', 'update:put:nopath:noargs']
+						actions: ['get:get:noargs:nopath', 'update:put:nopath:hasargs']
 					}
 				}
 			}
@@ -121,5 +131,4 @@ export default {
 	profile: {
 		actions: ['get:get:nopath:noargs', 'grants:get:noargs', 'password:post:noargs', 'tfa-disable:post:noargs', 'tfa-enable:post:noargs', 'tfa-enable-confirm:post:noargs']
 	}
-
 };

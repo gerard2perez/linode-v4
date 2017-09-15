@@ -27,6 +27,70 @@ const Linode = require('linode-v4').default;
 const api = new Linode(api_key);
 ```
 ## linode
+### instances
+|Command|API Reference|
+|---|---|
+|app.linode.instances.list()|[/linode/instances#get](https://developers.linode.com/v4/reference/endpoints/linode/instances#get)
+|app.linode.instances.create(data)|[/linode/instances#post](https://developers.linode.com/v4/reference/endpoints/linode/instances#post)
+|app.linode.instances.get()|[/linode/instances/:id#get](https://developers.linode.com/v4/reference/endpoints/linode/instances/:id#get)
+|app.linode.instances(id).update(data)|[/linode/instances/:id#put](https://developers.linode.com/v4/reference/endpoints/linode/instances/:id#put)
+|app.linode.instances(id).delete()|[/linode/instances/:id#delete](https://developers.linode.com/v4/reference/endpoints/linode/instances/:id#delete)
+|app.linode.instances.boot()|[/linode/instances/boot#post](https://developers.linode.com/v4/reference/endpoints/linode/instances/boot#post)
+|app.linode.instances.clone()|[/linode/instances/clone#post](https://developers.linode.com/v4/reference/endpoints/linode/instances/clone#post)
+|app.linode.instances.kvmify()|[/linode/instances/kvmify#post](https://developers.linode.com/v4/reference/endpoints/linode/instances/kvmify#post)
+|app.linode.instances.mutate()|[/linode/instances/mutate#post](https://developers.linode.com/v4/reference/endpoints/linode/instances/mutate#post)
+|app.linode.instances.reboot()|[/linode/instances/reboot#post](https://developers.linode.com/v4/reference/endpoints/linode/instances/reboot#post)
+|app.linode.instances.rebuild()|[/linode/instances/rebuild#post](https://developers.linode.com/v4/reference/endpoints/linode/instances/rebuild#post)
+|app.linode.instances.rescue()|[/linode/instances/rescue#post](https://developers.linode.com/v4/reference/endpoints/linode/instances/rescue#post)
+|app.linode.instances.resize()|[/linode/instances/resize#post](https://developers.linode.com/v4/reference/endpoints/linode/instances/resize#post)
+|app.linode.instances.shutdown()|[/linode/instances/shutdown#post](https://developers.linode.com/v4/reference/endpoints/linode/instances/shutdown#post)
+|app.linode.instances.volumes()|[/linode/instances/volumes#get](https://developers.linode.com/v4/reference/endpoints/linode/instances/volumes#get)
+### backups
+|Command|API Reference|
+|---|---|
+|app.linode.instances(id).backups.list()|[/linode/instances/:id/backups#get](https://developers.linode.com/v4/reference/endpoints/linode/instances/:id/backups#get)
+|app.linode.instances(id).backups.create(data)|[/linode/instances/:id/backups#post](https://developers.linode.com/v4/reference/endpoints/linode/instances/:id/backups#post)
+|app.linode.instances(id).backups.restore()|[/linode/instances/:id/backups/restore#post](https://developers.linode.com/v4/reference/endpoints/linode/instances/:id/backups/restore#post)
+|app.linode.instances(id).backups.cancel()|[/linode/instances/:id/backups/cancel#post](https://developers.linode.com/v4/reference/endpoints/linode/instances/:id/backups/cancel#post)
+|app.linode.instances(id).backups.enable()|[/linode/instances/:id/backups/enable#post](https://developers.linode.com/v4/reference/endpoints/linode/instances/:id/backups/enable#post)
+### configs
+|Command|API Reference|
+|---|---|
+|app.linode.instances(id).configs.list()|[/linode/instances/:id/configs#get](https://developers.linode.com/v4/reference/endpoints/linode/instances/:id/configs#get)
+|app.linode.instances(id).configs.create(data)|[/linode/instances/:id/configs#post](https://developers.linode.com/v4/reference/endpoints/linode/instances/:id/configs#post)
+|app.linode.instances(id).configs.get()|[/linode/instances/:id/configs/:id#get](https://developers.linode.com/v4/reference/endpoints/linode/instances/:id/configs/:id#get)
+|app.linode.instances(id).configs(id).update(data)|[/linode/instances/:id/configs/:id#put](https://developers.linode.com/v4/reference/endpoints/linode/instances/:id/configs/:id#put)
+|app.linode.instances(id).configs(id).delete()|[/linode/instances/:id/configs/:id#delete](https://developers.linode.com/v4/reference/endpoints/linode/instances/:id/configs/:id#delete)
+### disks
+|Command|API Reference|
+|---|---|
+|app.linode.instances(id).disks.list()|[/linode/instances/:id/disks#get](https://developers.linode.com/v4/reference/endpoints/linode/instances/:id/disks#get)
+|app.linode.instances(id).disks.create(data)|[/linode/instances/:id/disks#post](https://developers.linode.com/v4/reference/endpoints/linode/instances/:id/disks#post)
+|app.linode.instances(id).disks.get()|[/linode/instances/:id/disks/:id#get](https://developers.linode.com/v4/reference/endpoints/linode/instances/:id/disks/:id#get)
+|app.linode.instances(id).disks(id).update(data)|[/linode/instances/:id/disks/:id#put](https://developers.linode.com/v4/reference/endpoints/linode/instances/:id/disks/:id#put)
+|app.linode.instances(id).disks(id).delete()|[/linode/instances/:id/disks/:id#delete](https://developers.linode.com/v4/reference/endpoints/linode/instances/:id/disks/:id#delete)
+|app.linode.instances(id).disks.duplicate()|[/linode/instances/:id/disks/duplicate#post](https://developers.linode.com/v4/reference/endpoints/linode/instances/:id/disks/duplicate#post)
+|app.linode.instances(id).disks.password()|[/linode/instances/:id/disks/password#post](https://developers.linode.com/v4/reference/endpoints/linode/instances/:id/disks/password#post)
+|app.linode.instances(id).disks.resize()|[/linode/instances/:id/disks/resize#post](https://developers.linode.com/v4/reference/endpoints/linode/instances/:id/disks/resize#post)
+### ips
+|Command|API Reference|
+|---|---|
+|app.linode.instances(id).ips.list()|[/linode/instances/:id/ips#get](https://developers.linode.com/v4/reference/endpoints/linode/instances/:id/ips#get)
+|app.linode.instances(id).ips.create(data)|[/linode/instances/:id/ips#post](https://developers.linode.com/v4/reference/endpoints/linode/instances/:id/ips#post)
+|app.linode.instances(id).ips.get()|[/linode/instances/:id/ips/:ip_address#get](https://developers.linode.com/v4/reference/endpoints/linode/instances/:id/ips/:ip_address#get)
+|app.linode.instances(id).ips(ip_address).update(data)|[/linode/instances/:id/ips/:ip_address#put](https://developers.linode.com/v4/reference/endpoints/linode/instances/:id/ips/:ip_address#put)
+|app.linode.instances(id).ips(ip_address).delete()|[/linode/instances/:id/ips/:ip_address#delete](https://developers.linode.com/v4/reference/endpoints/linode/instances/:id/ips/:ip_address#delete)
+### sharing
+|Command|API Reference|
+|---|---|
+|app.linode.instances(id).ips(ip_address).sharing.list()|[/linode/instances/:id/ips/:ip_address/sharing#get](https://developers.linode.com/v4/reference/endpoints/linode/instances/:id/ips/:ip_address/sharing#get)
+|app.linode.instances(id).ips(ip_address).sharing.update()|[/linode/instances/:id/ips/:ip_address/sharing/update#put](https://developers.linode.com/v4/reference/endpoints/linode/instances/:id/ips/:ip_address/sharing/update#put)
+|app.linode.instances(id).ips(ip_address).sharing.delete()|[/linode/instances/:id/ips/:ip_address/sharing/delete#del](https://developers.linode.com/v4/reference/endpoints/linode/instances/:id/ips/:ip_address/sharing/delete#del)
+### stats
+|Command|API Reference|
+|---|---|
+|app.linode.instances(id).stats.list()|[/linode/instances/:id/stats#get](https://developers.linode.com/v4/reference/endpoints/linode/instances/:id/stats#get)
+|app.linode.instances(id).stats(id).year(data).month(data).get()|[/linode/instances/:id/stats/:year/:month#get](https://developers.linode.com/v4/reference/endpoints/linode/instances/:id/stats/:year/:month#get)
 ### distributions
 |Command|API Reference|
 |---|---|
@@ -58,72 +122,8 @@ const api = new Linode(api_key);
 |app.linode.volumes.get()|[/linode/volumes/:id#get](https://developers.linode.com/v4/reference/endpoints/linode/volumes/:id#get)
 |app.linode.volumes(id).update(data)|[/linode/volumes/:id#put](https://developers.linode.com/v4/reference/endpoints/linode/volumes/:id#put)
 |app.linode.volumes(id).delete()|[/linode/volumes/:id#delete](https://developers.linode.com/v4/reference/endpoints/linode/volumes/:id#delete)
-|app.linode.volumes(id).attach()|[/linode/volumes/:id/attach#post](https://developers.linode.com/v4/reference/endpoints/linode/volumes/:id/attach#post)
-|app.linode.volumes(id).detach()|[/linode/volumes/:id/detach#post](https://developers.linode.com/v4/reference/endpoints/linode/volumes/:id/detach#post)
-### instances
-|Command|API Reference|
-|---|---|
-|app.linode.instances.list()|[/linode/instances#get](https://developers.linode.com/v4/reference/endpoints/linode/instances#get)
-|app.linode.instances.create(data)|[/linode/instances#post](https://developers.linode.com/v4/reference/endpoints/linode/instances#post)
-|app.linode.instances.get()|[/linode/instances/:id#get](https://developers.linode.com/v4/reference/endpoints/linode/instances/:id#get)
-|app.linode.instances(id).update(data)|[/linode/instances/:id#put](https://developers.linode.com/v4/reference/endpoints/linode/instances/:id#put)
-|app.linode.instances(id).delete()|[/linode/instances/:id#delete](https://developers.linode.com/v4/reference/endpoints/linode/instances/:id#delete)
-|app.linode.instances(id).boot()|[/linode/instances/:id/boot#post](https://developers.linode.com/v4/reference/endpoints/linode/instances/:id/boot#post)
-|app.linode.instances(id).clone()|[/linode/instances/:id/clone#post](https://developers.linode.com/v4/reference/endpoints/linode/instances/:id/clone#post)
-|app.linode.instances(id).kvmify()|[/linode/instances/:id/kvmify#post](https://developers.linode.com/v4/reference/endpoints/linode/instances/:id/kvmify#post)
-|app.linode.instances(id).mutate()|[/linode/instances/:id/mutate#post](https://developers.linode.com/v4/reference/endpoints/linode/instances/:id/mutate#post)
-|app.linode.instances(id).reboot()|[/linode/instances/:id/reboot#post](https://developers.linode.com/v4/reference/endpoints/linode/instances/:id/reboot#post)
-|app.linode.instances(id).rebuild()|[/linode/instances/:id/rebuild#post](https://developers.linode.com/v4/reference/endpoints/linode/instances/:id/rebuild#post)
-|app.linode.instances(id).rescue()|[/linode/instances/:id/rescue#post](https://developers.linode.com/v4/reference/endpoints/linode/instances/:id/rescue#post)
-|app.linode.instances(id).resize()|[/linode/instances/:id/resize#post](https://developers.linode.com/v4/reference/endpoints/linode/instances/:id/resize#post)
-|app.linode.instances(id).shutdown()|[/linode/instances/:id/shutdown#post](https://developers.linode.com/v4/reference/endpoints/linode/instances/:id/shutdown#post)
-|app.linode.instances(id).volumes()|[/linode/instances/:id/volumes#post](https://developers.linode.com/v4/reference/endpoints/linode/instances/:id/volumes#post)
-### backups
-|Command|API Reference|
-|---|---|
-|app.linode.instances(id).backups.list()|[/linode/instances/:id/backups#get](https://developers.linode.com/v4/reference/endpoints/linode/instances/:id/backups#get)
-|app.linode.instances(id).backups.create(data)|[/linode/instances/:id/backups#post](https://developers.linode.com/v4/reference/endpoints/linode/instances/:id/backups#post)
-|app.linode.instances(id).backups(id).restore()|[/linode/instances/:id/backups/:id/restore#post](https://developers.linode.com/v4/reference/endpoints/linode/instances/:id/backups/:id/restore#post)
-|app.linode.instances(id).backups.cancel()|[/linode/instances/:id/backups/cancel#post](https://developers.linode.com/v4/reference/endpoints/linode/instances/:id/backups/cancel#post)
-|app.linode.instances(id).backups.enable()|[/linode/instances/:id/backups/enable#post](https://developers.linode.com/v4/reference/endpoints/linode/instances/:id/backups/enable#post)
-### configs
-|Command|API Reference|
-|---|---|
-|app.linode.instances(id).configs.list()|[/linode/instances/:id/configs#get](https://developers.linode.com/v4/reference/endpoints/linode/instances/:id/configs#get)
-|app.linode.instances(id).configs.create(data)|[/linode/instances/:id/configs#post](https://developers.linode.com/v4/reference/endpoints/linode/instances/:id/configs#post)
-|app.linode.instances(id).configs.get()|[/linode/instances/:id/configs/:id#get](https://developers.linode.com/v4/reference/endpoints/linode/instances/:id/configs/:id#get)
-|app.linode.instances(id).configs(id).update(data)|[/linode/instances/:id/configs/:id#put](https://developers.linode.com/v4/reference/endpoints/linode/instances/:id/configs/:id#put)
-|app.linode.instances(id).configs(id).delete()|[/linode/instances/:id/configs/:id#delete](https://developers.linode.com/v4/reference/endpoints/linode/instances/:id/configs/:id#delete)
-### disks
-|Command|API Reference|
-|---|---|
-|app.linode.instances(id).disks.list()|[/linode/instances/:id/disks#get](https://developers.linode.com/v4/reference/endpoints/linode/instances/:id/disks#get)
-|app.linode.instances(id).disks.create(data)|[/linode/instances/:id/disks#post](https://developers.linode.com/v4/reference/endpoints/linode/instances/:id/disks#post)
-|app.linode.instances(id).disks.get()|[/linode/instances/:id/disks/:id#get](https://developers.linode.com/v4/reference/endpoints/linode/instances/:id/disks/:id#get)
-|app.linode.instances(id).disks(id).update(data)|[/linode/instances/:id/disks/:id#put](https://developers.linode.com/v4/reference/endpoints/linode/instances/:id/disks/:id#put)
-|app.linode.instances(id).disks(id).delete()|[/linode/instances/:id/disks/:id#delete](https://developers.linode.com/v4/reference/endpoints/linode/instances/:id/disks/:id#delete)
-|app.linode.instances(id).disks(id).duplicate()|[/linode/instances/:id/disks/:id#post](https://developers.linode.com/v4/reference/endpoints/linode/instances/:id/disks/:id#post)
-|app.linode.instances(id).disks(id).password()|[/linode/instances/:id/disks/:id/password#post](https://developers.linode.com/v4/reference/endpoints/linode/instances/:id/disks/:id/password#post)
-|app.linode.instances(id).disks(id).resize()|[/linode/instances/:id/disks/:id/resize#post](https://developers.linode.com/v4/reference/endpoints/linode/instances/:id/disks/:id/resize#post)
-### ips
-|Command|API Reference|
-|---|---|
-|app.linode.instances(id).ips.list()|[/linode/instances/:id/ips#get](https://developers.linode.com/v4/reference/endpoints/linode/instances/:id/ips#get)
-|app.linode.instances(id).ips.create(data)|[/linode/instances/:id/ips#post](https://developers.linode.com/v4/reference/endpoints/linode/instances/:id/ips#post)
-|app.linode.instances(id).ips.get()|[/linode/instances/:id/ips/:ip_address#get](https://developers.linode.com/v4/reference/endpoints/linode/instances/:id/ips/:ip_address#get)
-|app.linode.instances(id).ips(ip_address).update(data)|[/linode/instances/:id/ips/:ip_address#put](https://developers.linode.com/v4/reference/endpoints/linode/instances/:id/ips/:ip_address#put)
-|app.linode.instances(id).ips(ip_address).delete()|[/linode/instances/:id/ips/:ip_address#delete](https://developers.linode.com/v4/reference/endpoints/linode/instances/:id/ips/:ip_address#delete)
-### sharing
-|Command|API Reference|
-|---|---|
-|app.linode.instances(id).ips(ip_address).sharing.list()|[/linode/instances/:id/ips/:ip_address/sharing#get](https://developers.linode.com/v4/reference/endpoints/linode/instances/:id/ips/:ip_address/sharing#get)
-|app.linode.instances(id).ips(ip_address).sharing.update()|[/linode/instances/:id/ips/:ip_address/sharing/update#put](https://developers.linode.com/v4/reference/endpoints/linode/instances/:id/ips/:ip_address/sharing/update#put)
-|app.linode.instances(id).ips(ip_address).sharing.delete()|[/linode/instances/:id/ips/:ip_address/sharing/delete#del](https://developers.linode.com/v4/reference/endpoints/linode/instances/:id/ips/:ip_address/sharing/delete#del)
-### stats
-|Command|API Reference|
-|---|---|
-|app.linode.instances(id).stats.list()|[/linode/instances/:id/stats#get](https://developers.linode.com/v4/reference/endpoints/linode/instances/:id/stats#get)
-|app.linode.instances(id).stats(id).year(data).month(data).get()|[/linode/instances/:id/stats/:year/:month#get](https://developers.linode.com/v4/reference/endpoints/linode/instances/:id/stats/:year/:month#get)
+|app.linode.volumes.attach()|[/linode/volumes/attach#post](https://developers.linode.com/v4/reference/endpoints/linode/volumes/attach#post)
+|app.linode.volumes.detach()|[/linode/volumes/detach#post](https://developers.linode.com/v4/reference/endpoints/linode/volumes/detach#post)
 ## domains
 |Command|API Reference|
 |---|---|
@@ -155,7 +155,7 @@ const api = new Linode(api_key);
 |app.nodebalancers(id).configs.create(data)|[/nodebalancers/:id/configs#post](https://developers.linode.com/v4/reference/endpoints/nodebalancers/:id/configs#post)
 |app.nodebalancers(id).configs.get()|[/nodebalancers/:id/configs/:id#get](https://developers.linode.com/v4/reference/endpoints/nodebalancers/:id/configs/:id#get)
 |app.nodebalancers(id).configs(id).delete()|[/nodebalancers/:id/configs/:id#delete](https://developers.linode.com/v4/reference/endpoints/nodebalancers/:id/configs/:id#delete)
-|app.nodebalancers(id).configs(id).ssl()|[/nodebalancers/:id/configs/:id/ssl#post](https://developers.linode.com/v4/reference/endpoints/nodebalancers/:id/configs/:id/ssl#post)
+|app.nodebalancers(id).configs.ssl()|[/nodebalancers/:id/configs/ssl#post](https://developers.linode.com/v4/reference/endpoints/nodebalancers/:id/configs/ssl#post)
 ### nodes
 |Command|API Reference|
 |---|---|
@@ -196,8 +196,8 @@ const api = new Linode(api_key);
 |app.support.tickets.get()|[/support/tickets/:id#get](https://developers.linode.com/v4/reference/endpoints/support/tickets/:id#get)
 |app.support.tickets(id).update(data)|[/support/tickets/:id#put](https://developers.linode.com/v4/reference/endpoints/support/tickets/:id#put)
 |app.support.tickets(id).delete()|[/support/tickets/:id#delete](https://developers.linode.com/v4/reference/endpoints/support/tickets/:id#delete)
-|app.support.tickets(id).attachments()|[/support/tickets/:id/attachments#post](https://developers.linode.com/v4/reference/endpoints/support/tickets/:id/attachments#post)
-|app.support.tickets(id).replies()|[/support/tickets/:id/replies#post](https://developers.linode.com/v4/reference/endpoints/support/tickets/:id/replies#post)
+|app.support.tickets.attachments()|[/support/tickets/attachments#post](https://developers.linode.com/v4/reference/endpoints/support/tickets/attachments#post)
+|app.support.tickets.replies()|[/support/tickets/replies#post](https://developers.linode.com/v4/reference/endpoints/support/tickets/replies#post)
 ## account
 ### clients
 |Command|API Reference|
@@ -207,15 +207,19 @@ const api = new Linode(api_key);
 |app.account.clients.get()|[/account/clients/:id#get](https://developers.linode.com/v4/reference/endpoints/account/clients/:id#get)
 |app.account.clients(id).update(data)|[/account/clients/:id#put](https://developers.linode.com/v4/reference/endpoints/account/clients/:id#put)
 |app.account.clients(id).delete()|[/account/clients/:id#delete](https://developers.linode.com/v4/reference/endpoints/account/clients/:id#delete)
-|app.account.clients(id).reset_secret()|[/account/clients/:id/reset_secret#post](https://developers.linode.com/v4/reference/endpoints/account/clients/:id/reset_secret#post)
-|app.account.clients(id).thumbnai()|[/account/clients/:id/thumbnai#post](https://developers.linode.com/v4/reference/endpoints/account/clients/:id/thumbnai#post)
+|app.account.clients.reset_secret()|[/account/clients/reset_secret#post](https://developers.linode.com/v4/reference/endpoints/account/clients/reset_secret#post)
+### thumbnail
+|Command|API Reference|
+|---|---|
+|app.account.clients(id).thumbnail.get()|[/account/clients/:id/thumbnail/get#get](https://developers.linode.com/v4/reference/endpoints/account/clients/:id/thumbnail/get#get)
+|app.account.clients(id).thumbnail.update()|[/account/clients/:id/thumbnail/update#put](https://developers.linode.com/v4/reference/endpoints/account/clients/:id/thumbnail/update#put)
 ### events
 |Command|API Reference|
 |---|---|
 |app.account.events.list()|[/account/events#get](https://developers.linode.com/v4/reference/endpoints/account/events#get)
 |app.account.events.get()|[/account/events/:id#get](https://developers.linode.com/v4/reference/endpoints/account/events/:id#get)
-|app.account.events(id).read()|[/account/events/:id/read#post](https://developers.linode.com/v4/reference/endpoints/account/events/:id/read#post)
-|app.account.events(id).seen()|[/account/events/:id/seen#post](https://developers.linode.com/v4/reference/endpoints/account/events/:id/seen#post)
+|app.account.events.read()|[/account/events/read#post](https://developers.linode.com/v4/reference/endpoints/account/events/read#post)
+|app.account.events.seen()|[/account/events/seen#post](https://developers.linode.com/v4/reference/endpoints/account/events/seen#post)
 ### settings
 |Command|API Reference|
 |---|---|
@@ -237,16 +241,16 @@ const api = new Linode(api_key);
 |app.account.users.get()|[/account/users/:username#get](https://developers.linode.com/v4/reference/endpoints/account/users/:username#get)
 |app.account.users(username).update(data)|[/account/users/:username#put](https://developers.linode.com/v4/reference/endpoints/account/users/:username#put)
 |app.account.users(username).delete()|[/account/users/:username#delete](https://developers.linode.com/v4/reference/endpoints/account/users/:username#delete)
-|app.account.users(username).password()|[/account/users/:username/password#post](https://developers.linode.com/v4/reference/endpoints/account/users/:username/password#post)
+|app.account.users.password()|[/account/users/password#post](https://developers.linode.com/v4/reference/endpoints/account/users/password#post)
 ### grants
 |Command|API Reference|
 |---|---|
-|app.account.users(username).grants.list()|[/account/users/:username/grants#get](https://developers.linode.com/v4/reference/endpoints/account/users/:username/grants#get)
+|app.account.users(username).grants.get()|[/account/users/:username/grants/get#get](https://developers.linode.com/v4/reference/endpoints/account/users/:username/grants/get#get)
 |app.account.users(username).grants.update()|[/account/users/:username/grants/update#put](https://developers.linode.com/v4/reference/endpoints/account/users/:username/grants/update#put)
 ## profile
 |Command|API Reference|
 |---|---|
-|app.profile.list()|[/profile#get](https://developers.linode.com/v4/reference/endpoints/profile#get)
+|app.profile.get()|[/profile/get#get](https://developers.linode.com/v4/reference/endpoints/profile/get#get)
 |app.profile.grants()|[/profile/grants#get](https://developers.linode.com/v4/reference/endpoints/profile/grants#get)
 |app.profile.password()|[/profile/password#post](https://developers.linode.com/v4/reference/endpoints/profile/password#post)
 |app.profile.tfa-disable()|[/profile/tfa-disable#post](https://developers.linode.com/v4/reference/endpoints/profile/tfa-disable#post)

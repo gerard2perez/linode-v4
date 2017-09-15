@@ -1,19 +1,17 @@
-import Linode from '../src';
 import * as assert from 'assert';
-
-const app = new Linode('abc_token');
+import app from './instance';
 
 describe('Networking', function () {
 	it('IPv4', async function () {
-		assert.ok(app.networking.ipAssign);
-		assert.ok(app.networking.ipv4.list);
-		assert.ok(app.networking.ipv4.create);
-		assert.ok(app.networking.ipv4(1).get);
-		assert.ok(app.networking.ipv4(1).update);
-		assert.ok(app.networking.ipv4(1).delete);
+		assert.equal(await app.networking.ipAssign(), 'post /v4/networking/ip-assign');
+		assert.equal(await app.networking.ipv4.list(), 'get /v4/networking/ipv4');
+		assert.equal(await app.networking.ipv4.create({}), 'post /v4/networking/ipv4');
+		assert.equal(await app.networking.ipv4(1).get(), 'get /v4/networking/ipv4/1');
+		assert.equal(await app.networking.ipv4(1).update({}), 'put /v4/networking/ipv4/1');
+		assert.equal(await app.networking.ipv4(1).delete(), 'del /v4/networking/ipv4/1');
 	});
 	it('IPv6', async function () {
-		assert.ok(app.networking.ipv6(1).get);
-		assert.ok(app.networking.ipv6(1).update);
+		assert.equal(await app.networking.ipv6(1).get(), 'get /v4/networking/ipv6/1');
+		assert.equal(await app.networking.ipv6(1).update({}), 'put /v4/networking/ipv6/1');
 	});
 });
