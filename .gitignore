@@ -20,3 +20,5 @@ testingapp
 /middleware/
 /index.js
 /spec.js
+/create.js
+/sanitize.js
