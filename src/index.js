@@ -7,13 +7,19 @@ let mapme = {
 	delete: 'del',
 	update: 'put'
 };
-Array.prototype.peek = function (item) { // eslint-disable-line
-	let index = this.indexOf(item);
-	if (index > -1) {
-		this.splice(index, 1);
+
+Object.defineProperty(Array.prototype, 'peek', { // eslint-disable-line
+	enumerable: false,
+	writable: false,
+	configurable: false,
+	value: function (item) {
+		let index = this.indexOf(item);
+		if (index > -1) {
+			this.splice(index, 1);
+		}
+		return item;
 	}
-	return item;
-};
+});
 function makerequest (client, method, path, hasparams, data) {
 	if (hasparams && !data) {
 		throw new Error(`this function requires some arguments. Check: https://developers.linode.com/v4/reference/endpoints${path.replace('v4/', '')}#${method}`);
