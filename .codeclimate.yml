@@ -1,0 +1,25 @@
+---
+engines:
+    duplication:
+        enabled: true
+        config:
+            languages:
+                javascript:
+                    mass_threshold: 59
+
+    eslint:
+        enabled: false
+        channel: eslint-3
+    fixme:
+        enabled: true
+ratings:
+    paths:
+        - src/**
+exclude_paths:
+    - ".nyc_output/"
+    - node_modules/
+    - test/
+    - utils/
+    - ".*"
+    - "./**.json"
+    - "./*.js"
