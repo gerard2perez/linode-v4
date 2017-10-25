@@ -1,20 +1,8 @@
----
-engines:
-    duplication:
-        enabled: true
+version: "2"
+checks:
+    method-complexity:
         config:
-            languages:
-                javascript:
-                    mass_threshold: 59
-
-    eslint:
-        enabled: false
-        channel: eslint-3
-    fixme:
-        enabled: true
-ratings:
-    paths:
-        - src/**
+            threshold: 15
 exclude_paths:
     - ".nyc_output/"
     - node_modules/
