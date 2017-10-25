@@ -35,8 +35,8 @@ function makerequest (client, method, path, hasparams, data) {
 		}
 	});
 }
-function response (resolve, err, req, res, obj) {
-	resolve(obj);
+function response (resolve, ...args) {
+	resolve(args.pop());
 }
 function appendcustom (id, actions, target, route) {
 	for (let custom of actions) {
