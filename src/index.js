@@ -20,18 +20,18 @@ Object.defineProperty(Array.prototype, 'peek', { // eslint-disable-line
 		return item;
 	}
 });
-function makerequest (client, method, path, hasparams, data) {
+function makerequest (method, path, hasparams, data) {
 	if (hasparams && !data) {
 		throw new Error(`this function requires some arguments. Check: https://developers.linode.com/v4/reference/endpoints${path.replace('v4/', '')}#${method}`);
 	} else if (!hasparams && data) {
 		throw new Error(`this function cannot have arguments. Check: https://developers.linode.com/v4/reference/endpoints${path.replace('v4/', '')}#${method}`);
 	}
-	return new Promise(function (resolve) {
+	return new Promise((resolve) => {
 		let args = [path, data].filter(f => f);
 		if (customFn) {
-			return customFn(client, method, path, hasparams, data, resolve);
+			return customFn(this, method, path, hasparams, data, resolve);
 		} else {
-			client[method](...args, response.bind(null, resolve));
+			this[method](...args, response.bind(null, resolve));
 		}
 	});
 }
@@ -42,9 +42,9 @@ function appendcustom (id, actions, target, route) {
 	for (let custom of actions) {
 		if (custom.indexOf(':') > -1) {
 			let single = custom.includes('single');
-			if ((single && id) || !id) {
-				let noargs = single || custom.includes('noargs') || (!single && !id);
-				noargs = noargs && !custom.includes('hasargs');
+			let singleId = single && id;
+			if (singleId || !id) {
+				let noargs = (single || custom.includes('noargs') || !singleId) && !custom.includes('hasargs');
 				let nopath = custom.includes('nopath');
 				let [rawcommand, method] = custom.split(':');
 				let command = sanitize(rawcommand);
@@ -52,48 +52,45 @@ function appendcustom (id, actions, target, route) {
 				if (!nopath) {
 					path += `/${rawcommand}`;
 				}
-				target[command] = makerequest.bind(target[command], this, method, path, !noargs);
+				target[command] = makerequest.bind(this, method, path, !noargs);
 			}
 		}
 	}
 }
+// function createHandler (client, simpleFnSet, complexFnSet, route, collection) {
+// 	return
+// }
 function makeapi (route, collection) {
 	collection.actions = collection.actions || [];
-	let raw1, raw2;
-	let client = this.client;
+	let simpleFnSet = collection.actions.filter(d => !d.includes(':')),
+		complexFnSet = collection.actions.filter(d => d.includes(':')),
+		client = this.client;
 	let handler = (id) => {
 		let res = {};
 		let url = `${route}/${id}`;
-		raw1.forEach(ac => {
+		simpleFnSet.forEach(ac => {
 			let method = mapme[ac];
 			/* istanbul ignore else */
 			if (method) {
-				res[ac] = makerequest.bind(null, client, method, url, method === 'put');
+				res[ac] = makerequest.bind(client, method, url, method === 'put');
 				res[ac].url = url;
 				res[ac].method = method;
 			}
 		});
-		appendcustom.bind(client)(id, raw2, res, url);
+		appendcustom.bind(client)(id, complexFnSet, res, url);
 		for (const k in collection.collections) {
 			res[sanitize(k)] = makeapi.bind(this)(`${route}/${id}/${k}`, collection.collections[k]);
 		}
 		return res;
 	};
 	if (collection.actions.indexOf('create') > -1) {
-		handler.create = makerequest.bind(null, client, 'post', `${route}`, true);
+		handler.create = makerequest.bind(client, 'post', `${route}`, true);
+		simpleFnSet.peek('list');
 	}
 	if (collection.actions.indexOf('list') > -1) {
-		handler.list = makerequest.bind(null, client, 'get', `${route}`, false);
+		handler.list = makerequest.bind(client, 'get', `${route}`, false);
+		simpleFnSet.peek('create');
 	}
-	raw1 = collection.actions.filter(d => !d.includes(':'));
-	raw2 = collection.actions.filter(d => d.includes(':'));
-	// console.log('---');
-	// console.log(raw1);
-	// console.log(raw2);
-	// console.log(collection.actions);
-	// console.log('---');
-	raw1.peek('list');
-	raw1.peek('create');
 	if (collection.query) {
 		let root = handler;
 		let send = route;
@@ -107,13 +104,8 @@ function makeapi (route, collection) {
 			root = root[query];
 		}
 		root.get = () => {
-			return makerequest.bind(null, client, 'get', send, false)();
+			return makerequest.bind(client, 'get', send, false)();
 		};
-		//  = () => {
-		// 	return new Promise(function (resolve) {
-		// 		client.get(`${send}`, response.bind(null, resolve));
-		// 	});
-		// };
 	}
 	if (collection.appendCollections) {
 		for (const k in collection.collections) {
