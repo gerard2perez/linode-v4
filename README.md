@@ -189,7 +189,3 @@ If you find a command missing or wrong, please open an Issue or make a PR.
 |app.profile.tfaDisable()|[profile/tfa-disable#post](https://developers.linode.com/v4/reference/endpoints/profile/tfa-disable#post)|
 |app.profile.tfaEnable()|[profile/tfa-enable#post](https://developers.linode.com/v4/reference/endpoints/profile/tfa-enable#post)|
 |app.profile.tfaEnableConfirm()|[profile/tfa-enable-confirm#post](https://developers.linode.com/v4/reference/endpoints/profile/tfa-enable-confirm#post)|
-
-
-## License
-[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fgerard2p%2Flinode-v4.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fgerard2p%2Flinode-v4?ref=badge_large)
