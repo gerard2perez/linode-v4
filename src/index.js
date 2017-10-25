@@ -14,10 +14,12 @@ Object.defineProperty(Array.prototype, 'peek', { // eslint-disable-line
 	configurable: false,
 	value: function (item) {
 		let index = this.indexOf(item);
+		/* istanbul ignore else */
 		if (index > -1) {
 			this.splice(index, 1);
+			return true;
 		}
-		return item;
+		return false;
 	}
 });
 function makerequest (method, path, hasparams, data) {
@@ -57,17 +59,10 @@ function appendcustom (id, actions, target, route) {
 		}
 	}
 }
-// function createHandler (client, simpleFnSet, complexFnSet, route, collection) {
-// 	return
-// }
-function makeapi (route, collection) {
-	collection.actions = collection.actions || [];
-	let simpleFnSet = collection.actions.filter(d => !d.includes(':')),
-		complexFnSet = collection.actions.filter(d => d.includes(':')),
-		client = this.client;
+function createHandler (client, route, collection) {
+	let simpleFnSet = collection.actions.filter(d => !d.includes(':')), complexFnSet = collection.actions.filter(d => d.includes(':'));
 	let handler = (id) => {
-		let res = {};
-		let url = `${route}/${id}`;
+		let res = {}, url = `${route}/${id}`;
 		simpleFnSet.forEach(ac => {
 			let method = mapme[ac];
 			/* istanbul ignore else */
@@ -83,17 +78,19 @@ function makeapi (route, collection) {
 		}
 		return res;
 	};
-	if (collection.actions.indexOf('create') > -1) {
-		handler.create = makerequest.bind(client, 'post', `${route}`, true);
-		simpleFnSet.peek('list');
+	for (const [mname, method, hasparams] of [['create', 'post', true], ['list', 'get', false]]) {
+		if (simpleFnSet.peek(mname)) {
+			handler[mname] = makerequest.bind(client, method, `${route}`, hasparams);
+		}
 	}
-	if (collection.actions.indexOf('list') > -1) {
-		handler.list = makerequest.bind(client, 'get', `${route}`, false);
-		simpleFnSet.peek('create');
-	}
+	return handler;
+}
+function makeapi (route, collection) {
+	collection.actions = collection.actions || [];
+	let client = this.client;
+	let handler = createHandler.bind(this)(client, route, collection);
 	if (collection.query) {
-		let root = handler;
-		let send = route;
+		let root = handler, send = route;
 		for (const query of collection.query) {
 			let current;
 			root[query] = function (data) {
@@ -103,9 +100,7 @@ function makeapi (route, collection) {
 			current = root[query];
 			root = root[query];
 		}
-		root.get = () => {
-			return makerequest.bind(client, 'get', send, false)();
-		};
+		root.get = () => makerequest.bind(client, 'get', send, false)();
 	}
 	if (collection.appendCollections) {
 		for (const k in collection.collections) {
