@@ -38,7 +38,7 @@ function makerequest (client, method, path, hasparams, data) {
 function response (resolve, err, req, res, obj) {
 	resolve(obj);
 }
-function appendcustom (id, actions, target, route, client) {
+function appendcustom (id, actions, target, route) {
 	for (let custom of actions) {
 		if (custom.indexOf(':') > -1) {
 			let single = custom.includes('single');
@@ -52,8 +52,7 @@ function appendcustom (id, actions, target, route, client) {
 				if (!nopath) {
 					path += `/${rawcommand}`;
 				}
-				// console.log({method, path, single, id, noargs});
-				target[command] = makerequest.bind(target[command], client, method, path, !noargs);
+				target[command] = makerequest.bind(target[command], this, method, path, !noargs);
 			}
 		}
 	}
@@ -74,7 +73,7 @@ function makeapi (route, collection) {
 				res[ac].method = method;
 			}
 		});
-		appendcustom(id, raw2, res, url, client);
+		appendcustom.bind(client)(id, raw2, res, url);
 		for (const k in collection.collections) {
 			res[sanitize(k)] = makeapi.bind(this)(`${route}/${id}/${k}`, collection.collections[k]);
 		}
@@ -121,7 +120,7 @@ function makeapi (route, collection) {
 			handler[k] = makeapi.bind(this)(`${route}/${k}`, collection.collections[k]);
 		}
 	}
-	appendcustom(null, collection.actions, handler, route, client);
+	appendcustom.bind(client)(null, collection.actions, handler, route);
 	return handler;
 }
 
