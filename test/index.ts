@@ -119,7 +119,7 @@ if (!process.env.DOCS) {
 			let file = './index.d.ts'
 			writeFileSync(file, 'declare namespace Linodev4 {');
 			appendFileSync(file, '\n\tinterface LinodeResponse<T> {\n\t\tdata:T[]\n\t\tpage:number\n\t\tpages:number\n\t\tresults:number\n\t}');
-			let LinodeAPI = '\n\texport class Linode {';
+			let LinodeAPI = '\n\t//@ts-ignore\n\texport default class Linode {';
 			for(const key of Object.keys(API)) {
 				let [interfacename, definition, rootdefinnitions] = createMainClass(key.replace('linode', 'linodes'),API[key]);
 				appendFileSync(file, rootdefinnitions.join('\n'));

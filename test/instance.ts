@@ -54,13 +54,15 @@ if (process.env.DOCS) {
 This is a promise-based clinet for the [Linode API](https://developers.linode.com/v4/introduction) version 4
 
 -----------
-[![Build Status](https://img.shields.io/travis/gerard2p/linode-v4/master.svg?style=flat-square)](https://travis-ci.org/gerard2p/linode-v4)[![Dependency Status](https://david-dm.org/gerard2p/linode-v4.svg?style=flat-square)](https://david-dm.org/gerard2p/linode-v4)![PRs Welcome](https://img.shields.io/badge/PRs%20🔀-Welcome-brightgreen.svg?style=flat-square)
-[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fgerard2p%2Flinode-v4.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fgerard2p%2Flinode-v4?ref=badge_shield)
+[![Build Status](https://img.shields.io/travis/gerard2p/linode-v4/master.svg?style=flat-square)](https://travis-ci.org/gerard2p/linode-v4)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fgerard2p%2Flinode-v4.svg?type=badge_small)](https://app.fossa.io/projects/git%2Bgithub.com%2Fgerard2p%2Flinode-v4?ref=badge_shield)
 
-[![Maintainability](https://api.codeclimate.com/v1/badges/09a1688603acd82faa9e/maintainability)](https://codeclimate.com/github/gerard2p/linode-v4/maintainability)[![Test Coverage](https://api.codeclimate.com/v1/badges/09a1688603acd82faa9e/test_coverage)](https://codeclimate.com/github/gerard2p/linode-v4/test_coverage)[![Issue Count](https://codeclimate.com/github/gerard2p/linode-v4/badges/issue_count.svg?style=flat-square)](https://codeclimate.com/github/gerard2p/linode-v4)
+[![bitHound Dependencies](https://www.bithound.io/github/gerard2p/linode-v4/badges/dependencies.svg)](https://www.bithound.io/github/gerard2p/linode-v4/master/dependencies/npm)[![bitHound Dev Dependencies](https://www.bithound.io/github/gerard2p/linode-v4/badges/devDependencies.svg)](https://www.bithound.io/github/gerard2p/linode-v4/master/dependencies/npm)
 
 
-![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg?style=flat-square)![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg?style=flat-square)[![js-happiness-style](https://img.shields.io/badge/code%20style-happiness-brightgreen.svg?style=flat-square)](https://github.com/JedWatson/happiness)
+[![Maintainability](https://api.codeclimate.com/v1/badges/09a1688603acd82faa9e/maintainability)](https://codeclimate.com/github/gerard2p/linode-v4/maintainability)[![Test Coverage](https://api.codeclimate.com/v1/badges/09a1688603acd82faa9e/test_coverage)](https://codeclimate.com/github/gerard2p/linode-v4/test_coverage)
+
+![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg?style=for-the-badge)![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg?style=for-the-badge)[![TypeScri[t]](https://img.shields.io/badge/typescript-v2.8.1-blue.svg?longCache=true&style=for-the-badge)](https://github.com/Microsoft/TypeScript)
 -----------
 ## Installation
 @@@sh
@@ -70,13 +72,13 @@ npm install linode-v4 --save
 @@@javascript
 import Linode from 'linode-v4';
 
-const api = new Linode(api_key);
+const server = new Linode(api_key);
 @@@
 or
 @@@javascript
 const Linode = require('linode-v4').default;
 
-const api = new Linode(api_key);
+const server = new Linode(api_key);
 @@@
 
 ## Commands
@@ -167,7 +169,7 @@ If you find a command missing or wrong, please open an Issue or make a PR.
 		let href = `https://developers.linode.com/v4/reference/endpoints/${path}`;
 		// console.log(await request(`https://developers.linode.com/v4/reference/endpoints/${path}`));
 		path = `[${path}](https://developers.linode.com/v4/reference/endpoints/${path})`;
-		total += `|app.${command}|${path}|\n`;
+		total += `|server.${command}|${path}|\n`;
 		appendFileSync('./README.md', total);
 		equal(a, b, c);
 		let command_parts:string[] = command.split('.');

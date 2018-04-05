@@ -1,7 +1,7 @@
 {
 	"name": "linode-v4",
 	"version": "0.0.0-development",
-	"description": "",
+	"description": "Linode v4 alpha API client",
 	"main": "index.js",
 	"typings": "index.d.ts",
 	"scripts": {
