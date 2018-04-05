@@ -10,6 +10,7 @@ export enum HTTPVerb {
 type ClientCallback = (json:any, res:ServerResponse) => void;
 
 function ClientMethod(target:ExtendedClient, key:string, descriptor:PropertyDescriptor) {
+	/* istanbul ignore next */
     if(descriptor === undefined) {
       descriptor = Object.getOwnPropertyDescriptor(target, key) as PropertyDescriptor;
 	}
@@ -44,8 +45,12 @@ export class ExtendedClient {
 		}
 		return [this.url + url, args];
 	}
+	// istanbul ignore next
 	@ClientMethod async get(url:string) {}
+	// istanbul ignore next
 	@ClientMethod async post(url:string, data:any) : Promise<any> {};
-	@ClientMethod async pul(url:string, data:any) : Promise<any> {};
+	// istanbul ignore next
+	@ClientMethod async put(url:string, data:any) : Promise<any> {};
+	// istanbul ignore next
 	@ClientMethod async delete(url:string) : Promise<any> {};
 }

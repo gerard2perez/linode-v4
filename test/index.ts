@@ -28,11 +28,32 @@ if (!process.env.DOCS) {
 			distros.should.have.property('errors');
 			distros.errors[0].should.be.deep.equal({ reason: 'Not found' });
 		}
-		@test("Images") async t2() {
+		@test("Request missing parameters") async t2() {
+			try {
+				await server.images(1).update();;
+				assert.ok(false);
+			} catch (e) {
+				e.message.should.be.equal('this function requires some arguments. Check: https://developers.linode.com/v4/reference/endpoints/images/1#put');
+			}
+		}
+		@test("Request more parameters") async t3() {
+			try {
+				await server.images.list({});;
+				assert.ok(false);
+			} catch (e) {
+				e.message.should.be.equal('this function cannot have arguments. Check: https://developers.linode.com/v4/reference/endpoints/images#get');
+			}
+		}
+		@test("Images") async t4() {
 			let images = await server.images.list();
 			images.should.exist;
 			images.should.have.property('results');
 			images.should.have.property('data');
+
+			let badimage = await server.images(1).update({});
+			badimage.should.exist;
+			badimage.should.have.property('errors');
+			badimage.errors[0].should.be.deep.equal({ reason: 'Invalid OAuth Token' });
 		}
 	}
 } else {

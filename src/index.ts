@@ -5,12 +5,6 @@ import { ExtendedClient, HTTPVerb } from './extended-client';
 
 const specification = spec as any;
 let customFn = null;
-
-function enumerable(value: boolean) {
-    return function (target: any, propertyKey: string, descriptor: PropertyDescriptor) {
-        descriptor.enumerable = value;
-    };
-}
 declare global{
 	interface Array<T> {
 		peek(o: T): Array<T>;
