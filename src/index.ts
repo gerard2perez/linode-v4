@@ -38,7 +38,7 @@ Object.defineProperty(Array.prototype, 'peek', { // eslint-disable-line
 		return false;
 	}
 });
-function makerequest (instance:Linode, client: ExtendedClient, method:HTTPVerb, path:string, hasparams:boolean, data:any) {
+function makerequest (instance:Linode, method:HTTPVerb, path:string, hasparams:boolean, data:any) {
 	// @ts-ignore
 	let root:any = this;
 	if (hasparams && !data) {
@@ -50,13 +50,13 @@ function makerequest (instance:Linode, client: ExtendedClient, method:HTTPVerb, 
 
 	if (instance.callback) {
 		// return new Promise((resolve) => {
-		return instance.callback(client, method, path, hasparams, data, root !== null);
+		return instance.callback(instance.client, method, path, hasparams, data, root !== null);
 		// });
 	} else {
-		return client[method](...args);
+		return instance.client[method](...args);
 	}
 }
-function appendcustom (instance:Linode, client:ExtendedClient, id: string | number | undefined, actions:string[], target:MutableFunction, route:string) {
+function appendcustom (instance:Linode, id: string | number | undefined, actions:string[], target:MutableFunction, route:string) {
 	for (let custom of actions) {
 		if (custom.indexOf(':') > -1) {
 			let single = custom.includes('single');
@@ -70,7 +70,7 @@ function appendcustom (instance:Linode, client:ExtendedClient, id: string | numb
 				if (!nopath) {
 					path += `/${rawcommand}`;
 				}
-				target[command] = makerequest.bind({custom: true}, instance, client, method, path, !noargs);
+				target[command] = makerequest.bind({custom: true}, instance, method, path, !noargs);
 			}
 		}
 	}
@@ -83,12 +83,12 @@ function createHandler (instance: Linode, client:ExtendedClient, route:string, c
 			let method = HTTPVerb[ac as any];
 			/* istanbul ignore else */
 			if (method) {
-				res[ac] = makerequest.bind(null, instance, client, method, url, method === 'put');
+				res[ac] = makerequest.bind(null, instance, method, url, method === 'put');
 				res[ac].url = url;
 				res[ac].method = method;
 			}
 		});
-		appendcustom(instance, client,id, complexFnSet, res, url);
+		appendcustom(instance,id, complexFnSet, res, url);
 		for (const k in collection.collections) {
 			res[sanitize(k)] = makeapi(instance,`${route}/${id}/${k}`, collection.collections[k]);
 		}
@@ -97,7 +97,7 @@ function createHandler (instance: Linode, client:ExtendedClient, route:string, c
 	for (const [mname, method, hasparams] of [['create', HTTPVerb.post, true], ['list', HTTPVerb.get, false]]) {
 		let casa:Array<string> = [];
 		if (simpleFnSet.peek(mname as string)) {
-			handler[mname as string] = makerequest.bind(null, instance, client, method, `${route}`, hasparams);
+			handler[mname as string] = makerequest.bind(null, instance, method, `${route}`, hasparams);
 		}
 	}
 	return handler as Handler;
@@ -117,14 +117,14 @@ function makeapi (instance:Linode, route:string, collection:CollectionSpec) {
 			current = root[query];
 			root = root[query];
 		}
-		root.get = () => makerequest.bind(null, instance, client, HTTPVerb.get, send, false)();
+		root.get = () => makerequest.bind(null, instance, HTTPVerb.get, send, false)();
 	}
 	if (collection.appendCollections) {
 		for (const k in collection.collections) {
 			handler[sanitize(k)] = makeapi(instance,`${route}/${k}`, collection.collections[k]);
 		}
 	}
-	appendcustom(instance, client, undefined, collection.actions, handler, route);
+	appendcustom(instance, undefined, collection.actions, handler, route);
 	return handler;
 }
 export default class Linode {

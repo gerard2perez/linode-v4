@@ -8,7 +8,7 @@
 		"cover": "nyc npm t",
 
 		"codeclimate:report": "codeclimate-test-reporter < coverage/lcov.info",
-		"semantic-release": "semantic-release pre && npm publish && semantic-release post",
+		"semantic-release": "semantic-release",
 
 		"docs": "cross-env DOCS=true mocha test/index.ts",
 
