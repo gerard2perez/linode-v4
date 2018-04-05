@@ -21,6 +21,8 @@ interface MutableFunction {
 	[property:string]: any;
 }
 type LinodeMakeRequest = (client:ExtendedClient,method:HTTPVerb, path:string,hasparams:boolean,data:any,isCustom:boolean) => Promise<any>;
+// istanbul ignore next
+if(!Array.prototype.peek)
 Object.defineProperty(Array.prototype, 'peek', { // eslint-disable-line
 	enumerable: false,
 	writable: false,
@@ -67,9 +69,6 @@ function appendcustom (instance:Linode, client:ExtendedClient, id: string | numb
 				let path = route;
 				if (!nopath) {
 					path += `/${rawcommand}`;
-				}
-				if(command === 'share') {
-					console.log(single, singleId, noargs, nopath);
 				}
 				target[command] = makerequest.bind({custom: true}, instance, client, method, path, !noargs);
 			}
@@ -135,7 +134,6 @@ export default class Linode {
 	constructor (token:string, fn?:LinodeMakeRequest) {
 		this.callback = fn;
 		this.client = new ExtendedClient('https://api.linode.com', `Bearer ${token}`);
-		console.log(this.client.url);
 		Object.defineProperty(this, 'client', {
 			enumerable: false,
 			writable: false,

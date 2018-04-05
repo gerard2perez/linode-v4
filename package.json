@@ -5,20 +5,17 @@
 	"main": "index.js",
 	"typings": "index.d.ts",
 	"scripts": {
-
 		"cover": "nyc npm t",
-		"eslint": "eslint src --ignore-path .gitignore",
-		"export": "koaton-exporter src/*.js src/**/*.js ./ -r src/ -t v2",
-		"commit": "npm run make & git add -A & git-cz",
-		"test:live": "npm t -- -w",
+
 		"codeclimate:report": "codeclimate-test-reporter < coverage/lcov.info",
 		"semantic-release": "semantic-release pre && npm publish && semantic-release post",
 
 		"docs": "cross-env DOCS=true mocha test/index.ts",
 
-		"pretests": "npm run docs",
 		"test": "mocha test/index.ts",
+		"posttest": "npm run docs",
 
+		"test:live": "mocha test/index.ts --watch --recursive --watch-extensions ts",
 		"build": "tsc"
 	},
 	"engines": {
@@ -40,29 +37,12 @@
 		"@types/chai": "^4.1.2",
 		"@types/mocha": "^5.0.0",
 		"@types/node": "^9.6.2",
-		"babel-plugin-istanbul": "^4.1.5",
-		"babel-preset-env": "^1.6.1",
 		"chai": "^4.1.2",
-		"esdoc": "^1.0.4",
-		"esdoc-importpath-plugin": "^1.0.1",
-		"esdoc-standard-plugin": "^1.0.0",
-		"eslint": "^4.19.1",
-		"eslint-config-happiness": "^10.2.1",
-		"eslint-plugin-import": "^2.10.0",
-		"eslint-plugin-node": "^5.1.1",
-		"eslint-plugin-promise": "^3.7.0",
-		"eslint-plugin-standard": "^3.0.1",
-		"koaton-exporter": "^1.3.0",
 		"mocha": "^5.0.5",
 		"mocha-typescript": "^1.1.12",
 		"nyc": "^11.6.0",
 		"ts-node": "^5.0.1",
 		"typescript": "^2.8.1"
-	},
-	"config": {
-		"commitizen": {
-			"path": "cz-conventional-changelog"
-		}
 	},
 	"nyc": {
 		"lines": 99,
@@ -76,29 +56,15 @@
 		"include": [
 			"src/**/*.ts"
 		],
-		"extension":[".ts"],
+		"extension": [
+			".ts"
+		],
 		"sourceMap": true,
 		"instrument": true,
 		"cache": true,
 		"check-coverage": true,
 		"all": false,
 		"report-dir": "./coverage"
-	},
-	"babel": {
-		"plugins": [
-			"babel-plugin-transform-koaton-es6-modules",
-			"istanbul"
-		],
-		"ignore": [
-			"serverconf",
-			"config/",
-			"docs/",
-			"lib/",
-			"node_modules/",
-			"templates/",
-			"testcoverage/",
-			"testingapp/"
-		]
 	},
 	"repository": {
 		"type": "git",

@@ -4,3 +4,4 @@ testinclude.api.ts
 *.js
 node_modules/
 *.tgz
+*.d.ts

@@ -4,8 +4,8 @@ branches:
     - master
 language: node_js
 node_js:
-  - "8.5.0"
-  - "7.6.0"
+  - "lts/*"
+  - "node"
 sudo: required
 env:
   - CXX=g++-4.8
@@ -26,9 +26,8 @@ before_install:
 install:
   - npm i .
 script:
-  - npm run eslint
   - npm run cover
 after_success:
-    - npm run export
+    - npm run build
     - npm run codeclimate:report
     - npm run semantic-release

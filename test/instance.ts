@@ -195,7 +195,6 @@ If you find a command missing or wrong, please open an Issue or make a PR.
 	};
 }
 function api_d_ts() {
-	console.log('sdasdasd');
 	return API_DEFINITION;
 }
 export { assert, app, api_d_ts };
