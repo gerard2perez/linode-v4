@@ -8,6 +8,7 @@ describe('Domains', function () {
 		assert.equal(await app.domains(1).get(), '/v4/domains/1#get');
 		assert.equal(await app.domains(1).update({}), '/v4/domains/1#put');
 		assert.equal(await app.domains(1).delete(), '/v4/domains/1#del');
+		assert.equal(await app.domains(1).clone({}), '/v4/domains/1/clone#post%data');
 	});
 	it('Records', async function () {
 		assert.equal(await app.domains(1).records.list(), '/v4/domains/1/records#get');

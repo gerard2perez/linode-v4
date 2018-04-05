@@ -3,6 +3,7 @@
 	"version": "0.0.0-development",
 	"description": "",
 	"main": "index.js",
+	"typings": "index.d.ts",
 	"scripts": {
 		"jsdoc": "jsdoc -R README.md src -r & esdoc",
 		"cover": "nyc npm t",
@@ -13,34 +14,49 @@
 		"test:live": "npm t -- -w",
 		"codeclimate:report": "codeclimate-test-reporter < coverage/lcov.info",
 		"semantic-release": "semantic-release pre && npm publish && semantic-release post",
-		"make": "cross-env DOCS=true npm t"
+		"make": "cross-env DOCS=true npm t",
+		"make:ts": "cross-env DOCS=true mocha test/index.ts",
+		"pretest:ts": "npm run make:ts",
+		"test:ts": "mocha test/index.ts",
+		"build": "tsc"
+	},
+	"engines": {
+		"node": ">= 8.7.0",
+		"vscode": "*"
 	},
 	"author": "Gerardo Pérez Pérez (gerard2perez@outlook.com)",
 	"license": "MIT",
 	"dependencies": {
-		"restify-clients": "^1.5.1"
+		"node-rest-client": "^3.1.0"
 	},
 	"files": [
-      "*.js",
-      "README.md",
-      "LICENSE"
-    ],
+		"*.js",
+		"*.d.ts",
+		"README.md",
+		"LICENSE"
+	],
 	"devDependencies": {
-		"babel-plugin-istanbul": "^4.1.4",
-		"babel-preset-env": "^1.5.2",
-		"esdoc": "^1.0.0-alpha.8",
+		"@types/chai": "^4.1.2",
+		"@types/mocha": "^5.0.0",
+		"@types/node": "^9.6.2",
+		"babel-plugin-istanbul": "^4.1.5",
+		"babel-preset-env": "^1.6.1",
+		"chai": "^4.1.2",
+		"esdoc": "^1.0.4",
 		"esdoc-importpath-plugin": "^1.0.1",
 		"esdoc-standard-plugin": "^1.0.0",
-		"eslint": "^4.0.0",
+		"eslint": "^4.19.1",
 		"eslint-config-happiness": "^10.2.1",
-		"eslint-plugin-import": "^2.7.0",
+		"eslint-plugin-import": "^2.10.0",
 		"eslint-plugin-node": "^5.1.1",
-		"eslint-plugin-promise": "^3.5.0",
+		"eslint-plugin-promise": "^3.7.0",
 		"eslint-plugin-standard": "^3.0.1",
 		"koaton-exporter": "^1.3.0",
-		"mocha": "^3.4.2",
-		"nyc": "^11.0.2",
-		"semantic-release": "^7.0.2"
+		"mocha": "^5.0.5",
+		"mocha-typescript": "^1.1.12",
+		"nyc": "^11.6.0",
+		"ts-node": "^5.0.1",
+		"typescript": "^2.8.1"
 	},
 	"config": {
 		"commitizen": {

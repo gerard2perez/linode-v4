@@ -1,0 +1,40 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es2017",
+    "sourceMap": false,
+	"declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "esModuleInterop":false,
+    "outDir": "./",
+    "watch": false,
+    "lib": [
+      "es2017",
+      "dom"
+	],
+	"baseUrl": "./",
+	"strict": true,
+	"noImplicitAny": true,
+
+	"paths": {
+		"*": ["local-types/*"]
+	},
+	"typeRoots": [
+		"local-types",
+		"node_modules/@types"
+	]
+
+  },
+  "include": [
+    "src/**/*.ts"
+  ],
+  "exclude": [
+	  "node_modules",
+	  "test"
+  ],
+  "atom": {
+        "rewriteTsconfig": false
+	}
+}

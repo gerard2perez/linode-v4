@@ -15,7 +15,6 @@ describe('NodeBalancer', function () {
 		assert.equal(await app.nodebalancers(1).configs.create({}), '/v4/nodebalancers/1/configs#post');
 		assert.equal(await app.nodebalancers(1).configs(1).get(), '/v4/nodebalancers/1/configs/1#get');
 		assert.equal(await app.nodebalancers(1).configs(1).delete(), '/v4/nodebalancers/1/configs/1#del');
-		assert.equal(await app.nodebalancers(1).configs(1).ssl(), '/v4/nodebalancers/1/configs/1/ssl#post');
 	});
 	it('Configs/Nodes', async function () {
 		assert.equal(await app.nodebalancers(1).configs(1).nodes.list(), '/v4/nodebalancers/1/configs/1/nodes#get');

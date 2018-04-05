@@ -1,14 +1,50 @@
 import Linode from '../src';
-import * as assert from 'assert';
+// import * as assert from 'assert';
 import { appendFileSync, writeFileSync } from 'fs';
 import spec from '../src/spec';
 import sanitize from '../src/sanitize';
+import { assert } from 'chai';
+// import * as https from 'https';
 
-const app = new Linode('abc_token', (client, method, path, hasparams, data, resolve) => {
+// function request(url) {
+// 	return new Promise((resolve, reject)=>{
+// 		https.get(url, (res) => {
+// 			const { statusCode } = res;
+// 			const contentType = res.headers['content-type'];
+// 			let error;
+// 			if (statusCode !== 200) {
+// 				error = new Error('Request Failed.\n' +
+// 								`Status Code: ${statusCode}`);
+// 			}
+// 			if (error) {
+// 				console.error(error.message);
+// 				// consume response data to free up memory
+// 				res.resume();
+// 				return;
+// 			}
+// 			res.setEncoding('utf8');
+// 			let rawData = '';
+// 			res.on('data', (chunk) => { rawData += chunk; });
+// 			res.on('end', () => {
+// 				try {
+// 					const parsedData = rawData.toString();
+// 					resolve(parsedData);
+// 				} catch (e) {
+// 					reject(e.message);
+// 				}
+// 			});
+// 		}).on('error', (e) => {
+// 			reject(e.message);
+// 		});
+// 	});
+// }
+
+let API_DEFINITION = {};
+const app = new Linode('abc_token', async (client, method, path, hasparams, data,iscustom) => {
 	if (!hasparams && data) {
-		resolve('This method cannot have parameters');
+		return 'This method cannot have parameters';
 	}
-	resolve(`${path}#${method}`);
+	return `${path}#${method}${iscustom && data ? '%data':''}`;
 });
 if (process.env.DOCS) {
 	let titles = {};
@@ -21,7 +57,7 @@ This is a promise-based clinet for the [Linode API](https://developers.linode.co
 [![Build Status](https://img.shields.io/travis/gerard2p/linode-v4/master.svg?style=flat-square)](https://travis-ci.org/gerard2p/linode-v4)[![Dependency Status](https://david-dm.org/gerard2p/linode-v4.svg?style=flat-square)](https://david-dm.org/gerard2p/linode-v4)![PRs Welcome](https://img.shields.io/badge/PRs%20🔀-Welcome-brightgreen.svg?style=flat-square)
 [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fgerard2p%2Flinode-v4.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fgerard2p%2Flinode-v4?ref=badge_shield)
 
-[![Code Climate](https://codeclimate.com/github/gerard2p/linode-v4/badges/gpa.svg?style=flat-square)](https://codeclimate.com/github/gerard2p/linode-v4?style=flat-square) [![Test Coverage](https://codeclimate.com/github/gerard2p/linode-v4/badges/coverage.svg?style=flat-square)](https://codeclimate.com/github/gerard2p/linode-v4/coverage) [![Issue Count](https://codeclimate.com/github/gerard2p/linode-v4/badges/issue_count.svg?style=flat-square)](https://codeclimate.com/github/gerard2p/linode-v4)
+[![Maintainability](https://api.codeclimate.com/v1/badges/09a1688603acd82faa9e/maintainability)](https://codeclimate.com/github/gerard2p/linode-v4/maintainability)[![Test Coverage](https://api.codeclimate.com/v1/badges/09a1688603acd82faa9e/test_coverage)](https://codeclimate.com/github/gerard2p/linode-v4/test_coverage)[![Issue Count](https://codeclimate.com/github/gerard2p/linode-v4/badges/issue_count.svg?style=flat-square)](https://codeclimate.com/github/gerard2p/linode-v4)
 
 
 ![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg?style=flat-square)![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg?style=flat-square)[![js-happiness-style](https://img.shields.io/badge/code%20style-happiness-brightgreen.svg?style=flat-square)](https://github.com/JedWatson/happiness)
@@ -48,11 +84,14 @@ If you need more detailed information please check [Linode v4 API Reference](htt
 In the next list you can find the commands to reach an specific url. All the commands listed here are the actual commands supported.
 If you find a command missing or wrong, please open an Issue or make a PR.
 `.replace(/@@@/g, '```'));
-	assert.equal = (a, b, c) => {
+	//@ts-ignore
+	assert.equal = async (a:string, b:string, c:string) => {
 		let total = '';
 		let [path, method] = b.replace('/v4/', '').split('#');
+		let hasdata = method.includes('%data');
+		method = method.replace('%data', '' );
 		let parts = path.split('/');
-		let command = path.replace(/\//g, '.').replace(/\.1\./g, '(id).').replace(/\.1/g, '(id)');
+		let command = sanitize(path.replace(/\//g, '.').replace(/\.1\./g, '(id).').replace(/\.1/g, '(id)')).replace('linode.', 'linodes.');
 		if (spec[parts[0]] && !titles[parts[0]]) {
 			total += `### ${parts[0]}\n|Commands|API Reference|\n|---|---|\n`;
 			titles[parts[0]] = true;
@@ -67,11 +106,11 @@ If you find a command missing or wrong, please open an Issue or make a PR.
 			let findAction = root.actions.filter(a => {
 				return a.indexOf(part) > -1 && a.indexOf(method);
 			})[0];
-			if (part == 1) {
+			if (part === '1') {
 				if (root.paramname) {
 					command = command.replace(`${lastpart}(id)`, `${lastpart}(${root.paramname})`);
 				}
-				path = path.replace(`${lastpart}/1`, `${lastpart}/:${root.paramname || 'id'}`);
+				path = path.replace(`${lastpart}/1`, `${lastpart}/$${root.paramname || 'id'}`);
 				hasid = true;
 				continue;
 			} else if (root.collections && root.collections[part]) {
@@ -88,7 +127,7 @@ If you find a command missing or wrong, please open an Issue or make a PR.
 		}
 		if (root === 'actions') {
 			command = command.replace(bottomItem, sanitize(bottomItem));
-			command += '()';
+			command += `(${hasdata ? 'data' : ''})`;
 		} else if (root.collections || root.actions) {
 			let findAction = root.actions.filter(a => {
 				return a.indexOf(`${bottomItem}:${method}`) > -1 || a.indexOf(`:${method}`) > -1;
@@ -124,12 +163,39 @@ If you find a command missing or wrong, please open an Issue or make a PR.
 			}
 		}
 		command = command.replace('(id)(id)', '.year(n).month(m)');
-		path += `#${method}`.replace('#del', '#delete');
+		path += `#${method}`.replace('#del', '#delete').toUpperCase();
+		let href = `https://developers.linode.com/v4/reference/endpoints/${path}`;
+		// console.log(await request(`https://developers.linode.com/v4/reference/endpoints/${path}`));
 		path = `[${path}](https://developers.linode.com/v4/reference/endpoints/${path})`;
 		total += `|app.${command}|${path}|\n`;
 		appendFileSync('./README.md', total);
 		equal(a, b, c);
+		let command_parts:string[] = command.split('.');
+		let index = 0;
+		var CURRENT = API_DEFINITION;
+		for(let i=0; i < command_parts.length; i++) {
+			let newkey = command_parts[i];
+			let newkeynoid = newkey.replace(/\([^\)]*\)/gm, '');
+			var PRECURRENT;
+			if (newkey.includes('(') && i < command_parts.length && CURRENT[newkeynoid]) {
+				CURRENT[newkeynoid] = CURRENT[newkeynoid];
+				CURRENT[newkeynoid]['(id)'] = CURRENT[newkeynoid]['(id)'] || {href};
+				PRECURRENT = CURRENT[newkeynoid]['(id)']
+				CURRENT = CURRENT[newkeynoid]['(id)'];
+			} else {
+				CURRENT[command_parts[i]] = CURRENT[command_parts[i]] || {};
+				if(i === command_parts.length - 1) {
+					CURRENT[command_parts[i]] = href;
+				}
+				CURRENT= CURRENT[command_parts[i]];
+			}
+
+
+		}
 	};
 }
-
-export { assert, app };
+function api_d_ts() {
+	console.log('sdasdasd');
+	return API_DEFINITION;
+}
+export { assert, app, api_d_ts };

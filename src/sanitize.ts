@@ -1,4 +1,4 @@
-export default function sanitize (text) {
+export default function sanitize (text:string) {
 	let words = text.split('-');
 	let result = words[0];
 	for (let i = 1; i < words.length; i++) {
