@@ -9,38 +9,38 @@ export enum DomainStatus {
 
 }
 export enum InstanceStatus {
-    /**
-     * The Linode is powered off.
-     */
-    offline = 	'offline',
-  /**
-   *  The Linode is currently booting up.
-   */
-  booting = 	'booting',
-  /**
-   * The Linode is currently running.
-   */
-  running = 	'running',
-  /**
-   * The Linode is currently shutting down.
-   */
-  shutting_down = 	'shutting_down',
-  /**
-   * The Linode is rebooting.
-   */
-  rebooting = 	'rebooting',
-  /**
-   * The Linode is being created.
-   */
-  provisioning = 	'provisioning',
-  /**
-   * The Linode is being deleted.
-   */
-  deleting = 	'deleting',
-  /**
-   * The Linode is being migrated to a new host/region.
-   */
-  migrating = 	'migrating'
+	/**
+	 * The Linode is powered off.
+	 */
+	offline = 	'offline',
+	/**
+	 *  The Linode is currently booting up.
+	 */
+	booting = 	'booting',
+	/**
+	 * The Linode is currently running.
+	 */
+	running = 	'running',
+	/**
+	 * The Linode is currently shutting down.
+	 */
+	shutting_down = 	'shutting_down',
+	/**
+	 * The Linode is rebooting.
+	 */
+	rebooting = 	'rebooting',
+	/**
+	 * The Linode is being created.
+	 */
+	provisioning = 	'provisioning',
+	/**
+	 * The Linode is being deleted.
+	 */
+	deleting = 	'deleting',
+	/**
+	 * The Linode is being migrated to a new host/region.
+	 */
+	migrating = 	'migrating'
 }
 export enum HTTPVerb {
 	get = 'get',
@@ -88,7 +88,7 @@ export interface IResponseLinodesInstances {
 	image:string
 	group:string
 	ipv4:string[]
-	ipv6:string[]
+	ipv6:string
 	label:string
 	type:string
 	status:InstanceStatus

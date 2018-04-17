@@ -163,7 +163,7 @@ if (!process.env.DOCS) {
 			const API:any = api_d_ts();
 			let file = './index.d.ts'
 			writeFileSync(file, 'declare namespace Linodev4 {');
-			appendFileSync(file, '\n\tinterface LinodeResponse<T> {\n\t\tdata:T[]\n\t\tpage:number\n\t\tpages:number\n\t\tresults:number\n\t}');
+			appendFileSync(file, '\n\tinterface LinodeResponse<T> {\n\t\tdata:T[]\n\t\tpage:number\n\t\tpages:number\n\t\tresults:number\n\t\terrors?:object[]\n\t}');
 			let LinodeAPI = '\n\ttype LinodeMakeRequest = (client:ExtendedClient,method:HTTPVerb, path:string,hasparams:boolean,data:any,isCustom:boolean) => Promise<any>;\n\t//@ts-ignore\n\texport default class Linode {';
 			LinodeAPI += '\n\tconstructor(token:string, fn?:LinodeMakeRequest);'
 			for(const key of Object.keys(API)) {
