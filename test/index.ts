@@ -38,10 +38,10 @@ if (!process.env.DOCS) {
 		}
 		@test("Request more parameters") async t3() {
 			try {
-				console.log(await server.images.list('1'));
+				console.log(await server.images(0).get(1));
 				assert.ok(false);
 			} catch (e) {
-				e.message.should.be.equal('Pagination value must be a number. Check: https://developers.linode.com/v4/reference/endpoints/images#get');
+				e.message.should.be.equal('this function cannot have arguments. Check: https://developers.linode.com/v4/reference/endpoints/images#get');
 			}
 		}
 		@test("Images") async t4() {
@@ -60,6 +60,12 @@ if (!process.env.DOCS) {
 			// "label": "Ubuntu 17.10"
 			assert.equal((await server.images.list(1)).page, 1);
 			assert.equal((await server.images.list(2)).page, 2);
+			try {
+				console.log(await server.images.list('1'));
+				assert.ok(false);
+			} catch (e) {
+				e.message.should.be.equal('Pagination value must be a number. Check: https://developers.linode.com/v4/reference/endpoints/images#get');
+			}
 		}
 		@test("Filtering API") async t6 () {
 			let images = await server.images.list({"vendor": "Debian"});
