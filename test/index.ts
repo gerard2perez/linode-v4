@@ -41,7 +41,7 @@ if (!process.env.DOCS) {
 				console.log(await server.images(0).get(1));
 				assert.ok(false);
 			} catch (e) {
-				e.message.should.be.equal('this function cannot have arguments. Check: https://developers.linode.com/v4/reference/endpoints/images#get');
+				e.message.should.be.equal('this function cannot have arguments. Check: https://developers.linode.com/v4/reference/endpoints/images/0#get');
 			}
 		}
 		@test("Images") async t4() {
