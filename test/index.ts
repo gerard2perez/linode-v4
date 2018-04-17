@@ -82,7 +82,7 @@ if (!process.env.DOCS) {
 		}
 	}
 } else {
-	let interfacesdefinition = readFileSync('./interfaces.d.ts', 'utf-8');
+	let interfacesdefinition = readFileSync('./basic_interfaces.d.ts', 'utf-8');
 	let interfacesNames = [];
 	function resolveIResponse(IResponse) {
 		let IName = 'any';
@@ -105,7 +105,7 @@ if (!process.env.DOCS) {
 			}
 			return text.replace(/ICustomResponse/gm, IResponse);
 		} else {
-			console.log(`Missing: ${IResponse}`);
+			// console.log(`Missing: ${IResponse}`);
 		}
 		return text;
 	}
@@ -298,57 +298,94 @@ if (!process.env.DOCS) {
 				// console.log(context);
 				let IInterfaceName = `I${collectionName}`;
 				let RootDefinitions = [];
-				let NewIDefinition = new MakeDefinition(IInterface);
+				let ClassDefinition = new MakeDefinition(IInterface);
 				let IResponse = resolveIResponse(`IResponse${inflect.singularize(collectionName)}`); // resolveIResponse(`IResponse${inflect.singularize(collectionName.replace('InnerClass', ''))}`);
 				if(object.actions) {
-					let ChildDefinition =  new MakeDefinition(IInterfaceName); // [`interface ${IInterfaceName} {`, [`(id: string|number): ${collectionName}`], '}'] as any[];
+					let InterfaceDefinition =  new MakeDefinition(IInterfaceName); // [`interface ${IInterfaceName} {`, [`(id: string|number): ${collectionName}`], '}'] as any[];
 					for(const fndef of object.actions) {
 						let [action,method, ...defs] = fndef.split(':') as string[];
 						action =  inflect.camelize( action.replace(/\-/gm, '_'), false);
+						let Action = IResponse === 'any' ? `${action}<T>` : action;
 						defs = defs ? defs : [];
-						console.log(IInterfaceName,action,method, defs);
 						let single = defs.indexOf('single') > -1;
 						let hasargs = defs.indexOf('hasargs') > -1;
 						let nopath = defs.indexOf('nopath') > -1;
 						switch(action) {
 							case 'list':
-								ChildDefinition.push(`${action}(page?:number): Promise<LinodeResponse<${IResponse}>>`);
-								ChildDefinition.push(`${action}(page:number, filter:any): Promise<LinodeResponse<${IResponse}>>`);
-								ChildDefinition.push(`${action}(filter:any): Promise<LinodeResponse<${IResponse}>>`);
+								let  IIRespomse = Action.indexOf('<T>') > -1 ? `Promise<T>` : `Promise<LinodeResponse<${IResponse}>>`;
+								InterfaceDefinition.push(`${Action}(page?:number): ${IIRespomse}`);
+								InterfaceDefinition.push(`${Action}(page:number, filter:any): ${IIRespomse}`);
+								InterfaceDefinition.push(`${Action}(filter:any): ${IIRespomse}`);
 								break;
 							case 'create':
-								ChildDefinition.push(`${action}(data:any): Promise<${IResponse}>`);
+								InterfaceDefinition.push(`${Action}(data:any): Promise<${IResponse}>`);
 								break;
 							case 'update':
-								NewIDefinition.push(`${action}(data:any): Promise<${IResponse}>`);
+								ClassDefinition.push(`${Action}(data:any): Promise<${IResponse}>`);
 								break;
 							case 'delete':
-								NewIDefinition.push(`${action}(): Promise<any>`);
+								ClassDefinition.push(`${action}<T>(): Promise<T>`);
 								break;
 							case 'get':
-								NewIDefinition.push(`${action}(): Promise<${IResponse}>`);
+								if(method === undefined) {
+									ClassDefinition.push(`${action}(): Promise<${IResponse}>`);
+								} else {
+									if(object.query) {
+										ClassDefinition.push(`${action}(): Promise<${IResponse}>`);
+									} else {
+										InterfaceDefinition.push(`${action}(): Promise<${IResponse}>`);
+									}
+								}
 								break;
 							default:
 								if(single) {
-									NewIDefinition.push(`${action}(${hasargs ? 'data:any':''}): Promise<any>`);
+									ClassDefinition.push(`${action}<T>(${hasargs ? 'data:any':''}): Promise<T>`);
 								} else {
-									ChildDefinition.push(`${action}(${hasargs ? 'data:any':''}): Promise<any>`);
+									InterfaceDefinition.push(`${action}<T>(${hasargs ? 'data:any':''}): Promise<T>`);
 								}
 
 								break;
 						}
 					}
-					if(!ChildDefinition.isEmpty) {
-						ChildDefinition.prepend(`(id: string|number): ${IInterface}`);
+					if(object.query) {
+						const querydef = [];
+						let curr = querydef;
+						for(const query of object.query) {
+							curr.push(`${query}(data:any):`);
+							curr.push([]);
+							curr = curr[curr.length - 1];
+							// if(!querydef.length) querydef.push(`${query}(data:any):`);
+							// querydef.push
+							// NewIDefinition.push(`${query}${lastreturn}`);
+							// lastreturn = `(data:any): (data:any) => ${lastreturn}`;
+						}
+						function arrFlat(arr) {
+							let res = '';
+							for(const a of arr ) {
+								if(a instanceof Array) {
+									res += arrFlat(a);
+								} else {
+									res += a;
+								}
+							}
+							return `{ ${res} }`;
+						}
+						curr.push(`get(): Promise<${IResponse}>`);
+						ClassDefinition.push(`${querydef[0]}${arrFlat(querydef[1])}`);
+						// console.log(querydef, arrFlat(querydef));
+					}
+					if(!InterfaceDefinition.isEmpty) {
+						InterfaceDefinition.prepend(`(id: string|number): ${IInterface}`);
 						// NewIDefinition.name(IInterfaceName);
-						RootDefinitions.push(arr2string(ChildDefinition.content));
+						RootDefinitions.push(arr2string(InterfaceDefinition.content));
 					} else {
 						IInterfaceName = IInterface;
 					}
 				}
 				if(object.collections) {
 					for(const key of Object.keys(object.collections)) {
-						let [interfacename, definition, rootdefinnitions] = traverse(context, key, object.collections);
+						const newcontext = [].concat(context);
+						let [interfacename, definition, rootdefinnitions] = traverse(newcontext, key, object.collections);
 						RootDefinitions = RootDefinitions.concat(rootdefinnitions);
 						// console.log(RootDefinitions);
 						// console.log(interfacename, definition, rootdefinnitions);
@@ -356,12 +393,12 @@ if (!process.env.DOCS) {
 						// 	console.log(interfacename, definition, object.collections[key]);
 						// }
 						RootDefinitions.push(arr2string(definition));
-						NewIDefinition.push(`${inflect.camelize(key.replace(/\-/gm, '_'), false)}:${interfacename}`);
+						ClassDefinition.push(`${inflect.camelize(key.replace(/\-/gm, '_'), false)}:${interfacename}`);
 						// break;
 					}
 				}
 				// console.log(arr2string(NewIDefinition.content));
-				return [IInterfaceName, NewIDefinition.content, RootDefinitions] as [string, string[], any[]];
+				return [IInterfaceName, ClassDefinition.content, RootDefinitions] as [string, string[], any[]];
 			}
 			const specification = require('../src/spec').default;
 			let file = './index.d.ts';
@@ -377,14 +414,13 @@ if (!process.env.DOCS) {
 				appendFileSync(file, rootdefinnitions.join('\n').replace(/ICustomResponse/gm,'any') + '\n');
 				appendFileSync(file, arr2string(definition));
 				LinodeAPI += `\n\t\t${collectionName}: ${interfacename}`;
-				break;
 			}
 			LinodeAPI += '\n\t}';
 			appendFileSync(file, LinodeAPI);
 			appendFileSync(file, '\n}\nexport = Linodev4');
 			let all = readFileSync(file, 'utf-8');
 			interfacesNames = ['ExtendedClient', 'HTTPVerb'].concat(interfacesNames);
-			writeFileSync(file, `import { ${interfacesNames.join(', ')} } from './interfaces';\n`);
+			writeFileSync(file, `import { ${interfacesNames.join(', ')} } from './basic_interfaces';\n`);
 			appendFileSync(file, all);
 		}
 	}

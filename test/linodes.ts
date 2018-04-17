@@ -25,7 +25,7 @@ describe('Linodes', function () {
 		assert.equal(await app.linodes.instances(1).volumes(), '/v4/linode/instances/1/volumes#get');
 	});
 	it('Backups', async function () {
-		assert.equal(await app.linodes.instances(1).backups.list(), '/v4/linode/instances/1/backups#get');
+		assert.equal(await app.linodes.instances(1).backups.get(), '/v4/linode/instances/1/backups#get');
 		assert.equal(await app.linodes.instances(1).backups.create({}), '/v4/linode/instances/1/backups#post');
 		assert.equal(await app.linodes.instances(1).backups(1).restore(), '/v4/linode/instances/1/backups/1/restore#post');
 		assert.equal(await app.linodes.instances(1).backups.cancel(), '/v4/linode/instances/1/backups/cancel#post');
@@ -67,8 +67,8 @@ describe('Linodes', function () {
 		assert.equal(await app.linodes.stackscripts(1).delete(), '/v4/linode/stackscripts/1#del');
 	});
 	it('Stats', async function () {
-		assert.equal(await app.linodes.instances(1).stats.list(), '/v4/linode/instances/1/stats#get');
-		assert.equal(await app.linodes.instances(1).stats.year(1).month(1).get(), '/v4/linode/instances/1/stats/1/1#get');
+		assert.equal(await app.linodes.instances(1).stats.get(), '/v4/linode/instances/1/stats#get');
+		assert.equal(await app.linodes.instances(1).stats.year(2010).month(1).get(), '/v4/linode/instances/1/stats/2010/1#get');
 		assert.equal(await app.linodes.instances(1).stats.year(1).month(1).get(), '/v4/linode/instances/1/stats/1/1#get');
 	});
 	it('Types', async function () {

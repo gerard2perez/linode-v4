@@ -63,7 +63,7 @@ All list() methods can receive the page parameter wich to indicate the page.
 |server.linodes.instances(id).resize(data)|[linode/instances/$id/resize#POST](https://developers.linode.com/v4/reference/endpoints/linode/instances/$id/resize#POST)|
 |server.linodes.instances(id).shutdown(data)|[linode/instances/$id/shutdown#POST](https://developers.linode.com/v4/reference/endpoints/linode/instances/$id/shutdown#POST)|
 |server.linodes.instances(id).volumes()|[linode/instances/$id/volumes#GET](https://developers.linode.com/v4/reference/endpoints/linode/instances/$id/volumes#GET)|
-|server.linodes.instances(id).backups.list()|[linode/instances/$id/backups#GET](https://developers.linode.com/v4/reference/endpoints/linode/instances/$id/backups#GET)|
+|server.linodes.instances(id).backups.get()|[linode/instances/$id/backups#GET](https://developers.linode.com/v4/reference/endpoints/linode/instances/$id/backups#GET)|
 |server.linodes.instances(id).backups.create(data)|[linode/instances/$id/backups#POST](https://developers.linode.com/v4/reference/endpoints/linode/instances/$id/backups#POST)|
 |server.linodes.instances(id).backups(id).restore()|[linode/instances/$id/backups/$id/restore#POST](https://developers.linode.com/v4/reference/endpoints/linode/instances/$id/backups/$id/restore#POST)|
 |server.linodes.instances(id).backups.cancel()|[linode/instances/$id/backups/cancel#POST](https://developers.linode.com/v4/reference/endpoints/linode/instances/$id/backups/cancel#POST)|
@@ -93,8 +93,8 @@ All list() methods can receive the page parameter wich to indicate the page.
 |server.linodes.stackscripts(id).get()|[linode/stackscripts/$id#GET](https://developers.linode.com/v4/reference/endpoints/linode/stackscripts/$id#GET)|
 |server.linodes.stackscripts(id).update(data)|[linode/stackscripts/$id#PUT](https://developers.linode.com/v4/reference/endpoints/linode/stackscripts/$id#PUT)|
 |server.linodes.stackscripts(id).delete()|[linode/stackscripts/$id#DELETE](https://developers.linode.com/v4/reference/endpoints/linode/stackscripts/$id#DELETE)|
-|server.linodes.instances(id).stats.list()|[linode/instances/$id/stats#GET](https://developers.linode.com/v4/reference/endpoints/linode/instances/$id/stats#GET)|
-|server.linodes.instances(id).stats.year(n).month(m).get()|[linode/instances/$id/stats/$id/1#GET](https://developers.linode.com/v4/reference/endpoints/linode/instances/$id/stats/$id/1#GET)|
+|server.linodes.instances(id).stats.get()|[linode/instances/$id/stats#GET](https://developers.linode.com/v4/reference/endpoints/linode/instances/$id/stats#GET)|
+|server.linodes.instances(id).stats.2010(id).get()|[linode/instances/$id/stats/2010/$id#GET](https://developers.linode.com/v4/reference/endpoints/linode/instances/$id/stats/2010/$id#GET)|
 |server.linodes.instances(id).stats.year(n).month(m).get()|[linode/instances/$id/stats/$id/1#GET](https://developers.linode.com/v4/reference/endpoints/linode/instances/$id/stats/$id/1#GET)|
 |server.linodes.types.list()|[linode/types#GET](https://developers.linode.com/v4/reference/endpoints/linode/types#GET)|
 |server.linodes.types(id).get()|[linode/types/$id#GET](https://developers.linode.com/v4/reference/endpoints/linode/types/$id#GET)|
