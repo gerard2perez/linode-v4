@@ -178,3 +178,19 @@ export interface IResponseNetworkingIps {
 	public:boolean
 	type:string
 }
+
+export interface IResponseAccount {
+	first_name: String
+	last_name: String
+	company: String
+	address_1:String
+	address_2:String
+	city:String
+	state:String
+	zip:String
+	country:String
+	email:String
+	phone:String
+	tax_id:String
+	balance:number
+}
