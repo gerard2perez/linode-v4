@@ -63,7 +63,7 @@ export enum Architecture {
 	i386 = 'i386'
 }
 export class ExtendedClient{}
-export interface IResponseDomains {
+export interface IResponseDomain {
 	id:number
 	domain:string
 	soa_email:string
@@ -79,7 +79,7 @@ export interface IResponseDomains {
 	type: DomainType
 	zonefile: Object
 }
-export interface IResponseLinodesInstances {
+export interface IResponseLinodeInstance {
 	id:number
 	alerts:Object
 	backups:Object
@@ -96,7 +96,7 @@ export interface IResponseLinodesInstances {
 	hypervisor: Hypervisor
 	specs:Object
 }
-export interface IResponseLinodesKernels {
+export interface IResponseLinodeKernel {
 	id:string
 	xen:boolean
 	kvm:boolean
@@ -105,8 +105,20 @@ export interface IResponseLinodesKernels {
 	architecture: Architecture
 	pvops:boolean
 }
-
-export interface IResponseLinodesStackscripts {
+export interface IResponseRecord {
+	id:number
+	type:string
+	name:string
+	target:string
+	priority:number
+	weight:number
+	port:number
+	service:string
+	protocol:string
+	tag:string
+	ttl_sec:number
+}
+export interface IResponseLinodeStackscript {
 	id:number
 	username:string
 	user_gravatar_id:string

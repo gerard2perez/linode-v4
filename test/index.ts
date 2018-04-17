@@ -15,7 +15,10 @@ import './managed';
 import 'chai/register-should';
 import { api_d_ts } from "./instance";
 import { appendFileSync, writeFileSync, readFileSync } from "fs";
+import { ENGINE_METHOD_CIPHERS } from "constants";
 
+import * as i from 'i';
+const inflect = new i();
 
 
 if (!process.env.DOCS) {
@@ -79,28 +82,45 @@ if (!process.env.DOCS) {
 } else {
 	let interfacesdefinition = readFileSync('./interfaces.d.ts', 'utf-8');
 	let interfacesNames = [];
+	function replaceIfExists(IResponse, text) {
+		let IName = 'any';
+		if(interfacesdefinition.search(new RegExp(` ${IResponse} `, 'gm')) > -1) {
+			IName = IResponse;
+			if(interfacesNames.indexOf(IResponse) === -1) {
+				interfacesNames.push(IResponse);
+			}
+			return text.replace(/ICustomResponse/gm, IResponse);
+		} else {
+			console.log(`Missing: ${IResponse}`);
+		}
+		return text;
+	}
 	function capitalize (str:string) {
 		return str.replace(/\b\w{3,}/g, function (l) {
 			return l.charAt(0).toUpperCase() + l.slice(1);
 		});
 	}
-	function describeMethod(name, API, interfaceName= 'IResponseDomain') {
-		interfaceName = interfaceName.split('_')[0];
+	function describeMethod(name, API /*, interfaceName=''*/) {
+		// interfaceName = interfaceName.split('_')[0];
 		let method = name.replace('data', 'data:any').replace('id','id: string|number') + ':';
 		if(method.includes('id')) {
 			method = `\n\t\t/**\n\t\t * ${API.href}\n\t\t */\n\t\t${method} void`;
 		} else {
-			let IName = 'any';
-			if(interfacesdefinition.indexOf(interfaceName) > -1) {
-				IName = interfaceName;
-				if(interfacesNames.indexOf(interfaceName) === -1) {
-					interfacesNames.push(interfaceName);
-				}
-			} else {
-				console.log(`Missing: ${interfaceName}`);
-			}
+			let IName = 'ICustomResponse';
+			// console.log(interfacesdefinition.indexOf(interfaceName), interfaceName);
+			// if(interfacesdefinition.indexOf(interfaceName) > -1) {
+			// 	IName = interfaceName;
+			// 	console.log(interfacesNames.indexOf(interfaceName));
+			// 	if(interfacesNames.indexOf(interfaceName) === -1) {
+			// 		interfacesNames.push(interfaceName);
+			// 	}
+			// } else {
+			// 	console.log(`Missing: ${interfaceName}`);
+			// }
 			let methodRespose = method === 'get():' ? `Promise<${IName}>` : `Promise<LinodeResponse<${IName}>>`;
-			if (method === 'list():') {
+			if(method.indexOf('create') > -1) {
+				method = `\n\t\t/**\n\t\t * ${API}\n\t\t */\n\t\tcreate(data:any): Promise<${IName}>`;
+			} else if (method === 'list():') {
 				method = `\n\t\t/**\n\t\t * ${API}\n\t\t */\n\t\tlist(page?:number): ${methodRespose}`;
 
 				method += `\n\t\t/**\n\t\t * ${API}\n\t\t */\n\t\tlist(page:number, filter:any): ${methodRespose}`;
@@ -111,17 +131,45 @@ if (!process.env.DOCS) {
 		}
 		return [undefined, method];
 	}
+	function cleanName(name:string) {
+		return inflect.camelize(inflect.underscore(name.replace(/_id_/gm, '')).split('_').map(s=>inflect.singularize(s)).join('_'));
+	}
 	function createInnerClass(name:string, API) {
-		let interfacename = `${capitalize(name)}InnerClass`;
+		// name = inflect.camelize(inflect.underscore(name.replace(/_id_/gm, '')).split('_').map(s=>inflect.singularize(s)).join('_'));
+		let interfacename = `${cleanName(name)}InnerClass`;
 		let definition = `\n\tinterface ${interfacename} {`;
 		let topDefinitions = [];
+		console.log('name', name);
 		for(const key of Object.keys(API)) {
 			if(key === 'href')continue;
-			let Keyed = typeof(API[key]) === 'object' ? `${capitalize(name)}${capitalize(key.replace(/\(|\)/gm,'_'))}` : key;
-			let [interfacename, methodOrDefinition] = walk(Keyed, API[key], `IResponse${capitalize(name)}`);
+			let Keyed = typeof(API[key]) === 'object' ? `${name}${inflect.singularize(capitalize(key.replace(/\(|\)/gm,'_')))}` : key;
+			let proposeInterface = cleanName(`IResponse${capitalize((Keyed.split('_id_').filter(k=>k).pop()))}`);
+			// if(interfacename === 'Domains_id_RecordsInnerClass') {
+			// 	console.log(`Prepare: IResponse${capitalize((Keyed.split('_id_').pop()))}`)
+			// }
+			let [interfacename, methodOrDefinition] = walk(Keyed, API[key]/*, `IResponse${capitalize(name)}`*/);
+
 			if(!interfacename) {
-				definition += `${methodOrDefinition}`;
+				definition += `${(methodOrDefinition as string)/*.replace(/ICustomResponse/gm, 'any')*/}`;
 			} else {
+				// let IName = 'any';
+				// if(interfacesdefinition.indexOf(proposeInterface) > -1) {
+				// 	IName = proposeInterface;
+				// 	if(interfacesNames.indexOf(proposeInterface) === -1) {
+				// 		interfacesNames.push(proposeInterface);
+				// 	}
+				// } else {
+				// 	console.log(`Missing: ${proposeInterface}`);
+				// }
+				// if(IName === 'IResponse') {
+				// 	console.log(name, Keyed);
+				// }
+				// methodOrDefinition = (methodOrDefinition as any[]).map(d => d.replace(/ICustomResponse/gm, IName));
+				methodOrDefinition = (methodOrDefinition as any[]).map(d => replaceIfExists(proposeInterface, d));
+				// console.log(inflect.)
+				// if(interfacename === 'DomainsInnerClass') {
+				// 	console.log(IName, Keyed, proposeInterface, name, parentInterfaceName, methodOrDefinition.join('\n'));
+				// }
 				let method = key.replace('data', 'data:any').replace('id','id: string|number') + ':';
 				method = `\n\t\t${method} ${interfacename}`;
 				definition += `${method}`;
@@ -132,11 +180,11 @@ if (!process.env.DOCS) {
 		topDefinitions.push(definition);
 		return [interfacename, topDefinitions]
 	}
-	function walk(name:string, API:any, interfaceName?: string) {
+	function walk(name:string, API:any) {
 		if( typeof(API) === 'object') {
 			return createInnerClass(name, API);
 		} else {
-			return describeMethod(name, API, interfaceName);
+			return describeMethod(name, API);
 		}
 	}
 	function createMainClass(name, API) {
@@ -150,7 +198,8 @@ if (!process.env.DOCS) {
 			text += `\n\t\t${name}: ${interfacename}`;
 		}
 		interfacename = interfacename2 as string;
-		rootDefinitions = rootDefinitions.concat(definitions);
+		let IResponse = cleanName(`IResponse${interfacename.replace(/InnerClass/gm, '')}`);
+		rootDefinitions = rootDefinitions.concat(definitions).map(d=> replaceIfExists(IResponse, d));
 		text += '\n\t}';
 		return [interfacename, text, rootDefinitions] as [string, string, string[]];
 	}
@@ -163,12 +212,12 @@ if (!process.env.DOCS) {
 			const API:any = api_d_ts();
 			let file = './index.d.ts'
 			writeFileSync(file, 'declare namespace Linodev4 {');
-			appendFileSync(file, '\n\tinterface LinodeResponse<T> {\n\t\tdata:T[]\n\t\tpage:number\n\t\tpages:number\n\t\tresults:number\n\t\terrors?:object[]\n\t}');
+			appendFileSync(file, '\n\tinterface LinodeResponse<T> {\n\t\tdata:T[]\n\t\tpage:number\n\t\tpages:number\n\t\tresults:number\n\t\terrors?:any[]\n\t}');
 			let LinodeAPI = '\n\ttype LinodeMakeRequest = (client:ExtendedClient,method:HTTPVerb, path:string,hasparams:boolean,data:any,isCustom:boolean) => Promise<any>;\n\t//@ts-ignore\n\texport default class Linode {';
 			LinodeAPI += '\n\tconstructor(token:string, fn?:LinodeMakeRequest);'
 			for(const key of Object.keys(API)) {
 				let [interfacename, definition, rootdefinnitions] = createMainClass(key /*.replace('linode', 'linodes')*/,API[key]);
-				appendFileSync(file, rootdefinnitions.join('\n'));
+				appendFileSync(file, rootdefinnitions.join('\n').replace(/ICustomResponse/gm,'any'));
 				appendFileSync(file, definition);
 				LinodeAPI += `\n\t\t${key}: ${interfacename}`;
 			}
