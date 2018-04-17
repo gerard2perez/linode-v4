@@ -95,7 +95,7 @@ export default {
 		}
 	},
 	account: {
-		actions:['get:single:noargs','update:put:nopath:hasargs'],
+		actions:['get:get:noargs:nopath','update:put:nopath:hasargs'],
 		appendCollections: true,
 		collections: {
 			events: {

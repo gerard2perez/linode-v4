@@ -158,7 +158,7 @@ All list() methods can receive the page parameter wich to indicate the page.
 ### account
 |Commands|API Reference|
 |---|---|
-|server.account.list()|[account#GET](https://developers.linode.com/v4/reference/endpoints/account#GET)|
+|server.account.get()|[account#GET](https://developers.linode.com/v4/reference/endpoints/account#GET)|
 |server.account.update(data)|[account#PUT](https://developers.linode.com/v4/reference/endpoints/account#PUT)|
 |server.account.events.list()|[account/events#GET](https://developers.linode.com/v4/reference/endpoints/account/events#GET)|
 |server.account.events(id).get()|[account/events/$id#GET](https://developers.linode.com/v4/reference/endpoints/account/events/$id#GET)|

@@ -178,11 +178,10 @@ export interface IResponseNetworkingIps {
 	public:boolean
 	type:string
 }
-
 export interface IResponseAccount {
-	first_name: String
-	last_name: String
-	company: String
+	first_name:String
+	last_name:String
+	company:String
 	address_1:String
 	address_2:String
 	city:String

@@ -3,7 +3,7 @@ import { app, assert } from './instance';
 
 describe('Account', function () {
 	it('/', async ()=>{
-		assert.equal(await app.account.list(), '/v4/account#get');
+		assert.equal(await app.account.get(), '/v4/account#get');
 		assert.equal(await app.account.update({}), '/v4/account#put%data');
 	});
 	it('Events', async function () {
