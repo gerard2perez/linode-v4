@@ -62,6 +62,14 @@ export enum Architecture {
 	 */
 	i386 = 'i386'
 }
+export enum TypeClass{
+	nanode = 'nanode',
+	standard = 'standard',
+	highmem	= 'nanode'
+}
+export interface PriceType {
+	hourly:number,monthly:number
+}
 export class ExtendedClient{}
 export interface IResponseDomain {
 	id:number
@@ -133,4 +141,17 @@ export interface IResponseLinodeStackscript {
 	rev_note:string
 	script:string
 	user_defined_fields:Object[]
+}
+export interface IResponseLinodeType {
+	id:string
+	disk:number
+	class: TypeClass
+	price: PriceType
+	label:string
+	addons: {backups:{price:PriceType}}
+	network_out:number
+	memory:number
+	transfer:number
+	vcpus:number
+
 }
