@@ -90,6 +90,16 @@ const server = new Linode(api_key);
 If you need more detailed information please check [Linode v4 API Reference](https://developers.linode.com/v4/introduction)
 In the next list you can find the commands to reach an specific url. All the commands listed here are the actual commands supported.
 If you find a command missing or wrong, please open an Issue or make a PR.
+
+## Pagination
+All list() methods can receive the page parameter wich to indicate the page.
+ * list( [page](https://developers.linode.com/v4/pagination)?:number=1) )
+
+## Filtering & Sorting
+All list() methods can receive the page parameter wich to indicate the page.
+* list( [page](https://developers.linode.com/v4/pagination)?:number=1), [filter](https://developers.linode.com/v4/filtering):any )
+* list( [filter](https://developers.linode.com/v4/filtering):any )
+
 `.replace(/@@@/g, '```'));
 	//@ts-ignore
 	assert.equal = async (a:string, b:string, c:string) => {
