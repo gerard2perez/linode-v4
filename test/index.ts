@@ -2,22 +2,23 @@ import { suite, test, slow, timeout } from "mocha-typescript";
 import Linode from '../src';
 import * as assert from 'assert';
 import './linodes';
-import './domains';
-import './nodebalancers';
-import './networking';
-import './regions';
-import './support';
-import './account';
-import './profile';
-import './image';
-import './volumes';
-import './managed';
+// import './domains';
+// import './nodebalancers';
+// import './networking';
+// import './regions';
+// import './support';
+// import './account';
+// import './profile';
+// import './image';
+// import './volumes';
+// import './managed';
 import 'chai/register-should';
 import { api_d_ts } from "./instance";
 import { appendFileSync, writeFileSync, readFileSync } from "fs";
 import { ENGINE_METHOD_CIPHERS } from "constants";
 
 import * as i from 'i';
+import spec from "../src/spec";
 const inflect = new i();
 inflect.inflections.singular('ips', 'ips');
 
@@ -83,9 +84,21 @@ if (!process.env.DOCS) {
 } else {
 	let interfacesdefinition = readFileSync('./interfaces.d.ts', 'utf-8');
 	let interfacesNames = [];
+	function resolveIResponse(IResponse) {
+		let IName = 'any';
+		if(interfacesdefinition.search(new RegExp(`interface ${IResponse} ?{`, 'gm')) > -1) {
+			IName = IResponse;
+			if(interfacesNames.indexOf(IResponse) === -1) {
+				interfacesNames.push(IResponse);
+			}
+		} else {
+			console.log(`Missing: ${IResponse}`);
+		}
+		return IName;
+	}
 	function replaceIfExists(IResponse, text) {
 		let IName = 'any';
-		if(interfacesdefinition.search(new RegExp(` ${IResponse} `, 'gm')) > -1) {
+		if(interfacesdefinition.search(new RegExp(`interface ${IResponse} ?{`, 'gm')) > -1) {
 			IName = IResponse;
 			if(interfacesNames.indexOf(IResponse) === -1) {
 				interfacesNames.push(IResponse);
@@ -119,7 +132,9 @@ if (!process.env.DOCS) {
 			// 	console.log(`Missing: ${interfaceName}`);
 			// }
 			let methodRespose = method === 'get():' ? `Promise<${IName}>` : `Promise<LinodeResponse<${IName}>>`;
-			if(method.indexOf('create') > -1) {
+			if(method.indexOf('update') > -1) {
+				method = `\n\t\t/**\n\t\t * ${API}\n\t\t */\n\t\tupdate(data:any): Promise<${IName}>`;
+			} else if(method.indexOf('create') > -1) {
 				method = `\n\t\t/**\n\t\t * ${API}\n\t\t */\n\t\tcreate(data:any): Promise<${IName}>`;
 			} else if (method === 'list():') {
 				method = `\n\t\t/**\n\t\t * ${API}\n\t\t */\n\t\tlist(page?:number): ${methodRespose}`;
@@ -127,7 +142,8 @@ if (!process.env.DOCS) {
 				method += `\n\t\t/**\n\t\t * ${API}\n\t\t */\n\t\tlist(page:number, filter:any): ${methodRespose}`;
 				method += `\n\t\t/**\n\t\t * ${API}\n\t\t */\n\t\tlist(filter:any): ${methodRespose}`;
 			} else {
-				method = `\n\t\t/**\n\t\t * ${API}\n\t\t */\n\t\t${method} ${methodRespose}`;
+				// method = `\n\t\t/**\n\t\t * ${API}\n\t\t */\n\t\t${method} ${methodRespose}`;
+				method = `\n\t\t/**\n\t\t * ${API}\n\t\t */\n\t\t${method} Promise<any>`;
 			}
 		}
 		return [undefined, method];
@@ -135,7 +151,14 @@ if (!process.env.DOCS) {
 	function cleanName(name:string) {
 		// return name;
 		name = name.replace('Ips_id_', 'Ip');
-		return inflect.camelize(inflect.underscore(name.replace(/_id_/gm, '')).split('_').map(s=>inflect.singularize(s)).join('_'));
+		if(name.indexOf('_id_') > -1) {
+			return inflect.camelize(inflect.underscore(name.replace(/_id_/gm, '')).split('_').map(s=>inflect.singularize(s)).join('_'));
+		}
+		if(name.indexOf('IResponse') > -1 ) {
+			return inflect.singularize(name.replace('sYear_n_Month_m_', '').replace('sYear_n_', ''));
+		}
+		return capitalize(name);
+		// return inflect.camelize(inflect.underscore(name.replace(/_id_/gm, '')).split('_').map(s=>inflect.singularize(s)).join('_'));
 	}
 	function createInnerClass(name:string, API) {
 		// name = inflect.camelize(inflect.underscore(name.replace(/_id_/gm, '')).split('_').map(s=>inflect.singularize(s)).join('_'));
@@ -171,7 +194,7 @@ if (!process.env.DOCS) {
 				methodOrDefinition = (methodOrDefinition as any[]).map(d => replaceIfExists(proposeInterface, d));
 				// console.log(inflect.)
 				// if(interfacename === 'DomainsInnerClass') {
-				// 	console.log(IName, Keyed, proposeInterface, name, parentInterfaceName, methodOrDefinition.join('\n'));
+				// 	console.log(IName, Keyed, proposeInterface, name, collectionNameInterfaceName, methodOrDefinition.join('\n'));
 				// }
 				let method = key.replace('data', 'data:any').replace('id','id: string|number') + ':';
 				method = `\n\t\t${method} ${interfacename}`;
@@ -211,24 +234,157 @@ if (!process.env.DOCS) {
 	    @test("Docs") async t1() {
 
 		}
-		@test("API") async t2() {
-			const API:any = api_d_ts();
-			let file = './index.d.ts'
+		// @test("API") async t2() {
+		// 	const API:any = api_d_ts();
+		// 	let file = './index.d.ts'
+		// 	writeFileSync(file, 'declare namespace Linodev4 {');
+		// 	appendFileSync(file, '\n\tinterface LinodeResponse<T> {\n\t\tdata:T[]\n\t\tpage:number\n\t\tpages:number\n\t\tresults:number\n\t\terrors?:any[]\n\t}');
+		// 	let LinodeAPI = '\n\ttype LinodeMakeRequest = (client:ExtendedClient,method:HTTPVerb, path:string,hasargs:boolean,data:any,isCustom:boolean) => Promise<any>;\n\t//@ts-ignore\n\texport default class Linode {';
+		// 	LinodeAPI += '\n\tconstructor(token:string, fn?:LinodeMakeRequest);'
+		// 	for(const key of Object.keys(API)) {
+		// 		let [interfacename, definition, rootdefinnitions] = createMainClass(key /*.replace('linode', 'linodes')*/,API[key]);
+		// 		appendFileSync(file, rootdefinnitions.join('\n').replace(/ICustomResponse/gm,'any'));
+		// 		appendFileSync(file, definition);
+		// 		LinodeAPI += `\n\t\t${key}: ${interfacename}`;
+		// 	}
+		// 	LinodeAPI += '\n\t}';
+		// 	appendFileSync(file, LinodeAPI);
+		// 	appendFileSync(file, '\n}\nexport = Linodev4');
+		// 	let all = readFileSync(file, 'utf-8');
+		// 	writeFileSync(file, `import { ExtendedClient, HTTPVerb, ${interfacesNames.join(', ')} } from './interfaces';\n`);
+		// 	appendFileSync(file, all);
+		// }
+		@test('TypeScriptDefinition') async t2 () {
+			function arr2string(arr, lvl='\t') {
+				return arr.map(a=>{
+					if(a instanceof Array ) {
+						let lvl2 = `\t${lvl}`;
+						return arr2string(a, lvl2);
+					}
+					return `${lvl}${a}`;
+				}).join('\n');
+			}
+			function namelize(str) {
+				return capitalize(inflect.camelize(str.replace(/\-/gm, '_'), false)) as string;
+			}
+			class MakeDefinition {
+				name:string
+				content:[string,string[],string]
+				constructor(interfaceName:string) {
+					this.name = interfaceName;
+					this.content = [`interface ${interfaceName} {`, [], '}'];
+				}
+				// name(interfaceName) {
+				// 	this.content[0] = `interface ${interfaceName} {`;
+				// }
+				push(data) {
+					this.content[1].push(data);
+				}
+				prepend(data) {
+
+					this.content[1].unshift(data);
+				}
+				get isEmpty () {
+					return this.content[1].length === 0;
+				}
+			}
+			function traverse (context:string[], collection:string, specification:any) {
+				let collectionName = namelize(specification[collection].collectionName ? specification[collection].collectionName : collection);
+				let prename = context.join('') + collectionName;
+				context.push(inflect.singularize(collectionName));
+				collectionName = prename;
+				let object = specification[collection];
+				let IInterface = `${collectionName}Class`;
+				// console.log(context);
+				let IInterfaceName = `I${collectionName}`;
+				let RootDefinitions = [];
+				let NewIDefinition = new MakeDefinition(IInterface);
+				let IResponse = resolveIResponse(`IResponse${inflect.singularize(collectionName)}`); // resolveIResponse(`IResponse${inflect.singularize(collectionName.replace('InnerClass', ''))}`);
+				if(object.actions) {
+					let ChildDefinition =  new MakeDefinition(IInterfaceName); // [`interface ${IInterfaceName} {`, [`(id: string|number): ${collectionName}`], '}'] as any[];
+					for(const fndef of object.actions) {
+						let [action,method, ...defs] = fndef.split(':') as string[];
+						action =  inflect.camelize( action.replace(/\-/gm, '_'), false);
+						defs = defs ? defs : [];
+						console.log(IInterfaceName,action,method, defs);
+						let single = defs.indexOf('single') > -1;
+						let hasargs = defs.indexOf('hasargs') > -1;
+						let nopath = defs.indexOf('nopath') > -1;
+						switch(action) {
+							case 'list':
+								ChildDefinition.push(`${action}(page?:number): Promise<LinodeResponse<${IResponse}>>`);
+								ChildDefinition.push(`${action}(page:number, filter:any): Promise<LinodeResponse<${IResponse}>>`);
+								ChildDefinition.push(`${action}(filter:any): Promise<LinodeResponse<${IResponse}>>`);
+								break;
+							case 'create':
+								ChildDefinition.push(`${action}(data:any): Promise<${IResponse}>`);
+								break;
+							case 'update':
+								NewIDefinition.push(`${action}(data:any): Promise<${IResponse}>`);
+								break;
+							case 'delete':
+								NewIDefinition.push(`${action}(): Promise<any>`);
+								break;
+							case 'get':
+								NewIDefinition.push(`${action}(): Promise<${IResponse}>`);
+								break;
+							default:
+								if(single) {
+									NewIDefinition.push(`${action}(${hasargs ? 'data:any':''}): Promise<any>`);
+								} else {
+									ChildDefinition.push(`${action}(${hasargs ? 'data:any':''}): Promise<any>`);
+								}
+
+								break;
+						}
+					}
+					if(!ChildDefinition.isEmpty) {
+						ChildDefinition.prepend(`(id: string|number): ${IInterface}`);
+						// NewIDefinition.name(IInterfaceName);
+						RootDefinitions.push(arr2string(ChildDefinition.content));
+					} else {
+						IInterfaceName = IInterface;
+					}
+				}
+				if(object.collections) {
+					for(const key of Object.keys(object.collections)) {
+						let [interfacename, definition, rootdefinnitions] = traverse(context, key, object.collections);
+						RootDefinitions = RootDefinitions.concat(rootdefinnitions);
+						// console.log(RootDefinitions);
+						// console.log(interfacename, definition, rootdefinnitions);
+						// if(interfacename === 'InstancesClass') {
+						// 	console.log(interfacename, definition, object.collections[key]);
+						// }
+						RootDefinitions.push(arr2string(definition));
+						NewIDefinition.push(`${inflect.camelize(key.replace(/\-/gm, '_'), false)}:${interfacename}`);
+						// break;
+					}
+				}
+				// console.log(arr2string(NewIDefinition.content));
+				return [IInterfaceName, NewIDefinition.content, RootDefinitions] as [string, string[], any[]];
+			}
+			const specification = require('../src/spec').default;
+			let file = './index.d.ts';
 			writeFileSync(file, 'declare namespace Linodev4 {');
-			appendFileSync(file, '\n\tinterface LinodeResponse<T> {\n\t\tdata:T[]\n\t\tpage:number\n\t\tpages:number\n\t\tresults:number\n\t\terrors?:any[]\n\t}');
-			let LinodeAPI = '\n\ttype LinodeMakeRequest = (client:ExtendedClient,method:HTTPVerb, path:string,hasparams:boolean,data:any,isCustom:boolean) => Promise<any>;\n\t//@ts-ignore\n\texport default class Linode {';
+			appendFileSync(file, '\n\tinterface LinodeResponse<T> {\n\t\tdata:T[]\n\t\tpage:number\n\t\tpages:number\n\t\tresults:number\n\t\terrors?:any[]\n\t}\n');
+			let LinodeAPI = '\n\ttype LinodeMakeRequest = (client:ExtendedClient,method:HTTPVerb, path:string,hasargs:boolean,data:any,isCustom:boolean) => Promise<any>;\n\t//@ts-ignore\n\texport default class Linode {';
 			LinodeAPI += '\n\tconstructor(token:string, fn?:LinodeMakeRequest);'
-			for(const key of Object.keys(API)) {
-				let [interfacename, definition, rootdefinnitions] = createMainClass(key /*.replace('linode', 'linodes')*/,API[key]);
-				appendFileSync(file, rootdefinnitions.join('\n').replace(/ICustomResponse/gm,'any'));
-				appendFileSync(file, definition);
-				LinodeAPI += `\n\t\t${key}: ${interfacename}`;
+			for(let collection of Object.keys(specification)) {
+				let collectionName = specification[collection].collectionName ? specification[collection].collectionName : collection;
+				let [interfacename, definition, rootdefinnitions] = traverse([], collection, specification);
+				// console.log(interfacename, definition, rootdefinnitions);
+				// let [interfacename, definition, rootdefinnitions] = defineCollection(collection, specification[collection]);
+				appendFileSync(file, rootdefinnitions.join('\n').replace(/ICustomResponse/gm,'any') + '\n');
+				appendFileSync(file, arr2string(definition));
+				LinodeAPI += `\n\t\t${collectionName}: ${interfacename}`;
+				break;
 			}
 			LinodeAPI += '\n\t}';
 			appendFileSync(file, LinodeAPI);
 			appendFileSync(file, '\n}\nexport = Linodev4');
 			let all = readFileSync(file, 'utf-8');
-			writeFileSync(file, `import { ExtendedClient, HTTPVerb, ${interfacesNames.join(', ')} } from './interfaces';\n`);
+			interfacesNames = ['ExtendedClient', 'HTTPVerb'].concat(interfacesNames);
+			writeFileSync(file, `import { ${interfacesNames.join(', ')} } from './interfaces';\n`);
 			appendFileSync(file, all);
 		}
 	}

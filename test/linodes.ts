@@ -15,14 +15,13 @@ describe('Linodes', function () {
 		assert.equal(await app.linodes.instances(1).update({}), '/v4/linode/instances/1#put');
 		assert.equal(await app.linodes.instances(1).delete(), '/v4/linode/instances/1#del');
 		assert.equal(await app.linodes.instances(1).get(), '/v4/linode/instances/1#get');
-		assert.equal(await app.linodes.instances(1).update({}), '/v4/linode/instances/1#put');
-		assert.equal(await app.linodes.instances(1).boot(), '/v4/linode/instances/1/boot#post');
-		assert.equal(await app.linodes.instances(1).mutate(), '/v4/linode/instances/1/mutate#post');
-		assert.equal(await app.linodes.instances(1).reboot(), '/v4/linode/instances/1/reboot#post');
-		assert.equal(await app.linodes.instances(1).rebuild(), '/v4/linode/instances/1/rebuild#post');
-		assert.equal(await app.linodes.instances(1).rescue(), '/v4/linode/instances/1/rescue#post');
-		assert.equal(await app.linodes.instances(1).resize(), '/v4/linode/instances/1/resize#post');
-		assert.equal(await app.linodes.instances(1).shutdown(), '/v4/linode/instances/1/shutdown#post');
+		assert.equal(await app.linodes.instances(1).boot({}), '/v4/linode/instances/1/boot#post%data');
+		assert.equal(await app.linodes.instances(1).mutate({}), '/v4/linode/instances/1/mutate#post%data');
+		assert.equal(await app.linodes.instances(1).reboot({}), '/v4/linode/instances/1/reboot#post%data');
+		assert.equal(await app.linodes.instances(1).rebuild({}), '/v4/linode/instances/1/rebuild#post%data');
+		assert.equal(await app.linodes.instances(1).rescue({}), '/v4/linode/instances/1/rescue#post%data');
+		assert.equal(await app.linodes.instances(1).resize({}), '/v4/linode/instances/1/resize#post%data');
+		assert.equal(await app.linodes.instances(1).shutdown({}), '/v4/linode/instances/1/shutdown#post%data');
 		assert.equal(await app.linodes.instances(1).volumes(), '/v4/linode/instances/1/volumes#get');
 	});
 	it('Backups', async function () {

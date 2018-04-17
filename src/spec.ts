@@ -11,7 +11,7 @@ export default {
 		appendCollections: true,
 		collections: {
 			instances: {
-				actions: ['list', 'get', 'create', 'update', 'delete', 'boot:post:single', 'clone:post:single', 'mutate:post:single', 'reboot:post:single', 'rebuild:post:single', 'rescue:post:single', 'resize:post:single', 'shutdown:post:single', 'volumes:get:single'],
+				actions: ['list', 'get', 'create', 'update', 'delete', 'boot:post:single:hasargs', 'clone:post:single:hasargs', 'mutate:post:single:hasargs', 'reboot:post:single:hasargs', 'rebuild:post:single:hasargs', 'rescue:post:single:hasargs', 'resize:post:single:hasargs', 'shutdown:post:single:hasargs', 'volumes:get:single'],
 				collections: {
 					backups: {
 						actions: ['list', 'create', 'restore:post:single', 'cancel:post', 'enable:post']
