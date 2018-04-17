@@ -15,10 +15,10 @@ function ClientMethod(target:ExtendedClient, key:string, descriptor:PropertyDesc
       descriptor = Object.getOwnPropertyDescriptor(target, key) as PropertyDescriptor;
 	}
 	const original = descriptor.value;
-    descriptor.value = function (route:string, data?:any) {
+    descriptor.value = function (route:string, data?:any, filter?:any) {
 		const parent:any = this;
 		return new Promise<any>(function(resolve) {
-			parent.client[key](...parent.prepare(route, data), (json:any) => {
+			parent.client[key](...parent.prepare(route, data, filter), (json:any) => {
 				resolve(json);
 			});
 		});
@@ -36,10 +36,15 @@ export class ExtendedClient {
 		this.url = url;
 		this.Authorization = Authorization;
 	}
-	prepare(url:string, data = undefined) {
+	prepare(url:string, data:any, filter:any) {
 		let args:any = {
-			headers: { Authorization: this.Authorization }
+			headers: {
+				Authorization: this.Authorization
+			}
 		};
+		if(filter) {
+			args.headers['X-Filter'] = JSON.stringify(filter);
+		}
 		if(data) {
 			args.data = data;
 		}

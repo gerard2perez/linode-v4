@@ -4,6 +4,7 @@ import { appendFileSync, writeFileSync } from 'fs';
 import spec from '../src/spec';
 import sanitize from '../src/sanitize';
 import { assert } from 'chai';
+import {equal} from 'assert';
 // import * as https from 'https';
 
 // function request(url) {
@@ -40,15 +41,18 @@ import { assert } from 'chai';
 // }
 
 let API_DEFINITION = {};
-const app = new Linode('abc_token', async (client, method, path, hasparams, data,iscustom) => {
+const app = new Linode('abc_token', async (client, method, path, hasparams, canpaginate, data,filter, iscustom) => {
 	if (!hasparams && data) {
 		return 'This method cannot have parameters';
 	}
-	return `${path}#${method}${iscustom && data ? '%data':''}`;
+	if(canpaginate && data && typeof data !== 'number') {
+		return 'Page value is invalid';
+	}
+	return `${path}#${method}${iscustom && data ? '%data':''}${method === 'get' && canpaginate && filter ? '%filter' : ''}`;
 });
 if (process.env.DOCS) {
 	let titles = {};
-	const equal = assert.equal;
+	// const equal = assert.equal;
 	writeFileSync('./README.md', `# Linode v4 API
 #### Date compatibility 2018-04-02
 
@@ -89,10 +93,13 @@ If you find a command missing or wrong, please open an Issue or make a PR.
 `.replace(/@@@/g, '```'));
 	//@ts-ignore
 	assert.equal = async (a:string, b:string, c:string) => {
+		if(a!==b) {
+			console.log(a, b);
+		}
 		let total = '';
-		let [path, method] = b.replace('/v4/', '').split('#');
+		let [path, method] = b.replace('/v4/', '').replace(/\?page=[0-9]+/g, '').split('#');
 		let hasdata = method.includes('%data');
-		method = method.replace('%data', '' );
+		method = method.replace('%data', '' ).replace('%filter', '');
 		let parts = path.split('/');
 		let command = sanitize(path.replace(/\//g, '.').replace(/\.1\./g, '(id).').replace(/\.1/g, '(id)')).replace('linode.', 'linodes.');
 		if (spec[parts[0]] && !titles[parts[0]]) {
@@ -176,6 +183,11 @@ If you find a command missing or wrong, please open an Issue or make a PR.
 		let command_parts:string[] = command.split('.');
 		let index = 0;
 		var CURRENT = API_DEFINITION;
+		function capitalize (str:string) {
+			return str.toLowerCase().replace(/\b\w{3,}/g, function (l) {
+				return l.charAt(0).toUpperCase() + l.slice(1);
+			});
+		}
 		for(let i=0; i < command_parts.length; i++) {
 			let newkey = command_parts[i];
 			let newkeynoid = newkey.replace(/\([^\)]*\)/gm, '');

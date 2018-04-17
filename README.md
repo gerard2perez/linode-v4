@@ -39,6 +39,8 @@ If you find a command missing or wrong, please open an Issue or make a PR.
 |Commands|API Reference|
 |---|---|
 |server.linodes.instances.list()|[linode/instances#GET](https://developers.linode.com/v4/reference/endpoints/linode/instances#GET)|
+|server.linodes.instances.list()|[linode/instances#GET](https://developers.linode.com/v4/reference/endpoints/linode/instances#GET)|
+|server.linodes.instances.list()|[linode/instances#GET](https://developers.linode.com/v4/reference/endpoints/linode/instances#GET)|
 |server.linodes.instances.create(data)|[linode/instances#POST](https://developers.linode.com/v4/reference/endpoints/linode/instances#POST)|
 |server.linodes.instances(id).update(data)|[linode/instances/$id#PUT](https://developers.linode.com/v4/reference/endpoints/linode/instances/$id#PUT)|
 |server.linodes.instances(id).delete()|[linode/instances/$id#DELETE](https://developers.linode.com/v4/reference/endpoints/linode/instances/$id#DELETE)|

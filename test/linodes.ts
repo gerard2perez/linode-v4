@@ -9,6 +9,8 @@ process.on('unhandledRejection', (reason, p) => {
 describe('Linodes', function () {
 	it('Instances', async function () {
 		assert.equal(await app.linodes.instances.list(), '/v4/linode/instances#get');
+		assert.equal(await app.linodes.instances.list(10), '/v4/linode/instances?page=10#get');
+		assert.equal(await app.linodes.instances.list(1,{recomended:true}), '/v4/linode/instances?page=1#get%filter');
 		assert.equal(await app.linodes.instances.create({}), '/v4/linode/instances#post');
 		assert.equal(await app.linodes.instances(1).update({}), '/v4/linode/instances/1#put');
 		assert.equal(await app.linodes.instances(1).delete(), '/v4/linode/instances/1#del');
