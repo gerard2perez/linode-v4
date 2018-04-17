@@ -19,6 +19,7 @@ import { ENGINE_METHOD_CIPHERS } from "constants";
 
 import * as i from 'i';
 const inflect = new i();
+inflect.inflections.singular('ips', 'ips');
 
 
 if (!process.env.DOCS) {
@@ -132,6 +133,8 @@ if (!process.env.DOCS) {
 		return [undefined, method];
 	}
 	function cleanName(name:string) {
+		// return name;
+		name = name.replace('Ips_id_', 'Ip');
 		return inflect.camelize(inflect.underscore(name.replace(/_id_/gm, '')).split('_').map(s=>inflect.singularize(s)).join('_'));
 	}
 	function createInnerClass(name:string, API) {
@@ -139,10 +142,10 @@ if (!process.env.DOCS) {
 		let interfacename = `${cleanName(name)}InnerClass`;
 		let definition = `\n\tinterface ${interfacename} {`;
 		let topDefinitions = [];
-		console.log('name', name);
 		for(const key of Object.keys(API)) {
 			if(key === 'href')continue;
-			let Keyed = typeof(API[key]) === 'object' ? `${name}${inflect.singularize(capitalize(key.replace(/\(|\)/gm,'_')))}` : key;
+			// let Keyed = typeof(API[key]) === 'object' ? `${name}${inflect.singularize(capitalize(key.replace(/\(|\)/gm,'_')))}` : key;
+			let Keyed = typeof(API[key]) === 'object' ? `${name}${capitalize(key.replace(/\(|\)/gm,'_'))}` : key;
 			let proposeInterface = cleanName(`IResponse${capitalize((Keyed.split('_id_').filter(k=>k).pop()))}`);
 			// if(interfacename === 'Domains_id_RecordsInnerClass') {
 			// 	console.log(`Prepare: IResponse${capitalize((Keyed.split('_id_').pop()))}`)

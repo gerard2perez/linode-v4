@@ -155,3 +155,26 @@ export interface IResponseLinodeType {
 	vcpus:number
 
 }
+
+export interface IResponseNodebalancer {
+	id:number
+	label:string
+	hostname:string
+	client_conn_throttle:number
+	region:string
+	ipv4:string
+	ipv6:string
+	created:Date
+	updated:Date
+}
+export interface IResponseNetworkingIps {
+	address:string
+	gateway:string
+	linode_id:number
+	prefix:string
+	rdns:string
+	regions:string
+	subnet_mask:string
+	public:boolean
+	type:string
+}
