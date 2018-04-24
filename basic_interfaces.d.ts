@@ -1,3 +1,5 @@
+import { InstanceStatus, Hypervisor, Architecture, TypeClass, run_level, virt_mode, DomainStatus, DomainType } from "./enumerations";
+
 export interface PriceType {
 	hourly:number,monthly:number
 }

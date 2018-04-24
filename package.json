@@ -10,10 +10,10 @@
 		"semantic-release": "semantic-release",
 		"docs": "cross-env DOCS=true mocha test/index.ts",
 		"test": "mocha test/index.ts",
-		"posttest": "npm run docs",
+		"posttest": "npm run declarations",
 		"test:live": "mocha test/index.ts --watch --recursive --watch-extensions ts",
 		"build": "tsc",
-		"declarations": "tsc && npm run docs && rimraf extended-client.d.ts && rimraf sanitize.d.ts && rimraf spec.d.ts"
+		"declarations": "tsc && ts-node --transpileOnly declarations.ts && rimraf extended-client.d.ts && rimraf sanitize.d.ts && rimraf spec.d.ts"
 	},
 	"engines": {
 		"node": ">= 8.7.0",
@@ -27,6 +27,8 @@
 	"files": [
 		"*.js",
 		"*.d.ts",
+		"!basic_interfaces.d.ts",
+		"!advanced_interfaces.d.ts",
 		"README.md",
 		"LICENSE"
 	],
