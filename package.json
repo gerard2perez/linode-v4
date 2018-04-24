@@ -10,7 +10,7 @@
 		"semantic-release": "semantic-release",
 		"docs": "cross-env DOCS=true mocha test/index.ts",
 		"test": "mocha test/index.ts",
-		"posttest": "npm run declarations",
+		"posttest": "npm run docs",
 		"test:live": "mocha test/index.ts --watch --recursive --watch-extensions ts",
 		"build": "tsc",
 		"declarations": "tsc && ts-node --transpileOnly declarations.ts && rimraf extended-client.d.ts && rimraf sanitize.d.ts && rimraf spec.d.ts"
