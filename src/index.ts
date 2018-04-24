@@ -1,7 +1,8 @@
 import sanitize from './sanitize';
 import spec, { CollectionSpec } from './spec';
 import { join } from 'path';
-import { ExtendedClient, HTTPVerb } from './extended-client';
+import { ExtendedClient } from './extended-client';
+import { HTTPVerb } from './enumerations';
 
 const specification = spec as any;
 let customFn = null;
@@ -20,7 +21,7 @@ interface MutableFunction {
 	(id?:string | number): MutableFunction;
 	[property:string]: any;
 }
-type LinodeMakeRequest = (client:ExtendedClient,method:HTTPVerb, path:string,hasparams:boolean,canpaginate:boolean, data:any,filter:any, isCustom:boolean) => Promise<any>;
+export type LinodeMakeRequest = (client:ExtendedClient,method:HTTPVerb, path:string,hasparams:boolean,canpaginate:boolean, data:any,filter:any, isCustom:boolean) => Promise<any>;
 // istanbul ignore next
 if(!Array.prototype.peek)
 Object.defineProperty(Array.prototype, 'peek', { // eslint-disable-line

@@ -234,26 +234,6 @@ if (!process.env.DOCS) {
 	    @test("Docs") async t1() {
 
 		}
-		// @test("API") async t2() {
-		// 	const API:any = api_d_ts();
-		// 	let file = './index.d.ts'
-		// 	writeFileSync(file, 'declare namespace Linodev4 {');
-		// 	appendFileSync(file, '\n\tinterface LinodeResponse<T> {\n\t\tdata:T[]\n\t\tpage:number\n\t\tpages:number\n\t\tresults:number\n\t\terrors?:any[]\n\t}');
-		// 	let LinodeAPI = '\n\ttype LinodeMakeRequest = (client:ExtendedClient,method:HTTPVerb, path:string,hasargs:boolean,data:any,isCustom:boolean) => Promise<any>;\n\t//@ts-ignore\n\texport default class Linode {';
-		// 	LinodeAPI += '\n\tconstructor(token:string, fn?:LinodeMakeRequest);'
-		// 	for(const key of Object.keys(API)) {
-		// 		let [interfacename, definition, rootdefinnitions] = createMainClass(key /*.replace('linode', 'linodes')*/,API[key]);
-		// 		appendFileSync(file, rootdefinnitions.join('\n').replace(/ICustomResponse/gm,'any'));
-		// 		appendFileSync(file, definition);
-		// 		LinodeAPI += `\n\t\t${key}: ${interfacename}`;
-		// 	}
-		// 	LinodeAPI += '\n\t}';
-		// 	appendFileSync(file, LinodeAPI);
-		// 	appendFileSync(file, '\n}\nexport = Linodev4');
-		// 	let all = readFileSync(file, 'utf-8');
-		// 	writeFileSync(file, `import { ExtendedClient, HTTPVerb, ${interfacesNames.join(', ')} } from './interfaces';\n`);
-		// 	appendFileSync(file, all);
-		// }
 		@test('TypeScriptDefinition') async t2 () {
 			function arr2string(arr, lvl='\t') {
 				return arr.map(a=>{
@@ -419,8 +399,9 @@ if (!process.env.DOCS) {
 			appendFileSync(file, LinodeAPI);
 			appendFileSync(file, '\n}\nexport = Linodev4');
 			let all = readFileSync(file, 'utf-8');
-			interfacesNames = ['ExtendedClient', 'HTTPVerb'].concat(interfacesNames);
-			writeFileSync(file, `import { ${interfacesNames.join(', ')} } from './basic_interfaces';\n`);
+			interfacesNames = ['ExtendedClient'].concat(interfacesNames);
+			writeFileSync(file, `import { HTTPVerb } from './enumerations';\n`)
+			appendFileSync(file, `import { ${interfacesNames.join(', ')} } from './basic_interfaces';\n`);
 			appendFileSync(file, all);
 		}
 	}

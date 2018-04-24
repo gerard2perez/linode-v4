@@ -1,12 +1,5 @@
 import { ServerResponse } from 'http';
 import { Client } from 'node-rest-client';
-
-export enum HTTPVerb {
-	get = 'get',
-	post = 'post',
-	delete = 'del',
-	update = 'put'
-};
 type ClientCallback = (json:any, res:ServerResponse) => void;
 
 function ClientMethod(target:ExtendedClient, key:string, descriptor:PropertyDescriptor) {
