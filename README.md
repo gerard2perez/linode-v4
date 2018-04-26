@@ -1,5 +1,5 @@
 # Linode v4 API
-#### Date compatibility 2018-04-02
+#### Date compatibility 2018-04-23
 
 This is a promise-based clinet for the [Linode API](https://developers.linode.com/v4/introduction) version 4
 

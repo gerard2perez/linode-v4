@@ -11,9 +11,7 @@ function ClientMethod(target:ExtendedClient, key:string, descriptor:PropertyDesc
     descriptor.value = function (route:string, data?:any, filter?:any) {
 		const parent:any = this;
 		return new Promise<any>(function(resolve) {
-			// istanbul ignore next
-			let mth = key === 'delete' ? 'del' : key;
-			parent.client[mth](...parent.prepare(route, data, filter), (json:any) => {
+			parent.client[key](...parent.prepare(route, data, filter), (json:any) => {
 				resolve(json);
 			});
 		});
@@ -52,5 +50,5 @@ export class ExtendedClient {
 	// istanbul ignore next
 	@ClientMethod async put(url:string, data:any) : Promise<any> {};
 	// istanbul ignore next
-	@ClientMethod async delete(url:string) : Promise<any> {};
+	@ClientMethod async del(url:string) : Promise<any> {};
 }
