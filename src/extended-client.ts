@@ -11,6 +11,7 @@ function ClientMethod(target:ExtendedClient, key:string, descriptor:PropertyDesc
     descriptor.value = function (route:string, data?:any, filter?:any) {
 		const parent:any = this;
 		return new Promise<any>(function(resolve) {
+			// istanbul ignore next
 			let mth = key === 'delete' ? 'del' : key;
 			parent.client[mth](...parent.prepare(route, data, filter), (json:any) => {
 				resolve(json);
