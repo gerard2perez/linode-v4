@@ -32,7 +32,8 @@ export class ExtendedClient {
 	prepare(url:string, data:any, filter:any) {
 		let args:any = {
 			headers: {
-				Authorization: this.Authorization
+				Authorization: this.Authorization,
+				"Content-Type": "application/json"
 			}
 		};
 		if(filter) {
@@ -50,5 +51,5 @@ export class ExtendedClient {
 	// istanbul ignore next
 	@ClientMethod async put(url:string, data:any) : Promise<any> {};
 	// istanbul ignore next
-	@ClientMethod async del(url:string) : Promise<any> {};
+	@ClientMethod async delete(url:string) : Promise<any> {};
 }
