@@ -2,9 +2,7 @@
 coverage/
 src/generator/
 api_call_test.ts
-/**/*.js
 /**/*.map
 node_modules/
 *.tgz
-/**/*.d.ts
 _readme.md
