@@ -26,7 +26,8 @@
 		"*.js",
 		"*.d.ts",
 		"README.md",
-		"LICENSE"
+		"LICENSE",
+		"specification.json"
 	],
 	"devDependencies": {
 		"yamljs": "^0.3.0",

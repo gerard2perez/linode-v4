@@ -1,7 +1,7 @@
 import {IAccount, IDomains, IImages, ILinode, ILongview, IManaged, INetworking, INodebalancers, IProfile, IRegions, ISupport, IVolumes} from './interfaces';
 import { APIService, APIPreSend } from "./APIMaker";
 
-const API = require(process.cwd() + '/specification.json');
+const API = require('./specification.json');
 class Linodev4 {
 	//@ts-ignore
 	account:IAccount

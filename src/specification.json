@@ -1,0 +1,3416 @@
+{
+  "FormatName": "",
+  "Properties": [
+    {
+      "FormatName": "account",
+      "Properties": [
+        {
+          "FormatName": "events",
+          "Class": {
+            "FormatName": "events",
+            "Properties": [],
+            "Methods": [
+              {
+                "Name": "get",
+                "fnName": "get",
+                "QueryParameters": [],
+                "PathParameters": [],
+                "HeaderParameters": [
+                  "Authorization"
+                ],
+                "RequiredArgs": 0,
+                "Verb": "get",
+                "TotalArgs": 0,
+                "Keep": false,
+                "RelativeRoute": ""
+              },
+              {
+                "Name": "read",
+                "fnName": "read",
+                "QueryParameters": [],
+                "PathParameters": [],
+                "HeaderParameters": [
+                  "Authorization"
+                ],
+                "RequiredArgs": 0,
+                "Verb": "post",
+                "TotalArgs": 0,
+                "Keep": true,
+                "RelativeRoute": ""
+              },
+              {
+                "Name": "seen",
+                "fnName": "seen",
+                "QueryParameters": [],
+                "PathParameters": [],
+                "HeaderParameters": [
+                  "Authorization"
+                ],
+                "RequiredArgs": 0,
+                "Verb": "post",
+                "TotalArgs": 0,
+                "Keep": true,
+                "RelativeRoute": ""
+              }
+            ],
+            "Route": "/{eventId}",
+            "PathParameter": [
+              "eventId"
+            ]
+          },
+          "Properties": [],
+          "Methods": [
+            {
+              "Name": "list",
+              "fnName": "list",
+              "QueryParameters": [
+                "page",
+                "page_size"
+              ],
+              "PathParameters": [],
+              "HeaderParameters": [
+                "Authorization"
+              ],
+              "RequiredArgs": 0,
+              "Verb": "get",
+              "TotalArgs": 2,
+              "Keep": false,
+              "RelativeRoute": ""
+            }
+          ],
+          "Route": "/events",
+          "PathParameter": []
+        },
+        {
+          "FormatName": "invoices",
+          "Class": {
+            "FormatName": "invoices",
+            "Properties": [
+              {
+                "FormatName": "items",
+                "Properties": [],
+                "Methods": [
+                  {
+                    "Name": "list",
+                    "fnName": "list",
+                    "QueryParameters": [
+                      "page",
+                      "page_size"
+                    ],
+                    "PathParameters": [],
+                    "HeaderParameters": [
+                      "Authorization"
+                    ],
+                    "RequiredArgs": 0,
+                    "Verb": "get",
+                    "TotalArgs": 2,
+                    "Keep": false,
+                    "RelativeRoute": ""
+                  }
+                ],
+                "Route": "/items",
+                "PathParameter": []
+              }
+            ],
+            "Methods": [
+              {
+                "Name": "get",
+                "fnName": "get",
+                "QueryParameters": [],
+                "PathParameters": [],
+                "HeaderParameters": [
+                  "Authorization"
+                ],
+                "RequiredArgs": 0,
+                "Verb": "get",
+                "TotalArgs": 0,
+                "Keep": false,
+                "RelativeRoute": ""
+              }
+            ],
+            "Route": "/{invoiceId}",
+            "PathParameter": [
+              "invoiceId"
+            ]
+          },
+          "Properties": [],
+          "Methods": [
+            {
+              "Name": "list",
+              "fnName": "list",
+              "QueryParameters": [
+                "page",
+                "page_size"
+              ],
+              "PathParameters": [],
+              "HeaderParameters": [
+                "Authorization"
+              ],
+              "RequiredArgs": 0,
+              "Verb": "get",
+              "TotalArgs": 2,
+              "Keep": false,
+              "RelativeRoute": ""
+            }
+          ],
+          "Route": "/invoices",
+          "PathParameter": []
+        },
+        {
+          "FormatName": "notifications",
+          "Properties": [],
+          "Methods": [
+            {
+              "Name": "list",
+              "fnName": "list",
+              "QueryParameters": [
+                "page",
+                "page_size"
+              ],
+              "PathParameters": [],
+              "HeaderParameters": [
+                "Authorization"
+              ],
+              "RequiredArgs": 0,
+              "Verb": "get",
+              "TotalArgs": 2,
+              "Keep": false,
+              "RelativeRoute": ""
+            }
+          ],
+          "Route": "/notifications",
+          "PathParameter": []
+        },
+        {
+          "FormatName": "oauthClients",
+          "Class": {
+            "FormatName": "oauthClients",
+            "Properties": [
+              {
+                "FormatName": "thumbnail",
+                "Properties": [],
+                "Methods": [
+                  {
+                    "Name": "get",
+                    "fnName": "get",
+                    "QueryParameters": [],
+                    "PathParameters": [],
+                    "HeaderParameters": [
+                      "Authorization"
+                    ],
+                    "RequiredArgs": 0,
+                    "Verb": "get",
+                    "TotalArgs": 0,
+                    "Keep": false,
+                    "RelativeRoute": ""
+                  },
+                  {
+                    "Name": "update",
+                    "fnName": "update",
+                    "QueryParameters": [],
+                    "PathParameters": [],
+                    "HeaderParameters": [
+                      "Authorization"
+                    ],
+                    "RequiredArgs": 1,
+                    "Verb": "put",
+                    "TotalArgs": 1,
+                    "Keep": false,
+                    "RelativeRoute": ""
+                  }
+                ],
+                "Route": "/thumbnail",
+                "PathParameter": []
+              }
+            ],
+            "Methods": [
+              {
+                "Name": "get",
+                "fnName": "get",
+                "QueryParameters": [],
+                "PathParameters": [],
+                "HeaderParameters": [
+                  "Authorization"
+                ],
+                "RequiredArgs": 0,
+                "Verb": "get",
+                "TotalArgs": 0,
+                "Keep": false,
+                "RelativeRoute": ""
+              },
+              {
+                "Name": "update",
+                "fnName": "update",
+                "QueryParameters": [],
+                "PathParameters": [],
+                "HeaderParameters": [
+                  "Authorization"
+                ],
+                "RequiredArgs": 1,
+                "Verb": "put",
+                "TotalArgs": 1,
+                "Keep": false,
+                "RelativeRoute": ""
+              },
+              {
+                "Name": "delete",
+                "fnName": "delete",
+                "QueryParameters": [],
+                "PathParameters": [],
+                "HeaderParameters": [
+                  "Authorization"
+                ],
+                "RequiredArgs": 0,
+                "Verb": "delete",
+                "TotalArgs": 0,
+                "Keep": false,
+                "RelativeRoute": ""
+              },
+              {
+                "Name": "reset-secret",
+                "fnName": "resetSecret",
+                "QueryParameters": [],
+                "PathParameters": [],
+                "HeaderParameters": [
+                  "Authorization"
+                ],
+                "RequiredArgs": 0,
+                "Verb": "post",
+                "TotalArgs": 0,
+                "Keep": true,
+                "RelativeRoute": ""
+              }
+            ],
+            "Route": "/{clientId}",
+            "PathParameter": [
+              "clientId"
+            ]
+          },
+          "Properties": [],
+          "Methods": [
+            {
+              "Name": "list",
+              "fnName": "list",
+              "QueryParameters": [
+                "page",
+                "page_size"
+              ],
+              "PathParameters": [],
+              "HeaderParameters": [
+                "Authorization",
+                "X-Filter"
+              ],
+              "RequiredArgs": 0,
+              "Verb": "get",
+              "TotalArgs": 2,
+              "Keep": false,
+              "RelativeRoute": ""
+            },
+            {
+              "Name": "create",
+              "fnName": "create",
+              "QueryParameters": [],
+              "PathParameters": [],
+              "HeaderParameters": [
+                "Authorization"
+              ],
+              "RequiredArgs": 1,
+              "Verb": "post",
+              "TotalArgs": 1,
+              "Keep": false,
+              "RelativeRoute": ""
+            }
+          ],
+          "Route": "/oauth-clients",
+          "PathParameter": []
+        },
+        {
+          "FormatName": "payments",
+          "Class": {
+            "FormatName": "payments",
+            "Properties": [],
+            "Methods": [
+              {
+                "Name": "get",
+                "fnName": "get",
+                "QueryParameters": [],
+                "PathParameters": [],
+                "HeaderParameters": [
+                  "Authorization"
+                ],
+                "RequiredArgs": 0,
+                "Verb": "get",
+                "TotalArgs": 0,
+                "Keep": false,
+                "RelativeRoute": ""
+              }
+            ],
+            "Route": "/{paymentId}",
+            "PathParameter": [
+              "paymentId"
+            ]
+          },
+          "Properties": [
+            {
+              "FormatName": "paypal",
+              "Properties": [],
+              "Methods": [
+                {
+                  "Name": "create",
+                  "fnName": "create",
+                  "QueryParameters": [],
+                  "PathParameters": [],
+                  "HeaderParameters": [
+                    "Authorization"
+                  ],
+                  "RequiredArgs": 1,
+                  "Verb": "post",
+                  "TotalArgs": 1,
+                  "Keep": false,
+                  "RelativeRoute": ""
+                },
+                {
+                  "Name": "execute",
+                  "fnName": "execute",
+                  "QueryParameters": [],
+                  "PathParameters": [],
+                  "HeaderParameters": [
+                    "Authorization"
+                  ],
+                  "RequiredArgs": 1,
+                  "Verb": "post",
+                  "TotalArgs": 1,
+                  "Keep": true,
+                  "RelativeRoute": ""
+                }
+              ],
+              "Route": "/paypal",
+              "PathParameter": []
+            }
+          ],
+          "Methods": [
+            {
+              "Name": "list",
+              "fnName": "list",
+              "QueryParameters": [
+                "page",
+                "page_size"
+              ],
+              "PathParameters": [],
+              "HeaderParameters": [
+                "Authorization"
+              ],
+              "RequiredArgs": 0,
+              "Verb": "get",
+              "TotalArgs": 2,
+              "Keep": false,
+              "RelativeRoute": ""
+            },
+            {
+              "Name": "create",
+              "fnName": "create",
+              "QueryParameters": [],
+              "PathParameters": [],
+              "HeaderParameters": [
+                "Authorization"
+              ],
+              "RequiredArgs": 1,
+              "Verb": "post",
+              "TotalArgs": 1,
+              "Keep": false,
+              "RelativeRoute": ""
+            }
+          ],
+          "Route": "/payments",
+          "PathParameter": []
+        },
+        {
+          "FormatName": "settings",
+          "Properties": [],
+          "Methods": [
+            {
+              "Name": "get",
+              "fnName": "get",
+              "QueryParameters": [],
+              "PathParameters": [],
+              "HeaderParameters": [
+                "Authorization"
+              ],
+              "RequiredArgs": 0,
+              "Verb": "get",
+              "TotalArgs": 0,
+              "Keep": false,
+              "RelativeRoute": ""
+            },
+            {
+              "Name": "update",
+              "fnName": "update",
+              "QueryParameters": [],
+              "PathParameters": [],
+              "HeaderParameters": [
+                "Authorization"
+              ],
+              "RequiredArgs": 1,
+              "Verb": "put",
+              "TotalArgs": 1,
+              "Keep": false,
+              "RelativeRoute": ""
+            }
+          ],
+          "Route": "/settings",
+          "PathParameter": []
+        },
+        {
+          "FormatName": "users",
+          "Class": {
+            "FormatName": "users",
+            "Properties": [
+              {
+                "FormatName": "grants",
+                "Properties": [],
+                "Methods": [
+                  {
+                    "Name": "get",
+                    "fnName": "get",
+                    "QueryParameters": [],
+                    "PathParameters": [],
+                    "HeaderParameters": [
+                      "Authorization"
+                    ],
+                    "RequiredArgs": 0,
+                    "Verb": "get",
+                    "TotalArgs": 0,
+                    "Keep": false,
+                    "RelativeRoute": ""
+                  },
+                  {
+                    "Name": "update",
+                    "fnName": "update",
+                    "QueryParameters": [],
+                    "PathParameters": [],
+                    "HeaderParameters": [
+                      "Authorization"
+                    ],
+                    "RequiredArgs": 1,
+                    "Verb": "put",
+                    "TotalArgs": 1,
+                    "Keep": false,
+                    "RelativeRoute": ""
+                  }
+                ],
+                "Route": "/grants",
+                "PathParameter": []
+              }
+            ],
+            "Methods": [
+              {
+                "Name": "get",
+                "fnName": "get",
+                "QueryParameters": [],
+                "PathParameters": [],
+                "HeaderParameters": [
+                  "Authorization"
+                ],
+                "RequiredArgs": 0,
+                "Verb": "get",
+                "TotalArgs": 0,
+                "Keep": false,
+                "RelativeRoute": ""
+              },
+              {
+                "Name": "update",
+                "fnName": "update",
+                "QueryParameters": [],
+                "PathParameters": [],
+                "HeaderParameters": [
+                  "Authorization"
+                ],
+                "RequiredArgs": 1,
+                "Verb": "put",
+                "TotalArgs": 1,
+                "Keep": false,
+                "RelativeRoute": ""
+              },
+              {
+                "Name": "delete",
+                "fnName": "delete",
+                "QueryParameters": [],
+                "PathParameters": [],
+                "HeaderParameters": [
+                  "Authorization"
+                ],
+                "RequiredArgs": 0,
+                "Verb": "delete",
+                "TotalArgs": 0,
+                "Keep": false,
+                "RelativeRoute": ""
+              }
+            ],
+            "Route": "/{username}",
+            "PathParameter": [
+              "username"
+            ]
+          },
+          "Properties": [],
+          "Methods": [
+            {
+              "Name": "list",
+              "fnName": "list",
+              "QueryParameters": [
+                "page",
+                "page_size"
+              ],
+              "PathParameters": [],
+              "HeaderParameters": [
+                "Authorization",
+                "X-Filter"
+              ],
+              "RequiredArgs": 0,
+              "Verb": "get",
+              "TotalArgs": 2,
+              "Keep": false,
+              "RelativeRoute": ""
+            },
+            {
+              "Name": "create",
+              "fnName": "create",
+              "QueryParameters": [],
+              "PathParameters": [],
+              "HeaderParameters": [
+                "Authorization"
+              ],
+              "RequiredArgs": 1,
+              "Verb": "post",
+              "TotalArgs": 1,
+              "Keep": false,
+              "RelativeRoute": ""
+            }
+          ],
+          "Route": "/users",
+          "PathParameter": []
+        }
+      ],
+      "Methods": [
+        {
+          "Name": "get",
+          "fnName": "get",
+          "QueryParameters": [],
+          "PathParameters": [],
+          "HeaderParameters": [
+            "Authorization"
+          ],
+          "RequiredArgs": 0,
+          "Verb": "get",
+          "TotalArgs": 0,
+          "Keep": false,
+          "RelativeRoute": ""
+        },
+        {
+          "Name": "update",
+          "fnName": "update",
+          "QueryParameters": [],
+          "PathParameters": [],
+          "HeaderParameters": [
+            "Authorization"
+          ],
+          "RequiredArgs": 1,
+          "Verb": "put",
+          "TotalArgs": 1,
+          "Keep": false,
+          "RelativeRoute": ""
+        },
+        {
+          "Name": "credit-card",
+          "fnName": "creditCard",
+          "QueryParameters": [],
+          "PathParameters": [],
+          "HeaderParameters": [
+            "Authorization"
+          ],
+          "RequiredArgs": 1,
+          "Verb": "post",
+          "TotalArgs": 1,
+          "Keep": true,
+          "RelativeRoute": ""
+        },
+        {
+          "Name": "transfer",
+          "fnName": "transfer",
+          "QueryParameters": [],
+          "PathParameters": [],
+          "HeaderParameters": [
+            "Authorization"
+          ],
+          "RequiredArgs": 0,
+          "Verb": "get",
+          "TotalArgs": 0,
+          "Keep": true,
+          "RelativeRoute": ""
+        }
+      ],
+      "Route": "/account",
+      "PathParameter": []
+    },
+    {
+      "FormatName": "domains",
+      "Class": {
+        "FormatName": "domains",
+        "Properties": [
+          {
+            "FormatName": "records",
+            "Class": {
+              "FormatName": "records",
+              "Properties": [],
+              "Methods": [
+                {
+                  "Name": "get",
+                  "fnName": "get",
+                  "QueryParameters": [],
+                  "PathParameters": [],
+                  "HeaderParameters": [
+                    "Authorization"
+                  ],
+                  "RequiredArgs": 0,
+                  "Verb": "get",
+                  "TotalArgs": 0,
+                  "Keep": false,
+                  "RelativeRoute": ""
+                },
+                {
+                  "Name": "update",
+                  "fnName": "update",
+                  "QueryParameters": [],
+                  "PathParameters": [],
+                  "HeaderParameters": [
+                    "Authorization"
+                  ],
+                  "RequiredArgs": 1,
+                  "Verb": "put",
+                  "TotalArgs": 1,
+                  "Keep": false,
+                  "RelativeRoute": ""
+                },
+                {
+                  "Name": "delete",
+                  "fnName": "delete",
+                  "QueryParameters": [],
+                  "PathParameters": [],
+                  "HeaderParameters": [
+                    "Authorization"
+                  ],
+                  "RequiredArgs": 0,
+                  "Verb": "delete",
+                  "TotalArgs": 0,
+                  "Keep": false,
+                  "RelativeRoute": ""
+                }
+              ],
+              "Route": "/{recordId}",
+              "PathParameter": [
+                "recordId"
+              ]
+            },
+            "Properties": [],
+            "Methods": [
+              {
+                "Name": "list",
+                "fnName": "list",
+                "QueryParameters": [
+                  "page",
+                  "page_size"
+                ],
+                "PathParameters": [],
+                "HeaderParameters": [
+                  "Authorization"
+                ],
+                "RequiredArgs": 0,
+                "Verb": "get",
+                "TotalArgs": 2,
+                "Keep": false,
+                "RelativeRoute": ""
+              },
+              {
+                "Name": "create",
+                "fnName": "create",
+                "QueryParameters": [],
+                "PathParameters": [],
+                "HeaderParameters": [
+                  "Authorization"
+                ],
+                "RequiredArgs": 1,
+                "Verb": "post",
+                "TotalArgs": 1,
+                "Keep": false,
+                "RelativeRoute": ""
+              }
+            ],
+            "Route": "/records",
+            "PathParameter": []
+          }
+        ],
+        "Methods": [
+          {
+            "Name": "get",
+            "fnName": "get",
+            "QueryParameters": [],
+            "PathParameters": [],
+            "HeaderParameters": [
+              "Authorization"
+            ],
+            "RequiredArgs": 0,
+            "Verb": "get",
+            "TotalArgs": 0,
+            "Keep": false,
+            "RelativeRoute": ""
+          },
+          {
+            "Name": "update",
+            "fnName": "update",
+            "QueryParameters": [],
+            "PathParameters": [],
+            "HeaderParameters": [
+              "Authorization"
+            ],
+            "RequiredArgs": 1,
+            "Verb": "put",
+            "TotalArgs": 1,
+            "Keep": false,
+            "RelativeRoute": ""
+          },
+          {
+            "Name": "delete",
+            "fnName": "delete",
+            "QueryParameters": [],
+            "PathParameters": [],
+            "HeaderParameters": [
+              "Authorization"
+            ],
+            "RequiredArgs": 0,
+            "Verb": "delete",
+            "TotalArgs": 0,
+            "Keep": false,
+            "RelativeRoute": ""
+          }
+        ],
+        "Route": "/{domainId}",
+        "PathParameter": [
+          "domainId"
+        ]
+      },
+      "Properties": [],
+      "Methods": [
+        {
+          "Name": "list",
+          "fnName": "list",
+          "QueryParameters": [
+            "page",
+            "page_size"
+          ],
+          "PathParameters": [],
+          "HeaderParameters": [
+            "Authorization",
+            "X-Filter"
+          ],
+          "RequiredArgs": 0,
+          "Verb": "get",
+          "TotalArgs": 2,
+          "Keep": false,
+          "RelativeRoute": ""
+        },
+        {
+          "Name": "create",
+          "fnName": "create",
+          "QueryParameters": [],
+          "PathParameters": [],
+          "HeaderParameters": [
+            "Authorization"
+          ],
+          "RequiredArgs": 1,
+          "Verb": "post",
+          "TotalArgs": 1,
+          "Keep": false,
+          "RelativeRoute": ""
+        }
+      ],
+      "Route": "/domains",
+      "PathParameter": []
+    },
+    {
+      "FormatName": "images",
+      "Class": {
+        "FormatName": "images",
+        "Properties": [],
+        "Methods": [
+          {
+            "Name": "get",
+            "fnName": "get",
+            "QueryParameters": [],
+            "PathParameters": [],
+            "HeaderParameters": [
+              "Authorization"
+            ],
+            "RequiredArgs": 0,
+            "Verb": "get",
+            "TotalArgs": 0,
+            "Keep": false,
+            "RelativeRoute": ""
+          },
+          {
+            "Name": "update",
+            "fnName": "update",
+            "QueryParameters": [],
+            "PathParameters": [],
+            "HeaderParameters": [
+              "Authorization"
+            ],
+            "RequiredArgs": 1,
+            "Verb": "put",
+            "TotalArgs": 1,
+            "Keep": false,
+            "RelativeRoute": ""
+          },
+          {
+            "Name": "delete",
+            "fnName": "delete",
+            "QueryParameters": [],
+            "PathParameters": [],
+            "HeaderParameters": [
+              "Authorization"
+            ],
+            "RequiredArgs": 0,
+            "Verb": "delete",
+            "TotalArgs": 0,
+            "Keep": false,
+            "RelativeRoute": ""
+          }
+        ],
+        "Route": "/{imageId}",
+        "PathParameter": [
+          "imageId"
+        ]
+      },
+      "Properties": [],
+      "Methods": [
+        {
+          "Name": "list",
+          "fnName": "list",
+          "QueryParameters": [
+            "page",
+            "page_size"
+          ],
+          "PathParameters": [],
+          "HeaderParameters": [
+            "Authorization",
+            "X-Filter"
+          ],
+          "RequiredArgs": 0,
+          "Verb": "get",
+          "TotalArgs": 2,
+          "Keep": false,
+          "RelativeRoute": ""
+        },
+        {
+          "Name": "create",
+          "fnName": "create",
+          "QueryParameters": [],
+          "PathParameters": [],
+          "HeaderParameters": [
+            "Authorization"
+          ],
+          "RequiredArgs": 1,
+          "Verb": "post",
+          "TotalArgs": 1,
+          "Keep": false,
+          "RelativeRoute": ""
+        }
+      ],
+      "Route": "/images",
+      "PathParameter": []
+    },
+    {
+      "FormatName": "linode",
+      "Properties": [
+        {
+          "FormatName": "instances",
+          "Class": {
+            "FormatName": "instances",
+            "Properties": [
+              {
+                "FormatName": "backups",
+                "Class": {
+                  "FormatName": "backups",
+                  "Properties": [],
+                  "Methods": [
+                    {
+                      "Name": "get",
+                      "fnName": "get",
+                      "QueryParameters": [],
+                      "PathParameters": [],
+                      "HeaderParameters": [
+                        "Authorization"
+                      ],
+                      "RequiredArgs": 0,
+                      "Verb": "get",
+                      "TotalArgs": 0,
+                      "Keep": false,
+                      "RelativeRoute": ""
+                    },
+                    {
+                      "Name": "restore",
+                      "fnName": "restore",
+                      "QueryParameters": [],
+                      "PathParameters": [],
+                      "HeaderParameters": [
+                        "Authorization"
+                      ],
+                      "RequiredArgs": 1,
+                      "Verb": "post",
+                      "TotalArgs": 1,
+                      "Keep": true,
+                      "RelativeRoute": ""
+                    }
+                  ],
+                  "Route": "/{backupId}",
+                  "PathParameter": [
+                    "backupId"
+                  ]
+                },
+                "Properties": [],
+                "Methods": [
+                  {
+                    "Name": "get",
+                    "fnName": "get",
+                    "QueryParameters": [],
+                    "PathParameters": [],
+                    "HeaderParameters": [
+                      "Authorization"
+                    ],
+                    "RequiredArgs": 0,
+                    "Verb": "get",
+                    "TotalArgs": 0,
+                    "Keep": false,
+                    "RelativeRoute": ""
+                  },
+                  {
+                    "Name": "create",
+                    "fnName": "create",
+                    "QueryParameters": [],
+                    "PathParameters": [],
+                    "HeaderParameters": [
+                      "Authorization"
+                    ],
+                    "RequiredArgs": 1,
+                    "Verb": "post",
+                    "TotalArgs": 1,
+                    "Keep": false,
+                    "RelativeRoute": ""
+                  },
+                  {
+                    "Name": "cancel",
+                    "fnName": "cancel",
+                    "QueryParameters": [],
+                    "PathParameters": [],
+                    "HeaderParameters": [
+                      "Authorization"
+                    ],
+                    "RequiredArgs": 0,
+                    "Verb": "post",
+                    "TotalArgs": 0,
+                    "Keep": true,
+                    "RelativeRoute": ""
+                  },
+                  {
+                    "Name": "enable",
+                    "fnName": "enable",
+                    "QueryParameters": [],
+                    "PathParameters": [],
+                    "HeaderParameters": [
+                      "Authorization"
+                    ],
+                    "RequiredArgs": 0,
+                    "Verb": "post",
+                    "TotalArgs": 0,
+                    "Keep": true,
+                    "RelativeRoute": ""
+                  }
+                ],
+                "Route": "/backups",
+                "PathParameter": []
+              },
+              {
+                "FormatName": "configs",
+                "Class": {
+                  "FormatName": "configs",
+                  "Properties": [],
+                  "Methods": [
+                    {
+                      "Name": "get",
+                      "fnName": "get",
+                      "QueryParameters": [],
+                      "PathParameters": [],
+                      "HeaderParameters": [
+                        "Authorization"
+                      ],
+                      "RequiredArgs": 0,
+                      "Verb": "get",
+                      "TotalArgs": 0,
+                      "Keep": false,
+                      "RelativeRoute": ""
+                    },
+                    {
+                      "Name": "update",
+                      "fnName": "update",
+                      "QueryParameters": [],
+                      "PathParameters": [],
+                      "HeaderParameters": [
+                        "Authorization"
+                      ],
+                      "RequiredArgs": 1,
+                      "Verb": "put",
+                      "TotalArgs": 1,
+                      "Keep": false,
+                      "RelativeRoute": ""
+                    },
+                    {
+                      "Name": "delete",
+                      "fnName": "delete",
+                      "QueryParameters": [],
+                      "PathParameters": [],
+                      "HeaderParameters": [
+                        "Authorization"
+                      ],
+                      "RequiredArgs": 0,
+                      "Verb": "delete",
+                      "TotalArgs": 0,
+                      "Keep": false,
+                      "RelativeRoute": ""
+                    }
+                  ],
+                  "Route": "/{configId}",
+                  "PathParameter": [
+                    "configId"
+                  ]
+                },
+                "Properties": [],
+                "Methods": [
+                  {
+                    "Name": "list",
+                    "fnName": "list",
+                    "QueryParameters": [
+                      "page",
+                      "page_size"
+                    ],
+                    "PathParameters": [],
+                    "HeaderParameters": [
+                      "Authorization",
+                      "X-Filter"
+                    ],
+                    "RequiredArgs": 0,
+                    "Verb": "get",
+                    "TotalArgs": 2,
+                    "Keep": false,
+                    "RelativeRoute": ""
+                  },
+                  {
+                    "Name": "create",
+                    "fnName": "create",
+                    "QueryParameters": [],
+                    "PathParameters": [],
+                    "HeaderParameters": [
+                      "Authorization"
+                    ],
+                    "RequiredArgs": 1,
+                    "Verb": "post",
+                    "TotalArgs": 1,
+                    "Keep": false,
+                    "RelativeRoute": ""
+                  }
+                ],
+                "Route": "/configs",
+                "PathParameter": []
+              },
+              {
+                "FormatName": "disks",
+                "Class": {
+                  "FormatName": "disks",
+                  "Properties": [],
+                  "Methods": [
+                    {
+                      "Name": "get",
+                      "fnName": "get",
+                      "QueryParameters": [],
+                      "PathParameters": [],
+                      "HeaderParameters": [
+                        "Authorization"
+                      ],
+                      "RequiredArgs": 0,
+                      "Verb": "get",
+                      "TotalArgs": 0,
+                      "Keep": false,
+                      "RelativeRoute": ""
+                    },
+                    {
+                      "Name": "update",
+                      "fnName": "update",
+                      "QueryParameters": [],
+                      "PathParameters": [],
+                      "HeaderParameters": [
+                        "Authorization"
+                      ],
+                      "RequiredArgs": 1,
+                      "Verb": "put",
+                      "TotalArgs": 1,
+                      "Keep": false,
+                      "RelativeRoute": ""
+                    },
+                    {
+                      "Name": "delete",
+                      "fnName": "delete",
+                      "QueryParameters": [],
+                      "PathParameters": [],
+                      "HeaderParameters": [
+                        "Authorization"
+                      ],
+                      "RequiredArgs": 0,
+                      "Verb": "delete",
+                      "TotalArgs": 0,
+                      "Keep": false,
+                      "RelativeRoute": ""
+                    },
+                    {
+                      "Name": "password",
+                      "fnName": "password",
+                      "QueryParameters": [],
+                      "PathParameters": [],
+                      "HeaderParameters": [
+                        "Authorization"
+                      ],
+                      "RequiredArgs": 1,
+                      "Verb": "post",
+                      "TotalArgs": 1,
+                      "Keep": true,
+                      "RelativeRoute": ""
+                    },
+                    {
+                      "Name": "resize",
+                      "fnName": "resize",
+                      "QueryParameters": [],
+                      "PathParameters": [],
+                      "HeaderParameters": [
+                        "Authorization"
+                      ],
+                      "RequiredArgs": 1,
+                      "Verb": "post",
+                      "TotalArgs": 1,
+                      "Keep": true,
+                      "RelativeRoute": ""
+                    }
+                  ],
+                  "Route": "/{diskId}",
+                  "PathParameter": [
+                    "diskId"
+                  ]
+                },
+                "Properties": [],
+                "Methods": [
+                  {
+                    "Name": "list",
+                    "fnName": "list",
+                    "QueryParameters": [
+                      "page",
+                      "page_size"
+                    ],
+                    "PathParameters": [],
+                    "HeaderParameters": [
+                      "Authorization",
+                      "X-Filter"
+                    ],
+                    "RequiredArgs": 0,
+                    "Verb": "get",
+                    "TotalArgs": 2,
+                    "Keep": false,
+                    "RelativeRoute": ""
+                  },
+                  {
+                    "Name": "create",
+                    "fnName": "create",
+                    "QueryParameters": [],
+                    "PathParameters": [],
+                    "HeaderParameters": [
+                      "Authorization"
+                    ],
+                    "RequiredArgs": 1,
+                    "Verb": "post",
+                    "TotalArgs": 1,
+                    "Keep": false,
+                    "RelativeRoute": ""
+                  }
+                ],
+                "Route": "/disks",
+                "PathParameter": []
+              },
+              {
+                "FormatName": "ips",
+                "Class": {
+                  "FormatName": "ips",
+                  "Properties": [],
+                  "Methods": [
+                    {
+                      "Name": "get",
+                      "fnName": "get",
+                      "QueryParameters": [],
+                      "PathParameters": [],
+                      "HeaderParameters": [
+                        "Authorization"
+                      ],
+                      "RequiredArgs": 0,
+                      "Verb": "get",
+                      "TotalArgs": 0,
+                      "Keep": false,
+                      "RelativeRoute": ""
+                    },
+                    {
+                      "Name": "update",
+                      "fnName": "update",
+                      "QueryParameters": [],
+                      "PathParameters": [],
+                      "HeaderParameters": [
+                        "Authorization"
+                      ],
+                      "RequiredArgs": 1,
+                      "Verb": "put",
+                      "TotalArgs": 1,
+                      "Keep": false,
+                      "RelativeRoute": ""
+                    },
+                    {
+                      "Name": "delete",
+                      "fnName": "delete",
+                      "QueryParameters": [],
+                      "PathParameters": [],
+                      "HeaderParameters": [
+                        "Authorization"
+                      ],
+                      "RequiredArgs": 0,
+                      "Verb": "delete",
+                      "TotalArgs": 0,
+                      "Keep": false,
+                      "RelativeRoute": ""
+                    }
+                  ],
+                  "Route": "/{address}",
+                  "PathParameter": [
+                    "address"
+                  ]
+                },
+                "Properties": [],
+                "Methods": [
+                  {
+                    "Name": "get",
+                    "fnName": "get",
+                    "QueryParameters": [],
+                    "PathParameters": [],
+                    "HeaderParameters": [
+                      "Authorization"
+                    ],
+                    "RequiredArgs": 0,
+                    "Verb": "get",
+                    "TotalArgs": 0,
+                    "Keep": false,
+                    "RelativeRoute": ""
+                  },
+                  {
+                    "Name": "create",
+                    "fnName": "create",
+                    "QueryParameters": [],
+                    "PathParameters": [],
+                    "HeaderParameters": [
+                      "Authorization"
+                    ],
+                    "RequiredArgs": 1,
+                    "Verb": "post",
+                    "TotalArgs": 1,
+                    "Keep": false,
+                    "RelativeRoute": ""
+                  }
+                ],
+                "Route": "/ips",
+                "PathParameter": []
+              },
+              {
+                "FormatName": "stats",
+                "Properties": [],
+                "Methods": [
+                  {
+                    "Name": "get",
+                    "fnName": "get",
+                    "QueryParameters": [],
+                    "PathParameters": [],
+                    "HeaderParameters": [
+                      "Authorization"
+                    ],
+                    "RequiredArgs": 0,
+                    "Verb": "get",
+                    "TotalArgs": 0,
+                    "Keep": false,
+                    "RelativeRoute": ""
+                  },
+                  {
+                    "Name": "stats",
+                    "fnName": "stats",
+                    "QueryParameters": [],
+                    "PathParameters": [
+                      {
+                        "name": "year",
+                        "kind": "number",
+                        "location": "path",
+                        "required": true
+                      },
+                      {
+                        "name": "month",
+                        "kind": "number",
+                        "location": "path",
+                        "required": true
+                      }
+                    ],
+                    "HeaderParameters": [
+                      "Authorization"
+                    ],
+                    "RequiredArgs": 2,
+                    "Verb": "get",
+                    "TotalArgs": 2,
+                    "Keep": false,
+                    "RelativeRoute": "/{year}/{month}"
+                  }
+                ],
+                "Route": "/stats",
+                "PathParameter": []
+              },
+              {
+                "FormatName": "volumes",
+                "Properties": [],
+                "Methods": [
+                  {
+                    "Name": "list",
+                    "fnName": "list",
+                    "QueryParameters": [
+                      "page",
+                      "page_size"
+                    ],
+                    "PathParameters": [],
+                    "HeaderParameters": [
+                      "Authorization",
+                      "X-Filter"
+                    ],
+                    "RequiredArgs": 0,
+                    "Verb": "get",
+                    "TotalArgs": 2,
+                    "Keep": false,
+                    "RelativeRoute": ""
+                  }
+                ],
+                "Route": "/volumes",
+                "PathParameter": []
+              }
+            ],
+            "Methods": [
+              {
+                "Name": "get",
+                "fnName": "get",
+                "QueryParameters": [],
+                "PathParameters": [],
+                "HeaderParameters": [
+                  "Authorization"
+                ],
+                "RequiredArgs": 0,
+                "Verb": "get",
+                "TotalArgs": 0,
+                "Keep": false,
+                "RelativeRoute": ""
+              },
+              {
+                "Name": "update",
+                "fnName": "update",
+                "QueryParameters": [],
+                "PathParameters": [],
+                "HeaderParameters": [
+                  "Authorization"
+                ],
+                "RequiredArgs": 1,
+                "Verb": "put",
+                "TotalArgs": 1,
+                "Keep": false,
+                "RelativeRoute": ""
+              },
+              {
+                "Name": "delete",
+                "fnName": "delete",
+                "QueryParameters": [],
+                "PathParameters": [],
+                "HeaderParameters": [
+                  "Authorization"
+                ],
+                "RequiredArgs": 0,
+                "Verb": "delete",
+                "TotalArgs": 0,
+                "Keep": false,
+                "RelativeRoute": ""
+              },
+              {
+                "Name": "boot",
+                "fnName": "boot",
+                "QueryParameters": [],
+                "PathParameters": [],
+                "HeaderParameters": [
+                  "Authorization"
+                ],
+                "RequiredArgs": 1,
+                "Verb": "post",
+                "TotalArgs": 1,
+                "Keep": true,
+                "RelativeRoute": ""
+              },
+              {
+                "Name": "clone",
+                "fnName": "clone",
+                "QueryParameters": [],
+                "PathParameters": [],
+                "HeaderParameters": [
+                  "Authorization"
+                ],
+                "RequiredArgs": 1,
+                "Verb": "post",
+                "TotalArgs": 1,
+                "Keep": true,
+                "RelativeRoute": ""
+              },
+              {
+                "Name": "mutate",
+                "fnName": "mutate",
+                "QueryParameters": [],
+                "PathParameters": [],
+                "HeaderParameters": [
+                  "Authorization"
+                ],
+                "RequiredArgs": 0,
+                "Verb": "post",
+                "TotalArgs": 0,
+                "Keep": true,
+                "RelativeRoute": ""
+              },
+              {
+                "Name": "reboot",
+                "fnName": "reboot",
+                "QueryParameters": [],
+                "PathParameters": [],
+                "HeaderParameters": [
+                  "Authorization"
+                ],
+                "RequiredArgs": 0,
+                "Verb": "post",
+                "TotalArgs": 0,
+                "Keep": true,
+                "RelativeRoute": ""
+              },
+              {
+                "Name": "rebuild",
+                "fnName": "rebuild",
+                "QueryParameters": [],
+                "PathParameters": [],
+                "HeaderParameters": [
+                  "Authorization"
+                ],
+                "RequiredArgs": 1,
+                "Verb": "post",
+                "TotalArgs": 1,
+                "Keep": true,
+                "RelativeRoute": ""
+              },
+              {
+                "Name": "rescue",
+                "fnName": "rescue",
+                "QueryParameters": [],
+                "PathParameters": [],
+                "HeaderParameters": [
+                  "Authorization"
+                ],
+                "RequiredArgs": 1,
+                "Verb": "post",
+                "TotalArgs": 1,
+                "Keep": true,
+                "RelativeRoute": ""
+              },
+              {
+                "Name": "resize",
+                "fnName": "resize",
+                "QueryParameters": [],
+                "PathParameters": [],
+                "HeaderParameters": [
+                  "Authorization"
+                ],
+                "RequiredArgs": 1,
+                "Verb": "post",
+                "TotalArgs": 1,
+                "Keep": true,
+                "RelativeRoute": ""
+              },
+              {
+                "Name": "shutdown",
+                "fnName": "shutdown",
+                "QueryParameters": [],
+                "PathParameters": [],
+                "HeaderParameters": [
+                  "Authorization"
+                ],
+                "RequiredArgs": 0,
+                "Verb": "post",
+                "TotalArgs": 0,
+                "Keep": true,
+                "RelativeRoute": ""
+              }
+            ],
+            "Route": "/{linodeId}",
+            "PathParameter": [
+              "linodeId"
+            ]
+          },
+          "Properties": [],
+          "Methods": [
+            {
+              "Name": "list",
+              "fnName": "list",
+              "QueryParameters": [
+                "page",
+                "page_size"
+              ],
+              "PathParameters": [],
+              "HeaderParameters": [
+                "Authorization",
+                "X-Filter"
+              ],
+              "RequiredArgs": 0,
+              "Verb": "get",
+              "TotalArgs": 2,
+              "Keep": false,
+              "RelativeRoute": ""
+            },
+            {
+              "Name": "create",
+              "fnName": "create",
+              "QueryParameters": [],
+              "PathParameters": [],
+              "HeaderParameters": [
+                "Authorization"
+              ],
+              "RequiredArgs": 1,
+              "Verb": "post",
+              "TotalArgs": 1,
+              "Keep": false,
+              "RelativeRoute": ""
+            }
+          ],
+          "Route": "/instances",
+          "PathParameter": []
+        },
+        {
+          "FormatName": "kernels",
+          "Class": {
+            "FormatName": "kernels",
+            "Properties": [],
+            "Methods": [
+              {
+                "Name": "get",
+                "fnName": "get",
+                "QueryParameters": [],
+                "PathParameters": [],
+                "HeaderParameters": [
+                  "Authorization"
+                ],
+                "RequiredArgs": 0,
+                "Verb": "get",
+                "TotalArgs": 0,
+                "Keep": false,
+                "RelativeRoute": ""
+              }
+            ],
+            "Route": "/{kernelId}",
+            "PathParameter": [
+              "kernelId"
+            ]
+          },
+          "Properties": [],
+          "Methods": [
+            {
+              "Name": "list",
+              "fnName": "list",
+              "QueryParameters": [
+                "page",
+                "page_size"
+              ],
+              "PathParameters": [],
+              "HeaderParameters": [
+                "Authorization",
+                "X-Filter"
+              ],
+              "RequiredArgs": 0,
+              "Verb": "get",
+              "TotalArgs": 2,
+              "Keep": false,
+              "RelativeRoute": ""
+            }
+          ],
+          "Route": "/kernels",
+          "PathParameter": []
+        },
+        {
+          "FormatName": "stackscripts",
+          "Class": {
+            "FormatName": "stackscripts",
+            "Properties": [],
+            "Methods": [
+              {
+                "Name": "get",
+                "fnName": "get",
+                "QueryParameters": [],
+                "PathParameters": [],
+                "HeaderParameters": [
+                  "Authorization"
+                ],
+                "RequiredArgs": 0,
+                "Verb": "get",
+                "TotalArgs": 0,
+                "Keep": false,
+                "RelativeRoute": ""
+              },
+              {
+                "Name": "update",
+                "fnName": "update",
+                "QueryParameters": [],
+                "PathParameters": [],
+                "HeaderParameters": [
+                  "Authorization"
+                ],
+                "RequiredArgs": 1,
+                "Verb": "put",
+                "TotalArgs": 1,
+                "Keep": false,
+                "RelativeRoute": ""
+              },
+              {
+                "Name": "delete",
+                "fnName": "delete",
+                "QueryParameters": [],
+                "PathParameters": [],
+                "HeaderParameters": [
+                  "Authorization"
+                ],
+                "RequiredArgs": 0,
+                "Verb": "delete",
+                "TotalArgs": 0,
+                "Keep": false,
+                "RelativeRoute": ""
+              }
+            ],
+            "Route": "/{stackscriptId}",
+            "PathParameter": [
+              "stackscriptId"
+            ]
+          },
+          "Properties": [],
+          "Methods": [
+            {
+              "Name": "list",
+              "fnName": "list",
+              "QueryParameters": [
+                "page",
+                "page_size"
+              ],
+              "PathParameters": [],
+              "HeaderParameters": [
+                "Authorization",
+                "X-Filter"
+              ],
+              "RequiredArgs": 0,
+              "Verb": "get",
+              "TotalArgs": 2,
+              "Keep": false,
+              "RelativeRoute": ""
+            },
+            {
+              "Name": "create",
+              "fnName": "create",
+              "QueryParameters": [],
+              "PathParameters": [],
+              "HeaderParameters": [
+                "Authorization"
+              ],
+              "RequiredArgs": 1,
+              "Verb": "post",
+              "TotalArgs": 1,
+              "Keep": false,
+              "RelativeRoute": ""
+            }
+          ],
+          "Route": "/stackscripts",
+          "PathParameter": []
+        },
+        {
+          "FormatName": "types",
+          "Class": {
+            "FormatName": "types",
+            "Properties": [],
+            "Methods": [
+              {
+                "Name": "get",
+                "fnName": "get",
+                "QueryParameters": [],
+                "PathParameters": [],
+                "HeaderParameters": [
+                  "Authorization"
+                ],
+                "RequiredArgs": 0,
+                "Verb": "get",
+                "TotalArgs": 0,
+                "Keep": false,
+                "RelativeRoute": ""
+              }
+            ],
+            "Route": "/{typeId}",
+            "PathParameter": [
+              "typeId"
+            ]
+          },
+          "Properties": [],
+          "Methods": [
+            {
+              "Name": "list",
+              "fnName": "list",
+              "QueryParameters": [
+                "page",
+                "page_size"
+              ],
+              "PathParameters": [],
+              "HeaderParameters": [
+                "Authorization",
+                "X-Filter"
+              ],
+              "RequiredArgs": 0,
+              "Verb": "get",
+              "TotalArgs": 2,
+              "Keep": false,
+              "RelativeRoute": ""
+            }
+          ],
+          "Route": "/types",
+          "PathParameter": []
+        }
+      ],
+      "Methods": [],
+      "Route": "/linode",
+      "PathParameter": []
+    },
+    {
+      "FormatName": "longview",
+      "Properties": [
+        {
+          "FormatName": "clients",
+          "Class": {
+            "FormatName": "clients",
+            "Properties": [],
+            "Methods": [
+              {
+                "Name": "get",
+                "fnName": "get",
+                "QueryParameters": [],
+                "PathParameters": [],
+                "HeaderParameters": [
+                  "Authorization"
+                ],
+                "RequiredArgs": 0,
+                "Verb": "get",
+                "TotalArgs": 0,
+                "Keep": false,
+                "RelativeRoute": ""
+              },
+              {
+                "Name": "update",
+                "fnName": "update",
+                "QueryParameters": [],
+                "PathParameters": [],
+                "HeaderParameters": [
+                  "Authorization"
+                ],
+                "RequiredArgs": 1,
+                "Verb": "put",
+                "TotalArgs": 1,
+                "Keep": false,
+                "RelativeRoute": ""
+              },
+              {
+                "Name": "delete",
+                "fnName": "delete",
+                "QueryParameters": [],
+                "PathParameters": [],
+                "HeaderParameters": [
+                  "Authorization"
+                ],
+                "RequiredArgs": 0,
+                "Verb": "delete",
+                "TotalArgs": 0,
+                "Keep": false,
+                "RelativeRoute": ""
+              }
+            ],
+            "Route": "/{clientId}",
+            "PathParameter": [
+              "clientId"
+            ]
+          },
+          "Properties": [],
+          "Methods": [
+            {
+              "Name": "list",
+              "fnName": "list",
+              "QueryParameters": [
+                "page",
+                "page_size"
+              ],
+              "PathParameters": [],
+              "HeaderParameters": [
+                "Authorization",
+                "X-Filter"
+              ],
+              "RequiredArgs": 0,
+              "Verb": "get",
+              "TotalArgs": 2,
+              "Keep": false,
+              "RelativeRoute": ""
+            },
+            {
+              "Name": "create",
+              "fnName": "create",
+              "QueryParameters": [],
+              "PathParameters": [],
+              "HeaderParameters": [
+                "Authorization"
+              ],
+              "RequiredArgs": 1,
+              "Verb": "post",
+              "TotalArgs": 1,
+              "Keep": false,
+              "RelativeRoute": ""
+            }
+          ],
+          "Route": "/clients",
+          "PathParameter": []
+        },
+        {
+          "FormatName": "subscriptions",
+          "Class": {
+            "FormatName": "subscriptions",
+            "Properties": [],
+            "Methods": [
+              {
+                "Name": "get",
+                "fnName": "get",
+                "QueryParameters": [],
+                "PathParameters": [],
+                "HeaderParameters": [
+                  "Authorization"
+                ],
+                "RequiredArgs": 0,
+                "Verb": "get",
+                "TotalArgs": 0,
+                "Keep": false,
+                "RelativeRoute": ""
+              }
+            ],
+            "Route": "/{subscriptionId}",
+            "PathParameter": [
+              "subscriptionId"
+            ]
+          },
+          "Properties": [],
+          "Methods": [
+            {
+              "Name": "list",
+              "fnName": "list",
+              "QueryParameters": [
+                "page",
+                "page_size"
+              ],
+              "PathParameters": [],
+              "HeaderParameters": [
+                "Authorization"
+              ],
+              "RequiredArgs": 0,
+              "Verb": "get",
+              "TotalArgs": 2,
+              "Keep": false,
+              "RelativeRoute": ""
+            }
+          ],
+          "Route": "/subscriptions",
+          "PathParameter": []
+        }
+      ],
+      "Methods": [],
+      "Route": "/longview",
+      "PathParameter": []
+    },
+    {
+      "FormatName": "managed",
+      "Properties": [
+        {
+          "FormatName": "contacts",
+          "Class": {
+            "FormatName": "contacts",
+            "Properties": [],
+            "Methods": [
+              {
+                "Name": "get",
+                "fnName": "get",
+                "QueryParameters": [],
+                "PathParameters": [],
+                "HeaderParameters": [
+                  "Authorization"
+                ],
+                "RequiredArgs": 0,
+                "Verb": "get",
+                "TotalArgs": 0,
+                "Keep": false,
+                "RelativeRoute": ""
+              },
+              {
+                "Name": "update",
+                "fnName": "update",
+                "QueryParameters": [],
+                "PathParameters": [],
+                "HeaderParameters": [
+                  "Authorization"
+                ],
+                "RequiredArgs": 1,
+                "Verb": "put",
+                "TotalArgs": 1,
+                "Keep": false,
+                "RelativeRoute": ""
+              },
+              {
+                "Name": "delete",
+                "fnName": "delete",
+                "QueryParameters": [],
+                "PathParameters": [],
+                "HeaderParameters": [
+                  "Authorization"
+                ],
+                "RequiredArgs": 0,
+                "Verb": "delete",
+                "TotalArgs": 0,
+                "Keep": false,
+                "RelativeRoute": ""
+              }
+            ],
+            "Route": "/{contactId}",
+            "PathParameter": [
+              "contactId"
+            ]
+          },
+          "Properties": [],
+          "Methods": [
+            {
+              "Name": "list",
+              "fnName": "list",
+              "QueryParameters": [
+                "page",
+                "page_size"
+              ],
+              "PathParameters": [],
+              "HeaderParameters": [
+                "Authorization",
+                "X-Filter"
+              ],
+              "RequiredArgs": 0,
+              "Verb": "get",
+              "TotalArgs": 2,
+              "Keep": false,
+              "RelativeRoute": ""
+            },
+            {
+              "Name": "create",
+              "fnName": "create",
+              "QueryParameters": [],
+              "PathParameters": [],
+              "HeaderParameters": [
+                "Authorization"
+              ],
+              "RequiredArgs": 1,
+              "Verb": "post",
+              "TotalArgs": 1,
+              "Keep": false,
+              "RelativeRoute": ""
+            }
+          ],
+          "Route": "/contacts",
+          "PathParameter": []
+        },
+        {
+          "FormatName": "credentials",
+          "Class": {
+            "FormatName": "credentials",
+            "Properties": [],
+            "Methods": [
+              {
+                "Name": "get",
+                "fnName": "get",
+                "QueryParameters": [],
+                "PathParameters": [],
+                "HeaderParameters": [
+                  "Authorization"
+                ],
+                "RequiredArgs": 0,
+                "Verb": "get",
+                "TotalArgs": 0,
+                "Keep": false,
+                "RelativeRoute": ""
+              },
+              {
+                "Name": "update",
+                "fnName": "update",
+                "QueryParameters": [],
+                "PathParameters": [],
+                "HeaderParameters": [
+                  "Authorization"
+                ],
+                "RequiredArgs": 1,
+                "Verb": "put",
+                "TotalArgs": 1,
+                "Keep": false,
+                "RelativeRoute": ""
+              },
+              {
+                "Name": "revoke",
+                "fnName": "revoke",
+                "QueryParameters": [],
+                "PathParameters": [],
+                "HeaderParameters": [
+                  "Authorization"
+                ],
+                "RequiredArgs": 0,
+                "Verb": "post",
+                "TotalArgs": 0,
+                "Keep": true,
+                "RelativeRoute": ""
+              }
+            ],
+            "Route": "/{credentialId}",
+            "PathParameter": [
+              "credentialId"
+            ]
+          },
+          "Properties": [],
+          "Methods": [
+            {
+              "Name": "list",
+              "fnName": "list",
+              "QueryParameters": [
+                "page",
+                "page_size"
+              ],
+              "PathParameters": [],
+              "HeaderParameters": [
+                "Authorization"
+              ],
+              "RequiredArgs": 0,
+              "Verb": "get",
+              "TotalArgs": 2,
+              "Keep": false,
+              "RelativeRoute": ""
+            },
+            {
+              "Name": "create",
+              "fnName": "create",
+              "QueryParameters": [],
+              "PathParameters": [],
+              "HeaderParameters": [
+                "Authorization"
+              ],
+              "RequiredArgs": 1,
+              "Verb": "post",
+              "TotalArgs": 1,
+              "Keep": false,
+              "RelativeRoute": ""
+            }
+          ],
+          "Route": "/credentials",
+          "PathParameter": []
+        },
+        {
+          "FormatName": "issues",
+          "Class": {
+            "FormatName": "issues",
+            "Properties": [],
+            "Methods": [
+              {
+                "Name": "get",
+                "fnName": "get",
+                "QueryParameters": [],
+                "PathParameters": [],
+                "HeaderParameters": [
+                  "Authorization"
+                ],
+                "RequiredArgs": 0,
+                "Verb": "get",
+                "TotalArgs": 0,
+                "Keep": false,
+                "RelativeRoute": ""
+              }
+            ],
+            "Route": "/{issueId}",
+            "PathParameter": [
+              "issueId"
+            ]
+          },
+          "Properties": [],
+          "Methods": [
+            {
+              "Name": "list",
+              "fnName": "list",
+              "QueryParameters": [
+                "page",
+                "page_size"
+              ],
+              "PathParameters": [],
+              "HeaderParameters": [
+                "Authorization"
+              ],
+              "RequiredArgs": 0,
+              "Verb": "get",
+              "TotalArgs": 2,
+              "Keep": false,
+              "RelativeRoute": ""
+            }
+          ],
+          "Route": "/issues",
+          "PathParameter": []
+        },
+        {
+          "FormatName": "linodeSettings",
+          "Class": {
+            "FormatName": "linodeSettings",
+            "Properties": [],
+            "Methods": [
+              {
+                "Name": "get",
+                "fnName": "get",
+                "QueryParameters": [],
+                "PathParameters": [],
+                "HeaderParameters": [
+                  "Authorization"
+                ],
+                "RequiredArgs": 0,
+                "Verb": "get",
+                "TotalArgs": 0,
+                "Keep": false,
+                "RelativeRoute": ""
+              },
+              {
+                "Name": "update",
+                "fnName": "update",
+                "QueryParameters": [],
+                "PathParameters": [],
+                "HeaderParameters": [
+                  "Authorization"
+                ],
+                "RequiredArgs": 1,
+                "Verb": "put",
+                "TotalArgs": 1,
+                "Keep": false,
+                "RelativeRoute": ""
+              }
+            ],
+            "Route": "/{linodeId}",
+            "PathParameter": [
+              "linodeId"
+            ]
+          },
+          "Properties": [],
+          "Methods": [
+            {
+              "Name": "list",
+              "fnName": "list",
+              "QueryParameters": [
+                "page",
+                "page_size"
+              ],
+              "PathParameters": [],
+              "HeaderParameters": [
+                "Authorization"
+              ],
+              "RequiredArgs": 0,
+              "Verb": "get",
+              "TotalArgs": 2,
+              "Keep": false,
+              "RelativeRoute": ""
+            }
+          ],
+          "Route": "/linode-settings",
+          "PathParameter": []
+        },
+        {
+          "FormatName": "services",
+          "Class": {
+            "FormatName": "services",
+            "Properties": [],
+            "Methods": [
+              {
+                "Name": "get",
+                "fnName": "get",
+                "QueryParameters": [],
+                "PathParameters": [],
+                "HeaderParameters": [
+                  "Authorization"
+                ],
+                "RequiredArgs": 0,
+                "Verb": "get",
+                "TotalArgs": 0,
+                "Keep": false,
+                "RelativeRoute": ""
+              },
+              {
+                "Name": "update",
+                "fnName": "update",
+                "QueryParameters": [],
+                "PathParameters": [],
+                "HeaderParameters": [
+                  "Authorization"
+                ],
+                "RequiredArgs": 1,
+                "Verb": "put",
+                "TotalArgs": 1,
+                "Keep": false,
+                "RelativeRoute": ""
+              },
+              {
+                "Name": "delete",
+                "fnName": "delete",
+                "QueryParameters": [],
+                "PathParameters": [],
+                "HeaderParameters": [
+                  "Authorization"
+                ],
+                "RequiredArgs": 0,
+                "Verb": "delete",
+                "TotalArgs": 0,
+                "Keep": false,
+                "RelativeRoute": ""
+              },
+              {
+                "Name": "disable",
+                "fnName": "disable",
+                "QueryParameters": [],
+                "PathParameters": [],
+                "HeaderParameters": [
+                  "Authorization"
+                ],
+                "RequiredArgs": 0,
+                "Verb": "post",
+                "TotalArgs": 0,
+                "Keep": true,
+                "RelativeRoute": ""
+              },
+              {
+                "Name": "enable",
+                "fnName": "enable",
+                "QueryParameters": [],
+                "PathParameters": [],
+                "HeaderParameters": [
+                  "Authorization"
+                ],
+                "RequiredArgs": 0,
+                "Verb": "post",
+                "TotalArgs": 0,
+                "Keep": true,
+                "RelativeRoute": ""
+              }
+            ],
+            "Route": "/{serviceId}",
+            "PathParameter": [
+              "serviceId"
+            ]
+          },
+          "Properties": [],
+          "Methods": [
+            {
+              "Name": "list",
+              "fnName": "list",
+              "QueryParameters": [
+                "page",
+                "page_size"
+              ],
+              "PathParameters": [],
+              "HeaderParameters": [
+                "Authorization"
+              ],
+              "RequiredArgs": 0,
+              "Verb": "get",
+              "TotalArgs": 2,
+              "Keep": false,
+              "RelativeRoute": ""
+            },
+            {
+              "Name": "create",
+              "fnName": "create",
+              "QueryParameters": [],
+              "PathParameters": [],
+              "HeaderParameters": [
+                "Authorization"
+              ],
+              "RequiredArgs": 1,
+              "Verb": "post",
+              "TotalArgs": 1,
+              "Keep": false,
+              "RelativeRoute": ""
+            }
+          ],
+          "Route": "/services",
+          "PathParameter": []
+        }
+      ],
+      "Methods": [],
+      "Route": "/managed",
+      "PathParameter": []
+    },
+    {
+      "FormatName": "networking",
+      "Properties": [
+        {
+          "FormatName": "ips",
+          "Class": {
+            "FormatName": "ips",
+            "Properties": [],
+            "Methods": [
+              {
+                "Name": "get",
+                "fnName": "get",
+                "QueryParameters": [],
+                "PathParameters": [],
+                "HeaderParameters": [
+                  "Authorization"
+                ],
+                "RequiredArgs": 0,
+                "Verb": "get",
+                "TotalArgs": 0,
+                "Keep": false,
+                "RelativeRoute": ""
+              },
+              {
+                "Name": "update",
+                "fnName": "update",
+                "QueryParameters": [],
+                "PathParameters": [],
+                "HeaderParameters": [
+                  "Authorization"
+                ],
+                "RequiredArgs": 1,
+                "Verb": "put",
+                "TotalArgs": 1,
+                "Keep": false,
+                "RelativeRoute": ""
+              }
+            ],
+            "Route": "/{address}",
+            "PathParameter": [
+              "address"
+            ]
+          },
+          "Properties": [],
+          "Methods": [
+            {
+              "Name": "list",
+              "fnName": "list",
+              "QueryParameters": [
+                "page",
+                "page_size"
+              ],
+              "PathParameters": [],
+              "HeaderParameters": [
+                "Authorization",
+                "X-Filter"
+              ],
+              "RequiredArgs": 0,
+              "Verb": "get",
+              "TotalArgs": 2,
+              "Keep": false,
+              "RelativeRoute": ""
+            },
+            {
+              "Name": "create",
+              "fnName": "create",
+              "QueryParameters": [],
+              "PathParameters": [],
+              "HeaderParameters": [
+                "Authorization"
+              ],
+              "RequiredArgs": 1,
+              "Verb": "post",
+              "TotalArgs": 1,
+              "Keep": false,
+              "RelativeRoute": ""
+            }
+          ],
+          "Route": "/ips",
+          "PathParameter": []
+        },
+        {
+          "FormatName": "ipv4",
+          "Properties": [],
+          "Methods": [
+            {
+              "Name": "assign",
+              "fnName": "assign",
+              "QueryParameters": [],
+              "PathParameters": [],
+              "HeaderParameters": [
+                "Authorization"
+              ],
+              "RequiredArgs": 1,
+              "Verb": "post",
+              "TotalArgs": 1,
+              "Keep": true,
+              "RelativeRoute": ""
+            },
+            {
+              "Name": "share",
+              "fnName": "share",
+              "QueryParameters": [],
+              "PathParameters": [],
+              "HeaderParameters": [
+                "Authorization"
+              ],
+              "RequiredArgs": 1,
+              "Verb": "post",
+              "TotalArgs": 1,
+              "Keep": true,
+              "RelativeRoute": ""
+            }
+          ],
+          "Route": "/ipv4",
+          "PathParameter": []
+        },
+        {
+          "FormatName": "ipv6",
+          "Properties": [
+            {
+              "FormatName": "pools",
+              "Properties": [],
+              "Methods": [
+                {
+                  "Name": "list",
+                  "fnName": "list",
+                  "QueryParameters": [
+                    "page",
+                    "page_size"
+                  ],
+                  "PathParameters": [],
+                  "HeaderParameters": [
+                    "Authorization"
+                  ],
+                  "RequiredArgs": 0,
+                  "Verb": "get",
+                  "TotalArgs": 2,
+                  "Keep": false,
+                  "RelativeRoute": ""
+                }
+              ],
+              "Route": "/pools",
+              "PathParameter": []
+            },
+            {
+              "FormatName": "ranges",
+              "Properties": [],
+              "Methods": [
+                {
+                  "Name": "list",
+                  "fnName": "list",
+                  "QueryParameters": [
+                    "page",
+                    "page_size"
+                  ],
+                  "PathParameters": [],
+                  "HeaderParameters": [
+                    "Authorization"
+                  ],
+                  "RequiredArgs": 0,
+                  "Verb": "get",
+                  "TotalArgs": 2,
+                  "Keep": false,
+                  "RelativeRoute": ""
+                }
+              ],
+              "Route": "/ranges",
+              "PathParameter": []
+            }
+          ],
+          "Methods": [],
+          "Route": "/ipv6",
+          "PathParameter": []
+        }
+      ],
+      "Methods": [],
+      "Route": "/networking",
+      "PathParameter": []
+    },
+    {
+      "FormatName": "nodebalancers",
+      "Class": {
+        "FormatName": "nodebalancers",
+        "Properties": [
+          {
+            "FormatName": "configs",
+            "Class": {
+              "FormatName": "configs",
+              "Properties": [
+                {
+                  "FormatName": "nodes",
+                  "Class": {
+                    "FormatName": "nodes",
+                    "Properties": [],
+                    "Methods": [
+                      {
+                        "Name": "get",
+                        "fnName": "get",
+                        "QueryParameters": [],
+                        "PathParameters": [],
+                        "HeaderParameters": [
+                          "Authorization"
+                        ],
+                        "RequiredArgs": 0,
+                        "Verb": "get",
+                        "TotalArgs": 0,
+                        "Keep": false,
+                        "RelativeRoute": ""
+                      },
+                      {
+                        "Name": "update",
+                        "fnName": "update",
+                        "QueryParameters": [],
+                        "PathParameters": [],
+                        "HeaderParameters": [
+                          "Authorization"
+                        ],
+                        "RequiredArgs": 1,
+                        "Verb": "put",
+                        "TotalArgs": 1,
+                        "Keep": false,
+                        "RelativeRoute": ""
+                      },
+                      {
+                        "Name": "delete",
+                        "fnName": "delete",
+                        "QueryParameters": [],
+                        "PathParameters": [],
+                        "HeaderParameters": [
+                          "Authorization"
+                        ],
+                        "RequiredArgs": 0,
+                        "Verb": "delete",
+                        "TotalArgs": 0,
+                        "Keep": false,
+                        "RelativeRoute": ""
+                      }
+                    ],
+                    "Route": "/{nodeId}",
+                    "PathParameter": [
+                      "nodeId"
+                    ]
+                  },
+                  "Properties": [],
+                  "Methods": [
+                    {
+                      "Name": "list",
+                      "fnName": "list",
+                      "QueryParameters": [
+                        "page",
+                        "page_size"
+                      ],
+                      "PathParameters": [],
+                      "HeaderParameters": [
+                        "Authorization"
+                      ],
+                      "RequiredArgs": 0,
+                      "Verb": "get",
+                      "TotalArgs": 2,
+                      "Keep": false,
+                      "RelativeRoute": ""
+                    },
+                    {
+                      "Name": "create",
+                      "fnName": "create",
+                      "QueryParameters": [],
+                      "PathParameters": [],
+                      "HeaderParameters": [
+                        "Authorization"
+                      ],
+                      "RequiredArgs": 1,
+                      "Verb": "post",
+                      "TotalArgs": 1,
+                      "Keep": false,
+                      "RelativeRoute": ""
+                    }
+                  ],
+                  "Route": "/nodes",
+                  "PathParameter": []
+                }
+              ],
+              "Methods": [
+                {
+                  "Name": "get",
+                  "fnName": "get",
+                  "QueryParameters": [],
+                  "PathParameters": [],
+                  "HeaderParameters": [
+                    "Authorization"
+                  ],
+                  "RequiredArgs": 0,
+                  "Verb": "get",
+                  "TotalArgs": 0,
+                  "Keep": false,
+                  "RelativeRoute": ""
+                },
+                {
+                  "Name": "update",
+                  "fnName": "update",
+                  "QueryParameters": [],
+                  "PathParameters": [],
+                  "HeaderParameters": [
+                    "Authorization"
+                  ],
+                  "RequiredArgs": 1,
+                  "Verb": "put",
+                  "TotalArgs": 1,
+                  "Keep": false,
+                  "RelativeRoute": ""
+                },
+                {
+                  "Name": "delete",
+                  "fnName": "delete",
+                  "QueryParameters": [],
+                  "PathParameters": [],
+                  "HeaderParameters": [
+                    "Authorization"
+                  ],
+                  "RequiredArgs": 0,
+                  "Verb": "delete",
+                  "TotalArgs": 0,
+                  "Keep": false,
+                  "RelativeRoute": ""
+                }
+              ],
+              "Route": "/{configId}",
+              "PathParameter": [
+                "configId"
+              ]
+            },
+            "Properties": [],
+            "Methods": [
+              {
+                "Name": "list",
+                "fnName": "list",
+                "QueryParameters": [
+                  "page",
+                  "page_size"
+                ],
+                "PathParameters": [],
+                "HeaderParameters": [
+                  "Authorization"
+                ],
+                "RequiredArgs": 0,
+                "Verb": "get",
+                "TotalArgs": 2,
+                "Keep": false,
+                "RelativeRoute": ""
+              },
+              {
+                "Name": "create",
+                "fnName": "create",
+                "QueryParameters": [],
+                "PathParameters": [],
+                "HeaderParameters": [
+                  "Authorization"
+                ],
+                "RequiredArgs": 1,
+                "Verb": "post",
+                "TotalArgs": 1,
+                "Keep": false,
+                "RelativeRoute": ""
+              }
+            ],
+            "Route": "/configs",
+            "PathParameter": []
+          }
+        ],
+        "Methods": [
+          {
+            "Name": "get",
+            "fnName": "get",
+            "QueryParameters": [],
+            "PathParameters": [],
+            "HeaderParameters": [
+              "Authorization"
+            ],
+            "RequiredArgs": 0,
+            "Verb": "get",
+            "TotalArgs": 0,
+            "Keep": false,
+            "RelativeRoute": ""
+          },
+          {
+            "Name": "update",
+            "fnName": "update",
+            "QueryParameters": [],
+            "PathParameters": [],
+            "HeaderParameters": [
+              "Authorization"
+            ],
+            "RequiredArgs": 1,
+            "Verb": "put",
+            "TotalArgs": 1,
+            "Keep": false,
+            "RelativeRoute": ""
+          },
+          {
+            "Name": "delete",
+            "fnName": "delete",
+            "QueryParameters": [],
+            "PathParameters": [],
+            "HeaderParameters": [
+              "Authorization"
+            ],
+            "RequiredArgs": 0,
+            "Verb": "delete",
+            "TotalArgs": 0,
+            "Keep": false,
+            "RelativeRoute": ""
+          }
+        ],
+        "Route": "/{nodeBalancerId}",
+        "PathParameter": [
+          "nodeBalancerId"
+        ]
+      },
+      "Properties": [],
+      "Methods": [
+        {
+          "Name": "list",
+          "fnName": "list",
+          "QueryParameters": [
+            "page",
+            "page_size"
+          ],
+          "PathParameters": [],
+          "HeaderParameters": [
+            "Authorization",
+            "X-Filter"
+          ],
+          "RequiredArgs": 0,
+          "Verb": "get",
+          "TotalArgs": 2,
+          "Keep": false,
+          "RelativeRoute": ""
+        },
+        {
+          "Name": "create",
+          "fnName": "create",
+          "QueryParameters": [],
+          "PathParameters": [],
+          "HeaderParameters": [
+            "Authorization"
+          ],
+          "RequiredArgs": 1,
+          "Verb": "post",
+          "TotalArgs": 1,
+          "Keep": false,
+          "RelativeRoute": ""
+        }
+      ],
+      "Route": "/nodebalancers",
+      "PathParameter": []
+    },
+    {
+      "FormatName": "profile",
+      "Properties": [
+        {
+          "FormatName": "apps",
+          "Class": {
+            "FormatName": "apps",
+            "Properties": [],
+            "Methods": [
+              {
+                "Name": "get",
+                "fnName": "get",
+                "QueryParameters": [],
+                "PathParameters": [],
+                "HeaderParameters": [
+                  "Authorization"
+                ],
+                "RequiredArgs": 0,
+                "Verb": "get",
+                "TotalArgs": 0,
+                "Keep": false,
+                "RelativeRoute": ""
+              },
+              {
+                "Name": "delete",
+                "fnName": "delete",
+                "QueryParameters": [],
+                "PathParameters": [],
+                "HeaderParameters": [
+                  "Authorization"
+                ],
+                "RequiredArgs": 0,
+                "Verb": "delete",
+                "TotalArgs": 0,
+                "Keep": false,
+                "RelativeRoute": ""
+              }
+            ],
+            "Route": "/{appId}",
+            "PathParameter": [
+              "appId"
+            ]
+          },
+          "Properties": [],
+          "Methods": [
+            {
+              "Name": "list",
+              "fnName": "list",
+              "QueryParameters": [
+                "page",
+                "page_size"
+              ],
+              "PathParameters": [],
+              "HeaderParameters": [
+                "Authorization",
+                "X-Filter"
+              ],
+              "RequiredArgs": 0,
+              "Verb": "get",
+              "TotalArgs": 2,
+              "Keep": false,
+              "RelativeRoute": ""
+            }
+          ],
+          "Route": "/apps",
+          "PathParameter": []
+        },
+        {
+          "FormatName": "tokens",
+          "Class": {
+            "FormatName": "tokens",
+            "Properties": [],
+            "Methods": [
+              {
+                "Name": "get",
+                "fnName": "get",
+                "QueryParameters": [],
+                "PathParameters": [],
+                "HeaderParameters": [
+                  "Authorization"
+                ],
+                "RequiredArgs": 0,
+                "Verb": "get",
+                "TotalArgs": 0,
+                "Keep": false,
+                "RelativeRoute": ""
+              },
+              {
+                "Name": "update",
+                "fnName": "update",
+                "QueryParameters": [],
+                "PathParameters": [],
+                "HeaderParameters": [
+                  "Authorization"
+                ],
+                "RequiredArgs": 1,
+                "Verb": "put",
+                "TotalArgs": 1,
+                "Keep": false,
+                "RelativeRoute": ""
+              },
+              {
+                "Name": "delete",
+                "fnName": "delete",
+                "QueryParameters": [],
+                "PathParameters": [],
+                "HeaderParameters": [
+                  "Authorization"
+                ],
+                "RequiredArgs": 0,
+                "Verb": "delete",
+                "TotalArgs": 0,
+                "Keep": false,
+                "RelativeRoute": ""
+              }
+            ],
+            "Route": "/{tokenId}",
+            "PathParameter": [
+              "tokenId"
+            ]
+          },
+          "Properties": [],
+          "Methods": [
+            {
+              "Name": "list",
+              "fnName": "list",
+              "QueryParameters": [
+                "page",
+                "page_size"
+              ],
+              "PathParameters": [],
+              "HeaderParameters": [
+                "Authorization",
+                "X-Filter"
+              ],
+              "RequiredArgs": 0,
+              "Verb": "get",
+              "TotalArgs": 2,
+              "Keep": false,
+              "RelativeRoute": ""
+            },
+            {
+              "Name": "create",
+              "fnName": "create",
+              "QueryParameters": [],
+              "PathParameters": [],
+              "HeaderParameters": [
+                "Authorization"
+              ],
+              "RequiredArgs": 1,
+              "Verb": "post",
+              "TotalArgs": 1,
+              "Keep": false,
+              "RelativeRoute": ""
+            }
+          ],
+          "Route": "/tokens",
+          "PathParameter": []
+        }
+      ],
+      "Methods": [
+        {
+          "Name": "get",
+          "fnName": "get",
+          "QueryParameters": [],
+          "PathParameters": [],
+          "HeaderParameters": [
+            "Authorization"
+          ],
+          "RequiredArgs": 0,
+          "Verb": "get",
+          "TotalArgs": 0,
+          "Keep": false,
+          "RelativeRoute": ""
+        },
+        {
+          "Name": "update",
+          "fnName": "update",
+          "QueryParameters": [],
+          "PathParameters": [],
+          "HeaderParameters": [
+            "Authorization"
+          ],
+          "RequiredArgs": 1,
+          "Verb": "put",
+          "TotalArgs": 1,
+          "Keep": false,
+          "RelativeRoute": ""
+        },
+        {
+          "Name": "grants",
+          "fnName": "grants",
+          "QueryParameters": [],
+          "PathParameters": [],
+          "HeaderParameters": [
+            "Authorization"
+          ],
+          "RequiredArgs": 0,
+          "Verb": "get",
+          "TotalArgs": 0,
+          "Keep": true,
+          "RelativeRoute": ""
+        },
+        {
+          "Name": "tfa-disable",
+          "fnName": "tfaDisable",
+          "QueryParameters": [],
+          "PathParameters": [],
+          "HeaderParameters": [
+            "Authorization"
+          ],
+          "RequiredArgs": 0,
+          "Verb": "post",
+          "TotalArgs": 0,
+          "Keep": true,
+          "RelativeRoute": ""
+        },
+        {
+          "Name": "tfa-enable",
+          "fnName": "tfaEnable",
+          "QueryParameters": [],
+          "PathParameters": [],
+          "HeaderParameters": [
+            "Authorization"
+          ],
+          "RequiredArgs": 0,
+          "Verb": "post",
+          "TotalArgs": 0,
+          "Keep": true,
+          "RelativeRoute": ""
+        },
+        {
+          "Name": "tfa-enable-confirm",
+          "fnName": "tfaEnableConfirm",
+          "QueryParameters": [],
+          "PathParameters": [],
+          "HeaderParameters": [
+            "Authorization"
+          ],
+          "RequiredArgs": 1,
+          "Verb": "post",
+          "TotalArgs": 1,
+          "Keep": true,
+          "RelativeRoute": ""
+        }
+      ],
+      "Route": "/profile",
+      "PathParameter": []
+    },
+    {
+      "FormatName": "regions",
+      "Class": {
+        "FormatName": "regions",
+        "Properties": [],
+        "Methods": [
+          {
+            "Name": "get",
+            "fnName": "get",
+            "QueryParameters": [],
+            "PathParameters": [],
+            "HeaderParameters": [
+              "Authorization"
+            ],
+            "RequiredArgs": 0,
+            "Verb": "get",
+            "TotalArgs": 0,
+            "Keep": false,
+            "RelativeRoute": ""
+          }
+        ],
+        "Route": "/{regionId}",
+        "PathParameter": [
+          "regionId"
+        ]
+      },
+      "Properties": [],
+      "Methods": [
+        {
+          "Name": "list",
+          "fnName": "list",
+          "QueryParameters": [
+            "page",
+            "page_size"
+          ],
+          "PathParameters": [],
+          "HeaderParameters": [
+            "Authorization"
+          ],
+          "RequiredArgs": 0,
+          "Verb": "get",
+          "TotalArgs": 2,
+          "Keep": false,
+          "RelativeRoute": ""
+        }
+      ],
+      "Route": "/regions",
+      "PathParameter": []
+    },
+    {
+      "FormatName": "support",
+      "Properties": [
+        {
+          "FormatName": "tickets",
+          "Class": {
+            "FormatName": "tickets",
+            "Properties": [
+              {
+                "FormatName": "replies",
+                "Properties": [],
+                "Methods": [
+                  {
+                    "Name": "list",
+                    "fnName": "list",
+                    "QueryParameters": [
+                      "page",
+                      "page_size"
+                    ],
+                    "PathParameters": [],
+                    "HeaderParameters": [
+                      "Authorization"
+                    ],
+                    "RequiredArgs": 0,
+                    "Verb": "get",
+                    "TotalArgs": 2,
+                    "Keep": false,
+                    "RelativeRoute": ""
+                  },
+                  {
+                    "Name": "create",
+                    "fnName": "create",
+                    "QueryParameters": [],
+                    "PathParameters": [],
+                    "HeaderParameters": [
+                      "Authorization"
+                    ],
+                    "RequiredArgs": 1,
+                    "Verb": "post",
+                    "TotalArgs": 1,
+                    "Keep": false,
+                    "RelativeRoute": ""
+                  }
+                ],
+                "Route": "/replies",
+                "PathParameter": []
+              }
+            ],
+            "Methods": [
+              {
+                "Name": "get",
+                "fnName": "get",
+                "QueryParameters": [],
+                "PathParameters": [],
+                "HeaderParameters": [
+                  "Authorization"
+                ],
+                "RequiredArgs": 0,
+                "Verb": "get",
+                "TotalArgs": 0,
+                "Keep": false,
+                "RelativeRoute": ""
+              },
+              {
+                "Name": "attachments",
+                "fnName": "attachments",
+                "QueryParameters": [],
+                "PathParameters": [],
+                "HeaderParameters": [
+                  "Authorization"
+                ],
+                "RequiredArgs": 0,
+                "Verb": "post",
+                "TotalArgs": 0,
+                "Keep": true,
+                "RelativeRoute": ""
+              }
+            ],
+            "Route": "/{ticketId}",
+            "PathParameter": [
+              "ticketId"
+            ]
+          },
+          "Properties": [],
+          "Methods": [
+            {
+              "Name": "list",
+              "fnName": "list",
+              "QueryParameters": [
+                "page",
+                "page_size"
+              ],
+              "PathParameters": [],
+              "HeaderParameters": [
+                "Authorization",
+                "X-Filter"
+              ],
+              "RequiredArgs": 0,
+              "Verb": "get",
+              "TotalArgs": 2,
+              "Keep": false,
+              "RelativeRoute": ""
+            },
+            {
+              "Name": "create",
+              "fnName": "create",
+              "QueryParameters": [],
+              "PathParameters": [],
+              "HeaderParameters": [
+                "Authorization"
+              ],
+              "RequiredArgs": 1,
+              "Verb": "post",
+              "TotalArgs": 1,
+              "Keep": false,
+              "RelativeRoute": ""
+            }
+          ],
+          "Route": "/tickets",
+          "PathParameter": []
+        }
+      ],
+      "Methods": [],
+      "Route": "/support",
+      "PathParameter": []
+    },
+    {
+      "FormatName": "volumes",
+      "Class": {
+        "FormatName": "volumes",
+        "Properties": [],
+        "Methods": [
+          {
+            "Name": "get",
+            "fnName": "get",
+            "QueryParameters": [],
+            "PathParameters": [],
+            "HeaderParameters": [
+              "Authorization"
+            ],
+            "RequiredArgs": 0,
+            "Verb": "get",
+            "TotalArgs": 0,
+            "Keep": false,
+            "RelativeRoute": ""
+          },
+          {
+            "Name": "update",
+            "fnName": "update",
+            "QueryParameters": [],
+            "PathParameters": [],
+            "HeaderParameters": [
+              "Authorization"
+            ],
+            "RequiredArgs": 1,
+            "Verb": "put",
+            "TotalArgs": 1,
+            "Keep": false,
+            "RelativeRoute": ""
+          },
+          {
+            "Name": "delete",
+            "fnName": "delete",
+            "QueryParameters": [],
+            "PathParameters": [],
+            "HeaderParameters": [
+              "Authorization"
+            ],
+            "RequiredArgs": 0,
+            "Verb": "delete",
+            "TotalArgs": 0,
+            "Keep": false,
+            "RelativeRoute": ""
+          },
+          {
+            "Name": "attach",
+            "fnName": "attach",
+            "QueryParameters": [],
+            "PathParameters": [],
+            "HeaderParameters": [
+              "Authorization"
+            ],
+            "RequiredArgs": 1,
+            "Verb": "post",
+            "TotalArgs": 1,
+            "Keep": true,
+            "RelativeRoute": ""
+          },
+          {
+            "Name": "clone",
+            "fnName": "clone",
+            "QueryParameters": [],
+            "PathParameters": [],
+            "HeaderParameters": [
+              "Authorization"
+            ],
+            "RequiredArgs": 1,
+            "Verb": "post",
+            "TotalArgs": 1,
+            "Keep": true,
+            "RelativeRoute": ""
+          },
+          {
+            "Name": "detach",
+            "fnName": "detach",
+            "QueryParameters": [],
+            "PathParameters": [],
+            "HeaderParameters": [
+              "Authorization"
+            ],
+            "RequiredArgs": 0,
+            "Verb": "post",
+            "TotalArgs": 0,
+            "Keep": true,
+            "RelativeRoute": ""
+          },
+          {
+            "Name": "resize",
+            "fnName": "resize",
+            "QueryParameters": [],
+            "PathParameters": [],
+            "HeaderParameters": [
+              "Authorization"
+            ],
+            "RequiredArgs": 1,
+            "Verb": "post",
+            "TotalArgs": 1,
+            "Keep": true,
+            "RelativeRoute": ""
+          }
+        ],
+        "Route": "/{volumeId}",
+        "PathParameter": [
+          "volumeId"
+        ]
+      },
+      "Properties": [],
+      "Methods": [
+        {
+          "Name": "list",
+          "fnName": "list",
+          "QueryParameters": [
+            "page",
+            "page_size"
+          ],
+          "PathParameters": [],
+          "HeaderParameters": [
+            "Authorization",
+            "X-Filter"
+          ],
+          "RequiredArgs": 0,
+          "Verb": "get",
+          "TotalArgs": 2,
+          "Keep": false,
+          "RelativeRoute": ""
+        },
+        {
+          "Name": "create",
+          "fnName": "create",
+          "QueryParameters": [],
+          "PathParameters": [],
+          "HeaderParameters": [
+            "Authorization"
+          ],
+          "RequiredArgs": 1,
+          "Verb": "post",
+          "TotalArgs": 1,
+          "Keep": false,
+          "RelativeRoute": ""
+        }
+      ],
+      "Route": "/volumes",
+      "PathParameter": []
+    }
+  ],
+  "Methods": [],
+  "Route": "/",
+  "PathParameter": [],
+  "remote_server": "https://api.linode.com/v4"
+}
