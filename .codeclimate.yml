@@ -9,6 +9,7 @@ checks:
 exclude_patterns:
     - ".nyc_output/"
     - node_modules/
+    - src/interfaces.ts
     - test/
     - utils/
     - ".*"
