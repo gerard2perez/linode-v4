@@ -41,6 +41,7 @@ As I mention this package is generated automatically, that inclues tests, I've c
 ## Commands
 Here you will find a complete list of all the command and their link to the actual linode website.
 
+### account
 |Command|Reference|
 |---|---|
 |await server.account.get() | [/account](https://developers.linode.com/api/v4#operation/getAccount)|
@@ -97,6 +98,7 @@ Here you will find a complete list of all the command and their link to the actu
 |await server.account.users('username').delete() | [/account/users/{username}](https://developers.linode.com/api/v4#operation/deleteUser)|
 |await server.account.users('username').grants.get() | [/account/users/{username}/grants](https://developers.linode.com/api/v4#operation/getUserGrants)|
 |await server.account.users('username').grants.update({} as GrantsResponse) | [/account/users/{username}/grants](https://developers.linode.com/api/v4#operation/updateUserGrants)|
+### domains
 |Command|Reference|
 |---|---|
 |await server.domains.list() | [/domains](https://developers.linode.com/api/v4#operation/getDomains)|
@@ -116,6 +118,7 @@ Here you will find a complete list of all the command and their link to the actu
 |await server.domains(1).records(1).get() | [/domains/{domainId}/records/{recordId}](https://developers.linode.com/api/v4#operation/getDomainRecord)|
 |await server.domains(1).records(1).update({} as DomainRecord) | [/domains/{domainId}/records/{recordId}](https://developers.linode.com/api/v4#operation/updateDomainRecord)|
 |await server.domains(1).records(1).delete() | [/domains/{domainId}/records/{recordId}](https://developers.linode.com/api/v4#operation/deleteDomainRecord)|
+### images
 |Command|Reference|
 |---|---|
 |await server.images.list() | [/images](https://developers.linode.com/api/v4#operation/getImages)|
@@ -128,6 +131,7 @@ Here you will find a complete list of all the command and their link to the actu
 |await server.images('imageId').get() | [/images/{imageId}](https://developers.linode.com/api/v4#operation/getImage)|
 |await server.images('imageId').update({} as ImagePrivate) | [/images/{imageId}](https://developers.linode.com/api/v4#operation/updateImage)|
 |await server.images('imageId').delete() | [/images/{imageId}](https://developers.linode.com/api/v4#operation/deleteImage)|
+### linode
 |Command|Reference|
 |---|---|
 |await server.linode.instances.list() | [/linode/instances](https://developers.linode.com/api/v4#operation/getLinodeInstances)|
@@ -213,6 +217,7 @@ Here you will find a complete list of all the command and their link to the actu
 |await server.linode.types.list(2, {} as Filter<LinodeTypeFilter>) | [/linode/types](https://developers.linode.com/api/v4#operation/getLinodeTypes)|
 |await server.linode.types.list(2, 5, {} as Filter<LinodeTypeFilter>) | [/linode/types](https://developers.linode.com/api/v4#operation/getLinodeTypes)|
 |await server.linode.types('typeId').get() | [/linode/types/{typeId}](https://developers.linode.com/api/v4#operation/getLinodeType)|
+### longview
 |Command|Reference|
 |---|---|
 |await server.longview.clients.list() | [/longview/clients](https://developers.linode.com/api/v4#operation/getLongviewClients)|
@@ -229,6 +234,7 @@ Here you will find a complete list of all the command and their link to the actu
 |await server.longview.subscriptions.list(1) | [/longview/subscriptions](https://developers.linode.com/api/v4#operation/getLongviewSubscriptions)|
 |await server.longview.subscriptions.list(1, 50) | [/longview/subscriptions](https://developers.linode.com/api/v4#operation/getLongviewSubscriptions)|
 |await server.longview.subscriptions('subscriptionId').get() | [/longview/subscriptions/{subscriptionId}](https://developers.linode.com/api/v4#operation/getLongviewSubscription)|
+### managed
 |Command|Reference|
 |---|---|
 |await server.managed.contacts.list() | [/managed/contacts](https://developers.linode.com/api/v4#operation/getManagedContacts)|
@@ -266,6 +272,7 @@ Here you will find a complete list of all the command and their link to the actu
 |await server.managed.services(1).delete() | [/managed/services/{serviceId}](https://developers.linode.com/api/v4#operation/deleteManagedService)|
 |await server.managed.services(1).disable() | [/managed/services/{serviceId}](https://developers.linode.com/api/v4#operation/disableManagedService)|
 |await server.managed.services(1).enable() | [/managed/services/{serviceId}](https://developers.linode.com/api/v4#operation/enableManagedService)|
+### networking
 |Command|Reference|
 |---|---|
 |await server.networking.ips.list() | [/networking/ips](https://developers.linode.com/api/v4#operation/getIPs)|
@@ -285,6 +292,7 @@ Here you will find a complete list of all the command and their link to the actu
 |await server.networking.ipv6.ranges.list() | [/networking/ipv6/ranges](https://developers.linode.com/api/v4#operation/getIPv6Ranges)|
 |await server.networking.ipv6.ranges.list(1) | [/networking/ipv6/ranges](https://developers.linode.com/api/v4#operation/getIPv6Ranges)|
 |await server.networking.ipv6.ranges.list(1, 50) | [/networking/ipv6/ranges](https://developers.linode.com/api/v4#operation/getIPv6Ranges)|
+### nodebalancers
 |Command|Reference|
 |---|---|
 |await server.nodebalancers.list() | [/nodebalancers](https://developers.linode.com/api/v4#operation/getNodeBalancers)|
@@ -311,6 +319,7 @@ Here you will find a complete list of all the command and their link to the actu
 |await server.nodebalancers(1).configs(1).nodes(1).get() | [/nodebalancers/{nodeBalancerId}/configs/{configId}/nodes/{nodeId}](https://developers.linode.com/api/v4#operation/getNodeBalancerNode)|
 |await server.nodebalancers(1).configs(1).nodes(1).update({} as NodeBalancerNode) | [/nodebalancers/{nodeBalancerId}/configs/{configId}/nodes/{nodeId}](https://developers.linode.com/api/v4#operation/updateNodeBalancerNode)|
 |await server.nodebalancers(1).configs(1).nodes(1).delete() | [/nodebalancers/{nodeBalancerId}/configs/{configId}/nodes/{nodeId}](https://developers.linode.com/api/v4#operation/deleteNodeBalancerConfigNode)|
+### profile
 |Command|Reference|
 |---|---|
 |await server.profile.get() | [/profile](https://developers.linode.com/api/v4#operation/getProfile)|
@@ -337,12 +346,14 @@ Here you will find a complete list of all the command and their link to the actu
 |await server.profile.tokens(1).get() | [/profile/tokens/{tokenId}](https://developers.linode.com/api/v4#operation/getPersonalAccessToken)|
 |await server.profile.tokens(1).update({} as PersonalAccessToken) | [/profile/tokens/{tokenId}](https://developers.linode.com/api/v4#operation/updatePersonalAccessToken)|
 |await server.profile.tokens(1).delete() | [/profile/tokens/{tokenId}](https://developers.linode.com/api/v4#operation/deletePersonalAccessToken)|
+### regions
 |Command|Reference|
 |---|---|
 |await server.regions.list() | [/regions](https://developers.linode.com/api/v4#operation/getRegions)|
 |await server.regions.list(1) | [/regions](https://developers.linode.com/api/v4#operation/getRegions)|
 |await server.regions.list(1, 50) | [/regions](https://developers.linode.com/api/v4#operation/getRegions)|
 |await server.regions('regionId').get() | [/regions/{regionId}](https://developers.linode.com/api/v4#operation/getRegion)|
+### support
 |Command|Reference|
 |---|---|
 |await server.support.tickets.list() | [/support/tickets](https://developers.linode.com/api/v4#operation/getTickets)|
@@ -358,6 +369,7 @@ Here you will find a complete list of all the command and their link to the actu
 |await server.support.tickets(1).replies.list(1) | [/support/tickets/{ticketId}/replies](https://developers.linode.com/api/v4#operation/getTicketReplies)|
 |await server.support.tickets(1).replies.list(1, 50) | [/support/tickets/{ticketId}/replies](https://developers.linode.com/api/v4#operation/getTicketReplies)|
 |await server.support.tickets(1).replies.create({} as any) | [/support/tickets/{ticketId}/replies](https://developers.linode.com/api/v4#operation/createTicketReply)|
+### volumes
 |Command|Reference|
 |---|---|
 |await server.volumes.list() | [/volumes](https://developers.linode.com/api/v4#operation/getVolumes)|
