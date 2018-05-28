@@ -2,7 +2,7 @@ import {IAccount, IDomains, IImages, ILinode, ILongview, IManaged, INetworking, 
 import { APIService, APIPreSend } from "./APIMaker";
 
 const API = require(process.cwd() + '/specification.json');
-export class Linodev4 {
+class Linodev4 {
 	//@ts-ignore
 	account:IAccount
 	//@ts-ignore
@@ -31,3 +31,5 @@ export class Linodev4 {
 		return new APIService(API.remote_server, key, API, fn) as any;
 	}
 }
+
+export { Linodev4, Linodev4 as default};

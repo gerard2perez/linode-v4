@@ -11,7 +11,7 @@
 		"semantic-release": "semantic-release",
 		"test": "mocha test/*.test.ts",
 		"test:live": "mocha test/*.test.ts --watch --recursive --watch-extensions ts",
-		"build": "tsc && npm run openapi && npm run openapi -- def && npm run openapi -- test  && npm run openapi -- call"
+		"build": "tsc && npm run openapi && npm run openapi -- def && npm run openapi -- test  && npm run openapi -- call && npm run openapi -- readme"
 	},
 	"engines": {
 		"node": ">= 8.7.0",
