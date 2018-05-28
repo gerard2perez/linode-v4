@@ -1,7 +1,9 @@
 .nyc_output/
 coverage/
-testinclude.api.ts
-*.js
+src/generator/
+api_call_test.ts
+/**/*.js
+/**/*.map
 node_modules/
 *.tgz
-index.d.ts
+/**/*.d.ts

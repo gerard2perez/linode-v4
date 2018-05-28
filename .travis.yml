@@ -26,9 +26,9 @@ before_install:
   - npm install -g codeclimate-test-reporter
 install:
   - npm i .
+  - npm run build
 script:
   - npm run cover
 after_success:
-  - npm run declarations
   - npm run codeclimate:report
   - npm run semantic-release
