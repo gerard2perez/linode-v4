@@ -1,5 +1,9 @@
 {
   "files.exclude": {
-    ".nyc_output": false
+    ".nyc_output": true,
+	"node_modules": true,
+	"*.js": true,
+	"*.d.ts": true,
+	"*.map": true
   }
 }

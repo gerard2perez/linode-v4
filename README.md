@@ -300,8 +300,8 @@ Here you will find a complete list of all the command and their link to the actu
 |await server.nodebalancers.list(1, 50) | [/nodebalancers](https://developers.linode.com/api/v4#operation/getNodeBalancers)|
 |await server.nodebalancers.list({} as Filter<NodeBalancerFilter>) | [/nodebalancers](https://developers.linode.com/api/v4#operation/getNodeBalancers)|
 |await server.nodebalancers.list(2, {} as Filter<NodeBalancerFilter>) | [/nodebalancers](https://developers.linode.com/api/v4#operation/getNodeBalancers)|
-|await server.nodebalancers.list(2, 5, {} as Filter<NodeBalancerFilter>) | [/nodebalancers](https://developers.linode.com/api/v4#operation/getNodeBalancers)|
-|await server.nodebalancers.create({} as any) | [/nodebalancers](https://developers.linode.com/api/v4#operation/createNodeBalancer)|
+|await server.nodebalancers.list(2, 5, {} as Filter<NodeBalancerFilter>) | [/nodebalancers](https://developers.linode.com/api/v4/#operation/getNodeBalancers)|
+|await server.nodebalancers.create({} as any) | [/nodebalancers](https://developers.linode.com/api/v4/#operation/createNodeBalancer)|
 |await server.nodebalancers(1).get() | [/nodebalancers/{nodeBalancerId}](https://developers.linode.com/api/v4#operation/getNodeBalancer)|
 |await server.nodebalancers(1).update({} as NodeBalancer) | [/nodebalancers/{nodeBalancerId}](https://developers.linode.com/api/v4#operation/updateNodeBalancer)|
 |await server.nodebalancers(1).delete() | [/nodebalancers/{nodeBalancerId}](https://developers.linode.com/api/v4#operation/deleteNodeBalancer)|

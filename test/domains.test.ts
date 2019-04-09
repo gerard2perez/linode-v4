@@ -11,7 +11,7 @@ describe('/domains', () => {
 		expect(await server.domains.list({} as Filter<DomainFilter>)).to.deep.equal({"verb":"get","route":"https://api.linode.com/v4/domains","headers":{"Authorization":"Bearer personal-key-secured","X-Filter":{}}});
 		expect(await server.domains.list(2, {} as Filter<DomainFilter>)).to.deep.equal({"verb":"get","route":"https://api.linode.com/v4/domains","query":"?page=2","headers":{"Authorization":"Bearer personal-key-secured","X-Filter":{}}});
 		expect(await server.domains.list(2, 5, {} as Filter<DomainFilter>)).to.deep.equal({"verb":"get","route":"https://api.linode.com/v4/domains","query":"?page=2&page_size=5","headers":{"Authorization":"Bearer personal-key-secured","X-Filter":{}}});
-		expect(await server.domains.create({} as Domain)).to.deep.equal({"verb":"post","route":"https://api.linode.com/v4/domains","body":{},"headers":{"Authorization":"Bearer personal-key-secured"}});
+		expect(await server.domains.import({} as any)).to.deep.equal({"verb":"post","route":"https://api.linode.com/v4/domains/import","body":{},"headers":{"Authorization":"Bearer personal-key-secured"}});
 	});
 	it('domains', async ()=>{
 		expect(await server.domains(1).get()).to.deep.equal({"verb":"get","route":"https://api.linode.com/v4/domains/1","headers":{"Authorization":"Bearer personal-key-secured"}});

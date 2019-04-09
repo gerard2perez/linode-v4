@@ -23,6 +23,7 @@ describe('/linode', () => {
 		expect(await server.linode.instances(1).rescue({} as any)).to.deep.equal({"verb":"post","route":"https://api.linode.com/v4/linode/instances/1/rescue","body":{},"headers":{"Authorization":"Bearer personal-key-secured"}});
 		expect(await server.linode.instances(1).resize({} as any)).to.deep.equal({"verb":"post","route":"https://api.linode.com/v4/linode/instances/1/resize","body":{},"headers":{"Authorization":"Bearer personal-key-secured"}});
 		expect(await server.linode.instances(1).shutdown()).to.deep.equal({"verb":"post","route":"https://api.linode.com/v4/linode/instances/1/shutdown","headers":{"Authorization":"Bearer personal-key-secured"}});
+		expect(await server.linode.instances(1).migrate()).to.deep.equal({"verb":"post","route":"https://api.linode.com/v4/linode/instances/1/migrate","headers":{"Authorization":"Bearer personal-key-secured"}});
 		expect(await server.linode.instances(1).backups.get()).to.deep.equal({"verb":"get","route":"https://api.linode.com/v4/linode/instances/1/backups","headers":{"Authorization":"Bearer personal-key-secured"}});
 		expect(await server.linode.instances(1).backups.create({} as any)).to.deep.equal({"verb":"post","route":"https://api.linode.com/v4/linode/instances/1/backups","body":{},"headers":{"Authorization":"Bearer personal-key-secured"}});
 		expect(await server.linode.instances(1).backups.cancel()).to.deep.equal({"verb":"post","route":"https://api.linode.com/v4/linode/instances/1/backups/cancel","headers":{"Authorization":"Bearer personal-key-secured"}});

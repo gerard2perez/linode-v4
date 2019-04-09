@@ -14,6 +14,9 @@ describe('/account', () => {
 		expect(await server.account.events.list()).to.deep.equal({"verb":"get","route":"https://api.linode.com/v4/account/events","headers":{"Authorization":"Bearer personal-key-secured"}});
 		expect(await server.account.events.list(1)).to.deep.equal({"verb":"get","route":"https://api.linode.com/v4/account/events","query":"?page=1","headers":{"Authorization":"Bearer personal-key-secured"}});
 		expect(await server.account.events.list(1, 50)).to.deep.equal({"verb":"get","route":"https://api.linode.com/v4/account/events","query":"?page=1&page_size=50","headers":{"Authorization":"Bearer personal-key-secured"}});
+		expect(await server.account.events.list({})).to.deep.equal({"verb":"get","route":"https://api.linode.com/v4/account/events","headers":{"Authorization":"Bearer personal-key-secured"},"X-Filter":{}});
+		expect(await server.account.events.list(1, {})).to.deep.equal({"verb":"get","route":"https://api.linode.com/v4/account/events","query":"?page=1","headers":{"Authorization":"Bearer personal-key-secured"},"X-Filter":{}});
+		expect(await server.account.events.list(1, 50, {})).to.deep.equal({"verb":"get","route":"https://api.linode.com/v4/account/events","query":"?page=1&page_size=50","headers":{"Authorization":"Bearer personal-key-secured"},"X-Filter":{}});
 		expect(await server.account.events(1).get()).to.deep.equal({"verb":"get","route":"https://api.linode.com/v4/account/events/1","headers":{"Authorization":"Bearer personal-key-secured"}});
 		expect(await server.account.events(1).read()).to.deep.equal({"verb":"post","route":"https://api.linode.com/v4/account/events/1/read","headers":{"Authorization":"Bearer personal-key-secured"}});
 		expect(await server.account.events(1).seen()).to.deep.equal({"verb":"post","route":"https://api.linode.com/v4/account/events/1/seen","headers":{"Authorization":"Bearer personal-key-secured"}});

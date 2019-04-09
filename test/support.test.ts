@@ -14,6 +14,7 @@ describe('/support', () => {
 		expect(await server.support.tickets.create({} as SupportTicketRequest)).to.deep.equal({"verb":"post","route":"https://api.linode.com/v4/support/tickets","body":{},"headers":{"Authorization":"Bearer personal-key-secured"}});
 		expect(await server.support.tickets(1).get()).to.deep.equal({"verb":"get","route":"https://api.linode.com/v4/support/tickets/1","headers":{"Authorization":"Bearer personal-key-secured"}});
 		expect(await server.support.tickets(1).attachments()).to.deep.equal({"verb":"post","route":"https://api.linode.com/v4/support/tickets/1/attachments","headers":{"Authorization":"Bearer personal-key-secured"}});
+		expect(await server.support.tickets(1).close()).to.deep.equal({"verb":"post","route":"https://api.linode.com/v4/support/tickets/1/close","headers":{"Authorization":"Bearer personal-key-secured"}});
 		expect(await server.support.tickets(1).replies.list()).to.deep.equal({"verb":"get","route":"https://api.linode.com/v4/support/tickets/1/replies","headers":{"Authorization":"Bearer personal-key-secured"}});
 		expect(await server.support.tickets(1).replies.list(1)).to.deep.equal({"verb":"get","route":"https://api.linode.com/v4/support/tickets/1/replies","query":"?page=1","headers":{"Authorization":"Bearer personal-key-secured"}});
 		expect(await server.support.tickets(1).replies.list(1, 50)).to.deep.equal({"verb":"get","route":"https://api.linode.com/v4/support/tickets/1/replies","query":"?page=1&page_size=50","headers":{"Authorization":"Bearer personal-key-secured"}});
