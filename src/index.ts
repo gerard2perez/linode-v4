@@ -30,7 +30,7 @@ class Linodev4 {
 	volumes:IVolumes
 	//@ts-ignore
 	tags:ITags
-	constructor(key:string, config:AxiosRequestConfig={}, fn?:APIPreSend) {
+	constructor(key:string, config?:AxiosRequestConfig, fn?:APIPreSend) {
 		return new APIService(API.remote_server, key, API, fn, config) as any;
 	}
 }
