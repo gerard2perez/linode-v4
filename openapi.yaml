@@ -790,6 +790,9 @@ paths:
                     $ref: '#/components/schemas/PaginationEnvelope/properties/results'
         default:
           $ref: '#/components/responses/ErrorResponse'
+      parameters:
+      - $ref: '#/components/parameters/pageOffset'
+      - $ref: '#/components/parameters/pageSize'
       x-code-samples:
         - lang: Shell
           source: >
@@ -5504,6 +5507,9 @@ paths:
                     $ref: '#/components/schemas/PaginationEnvelope/properties/results'
         default:
           $ref: '#/components/responses/ErrorResponse'
+      parameters:
+      - $ref: '#/components/parameters/pageOffset'
+      - $ref: '#/components/parameters/pageSize'
       x-code-samples:
       - lang: Shell
         source: >
@@ -6523,6 +6529,9 @@ paths:
       x-linode-grant: unrestricted only
       tags:
       - Managed
+      parameters:
+      - $ref: '#/components/parameters/pageOffset'
+      - $ref: '#/components/parameters/pageSize'
       summary: List Managed Services
       description: >
         Returns a paginated list of Managed Services on your Account. These
@@ -6844,6 +6853,9 @@ paths:
     x-linode-cli-command: networking
     get:
       x-linode-grant: read_only
+      parameters:
+      - $ref: '#/components/parameters/pageOffset'
+      - $ref: '#/components/parameters/pageSize'
       tags:
       - Networking
       summary: List IP Addresses
@@ -8644,6 +8656,9 @@ paths:
     get:
       tags:
       - Profile
+      parameters:
+      - $ref: '#/components/parameters/pageOffset'
+      - $ref: '#/components/parameters/pageSize'
       summary: List Personal Access Tokens
       description: >
         Returns a paginated list of Personal Access Tokens currently active for
@@ -8870,6 +8885,9 @@ paths:
     get:
       tags:
       - Profile
+      parameters:
+      - $ref: '#/components/parameters/pageOffset'
+      - $ref: '#/components/parameters/pageSize'
       summary: List Trusted Devices
       description: >
         Returns a paginated list of active TrustedDevices for your User.
@@ -9197,6 +9215,9 @@ paths:
     get:
       tags:
       - Regions
+      parameters:
+      - $ref: '#/components/parameters/pageOffset'
+      - $ref: '#/components/parameters/pageSize'
       summary: List Regions
       description: |
         Lists the Regions available for Linode services. Not all services are guaranteed to be

@@ -5,6 +5,7 @@ import { Linodev4 } from '../src/';
 const server = new Linodev4('personal-key-secured', async (data) => Promise.resolve(data) );
 describe('/domains', () => {
 	it('domains', async ()=>{
+		console.log(server.domains);
 		expect(await server.domains.list()).to.deep.equal({"verb":"get","route":"https://api.linode.com/v4/domains","headers":{"Authorization":"Bearer personal-key-secured"}});
 		expect(await server.domains.list(1)).to.deep.equal({"verb":"get","route":"https://api.linode.com/v4/domains","query":"?page=1","headers":{"Authorization":"Bearer personal-key-secured"}});
 		expect(await server.domains.list(1, 50)).to.deep.equal({"verb":"get","route":"https://api.linode.com/v4/domains","query":"?page=1&page_size=50","headers":{"Authorization":"Bearer personal-key-secured"}});

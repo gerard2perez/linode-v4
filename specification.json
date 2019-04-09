@@ -163,14 +163,17 @@
             {
               "Name": "list",
               "fnName": "list",
-              "QueryParameters": [],
+              "QueryParameters": [
+                "page",
+                "page_size"
+              ],
               "PathParameters": [],
               "HeaderParameters": [
                 "Authorization"
               ],
               "RequiredArgs": 0,
               "Verb": "get",
-              "TotalArgs": 0,
+              "TotalArgs": 2,
               "Keep": false,
               "RelativeRoute": ""
             }
@@ -1824,7 +1827,10 @@
             {
               "Name": "list",
               "fnName": "list",
-              "QueryParameters": [],
+              "QueryParameters": [
+                "page",
+                "page_size"
+              ],
               "PathParameters": [],
               "HeaderParameters": [
                 "Authorization",
@@ -1832,7 +1838,7 @@
               ],
               "RequiredArgs": 0,
               "Verb": "get",
-              "TotalArgs": 0,
+              "TotalArgs": 2,
               "Keep": false,
               "RelativeRoute": ""
             }
@@ -2379,14 +2385,17 @@
             {
               "Name": "list",
               "fnName": "list",
-              "QueryParameters": [],
+              "QueryParameters": [
+                "page",
+                "page_size"
+              ],
               "PathParameters": [],
               "HeaderParameters": [
                 "Authorization"
               ],
               "RequiredArgs": 0,
               "Verb": "get",
-              "TotalArgs": 0,
+              "TotalArgs": 2,
               "Keep": false,
               "RelativeRoute": ""
             },
@@ -2461,7 +2470,10 @@
             {
               "Name": "list",
               "fnName": "list",
-              "QueryParameters": [],
+              "QueryParameters": [
+                "page",
+                "page_size"
+              ],
               "PathParameters": [],
               "HeaderParameters": [
                 "Authorization",
@@ -2469,7 +2481,7 @@
               ],
               "RequiredArgs": 0,
               "Verb": "get",
-              "TotalArgs": 0,
+              "TotalArgs": 2,
               "Keep": false,
               "RelativeRoute": ""
             },
@@ -3020,7 +3032,10 @@
             {
               "Name": "list",
               "fnName": "list",
-              "QueryParameters": [],
+              "QueryParameters": [
+                "page",
+                "page_size"
+              ],
               "PathParameters": [],
               "HeaderParameters": [
                 "Authorization",
@@ -3028,7 +3043,7 @@
               ],
               "RequiredArgs": 0,
               "Verb": "get",
-              "TotalArgs": 0,
+              "TotalArgs": 2,
               "Keep": false,
               "RelativeRoute": ""
             },
@@ -3095,14 +3110,17 @@
             {
               "Name": "list",
               "fnName": "list",
-              "QueryParameters": [],
+              "QueryParameters": [
+                "page",
+                "page_size"
+              ],
               "PathParameters": [],
               "HeaderParameters": [
                 "Authorization"
               ],
               "RequiredArgs": 0,
               "Verb": "get",
-              "TotalArgs": 0,
+              "TotalArgs": 2,
               "Keep": false,
               "RelativeRoute": ""
             }
@@ -3322,14 +3340,17 @@
         {
           "Name": "list",
           "fnName": "list",
-          "QueryParameters": [],
+          "QueryParameters": [
+            "page",
+            "page_size"
+          ],
           "PathParameters": [],
           "HeaderParameters": [
             "Authorization"
           ],
           "RequiredArgs": 0,
           "Verb": "get",
-          "TotalArgs": 0,
+          "TotalArgs": 2,
           "Keep": false,
           "RelativeRoute": ""
         }

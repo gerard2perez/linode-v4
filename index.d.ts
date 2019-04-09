@@ -1,4 +1,4 @@
-import { IAccount, IDomains, IImages, ILinode, ILongview, IManaged, INetworking, INodebalancers, IProfile, IRegions, ISupport, IVolumes } from './interfaces';
+import { IAccount, IDomains, IImages, ILinode, ILongview, IManaged, INetworking, INodebalancers, IProfile, IRegions, ISupport, IVolumes, ITags } from './interfaces';
 import { APIPreSend } from "./APIMaker";
 declare class Linodev4 {
     account: IAccount;
@@ -13,6 +13,7 @@ declare class Linodev4 {
     regions: IRegions;
     support: ISupport;
     volumes: IVolumes;
+    tags: ITags;
     constructor(key: string, fn?: APIPreSend);
 }
 export { Linodev4, Linodev4 as default };

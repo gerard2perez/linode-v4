@@ -19,7 +19,7 @@ export declare type Filter<TInstance extends {}> = TInstance | {
 };
 export declare enum BackupType {
     auto = "auto",
-    snapshot = "snapshot",
+    snapshot = "snapshot"
 }
 export declare enum BackupStatus {
     paused = "paused",
@@ -28,36 +28,36 @@ export declare enum BackupStatus {
     needsPostProcessing = "needsPostProcessing",
     successful = "successful",
     failed = "failed",
-    userAborted = "userAborted",
+    userAborted = "userAborted"
 }
 export declare enum DiskStatus {
     ready = "ready",
     not_ready = "not ready",
-    deleting = "deleting",
+    deleting = "deleting"
 }
 export declare enum DiskFilesystem {
     raw = "raw",
     swap = "swap",
     ext3 = "ext3",
     ext4 = "ext4",
-    initrd = "initrd",
+    initrd = "initrd"
 }
 export declare enum DiskRequestFilesystem {
     raw = "raw",
     swap = "swap",
     ext3 = "ext3",
     ext4 = "ext4",
-    initrd = "initrd",
+    initrd = "initrd"
 }
 export declare enum DomainType {
     master = "master",
-    slave = "slave",
+    slave = "slave"
 }
 export declare enum DomainStatus {
     disabled = "disabled",
     active = "active",
     edit_mode = "edit_mode",
-    has_errors = "has_errors",
+    has_errors = "has_errors"
 }
 export declare enum DomainRecordType {
     A = "A",
@@ -68,29 +68,37 @@ export declare enum DomainRecordType {
     TXT = "TXT",
     SRV = "SRV",
     PTR = "PTR",
-    CAA = "CAA",
+    CAA = "CAA"
 }
 export declare enum EventAction {
+    account_update = "account_update",
+    account_settings_update = "account_settings_update",
     backups_enable = "backups_enable",
     backups_cancel = "backups_cancel",
     backups_restore = "backups_restore",
     community_question_reply = "community_question_reply",
+    community_like = "community_like",
     credit_card_updated = "credit_card_updated",
     disk_create = "disk_create",
     disk_delete = "disk_delete",
+    disk_update = "disk_update",
     disk_duplicate = "disk_duplicate",
     disk_imagize = "disk_imagize",
     disk_resize = "disk_resize",
     dns_record_create = "dns_record_create",
     dns_record_delete = "dns_record_delete",
+    dns_record_update = "dns_record_update",
     dns_zone_create = "dns_zone_create",
     dns_zone_delete = "dns_zone_delete",
+    dns_zone_update = "dns_zone_update",
     image_delete = "image_delete",
+    image_update = "image_update",
     linode_addip = "linode_addip",
     linode_boot = "linode_boot",
     linode_clone = "linode_clone",
     linode_create = "linode_create",
     linode_delete = "linode_delete",
+    linode_update = "linode_update",
     linode_deleteip = "linode_deleteip",
     linode_migrate = "linode_migrate",
     linode_mutate = "linode_mutate",
@@ -99,67 +107,78 @@ export declare enum EventAction {
     linode_resize = "linode_resize",
     linode_shutdown = "linode_shutdown",
     linode_snapshot = "linode_snapshot",
+    linode_config_create = "linode_config_create",
+    linode_config_delete = "linode_config_delete",
+    linode_config_update = "linode_config_update",
     longviewclient_create = "longviewclient_create",
     longviewclient_delete = "longviewclient_delete",
+    longviewclient_update = "longviewclient_update",
     managed_disabled = "managed_disabled",
     managed_enabled = "managed_enabled",
     managed_service_create = "managed_service_create",
     managed_service_delete = "managed_service_delete",
     nodebalancer_create = "nodebalancer_create",
     nodebalancer_delete = "nodebalancer_delete",
+    nodebalancer_update = "nodebalancer_update",
     nodebalancer_config_create = "nodebalancer_config_create",
     nodebalancer_config_delete = "nodebalancer_config_delete",
+    nodebalancer_config_update = "nodebalancer_config_update",
     password_reset = "password_reset",
     payment_submitted = "payment_submitted",
     stackscript_create = "stackscript_create",
     stackscript_delete = "stackscript_delete",
+    stackscript_update = "stackscript_update",
     stackscript_publicize = "stackscript_publicize",
     stackscript_revise = "stackscript_revise",
     tfa_disabled = "tfa_disabled",
     tfa_enabled = "tfa_enabled",
     ticket_attachment_upload = "ticket_attachment_upload",
     ticket_create = "ticket_create",
-    ticket_reply = "ticket_reply",
+    ticket_update = "ticket_update",
+    user_ssh_key_add = "user_ssh_key_add",
+    user_ssh_key_delete = "user_ssh_key_delete",
+    user_ssh_key_update = "user_ssh_key_update",
     volume_attach = "volume_attach",
     volume_clone = "volume_clone",
     volume_create = "volume_create",
     volume_delete = "volume_delete",
+    volume_update = "volume_update",
     volume_detach = "volume_detach",
-    volume_resize = "volume_resize",
+    volume_resize = "volume_resize"
 }
 export declare enum EventStatus {
     failed = "failed",
     finished = "finished",
     notification = "notification",
     scheduled = "scheduled",
-    started = "started",
+    started = "started"
 }
 export declare enum GrantPermissions {
     read_only = "read_only",
-    read_write = "read_write",
+    read_write = "read_write"
 }
 export declare enum ImagePrivateType {
     manual = "manual",
-    automatic = "automatic",
+    automatic = "automatic"
 }
 export declare enum ImagePublicType {
     manual = "manual",
-    automatic = "automatic",
+    automatic = "automatic"
 }
 export declare enum InvoiceItemType {
     hourly = "hourly",
     prepay = "prepay",
-    misc = "misc",
+    misc = "misc"
 }
 export declare enum IPAddressType {
     ipv4 = "ipv4",
     ipv6 = "ipv6",
     ipv6_pool = "ipv6/pool",
-    ipv6_range = "ipv6/range",
+    ipv6_range = "ipv6/range"
 }
 export declare enum KernelArchitecture {
     x86_64 = "x86_64",
-    i386 = "i386",
+    i386 = "i386"
 }
 export declare enum LinodeStatus {
     running = "running",
@@ -172,72 +191,75 @@ export declare enum LinodeStatus {
     migrating = "migrating",
     rebuilding = "rebuilding",
     cloning = "cloning",
-    restoring = "restoring",
+    restoring = "restoring"
 }
 export declare enum LinodeHypervisor {
-    kvm = "kvm",
+    kvm = "kvm"
 }
 export declare enum LinodeConfigRunLevel {
     default = "default",
     single = "single",
-    binbash = "binbash",
+    binbash = "binbash"
 }
 export declare enum LinodeConfigVirtMode {
     paravirt = "paravirt",
-    fullvirt = "fullvirt",
+    fullvirt = "fullvirt"
 }
 export declare enum LinodeTypeClass {
     nanode = "nanode",
     standard = "standard",
-    highmem = "highmem",
+    dedicated = "dedicated",
+    highmem = "highmem"
 }
 export declare enum ManagedServiceStatus {
     disabled = "disabled",
     pending = "pending",
     ok = "ok",
-    problem = "problem",
+    problem = "problem"
 }
 export declare enum ManagedServiceServiceType {
-    URL = "URL",
-    TCP = "TCP",
+    url = "url",
+    tcp = "tcp"
 }
 export declare enum NodeBalancerConfigProtocol {
     http = "http",
     https = "https",
-    tcp = "tcp",
+    tcp = "tcp"
 }
 export declare enum NodeBalancerConfigAlgorithm {
     roundrobin = "roundrobin",
     leastconn = "leastconn",
-    source = "source",
+    source = "source"
 }
 export declare enum NodeBalancerConfigStickiness {
     none = "none",
     table = "table",
-    http_cookie = "http_cookie",
+    http_cookie = "http_cookie"
 }
 export declare enum NodeBalancerConfigCheck {
     none = "none",
     connection = "connection",
     http = "http",
-    http_body = "http_body",
+    http_body = "http_body"
 }
 export declare enum NodeBalancerConfigCipherSuite {
     recommended = "recommended",
-    legacy = "legacy",
+    legacy = "legacy"
 }
 export declare enum NodeBalancerNodeStatus {
     unknown = "unknown",
     UP = "UP",
-    DOWN = "DOWN",
+    DOWN = "DOWN"
 }
 export declare enum NodeBalancerNodeMode {
     accept = "accept",
     reject = "reject",
     drain = "drain",
+    backup = "backup"
 }
 export declare enum NotificationType {
     migration_scheduled = "migration_scheduled",
+    migration_imminent = "migration_imminent",
     migration_pending = "migration_pending",
     reboot_scheduled = "reboot_scheduled",
     outage = "outage",
@@ -245,39 +267,44 @@ export declare enum NotificationType {
     ticket_important = "ticket_important",
     ticket_abuse = "ticket_abuse",
     notice = "notice",
+    maintenance = "maintenance"
 }
 export declare enum NotificationSeverity {
     minor = "minor",
     major = "major",
-    critical = "critical",
+    critical = "critical"
 }
 export declare enum OAuthClientStatus {
     active = "active",
     disabled = "disabled",
-    suspended = "suspended",
+    suspended = "suspended"
 }
 export declare enum ProfileLishAuthMethod {
     password_keys = "password_keys",
     keys_only = "keys_only",
-    disabled = "disabled",
+    disabled = "disabled"
 }
 export declare enum SupportTicketStatus {
     closed = "closed",
     new = "new",
-    open = "open",
+    open = "open"
 }
 export declare enum VolumeStatus {
     creating = "creating",
     active = "active",
     resizing = "resizing",
-    deleting = "deleting",
-    deleted = "deleted",
-    contact_support = "contact_support",
+    contact_support = "contact_support"
 }
 /**
  * Account object
  */
 export interface Account {
+    /**
+     * The datetime of when the account was activated.
+     * @example
+     * 2018-01-01T00:01:01
+    */
+    readonly active_since?: string;
     /**
      * <= 64 characters.
      *
@@ -300,6 +327,12 @@ export interface Account {
      * 200
     */
     readonly balance?: number;
+    /**
+     * This Account's current estimated invoice in US dollars. This is not your final invoice balance. Bandwidth charges are not included in the estimate.
+     * @example
+     * 145
+    */
+    readonly balance_uninvoiced?: number;
     /**
      * <= 24 characters.
      *
@@ -399,7 +432,7 @@ export interface AccountSettings {
     */
     readonly managed?: boolean;
     /**
-     * The Longview Pro tier you are currently subscribed to. The value must a [Longview Subscription](/#operation/getLongviewSubscriptions) ID or `null`.
+     * The Longview Pro tier you are currently subscribed to. The value must a [Longview Subscription](#operation/getLongviewSubscriptions) ID or `null`.
      * @example
      * longview-30
     */
@@ -408,6 +441,12 @@ export interface AccountSettings {
      * Enables network helper across all users by default for new Linodes and Linode Configs.
     */
     network_helper?: boolean;
+    /**
+     * Account-wide backups default.  If `true`, all Linodes created will automatically be enrolled in the Backups service.  If `false`, Linodes will not be enrolled by default, but may still be enrolled on creation or later.
+     * @example
+     * true
+    */
+    backups_enabled?: boolean;
 }
 /**
  * An application you have authorized access to your Account through OAuth.
@@ -523,7 +562,7 @@ export interface Backup {
  */
 export interface CreditCard {
     /**
-     * [16 .. 16] characters.
+     * [13 .. 23] characters.
      *
      * Your credit card number. No spaces or dashes allowed.
      * @example
@@ -700,17 +739,23 @@ export interface DiskRequest {
     read_only?: boolean;
     /**
      * An Image ID to deploy the Disk from. Official Linode Images start with `linode/ `, while your Images start with `private/`.
-     * See [/images](/#operation/getImages) for more information on the Images available for you to use.
+     * See [/images](#operation/getImages) for more information on the Images available for you to use.
      * @example
      * linode/debian9
     */
     image?: string;
     /**
-     * This is an optional list of public SSH keys that will be automatically appended to the root user's `~/.ssh/authorized_keys` file.
+     * A list of public SSH keys that will be automatically appended to the root user's `~/.ssh/authorized_keys` file.
      * @example
      * ssh-rsa AAAA_valid_public_ssh_key_123456785== user@their-computer
     */
     authorized_keys?: string[];
+    /**
+     * A list of usernames that will have their SSH keys, if any, automatically appended to the root user's `~/.ssh/authorized_keys` file.
+     * @example
+     * myUser,secondaryUser
+    */
+    authorized_users?: string[];
     /**
      * [6 .. 128] characters.
      *
@@ -730,7 +775,7 @@ export interface DiskRequest {
      * A StackScript ID that will cause the referenced StackScript to be run during
      * deployment of this Linode. A compatible `image` is required to use a
      * StackScript. To get a list of available StackScript and their permitted Images
-     * see [/stackscripts](/#operation/getStackScripts).
+     * see [/stackscripts](#operation/getStackScripts).
      * This field cannot be used when deploying from a Backup or a private Image.
      * @example
      * 10079
@@ -739,7 +784,7 @@ export interface DiskRequest {
     /**
      * This field is required only if the StackScript being deployed requires input
      * data from the User for successful completion. See
-     * [Variables and UDFs](https://www.linode.com/docs/platform/stackscripts/#variables-and-udfs)
+     * <a target="_top" href="https://www.linode.com/docs/platform/stackscripts/#variables-and-udfs">Variables and UDFs</a>
      * for more details. This field is required to be valid JSON.
      * @example
      * [object Object]
@@ -834,6 +879,14 @@ export interface Domain {
      * 300
     */
     ttl_sec?: number;
+    /**
+     * An array of tags applied to this object.  Tags are for organizational purposes only.
+     *
+     * @filterable
+     * @example
+     * example tag,another example
+    */
+    tags?: string[];
 }
 /**
  * A single record on a Domain.
@@ -911,7 +964,7 @@ export interface DomainRecord {
  */
 export interface ErrorObject {
     /**
-     * What happened to cause this error. In most cases, this can be fixed immediately by changing the data you sent in the request, but in some cases you will be instructed to [open a Support Ticket](/#operation/createTicket) or perform some other action before you can complete the request successfully.
+     * What happened to cause this error. In most cases, this can be fixed immediately by changing the data you sent in the request, but in some cases you will be instructed to [open a Support Ticket](#operation/createTicket) or perform some other action before you can complete the request successfully.
      * @example
      * fieldname must be a valid value
     */
@@ -982,9 +1035,9 @@ export interface Event {
     */
     readonly status?: EventStatus;
     /**
-     * The estimated time remaining until the completion of this Event. This value is only returned for in-progress events.
+     * The estimated time remaining until the completion of this Event. This value is only returned for some in-progress migration events. For all other in-progress events, the `percent_complete` attribute will indicate about how much more work is to be done.
     */
-    readonly time_remaining?: number;
+    readonly time_remaining?: string;
     /**
      * The username of the User who caused the Event.
      * @example
@@ -1102,7 +1155,7 @@ export interface ImagePrivate {
     */
     readonly deprecated?: boolean;
     /**
-     * An optional detailed description of this Image.
+     * A detailed description of this Image.
      * @example
      * The detailed description of my Image.
     */
@@ -1127,6 +1180,12 @@ export interface ImagePrivate {
      * manual
     */
     readonly type?: ImagePrivateType;
+    /**
+     * Only Images created automatically (from a deleted Linode; type=automatic) will expire.
+     * @example
+     * 2018-08-01T00:01:01
+    */
+    readonly expiry?: string;
     /**
      * The upstream distribution vendor. `None` for private Images.
      *
@@ -1171,7 +1230,7 @@ export interface ImagePublic {
     */
     readonly deprecated?: boolean;
     /**
-     * An optional detailed description of this Image.
+     * A detailed description of this Image.
     */
     description?: string;
     /**
@@ -1196,6 +1255,10 @@ export interface ImagePublic {
      * manual
     */
     readonly type?: ImagePublicType;
+    /**
+     * Only Images created automatically (from a deleted Linode; type=automatic) will expire.
+    */
+    readonly expiry?: string;
     /**
      * The upstream distribution vendor. `None` for private Images.
      *
@@ -1327,7 +1390,7 @@ export interface IPAddress {
     */
     rdns?: string;
     /**
-     * The ID of the Linode this address currently belongs to. For IPv4 addresses, this is by default the Linode that this address was assigned to on creation, and these addresses my be moved using the [/networking/ipv4/assign](/#operation/assignIPs) endpoint. For SLAAC and link-local addresses, this value may not be changed.
+     * The ID of the Linode this address currently belongs to. For IPv4 addresses, this is by default the Linode that this address was assigned to on creation, and these addresses my be moved using the [/networking/ipv4/assign](#operation/assignIPs) endpoint. For SLAAC and link-local addresses, this value may not be changed.
      * @example
      * 123
     */
@@ -1527,6 +1590,12 @@ export interface IPv6Pool {
     */
     readonly range?: string;
     /**
+     * The prefix length of the address, denoting which addresses can be assigned from this pool.
+     * @example
+     * 124
+    */
+    prefix?: number;
+    /**
      * A pool of IPv6 addresses that are routed to all of your Linodes in a single Region. Any Linode you own may bring up any address in this pool at any time, with no external configuration required.
      * @example
      * us-east
@@ -1613,8 +1682,8 @@ export interface Linode {
      * The Linode's label is for display purposes only. If no label is provided for a Linode, a default will be assigned.
      * Linode labels have the following constraints:
      *   * Must start with an alpha character.
-     *   * Must consist of alphanumeric characters, dashes (`-`), and underscores (`_`).
-     *   * Cannot have two dashes (`--`) or underscores (`__`) in a row.
+     *   * May only consist of alphanumeric characters, dashes (`-`), underscores (`_`) or periods (`.`).
+     *   * Cannot have two dashes (`--`), underscores (`__`) or periods (`..`) in a row.
      *
      * @filterable
      * @example
@@ -1631,14 +1700,14 @@ export interface Linode {
     */
     group?: string;
     /**
-     * This is the [Linode Type](/#operation/getLinodeTypes) that this Linode was deployed with.
-     * To change a Linode's Type, use [POST /linode/instances/{linodeId}/resize](/#operation/resizeLinodeInstance).
+     * This is the [Linode Type](#operation/getLinodeTypes) that this Linode was deployed with.
+     * To change a Linode's Type, use [POST /linode/instances/{linodeId}/resize](#operation/resizeLinodeInstance).
      * @example
-     * g5-standard-2
+     * g6-standard-2
     */
     readonly type?: string;
     /**
-     * This is the location where the Linode was deployed. This cannot be changed without [opening a support ticket](/#operation/createTicket).
+     * This is the location where the Linode was deployed. This cannot be changed without [opening a support ticket](#operation/createTicket).
      *
      * @filterable
      * @example
@@ -1647,7 +1716,7 @@ export interface Linode {
     readonly region?: string;
     /**
      * An Image ID to deploy the Disk from. Official Linode Images start with `linode/ `, while your Images start with `private/`.
-     * See [/images](/#operation/getImages) for more information on the Images available for you to use.
+     * See [/images](#operation/getImages) for more information on the Images available for you to use.
      *
      * @filterable
      * @example
@@ -1655,13 +1724,22 @@ export interface Linode {
     */
     readonly image?: string;
     /**
+     * An array of tags applied to this object.  Tags are for organizational purposes only.
+     *
+     * @filterable
+     * @example
+     * example tag,another example
+    */
+    tags?: string[];
+    /**
      * This Linode's ID which must be provided for all operations impacting this Linode.
      * @example
      * 123
     */
     readonly id?: number;
     /**
-     * A brief description of this Linode's current state. This field may change without direct action from you. For instance, the status will change to "running" when the boot process completes.
+     * A brief description of this Linode's current state. This field may change without direct action from you. For instance, the status will change to "running"
+     *  when the boot process completes.
      * @example
      * running
     */
@@ -1687,10 +1765,10 @@ export interface Linode {
     /**
      * This Linode's IPv4 Addresses. Each Linode is assigned a single public IPv4 address
      * upon creation, and may get a single private IPv4 address if needed. You may need to
-     * [open a support ticket](/#operation/createTicket)
+     * [open a support ticket](#operation/createTicket)
      * to get additional IPv4 addresses.
      * IPv4 addresses may be reassigned between your Linodes, or shared with other Linodes.
-     * See the [/networking](/#tag/networking) endpoints for details.
+     * See the [/networking](#tag/networking) endpoints for details.
      * @example
      * 123.45.67.890
     */
@@ -1721,12 +1799,19 @@ export interface Linode {
         io: number;
     };
     /**
-     * Information about this Linode's backups status. For information about available backups, see [/linode/instances/{linodeId}/backups](/#operation/getBackups).
+     * Information about this Linode's backups status. For information about available backups, see [/linode/instances/{linodeId}/backups](#operation/getBackups).
     */
     backups?: {
         enabled: boolean;
         schedule: any;
     };
+    /**
+     * The watchdog, named Lassie, is a Shutdown Watchdog that monitors your Linode and will reboot it if it powers off unexpectedly. It works by issuing a boot job when your Linode powers off without a shutdown job being responsible.
+     * To prevent a loop, Lassie will give up if there have been more than 5 boot jobs issued within 15 minutes.
+     * @example
+     * true
+    */
+    watchdog_enabled?: boolean;
 }
 /**
  * Common properties for Linode Request and Response objects.
@@ -1738,8 +1823,8 @@ export interface LinodeBase {
      * The Linode's label is for display purposes only. If no label is provided for a Linode, a default will be assigned.
      * Linode labels have the following constraints:
      *   * Must start with an alpha character.
-     *   * Must consist of alphanumeric characters, dashes (`-`), and underscores (`_`).
-     *   * Cannot have two dashes (`--`) or underscores (`__`) in a row.
+     *   * May only consist of alphanumeric characters, dashes (`-`), underscores (`_`) or periods (`.`).
+     *   * Cannot have two dashes (`--`), underscores (`__`) or periods (`..`) in a row.
      * @example
      * linode123
     */
@@ -1756,7 +1841,7 @@ export interface LinodeBase {
     /**
      * The ID representing the Linode Type.
      * @example
-     * g5-standard-2
+     * g6-standard-2
     */
     readonly type?: string;
     /**
@@ -1799,9 +1884,11 @@ export interface LinodeConfig {
     run_level?: LinodeConfigRunLevel;
     /**
      * Controls the virtualization mode. Defaults to `paravirt`.
-     * * `paravirt` is suitable for most cases. Linodes running in paravirt mode  share some qualities with the host, ultimately making it run faster since
+     * * `paravirt` is suitable for most cases. Linodes running in paravirt mode
+     *   share some qualities with the host, ultimately making it run faster since
      *   there is less transition between it and the host.
-     * * `full_virt` affords more customization, but is slower because 100% of the VM  is virtualized.
+     * * `full_virt` affords more customization, but is slower because 100% of the VM
+     *   is virtualized.
      * @example
      * paravirt
     */
@@ -1843,7 +1930,7 @@ export interface LinodeConfig {
 export interface LinodeRequest {
     /**
      * An Image ID to deploy the Disk from. Official Linode Images start with `linode/ `, while your Images start with `private/`.
-     * See [/images](/#operation/getImages) for more information on the Images available for you to use.
+     * See [/images](#operation/getImages) for more information on the Images available for you to use.
      * @example
      * linode/debian9
     */
@@ -1864,16 +1951,22 @@ export interface LinodeRequest {
     */
     root_pass?: string;
     /**
-     * This is an optional list of public SSH keys that will be automatically appended to the root user's `~/.ssh/authorized_keys` file.
+     * A list of public SSH keys that will be automatically appended to the root user's `~/.ssh/authorized_keys` file.
      * @example
      * ssh-rsa AAAA_valid_public_ssh_key_123456785== user@their-computer
     */
     authorized_keys?: string[];
     /**
+     * A list of usernames that will have their SSH keys, if any, automatically appended to the root user's `~/.ssh/authorized_keys` file.
+     * @example
+     * myUser,secondaryUser
+    */
+    authorized_users?: string[];
+    /**
      * A StackScript ID that will cause the referenced StackScript to be run during
      * deployment of this Linode. A compatible `image` is required to use a
      * StackScript. To get a list of available StackScript and their permitted Images
-     * see [/stackscripts](/#operation/getStackScripts).
+     * see [/stackscripts](#operation/getStackScripts).
      * This field cannot be used when deploying from a Backup or a private Image.
      * @example
      * 10079
@@ -1882,7 +1975,7 @@ export interface LinodeRequest {
     /**
      * This field is required only if the StackScript being deployed requires input
      * data from the User for successful completion. See
-     * [Variables and UDFs](https://www.linode.com/docs/platform/stackscripts/#variables-and-udfs)
+     * <a target="_top" href="https://www.linode.com/docs/platform/stackscripts/#variables-and-udfs">Variables and UDFs</a>
      * for more details. This field is required to be valid JSON.
      * @example
      * [object Object]
@@ -1936,14 +2029,14 @@ export interface LinodeStats {
     title?: string;
 }
 /**
- * Returns collection of Linode types, including pricing and specifications for each type. These are used when [creating](/#operation/createLinodeInstance) or [resizing](/#operation/resizeLinodeInstance) Linodes.
+ * Returns collection of Linode types, including pricing and specifications for each type. These are used when [creating](#operation/createLinodeInstance) or [resizing](#operation/resizeLinodeInstance) Linodes.
 
  */
 export interface LinodeType {
     /**
      * The ID representing the Linode Type.
      * @example
-     * g5-standard-2
+     * g6-standard-2
     */
     readonly id?: string;
     /**
@@ -1951,7 +2044,7 @@ export interface LinodeType {
      *
      * @filterable
      * @example
-     * Linode 4096
+     * Linode 4GB
     */
     readonly label?: string;
     /**
@@ -1959,13 +2052,14 @@ export interface LinodeType {
      *
      * @filterable
      * @example
-     * 49152
+     * 81920
     */
     readonly disk?: number;
     /**
-     * The class of the Linode Type. We currently offer three classes of Linodes:
+     * The class of the Linode Type. We currently offer four classes of Linodes:
      *   * nanode - Our entry-level Linode Type.
      *   * standard - Our flagship Linode Type.
+     *   * dedicated - Our Dedicated CPU Linode Type.
      *   * highmem - A Linode Type featuring high memory availability.
      *
      * @filterable
@@ -2003,11 +2097,15 @@ export interface LinodeType {
     */
     readonly memory?: number;
     /**
+     * The Linode Type that a [mutate](#operation/mutateLinodeInstance) will upgrade to for a Linode of this type.  If "null", a Linode of this type may not mutate.
+    */
+    readonly successor?: string;
+    /**
      * The monthly outbound transfer amount, in MB.
      *
      * @filterable
      * @example
-     * 3000
+     * 4000
     */
     readonly transfer?: number;
     /**
@@ -2259,7 +2357,7 @@ export interface ManagedService {
     /**
      * How this Service is monitored.
      * @example
-     * URL
+     * url
     */
     service_type?: ManagedServiceServiceType;
     /**
@@ -2393,6 +2491,22 @@ export interface NodeBalancer {
      * Throttle connections per second.  Set to 0 (zero) to disable throttling.
     */
     client_conn_throttle?: number;
+    /**
+     * Information about the amount of transfer this NodeBalancer has had so far this month.
+    */
+    transfer?: {
+        total: number;
+        out: number;
+        in: number;
+    };
+    /**
+     * An array of Tags applied to this object.  Tags are for organizational purposes only.
+     *
+     * @filterable
+     * @example
+     * example tag,another example
+    */
+    tags?: string[];
 }
 /**
  * A NodeBalancer config represents the configuration of this NodeBalancer on a single port.  For example, a NodeBalancer Config on port 80 would typically represent how this NodeBalancer response to HTTP requests.
@@ -2431,8 +2545,10 @@ export interface NodeBalancerConfig {
     /**
      * Controls how session stickiness is handled on this port.
      * * If set to `none` connections will always be assigned a backend based on the algorithm configured.
-     * * If set to `table` sessions from the same remote address will be routed to the same  backend.
-     * * For HTTP or HTTPS clients, `http_cookie` allows sessions to be  routed to the same backend based on a cookie set by the NodeBalancer.
+     * * If set to `table` sessions from the same remote address will be routed to the same
+     *   backend.
+     * * For HTTP or HTTPS clients, `http_cookie` allows sessions to be
+     *   routed to the same backend based on a cookie set by the NodeBalancer.
      * @example
      * http_cookie
     */
@@ -2441,7 +2557,8 @@ export interface NodeBalancerConfig {
      * The type of check to perform against backends to ensure they are serving requests. This is used to determine if backends are up or down.
      * * If `none` no check is performed.
      * * `connection` requires only a connection to the backend to succeed.
-     * * `http` and `http_body` rely on the backend serving HTTP, and that  the response returned matches what is expected.
+     * * `http` and `http_body` rely on the backend serving HTTP, and that
+     *   the response returned matches what is expected.
      * @example
      * http_body
     */
@@ -2568,7 +2685,10 @@ export interface NodeBalancerNode {
      * The mode this NodeBalancer should use when sending traffic to this backend.
      * * If set to `accept` this backend is accepting traffic.
      * * If set to `reject` this backend will not receive traffic.
-     * * If set to `drain` this backend will not receive _new_ traffic, but connections already  pinned to it will continue to be routed to it.
+     * * If set to `drain` this backend will not receive _new_ traffic, but connections already
+     *   pinned to it will continue to be routed to it.
+     * * If set to `backup`, this backend will only receive traffic if all `accept` nodes
+     *   are down.
      * @example
      * accept
     */
@@ -2585,6 +2705,25 @@ export interface NodeBalancerNode {
      * 12345
     */
     readonly nodebalancer_id?: number;
+}
+/**
+ * Stats for this NodeBalancer.
+
+ */
+export interface NodeBalancerStats {
+    /**
+     * The data returned about this NodeBalancers.
+    */
+    data?: {
+        connections: any[];
+        traffic: any;
+    };
+    /**
+     * The title for the statistics generated in this response.
+     * @example
+     * linode.com - balancer12345 (12345) - day (5 min avg)
+    */
+    title?: string;
 }
 /**
  * An important, often time-sensitive item related to your Account.
@@ -2613,6 +2752,10 @@ export interface Notification {
     */
     readonly message?: string;
     /**
+     * A full description of this Notification, in markdown format.  Not all Notifications include bodies.
+    */
+    readonly body?: string;
+    /**
      * The type of Notification this is.
      * @example
      * ticket_important
@@ -2634,7 +2777,7 @@ export interface Notification {
     readonly until?: string;
 }
 /**
- * A third-party application registered to Linode that users may log into with their Linode account through our authentication server at https://login.linode.com.  Using an OAuth Client, a third-party developer may be given access to some, or all, of a User's account for the purposes of their application.
+ * A third-party application registered to Linode that users may log into with their Linode account through our authentication server at <a target="_top" href="https://login.linode.com">https://login.linode.com</a>.  Using an OAuth Client, a third-party developer may be given access to some, or all, of a User's account for the purposes of their application.
 
  */
 export interface OAuthClient {
@@ -2645,7 +2788,7 @@ export interface OAuthClient {
     */
     readonly id?: string;
     /**
-     * The location a successful log in from https://login.linode.com should be redirected to for this client.  The receiver of this redirect should be ready to accept an OAuth exchange code and finish the OAuth exchange.
+     * The location a successful log in from <a target="_top" href="https://login.linode.com">https://login.linode.com</a> should be redirected to for this client.  The receiver of this redirect should be ready to accept an OAuth exchange code and finish the OAuth exchange.
      * @example
      * https://example.org/oauth/callback
     */
@@ -2679,7 +2822,7 @@ export interface OAuthClient {
     */
     readonly thumbnail_url?: string;
     /**
-     * If this is a public or private OAuth Client.  Public clients have a slightly different authentication workflow than private clients.  See the [OAuth spec](https://oauth.net/2/) for more details.
+     * If this is a public or private OAuth Client.  Public clients have a slightly different authentication workflow than private clients.  See the <a target="_top" href="https://oauth.net/2/">OAuth spec</a> for more details.
      *
      * @filterable
     */
@@ -2742,7 +2885,7 @@ export interface PaymentRequest {
      * @example
      * 123
     */
-    cvv: string;
+    cvv?: string;
     /**
      * The amount in US Dollars of the Payment.
      * @example
@@ -2768,7 +2911,7 @@ export interface PayPal {
     */
     redirect_url: string;
     /**
-     * The amount, in US dollars, of the Payment.
+     * The payment amount in USD. Minimum accepted value of $5 USD. Maximum accepted value of $500 USD or credit card payment limit; whichever value is highest. PayPal's maximum transaction limit is $10,000 USD.
      * @example
      * 120.50
     */
@@ -2786,7 +2929,7 @@ export interface PayPalExecute {
     */
     payer_id: string;
     /**
-     * The PaymentID returned from [POST /account/payments/paypal](/#operation/createPayPalPayment) that has been approved with PayPal.
+     * The PaymentID returned from [POST /account/payments/paypal](#operation/createPayPalPayment) that has been approved with PayPal.
      * @example
      * PAY-1234567890ABCDEFGHIJKLMN
     */
@@ -2804,7 +2947,7 @@ export interface PersonalAccessToken {
     */
     readonly id?: number;
     /**
-     * The scopes this token was created with. These define what parts of the Account the token can be used to access. Many command-line tools, such as the [Linode CLI](https://github.com/linode/linode-cli), require tokens with access to `*`. Tokens with more restrictive scopes are generally more secure.
+     * The scopes this token was created with. These define what parts of the Account the token can be used to access. Many command-line tools, such as the <a target="_top" href="https://github.com/linode/linode-cli">Linode CLI</a>, require tokens with access to `*`. Tokens with more restrictive scopes are generally more secure.
      * @example
      * *
     */
@@ -2838,7 +2981,7 @@ export interface PersonalAccessToken {
      * @example
      * 2018-01-01T13:46:32
     */
-    expiry?: string;
+    readonly expiry?: string;
 }
 /**
  * A Profile represents your User in our system. This is where you can change information about your User. This information is available to any OAuth Client regardless of requested scopes, and can be used to populate User information in third-party applications.
@@ -2903,13 +3046,13 @@ export interface Profile {
     */
     authorized_keys?: string[];
     /**
-     * If true, logins from untrusted computers will require Two Factor Authentication.  See [/profile/tfa-enable](/#operation/tfaEnable) to enable Two Factor Authentication.
+     * If true, logins from untrusted computers will require Two Factor Authentication.  See [/profile/tfa-enable](#operation/tfaEnable) to enable Two Factor Authentication.
      * @example
      * true
     */
     two_factor_auth?: boolean;
     /**
-     * If true, your User has restrictions on what can be accessed on your Account. To get details on what entities/actions you can access/perform, see [/profile/grants](/#operation/getProfileGrants).
+     * If true, your User has restrictions on what can be accessed on your Account. To get details on what entities/actions you can access/perform, see [/profile/grants](#operation/getProfileGrants).
     */
     restricted?: boolean;
 }
@@ -3010,7 +3153,7 @@ export interface StackScript {
     */
     description?: string;
     /**
-     * An array of Image IDs representing the Images that this StackScript is compatible for deploying with.
+     * An array of Image IDs. These are the images that can be deployed with this Stackscript.
      *
      * @filterable
      * @example
@@ -3058,14 +3201,14 @@ export interface StackScript {
     */
     rev_note?: string;
     /**
-     * The script to execute when provisioning a new Linode with this Stackscript.
+     * The script to execute when provisioning a new Linode with this StackScript.
      * @example
      * "#!/bin/bash"
 
     */
     script?: string;
     /**
-     * This is a list of fields defined with a special syntax inside this StackScript that allow for supplying customized parameters during deployment. See [Variables and UDFs](https://www.linode.com/docs/platform/stackscripts/#variables-and-udfs) for more information.
+     * This is a list of fields defined with a special syntax inside this StackScript that allow for supplying customized parameters during deployment. See <a target="_top" href="https://www.linode.com/docs/platform/stackscripts/#variables-and-udfs">Variables and UDFs</a> for more information.
      * @example
      * [object Object]
     */
@@ -3094,6 +3237,10 @@ export interface SupportTicket {
      * 2015-06-04T16:07:03
     */
     readonly closed?: string;
+    /**
+     * Whether the Support Ticket may be closed.
+    */
+    closable?: boolean;
     /**
      * [1 .. 65000] characters.
      *
@@ -3275,6 +3422,18 @@ export interface Transfer {
     readonly used?: number;
 }
 /**
+ * A tag that has been applied to an object on your Account. Tags are currently for organizational purposes only.
+
+ */
+export interface Tag {
+    /**
+     * A Label used for organization of objects on your Account.
+     * @example
+     * example tag
+    */
+    label?: string;
+}
+/**
  * A User on your Account. Unrestricted users can log in and access information about your Account, while restricted users may only access entities or perform actions they've been granted access to.
 
  */
@@ -3296,11 +3455,17 @@ export interface User {
     */
     readonly email?: string;
     /**
-     * If true, this User must be granted access to perform actions or access entities on this Account. See [/account/users/{username}/grants](/#operation/getUserGrants) for details on how to configure grants for a restricted User.
+     * If true, this User must be granted access to perform actions or access entities on this Account. See [/account/users/{username}/grants](#operation/getUserGrants) for details on how to configure grants for a restricted User.
      * @example
      * true
     */
     restricted?: boolean;
+    /**
+     * A list of SSH Key labels added by this User. These are the keys that will be deployed if this User is included in the `authorized_users` field of a [create Linode](#operation/createLinodeInstance), [rebuild Linode](#operation/rebuildLinodeInstance), or [create Disk](#operation/addLinodeDisk) request.
+     * @example
+     * home-pc,laptop
+    */
+    ssh_keys?: string[];
 }
 /**
  * A custom field defined by the User with a special syntax within a StackScript. Derived from the contents of the script.
@@ -3337,6 +3502,101 @@ export interface UserDefinedField {
      * avalue,anothervalue,thirdvalue
     */
     readonly manyOf?: string;
+    /**
+     * The default value.  If not specified, this value will be used.
+    */
+    readonly default?: string;
+}
+/**
+ * A trusted device object represents an active Remember Me session with <a target="_top" href="https://login.linode.com">login.linode.com</a>.
+
+ */
+export interface TrustedDevice {
+    /**
+     * The unique ID for this TrustedDevice
+     * @example
+     * 123
+    */
+    readonly id?: number;
+    /**
+     * When this Remember Me session was started.  This corresponds to the time of login with the "Remember Me" box checked.
+     * @example
+     * 2018-01-01T01:01:01
+    */
+    readonly created?: string;
+    /**
+     * When this TrustedDevice session expires.  Sessions typically last 30 days.
+     * @example
+     * 2018-01-31T01:01:01
+    */
+    readonly expiry?: string;
+    /**
+     * The User Agent of the browser that created this TrustedDevice session.
+     * @example
+     * Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36 Vivaldi/2.1.1337.36
+
+    */
+    readonly user_agent?: string;
+    /**
+     * The last time this TrustedDevice was successfully used to authenticate to <a target="_top" href="https://login.linode.com">login.linode.com</a>.
+     * @example
+     * 2018-01-05T12:57:12
+    */
+    readonly last_authenticated?: string;
+    /**
+     * The last IP Address to successfully authenticate with this TrustedDevice.
+     * @example
+     * 12.34.56.78
+    */
+    readonly last_remote_addr?: string;
+}
+/**
+ * A credential object for authenticating a User's secure shell connection to a Linode.
+
+ */
+export interface SSHKey {
+    /**
+     * The unique identifier of an SSH Key object.
+     * @example
+     * 42
+    */
+    readonly id?: number;
+    /**
+     * [0 .. 64] characters.
+     *
+     * A label for the SSH Key.
+     * @example
+     * My SSH Key
+    */
+    label?: string;
+    /**
+     * The public SSH Key, which is used to authenticate to the root user of the Linodes you deploy.
+    */
+    readonly ssh_key?: string;
+    /**
+     * The date this key was added.
+     * @example
+     * 2018-01-01T00:01:01
+    */
+    readonly created?: string;
+}
+/**
+ * An object consisting of a user identified name as the `label` and the generated key as the `ssh-key`.
+
+ */
+export interface SSHKeyRequest {
+    /**
+     * [1 .. 64] characters.
+     *
+     * A label for the key.
+     * @example
+     * My SSH Key
+    */
+    label?: string;
+    /**
+     * The public SSH Key, which is used to authenticate to the root user of the Linodes you deploy.
+    */
+    ssh_key?: string;
 }
 /**
  * A Block Storage Volume associated with your Account.
@@ -3366,24 +3626,22 @@ export interface Volume {
     */
     readonly filesystem_path?: string;
     /**
-     * Can be one of `creating`, `active`, `resizing`, `deleting`, `deleted`, and `contact_support`:
+     * The current status of the volume.  Can be one of:
      *   * `creating` - the Volume is being created and is not yet available
      *     for use.
      *   * `active` - the Volume is online and available for use.
      *   * `resizing` - the Volume is in the process of upgrading
      *     its current capacity.
-     *   * `deleting` - the Volume is being deleted and is unavailable for use.
-     *   * `deleted` - the Volume has been deleted.
      *   * `contact_support` - there is a problem with your Volume. Please
-     *     [open a Support Ticket](/#operation/createTicket) to resolve the issue.
+     *     [open a Support Ticket](#operation/createTicket) to resolve the issue.
      * @example
      * active
     */
     readonly status?: VolumeStatus;
     /**
-     * Values [10 .. 10240].
+     * Values <= 10240.
      *
-     * The Volume's size, in GiB. Minimum size is 10GiB, maximum size is 10240GiB.
+     * The Volume's size, in GiB.
      * @example
      * 30
     */
@@ -3412,6 +3670,14 @@ export interface Volume {
      * 2018-01-01T00:01:01
     */
     readonly updated?: string;
+    /**
+     * An array of Tags applied to this object.  Tags are for organizational purposes only.
+     *
+     * @filterable
+     * @example
+     * example tag,another example
+    */
+    tags?: string[];
 }
 export interface AuthorizedAppFilter {
     /**
@@ -3480,6 +3746,14 @@ export interface DomainFilter {
      * @filterable
     */
     group?: string;
+    /**
+     * An array of tags applied to this object.  Tags are for organizational purposes only.
+     *
+     * @filterable
+     * @example
+     * example tag,another example
+    */
+    tags?: string[];
 }
 export interface ImagePrivateFilter {
     /**
@@ -3650,8 +3924,8 @@ export interface LinodeFilter {
      * The Linode's label is for display purposes only. If no label is provided for a Linode, a default will be assigned.
      * Linode labels have the following constraints:
      *   * Must start with an alpha character.
-     *   * Must consist of alphanumeric characters, dashes (`-`), and underscores (`_`).
-     *   * Cannot have two dashes (`--`) or underscores (`__`) in a row.
+     *   * May only consist of alphanumeric characters, dashes (`-`), underscores (`_`) or periods (`.`).
+     *   * Cannot have two dashes (`--`), underscores (`__`) or periods (`..`) in a row.
      *
      * @filterable
      * @example
@@ -3668,7 +3942,7 @@ export interface LinodeFilter {
     */
     group?: string;
     /**
-     * This is the location where the Linode was deployed. This cannot be changed without [opening a support ticket](/#operation/createTicket).
+     * This is the location where the Linode was deployed. This cannot be changed without [opening a support ticket](#operation/createTicket).
      *
      * @filterable
      * @example
@@ -3677,13 +3951,21 @@ export interface LinodeFilter {
     readonly region?: string;
     /**
      * An Image ID to deploy the Disk from. Official Linode Images start with `linode/ `, while your Images start with `private/`.
-     * See [/images](/#operation/getImages) for more information on the Images available for you to use.
+     * See [/images](#operation/getImages) for more information on the Images available for you to use.
      *
      * @filterable
      * @example
      * linode/debian9
     */
     readonly image?: string;
+    /**
+     * An array of tags applied to this object.  Tags are for organizational purposes only.
+     *
+     * @filterable
+     * @example
+     * example tag,another example
+    */
+    tags?: string[];
 }
 export interface LinodeBaseFilter {
     /**
@@ -3714,7 +3996,7 @@ export interface LinodeTypeFilter {
      *
      * @filterable
      * @example
-     * Linode 4096
+     * Linode 4GB
     */
     readonly label?: string;
     /**
@@ -3722,13 +4004,14 @@ export interface LinodeTypeFilter {
      *
      * @filterable
      * @example
-     * 49152
+     * 81920
     */
     readonly disk?: number;
     /**
-     * The class of the Linode Type. We currently offer three classes of Linodes:
+     * The class of the Linode Type. We currently offer four classes of Linodes:
      *   * nanode - Our entry-level Linode Type.
      *   * standard - Our flagship Linode Type.
+     *   * dedicated - Our Dedicated CPU Linode Type.
      *   * highmem - A Linode Type featuring high memory availability.
      *
      * @filterable
@@ -3757,7 +4040,7 @@ export interface LinodeTypeFilter {
      *
      * @filterable
      * @example
-     * 3000
+     * 4000
     */
     readonly transfer?: number;
     /**
@@ -3813,6 +4096,14 @@ export interface NodeBalancerFilter {
      * us-east
     */
     readonly region?: string;
+    /**
+     * An array of Tags applied to this object.  Tags are for organizational purposes only.
+     *
+     * @filterable
+     * @example
+     * example tag,another example
+    */
+    tags?: string[];
 }
 export interface OAuthClientFilter {
     /**
@@ -3826,7 +4117,7 @@ export interface OAuthClientFilter {
     */
     label?: string;
     /**
-     * If this is a public or private OAuth Client.  Public clients have a slightly different authentication workflow than private clients.  See the [OAuth spec](https://oauth.net/2/) for more details.
+     * If this is a public or private OAuth Client.  Public clients have a slightly different authentication workflow than private clients.  See the <a target="_top" href="https://oauth.net/2/">OAuth spec</a> for more details.
      *
      * @filterable
     */
@@ -3873,7 +4164,7 @@ export interface StackScriptFilter {
     */
     description?: string;
     /**
-     * An array of Image IDs representing the Images that this StackScript is compatible for deploying with.
+     * An array of Image IDs. These are the images that can be deployed with this Stackscript.
      *
      * @filterable
      * @example
@@ -3946,29 +4237,37 @@ export interface VolumeFilter {
      * my-volume
     */
     label?: string;
+    /**
+     * An array of Tags applied to this object.  Tags are for organizational purposes only.
+     *
+     * @filterable
+     * @example
+     * example tag,another example
+    */
+    tags?: string[];
 }
 export interface IAccount {
     /**
-     * https://developers.linode.com/api/v4#operation/getAccount
+     * https://developers.linode.com/api/v4/#operation/getAccount
  *
      * Returns the contact and billing information related to your Account.
      */
     get(): Promise<Account>;
     /**
-     * https://developers.linode.com/api/v4#operation/updateAccount
+     * https://developers.linode.com/api/v4/#operation/updateAccount
  *
      * Updates contact and billing information related to your Account.
      */
     update(data: Account): Promise<Account>;
     /**
-     * https://developers.linode.com/api/v4#operation/createCreditCard
+     * https://developers.linode.com/api/v4/#operation/createCreditCard
  *
      * Adds/edit credit card information to your Account.
      * Only one credit card can be associated with your Account, so using this endpoint will overwrite your currently active card information with the new credit card.
      */
-    creditCard(data: CreditCard): Promise<any>;
+    creditCard(data: any): Promise<CreditCard>;
     /**
-     * https://developers.linode.com/api/v4#operation/getTransfer
+     * https://developers.linode.com/api/v4/#operation/getTransfer
  *
      * Returns a Transfer object showing your network utilization, in GB, for the current month.
      */
@@ -3983,14 +4282,14 @@ export interface IAccount {
 }
 export interface IEvents {
     /**
-     * https://developers.linode.com/api/v4#operation/getEvents
+     * https://developers.linode.com/api/v4/#operation/getEvents
  *
      * Returns a collection of Event objects representing actions taken on your Account. The Events returned depends on your grants.
      */
     list(page?: number): Promise<LinodeResponse<Event>>;
     list(page: number, page_size: number): Promise<LinodeResponse<Event>>;
     /**
-     * https://developers.linode.com/api/v4#operation/getEvent
+     * https://developers.linode.com/api/v4/#operation/getEvent
  *
      * Returns a single Event object.
      */
@@ -3998,19 +4297,19 @@ export interface IEvents {
 }
 export interface EventsClass {
     /**
-     * https://developers.linode.com/api/v4#operation/getEvent
+     * https://developers.linode.com/api/v4/#operation/getEvent
  *
      * Returns a single Event object.
      */
     get(): Promise<Event>;
     /**
-     * https://developers.linode.com/api/v4#operation/eventRead
+     * https://developers.linode.com/api/v4/#operation/eventRead
  *
      * Marks a single Event as read.
      */
     read(): Promise<any>;
     /**
-     * https://developers.linode.com/api/v4#operation/eventSeen
+     * https://developers.linode.com/api/v4/#operation/eventSeen
  *
      * Marks all Events up to and including this Event by ID as seen.
      */
@@ -4018,14 +4317,14 @@ export interface EventsClass {
 }
 export interface IInvoices {
     /**
-     * https://developers.linode.com/api/v4#operation/getInvoices
+     * https://developers.linode.com/api/v4/#operation/getInvoices
  *
      * Returns a paginated list of Invoices against your Account.
      */
     list(page?: number): Promise<LinodeResponse<Invoice>>;
     list(page: number, page_size: number): Promise<LinodeResponse<Invoice>>;
     /**
-     * https://developers.linode.com/api/v4#operation/getInvoice
+     * https://developers.linode.com/api/v4/#operation/getInvoice
  *
      * Returns a single Invoice object.
      */
@@ -4033,7 +4332,7 @@ export interface IInvoices {
 }
 export interface InvoicesClass {
     /**
-     * https://developers.linode.com/api/v4#operation/getInvoice
+     * https://developers.linode.com/api/v4/#operation/getInvoice
  *
      * Returns a single Invoice object.
      */
@@ -4042,7 +4341,7 @@ export interface InvoicesClass {
 }
 export interface IItems {
     /**
-     * https://developers.linode.com/api/v4#operation/getInvoiceItems
+     * https://developers.linode.com/api/v4/#operation/getInvoiceItems
  *
      * Returns a paginated list of Invoice items.
      */
@@ -4051,7 +4350,7 @@ export interface IItems {
 }
 export interface INotifications {
     /**
-     * https://developers.linode.com/api/v4#operation/getNotifications
+     * https://developers.linode.com/api/v4/#operation/getNotifications
  *
      * Returns a collection of Notification objects representing important, often time-sensitive items related to your Account.
      * You cannot interact directly with Notifications, and a Notification will disappear when the circumstances causing it have been resolved. For example, if you have an important Ticket open, you must respond to the Ticket to dismiss the Notification.
@@ -4061,7 +4360,7 @@ export interface INotifications {
 }
 export interface IOauthClients {
     /**
-     * https://developers.linode.com/api/v4#operation/getClients
+     * https://developers.linode.com/api/v4/#operation/getClients
  *
      * Returns a paginated list of OAuth Clients registered to your Account.  OAuth Clients allow users to log into applications you write or host using their Linode Account, and may allow them to grant some level of access to their Linodes or other entities to your application.
      */
@@ -4071,13 +4370,13 @@ export interface IOauthClients {
     list(page: number, filter: Filter<OAuthClientFilter>): Promise<LinodeResponse<OAuthClient>>;
     list(page: number, page_size: number, filter: Filter<OAuthClientFilter>): Promise<LinodeResponse<OAuthClient>>;
     /**
-     * https://developers.linode.com/api/v4#operation/createClient
+     * https://developers.linode.com/api/v4/#operation/createClient
  *
      * Creates an OAuth Client, which can be used to allow users (using their Linode account) to log in to your own application, and optionally grant your application some amount of access to their Linodes or other entities.
      */
     create(data: any): Promise<OAuthClient>;
     /**
-     * https://developers.linode.com/api/v4#operation/getClient
+     * https://developers.linode.com/api/v4/#operation/getClient
  *
      * Returns information about a single OAuth client.
      */
@@ -4085,25 +4384,25 @@ export interface IOauthClients {
 }
 export interface OauthClientsClass {
     /**
-     * https://developers.linode.com/api/v4#operation/getClient
+     * https://developers.linode.com/api/v4/#operation/getClient
  *
      * Returns information about a single OAuth client.
      */
     get(): Promise<OAuthClient>;
     /**
-     * https://developers.linode.com/api/v4#operation/updateClient
+     * https://developers.linode.com/api/v4/#operation/updateClient
  *
      * Update information about an OAuth Client on your Account. This can be especially useful to update the `redirect_uri` of your client in the event that the callback url changed in your application.
      */
     update(data: OAuthClient): Promise<OAuthClient>;
     /**
-     * https://developers.linode.com/api/v4#operation/deleteClient
+     * https://developers.linode.com/api/v4/#operation/deleteClient
  *
-     * Deletes an OAuth Client registered with Linode. The Client ID and Client secret will no longer be accepted by https://login.linode.com, and all tokens issued to this client will be invalidated (meaning that if your application was using a token, it will no longer work).
+     * Deletes an OAuth Client registered with Linode. The Client ID and Client secret will no longer be accepted by <a target="_top" href="https://login.linode.com">https://login.linode.com</a>, and all tokens issued to this client will be invalidated (meaning that if your application was using a token, it will no longer work).
      */
     delete(): Promise<any>;
     /**
-     * https://developers.linode.com/api/v4#operation/resetClientSecret
+     * https://developers.linode.com/api/v4/#operation/resetClientSecret
  *
      * Resets the OAuth Client secret for a client you own, and returns the OAuth Client with the plaintext secret. This secret is not supposed to be publicly known or disclosed anywhere. This can be used to generate a new secret in case the one you have has been leaked, or to get a new secret if you lost the original. The old secret is expired immediately, and logins to your client with the old secret will fail.
      */
@@ -4112,13 +4411,13 @@ export interface OauthClientsClass {
 }
 export interface IThumbnail {
     /**
-     * https://developers.linode.com/api/v4#operation/getClientThumbnail
+     * https://developers.linode.com/api/v4/#operation/getClientThumbnail
  *
      * Returns the thumbnail for this OAuth Client.  This is a publicly-viewable endpoint, and can be accessed without authentication.
      */
     get(): Promise<ArrayBuffer>;
     /**
-     * https://developers.linode.com/api/v4#operation/setClientThumbnail
+     * https://developers.linode.com/api/v4/#operation/setClientThumbnail
  *
      * Upload a thumbnail for a client you own.  You must upload an image file that will be returned when the thumbnail is retrieved.  This image will be publicly-viewable.
      */
@@ -4126,20 +4425,20 @@ export interface IThumbnail {
 }
 export interface IPayments {
     /**
-     * https://developers.linode.com/api/v4#operation/getPayments
+     * https://developers.linode.com/api/v4/#operation/getPayments
  *
      * Returns a paginated list of Payments made on this Account.
      */
     list(page?: number): Promise<LinodeResponse<Payment>>;
     list(page: number, page_size: number): Promise<LinodeResponse<Payment>>;
     /**
-     * https://developers.linode.com/api/v4#operation/createPayment
+     * https://developers.linode.com/api/v4/#operation/createPayment
  *
      * Makes a Payment to your Account via credit card. This will charge your credit card the requested amount.
      */
     create(data: PaymentRequest): Promise<Payment>;
     /**
-     * https://developers.linode.com/api/v4#operation/getPayment
+     * https://developers.linode.com/api/v4/#operation/getPayment
  *
      * Returns information about a specific Payment.
      */
@@ -4148,7 +4447,7 @@ export interface IPayments {
 }
 export interface PaymentsClass {
     /**
-     * https://developers.linode.com/api/v4#operation/getPayment
+     * https://developers.linode.com/api/v4/#operation/getPayment
  *
      * Returns information about a specific Payment.
      */
@@ -4156,13 +4455,13 @@ export interface PaymentsClass {
 }
 export interface IPaypal {
     /**
-     * https://developers.linode.com/api/v4#operation/createPayPalPayment
+     * https://developers.linode.com/api/v4/#operation/createPayPalPayment
  *
-     * This begins the process of submitting a Payment via PayPal. After calling this endpoint, you must take the resulting `payment_id` along with the `payer_id` from your PayPal account and [POST /account/payments/paypal-execute](/#operation/executePayPalPayment) to complete the Payment.
+     * This begins the process of submitting a Payment via PayPal. After calling this endpoint, you must take the resulting `payment_id` along with the `payer_id` from your PayPal account and [POST /account/payments/paypal-execute](#operation/executePayPalPayment) to complete the Payment.
      */
     create(data: PayPal): Promise<any>;
     /**
-     * https://developers.linode.com/api/v4#operation/executePayPalPayment
+     * https://developers.linode.com/api/v4/#operation/executePayPalPayment
  *
      * Given a PaymentID and PayerID - as generated by PayPal during the transaction authorization process - this endpoint executes the Payment to capture the funds and credit your Linode Account.
      */
@@ -4170,13 +4469,13 @@ export interface IPaypal {
 }
 export interface ISettings {
     /**
-     * https://developers.linode.com/api/v4#operation/getAccountSettings
+     * https://developers.linode.com/api/v4/#operation/getAccountSettings
  *
      * Returns information related to your Account settings: Managed service subscription, Longview subscription, and network helper.
      */
     get(): Promise<AccountSettings>;
     /**
-     * https://developers.linode.com/api/v4#operation/updateAccountSettings
+     * https://developers.linode.com/api/v4/#operation/updateAccountSettings
  *
      * Updates your Account settings.
      */
@@ -4184,7 +4483,7 @@ export interface ISettings {
 }
 export interface IUsers {
     /**
-     * https://developers.linode.com/api/v4#operation/getUsers
+     * https://developers.linode.com/api/v4/#operation/getUsers
  *
      * Returns a paginated list of Users on your Account. Users may access all or part of your Account based on their restricted status and grants.  An unrestricted User may access everything on the account, whereas restricted User may only access entities or perform actions they've been given specific grants to.
      */
@@ -4194,13 +4493,13 @@ export interface IUsers {
     list(page: number, filter: Filter<UserFilter>): Promise<LinodeResponse<User>>;
     list(page: number, page_size: number, filter: Filter<UserFilter>): Promise<LinodeResponse<User>>;
     /**
-     * https://developers.linode.com/api/v4#operation/createUser
+     * https://developers.linode.com/api/v4/#operation/createUser
  *
      * Creates a User on your Account. Once created, the User will be able to log in and access portions of your Account. Access is determined by whether or not they are restricted, and what grants they have been given.
      */
     create(data: any): Promise<User>;
     /**
-     * https://developers.linode.com/api/v4#operation/getUser
+     * https://developers.linode.com/api/v4/#operation/getUser
  *
      * Returns information about a single User on your Account.
      */
@@ -4208,19 +4507,19 @@ export interface IUsers {
 }
 export interface UsersClass {
     /**
-     * https://developers.linode.com/api/v4#operation/getUser
+     * https://developers.linode.com/api/v4/#operation/getUser
  *
      * Returns information about a single User on your Account.
      */
     get(): Promise<User>;
     /**
-     * https://developers.linode.com/api/v4#operation/updateUser
+     * https://developers.linode.com/api/v4/#operation/updateUser
  *
      * Update information about a User on your Account. This can be used to change the restricted status of a User. When making a User restricted, no grants will be configured by default and you must then set up grants in order for the User to access anything on the Account.
      */
     update(data: User): Promise<User>;
     /**
-     * https://developers.linode.com/api/v4#operation/deleteUser
+     * https://developers.linode.com/api/v4/#operation/deleteUser
  *
      * Deletes a User. The deleted User will be immediately logged out and may no longer log in or perform any actions. All of the User's Grants will be removed.
      */
@@ -4229,13 +4528,13 @@ export interface UsersClass {
 }
 export interface IGrants {
     /**
-     * https://developers.linode.com/api/v4#operation/getUserGrants
+     * https://developers.linode.com/api/v4/#operation/getUserGrants
  *
-     * Returns the full grants structure for this User. This includes all entities on the Account alongside what level of access this User has to each of them. Individual users may view their own grants at the [/profile/grants](/#operation/getProfileGrants) endpoint, but will not see entities that they have no access to.
+     * Returns the full grants structure for this User. This includes all entities on the Account alongside what level of access this User has to each of them. Individual users may view their own grants at the [/profile/grants](#operation/getProfileGrants) endpoint, but will not see entities that they have no access to.
      */
     get(): Promise<GrantsResponse>;
     /**
-     * https://developers.linode.com/api/v4#operation/updateUserGrants
+     * https://developers.linode.com/api/v4/#operation/updateUserGrants
  *
      * Update the grants a User has. This can be used to give a User access to new entities or actions, or take access away.  You do not need to include the grant for every entity on the Account in this request; any that are not included will remain unchanged.
      */
@@ -4243,7 +4542,7 @@ export interface IGrants {
 }
 export interface IDomains {
     /**
-     * https://developers.linode.com/api/v4#operation/getDomains
+     * https://developers.linode.com/api/v4/#operation/getDomains
  *
      * This is a collection of Domains that you have registered in Linode's DNS Manager.  Linode is not a registrar, and in order for these to work you must own the domains and point your registrar at Linode's nameservers.
      */
@@ -4253,13 +4552,24 @@ export interface IDomains {
     list(page: number, filter: Filter<DomainFilter>): Promise<LinodeResponse<Domain>>;
     list(page: number, page_size: number, filter: Filter<DomainFilter>): Promise<LinodeResponse<Domain>>;
     /**
-     * https://developers.linode.com/api/v4#operation/createDomain
+     * https://developers.linode.com/api/v4/#operation/createDomain
  *
      * Adds a new Domain to Linode's DNS Manager. Linode is not a registrar, and you must own the domain before adding it here. Be sure to point your registrar to Linode's nameservers so that the records hosted here are used.
      */
     create(data: Domain): Promise<Domain>;
     /**
-     * https://developers.linode.com/api/v4#operation/getDomain
+     * https://developers.linode.com/api/v4/#operation/importDomain
+ *
+     * Imports a domain zone from a remote nameserver.
+     * Your nameserver must allow zone transfers (AXFR) from the following IPs:
+     *   - 96.126.114.97
+     *   - 96.126.114.98
+     *   - 2600:3c00::5e
+     *   - 2600:3c00::5f
+     */
+    import(data: any): Promise<Domain>;
+    /**
+     * https://developers.linode.com/api/v4/#operation/getDomain
  *
      * This is a single Domain that you have registered in Linode's DNS Manager. Linode is not a registrar, and in order for this Domain record to work you must own the domain and point your registrar at Linode's nameservers.
      */
@@ -4267,19 +4577,19 @@ export interface IDomains {
 }
 export interface DomainsClass {
     /**
-     * https://developers.linode.com/api/v4#operation/getDomain
+     * https://developers.linode.com/api/v4/#operation/getDomain
  *
      * This is a single Domain that you have registered in Linode's DNS Manager. Linode is not a registrar, and in order for this Domain record to work you must own the domain and point your registrar at Linode's nameservers.
      */
     get(): Promise<Domain>;
     /**
-     * https://developers.linode.com/api/v4#operation/updateDomain
+     * https://developers.linode.com/api/v4/#operation/updateDomain
  *
      * Update information about a Domain in Linode's DNS Manager.
      */
     update(data: Domain): Promise<Domain>;
     /**
-     * https://developers.linode.com/api/v4#operation/deleteDomain
+     * https://developers.linode.com/api/v4/#operation/deleteDomain
  *
      * Deletes a Domain from Linode's DNS Manager. The Domain will be removed from Linode's nameservers shortly after this operation completes. This also deletes all associated Domain Records.
      */
@@ -4288,7 +4598,7 @@ export interface DomainsClass {
 }
 export interface IRecords {
     /**
-     * https://developers.linode.com/api/v4#operation/getDomainRecords
+     * https://developers.linode.com/api/v4/#operation/getDomainRecords
  *
      * Returns a paginated list of Records configured on a Domain in Linode's
      * DNS Manager.
@@ -4296,13 +4606,13 @@ export interface IRecords {
     list(page?: number): Promise<LinodeResponse<DomainRecord>>;
     list(page: number, page_size: number): Promise<LinodeResponse<DomainRecord>>;
     /**
-     * https://developers.linode.com/api/v4#operation/createDomainRecord
+     * https://developers.linode.com/api/v4/#operation/createDomainRecord
  *
      * Adds a new Domain Record to the zonefile this Domain represents.
      */
-    create(data: DomainRecord): Promise<DomainRecord>;
+    create(data: any): Promise<DomainRecord>;
     /**
-     * https://developers.linode.com/api/v4#operation/getDomainRecord
+     * https://developers.linode.com/api/v4/#operation/getDomainRecord
  *
      * View a single Record on this Domain.
      */
@@ -4310,19 +4620,19 @@ export interface IRecords {
 }
 export interface RecordsClass {
     /**
-     * https://developers.linode.com/api/v4#operation/getDomainRecord
+     * https://developers.linode.com/api/v4/#operation/getDomainRecord
  *
      * View a single Record on this Domain.
      */
     get(): Promise<DomainRecord>;
     /**
-     * https://developers.linode.com/api/v4#operation/updateDomainRecord
+     * https://developers.linode.com/api/v4/#operation/updateDomainRecord
  *
      * Updates a single Record on this Domain.
      */
     update(data: DomainRecord): Promise<DomainRecord>;
     /**
-     * https://developers.linode.com/api/v4#operation/deleteDomainRecord
+     * https://developers.linode.com/api/v4/#operation/deleteDomainRecord
  *
      * Deletes a Record on this Domain.
      */
@@ -4330,11 +4640,12 @@ export interface RecordsClass {
 }
 export interface IImages {
     /**
-     * https://developers.linode.com/api/v4#operation/getImages
+     * https://developers.linode.com/api/v4/#operation/getImages
  *
      * Returns a paginated list of Images.
      * * Calling this endpoint without authentication returns all public Images.
-     * * Authentication is required to return a combined paginated list of all public and  your private Images.
+     * * Authentication is required to return a combined paginated list of all public and
+     *   your private Images.
      */
     list(page?: number): Promise<LinodeResponse<ImagePublic>>;
     list(page: number, page_size: number): Promise<LinodeResponse<ImagePublic>>;
@@ -4342,14 +4653,14 @@ export interface IImages {
     list(page: number, filter: Filter<ImagePublicFilter>): Promise<LinodeResponse<ImagePublic>>;
     list(page: number, page_size: number, filter: Filter<ImagePublicFilter>): Promise<LinodeResponse<ImagePublic>>;
     /**
-     * https://developers.linode.com/api/v4#operation/createImage
+     * https://developers.linode.com/api/v4/#operation/createImage
  *
      * Creates a private gold-master Image from a Linode Disk. There is no additional charge to store Images for Linode users.
      * Images are limited to three per Account.
      */
     create(data: any): Promise<ImagePrivate>;
     /**
-     * https://developers.linode.com/api/v4#operation/getImage
+     * https://developers.linode.com/api/v4/#operation/getImage
  *
      * Get information about a single Image.
      */
@@ -4357,19 +4668,19 @@ export interface IImages {
 }
 export interface ImagesClass {
     /**
-     * https://developers.linode.com/api/v4#operation/getImage
+     * https://developers.linode.com/api/v4/#operation/getImage
  *
      * Get information about a single Image.
      */
     get(): Promise<ImagePrivate>;
     /**
-     * https://developers.linode.com/api/v4#operation/updateImage
+     * https://developers.linode.com/api/v4/#operation/updateImage
  *
      * Updates a private Image that you have permission to `read_write`.
      */
     update(data: ImagePrivate): Promise<ImagePrivate>;
     /**
-     * https://developers.linode.com/api/v4#operation/deleteImage
+     * https://developers.linode.com/api/v4/#operation/deleteImage
  *
      * Deletes a private Image you have permission to `read_write`.
      * **Deleting an Image is a destructive action and cannot be undone.**
@@ -4384,7 +4695,7 @@ export interface ILinode {
 }
 export interface IInstances {
     /**
-     * https://developers.linode.com/api/v4#operation/getLinodeInstances
+     * https://developers.linode.com/api/v4/#operation/getLinodeInstances
  *
      * Returns a paginated list of Linodes you have permission to view.
      */
@@ -4394,16 +4705,16 @@ export interface IInstances {
     list(page: number, filter: Filter<LinodeFilter>): Promise<LinodeResponse<Linode>>;
     list(page: number, page_size: number, filter: Filter<LinodeFilter>): Promise<LinodeResponse<Linode>>;
     /**
-     * https://developers.linode.com/api/v4#operation/createLinodeInstance
+     * https://developers.linode.com/api/v4/#operation/createLinodeInstance
  *
      * Creates a Linode Instance on your Account. In order for this
      * request to complete successfully, your User must have the `add_linodes` grant. Creating a
      * new Linode will incur a charge on your Account.
      * Linodes can be created using one of the available Types. See
-     * [GET /linode/types](/#operation/getLinodeTypes) to get more
+     * [GET /linode/types](#operation/getLinodeTypes) to get more
      * information about each Type's specs and cost.
      * Linodes can be created in any one of our available
-     * [Regions](/#operation/getRegions) for a list
+     * [Regions](#operation/getRegions) for a list
      * of available Regions you can deploy your Linode in.
      * Linodes can be created in a number of ways:
      * * Using a Linode Linux Distribution image or an Image you created based on another Linode.
@@ -4412,27 +4723,33 @@ export interface IInstances {
      *     * `swap_size` can be used to customize the swap disk size.
      *   * Requires a `root_pass` be supplied to use for the root User's Account.
      *   * It is recommended to supply SSH keys for the root User using the `authorized_keys` field.
+     *   * You may also supply a list of usernames via the `authorized_users` field.
+     *     * These users must have an SSH Key associated with your Profile first. See [/profile/sshkeys](#operation/addSSHKey) for more information.
      * * Using a StackScript.
-     *   * See [/linode/stackscripts](/#operation/getStackScripts) for
+     *   * See [/linode/stackscripts](#operation/getStackScripts) for
      *     a list of available StackScripts.
      *   * The Linode will be `running` after it completes `provisioning`.
      *   * Requires a compatible Image to be supplied.
-     *     * See [/linode/stackscript/{stackscriptId}](/#operation/getStackScript) for compatible Images.
+     *     * See [/linode/stackscript/{stackscriptId}](#operation/getStackScript) for compatible Images.
      *   * Requires a `root_pass` be supplied to use for the root User's Account.
      *   * It is recommended to supply SSH keys for the root User using the `authorized_keys` field.
+     *   * You may also supply a list of usernames via the `authorized_users` field.
+     *     * These users must have an SSH Key associated with your Profile first. See [/profile/sshkeys](#operation/addSSHKey) for more information.
      * * Using one of your other Linode's backups.
      *   * You must create a Linode large enough to accommodate the Backup's size.
      *   * The Disks and Config will match that of the Linode that was backed up.
      *   * The `root_pass` will match that of the Linode that was backed up.
      * * Create an empty Linode.
      *   * The Linode will remain `offline` and must be manually started.
-     *     * See [POST /linode/instances/{linodeId}/boot](/#operation/bootLinodeInstance).
+     *     * See [POST /linode/instances/{linodeId}/boot](#operation/bootLinodeInstance).
      *   * Disks and Configs must be created manually.
      *   * This is only recommended for advanced use cases.
+     * **Important**: You must be an unrestricted User in order to add or modify
+     * tags on Linodes.
      */
     create(data: any): Promise<Linode>;
     /**
-     * https://developers.linode.com/api/v4#operation/getLinodeInstance
+     * https://developers.linode.com/api/v4/#operation/getLinodeInstance
  *
      * Get a specific Linode by ID.
      */
@@ -4440,19 +4757,20 @@ export interface IInstances {
 }
 export interface InstancesClass {
     /**
-     * https://developers.linode.com/api/v4#operation/getLinodeInstance
+     * https://developers.linode.com/api/v4/#operation/getLinodeInstance
  *
      * Get a specific Linode by ID.
      */
     get(): Promise<Linode>;
     /**
-     * https://developers.linode.com/api/v4#operation/updateLinodeInstance
+     * https://developers.linode.com/api/v4/#operation/updateLinodeInstance
  *
      * Updates a Linode that you have permission to `read_write`.
+     * **Important**: You must be an unrestricted User in order to add or modify tags on Linodes.
      */
     update(data: Linode): Promise<Linode>;
     /**
-     * https://developers.linode.com/api/v4#operation/deleteLinodeInstance
+     * https://developers.linode.com/api/v4/#operation/deleteLinodeInstance
  *
      * Deletes a Linode you have permission to `read_write`.
      * **Deleting a Linode is a destructive action and cannot be undone.**
@@ -4464,7 +4782,7 @@ export interface InstancesClass {
      */
     delete(): Promise<any>;
     /**
-     * https://developers.linode.com/api/v4#operation/bootLinodeInstance
+     * https://developers.linode.com/api/v4/#operation/bootLinodeInstance
  *
      * Boots a Linode you have permission to modify. If no parameters are given, a Config profile
      * will be chosen for this boot based on the following criteria:
@@ -4475,27 +4793,33 @@ export interface InstancesClass {
      */
     boot(data: any): Promise<any>;
     /**
-     * https://developers.linode.com/api/v4#operation/cloneLinodeInstance
+     * https://developers.linode.com/api/v4/#operation/cloneLinodeInstance
  *
      * You can clone your Linode's existing Disks or Configuration profiles to another Linode on your Account. In order for this request to complete successfully, your User must have the `add_linodes` grant. Cloning to a new Linode will incur a charge on your Account.
      * If cloning to an existing Linode, any actions currently running or queued must be completed first before you can clone to it.
      */
     clone(data: any): Promise<any>;
     /**
-     * https://developers.linode.com/api/v4#operation/mutateLinodeInstance
+     * https://developers.linode.com/api/v4/#operation/migrateLinodeInstance
+ *
+     * In some circumstances, a Linode may have pending migrations scheduled that that you can initiate when convenient.  In these cases, a Notification will be returned from [GET /account/notifications](#getNotifications). This endpoint initiates the scheduled migration, which will shut the Linode down, migrate it, and then bring it back to its original state.
+     */
+    migrate(): Promise<any>;
+    /**
+     * https://developers.linode.com/api/v4/#operation/mutateLinodeInstance
  *
      * Linodes created with now-deprecated Types are entitled to a free upgrade to the next generation. A mutating Linode will be allocated any new resources the upgraded Type provides, and will be subsequently restarted if it was currently running.
      * If any actions are currently running or queued, those actions must be completed first before you can initiate a mutate.
      */
     mutate(): Promise<any>;
     /**
-     * https://developers.linode.com/api/v4#operation/rebootLinodeInstance
+     * https://developers.linode.com/api/v4/#operation/rebootLinodeInstance
  *
      * Reboots a Linode you have permission to modify. If any actions are currently running or queued, those actions must be completed first before you can initiate a reboot.
      */
-    reboot(): Promise<any>;
+    reboot(data: any): Promise<any>;
     /**
-     * https://developers.linode.com/api/v4#operation/rebuildLinodeInstance
+     * https://developers.linode.com/api/v4/#operation/rebuildLinodeInstance
  *
      * Rebuilds a Linode you have the `read_write` permission to modify.
      * A rebuild will first shut down the Linode, delete all disks and configs on the Linode, and then deploy a new `image` to the Linode with the given attributes. Additionally:
@@ -4506,18 +4830,16 @@ export interface InstancesClass {
      */
     rebuild(data: any): Promise<Linode>;
     /**
-     * https://developers.linode.com/api/v4#operation/rescueLinodeInstance
+     * https://developers.linode.com/api/v4/#operation/rescueLinodeInstance
  *
      * Rescue Mode is a safe environment for performing many system recovery and disk management tasks. Rescue Mode is based on the Finnix recovery distribution, a self-contained and bootable Linux distribution. You can also use Rescue Mode for tasks other than disaster recovery, such as formatting disks to use different filesystems, copying data between disks, and downloading files from a disk via SSH and SFTP.
      * * Note that "sdh" is reserved and unavailable during rescue.
      */
     rescue(data: any): Promise<any>;
     /**
-     * https://developers.linode.com/api/v4#operation/resizeLinodeInstance
+     * https://developers.linode.com/api/v4/#operation/resizeLinodeInstance
  *
      * Resizes a Linode you have the `read_write` permission to a different Type. If any actions are currently running or queued, those actions must be completed first before you can initiate a resize. Additionally, the following criteria must be met in order to resize a Linode:
-     *   * Any pending free upgrades to the Linode's current Type must be performed
-     *   before a resize can occur.
      *   * The Linode must not have a pending migration.
      *   * Your Account cannot have an outstanding balance.
      *   * The Linode must not have more disk allocation than the new Type allows.
@@ -4525,7 +4847,7 @@ export interface InstancesClass {
      */
     resize(data: any): Promise<any>;
     /**
-     * https://developers.linode.com/api/v4#operation/shutdownLinodeInstance
+     * https://developers.linode.com/api/v4/#operation/shutdownLinodeInstance
  *
      * Shuts down a Linode you have permission to modify. If any actions are currently running or queued, those actions must be completed first before you can initiate a shutdown.
      */
@@ -4539,32 +4861,32 @@ export interface InstancesClass {
 }
 export interface IBackups {
     /**
-     * https://developers.linode.com/api/v4#operation/getBackups
+     * https://developers.linode.com/api/v4/#operation/getBackups
  *
      * Returns information about this Linode's available backups.
      */
     get(): Promise<any>;
     /**
-     * https://developers.linode.com/api/v4#operation/createSnapshot
+     * https://developers.linode.com/api/v4/#operation/createSnapshot
  *
      * Creates a snapshot Backup of a Linode.
      * ** If you already have a snapshot of this Linode, this is a destructive action. The previous snapshot will be deleted.**
      */
     create(data: any): Promise<Backup>;
     /**
-     * https://developers.linode.com/api/v4#operation/cancelBackups
+     * https://developers.linode.com/api/v4/#operation/cancelBackups
  *
      * Cancels the Backup service on the given Linode. Deletes all of this Linode's existing backups forever.
      */
     cancel(): Promise<any>;
     /**
-     * https://developers.linode.com/api/v4#operation/enableBackups
+     * https://developers.linode.com/api/v4/#operation/enableBackups
  *
      * Enables backups for the specified Linode.
      */
     enable(): Promise<any>;
     /**
-     * https://developers.linode.com/api/v4#operation/getBackup
+     * https://developers.linode.com/api/v4/#operation/getBackup
  *
      * Returns information about a Backup.
      */
@@ -4572,13 +4894,13 @@ export interface IBackups {
 }
 export interface BackupsClass {
     /**
-     * https://developers.linode.com/api/v4#operation/getBackup
+     * https://developers.linode.com/api/v4/#operation/getBackup
  *
      * Returns information about a Backup.
      */
     get(): Promise<Backup>;
     /**
-     * https://developers.linode.com/api/v4#operation/restoreBackup
+     * https://developers.linode.com/api/v4/#operation/restoreBackup
  *
      * Restores a Linode's Backup to the specified Linode.
      */
@@ -4586,7 +4908,7 @@ export interface BackupsClass {
 }
 export interface IConfigs {
     /**
-     * https://developers.linode.com/api/v4#operation/getLinodeConfigs
+     * https://developers.linode.com/api/v4/#operation/getLinodeConfigs
  *
      * Lists Configuration profiles associated with a Linode.
      */
@@ -4596,13 +4918,13 @@ export interface IConfigs {
     list(page: number, filter: Filter<LinodeConfigFilter>): Promise<LinodeResponse<LinodeConfig>>;
     list(page: number, page_size: number, filter: Filter<LinodeConfigFilter>): Promise<LinodeResponse<LinodeConfig>>;
     /**
-     * https://developers.linode.com/api/v4#operation/addLinodeConfig
+     * https://developers.linode.com/api/v4/#operation/addLinodeConfig
  *
      * Adds a new Configuration profile to a Linode.
      */
     create(data: LinodeConfig): Promise<LinodeConfig>;
     /**
-     * https://developers.linode.com/api/v4#operation/getLinodeConfig
+     * https://developers.linode.com/api/v4/#operation/getLinodeConfig
  *
      * Returns information about a specific Configuration profile.
      */
@@ -4610,19 +4932,19 @@ export interface IConfigs {
 }
 export interface ConfigsClass {
     /**
-     * https://developers.linode.com/api/v4#operation/getLinodeConfig
+     * https://developers.linode.com/api/v4/#operation/getLinodeConfig
  *
      * Returns information about a specific Configuration profile.
      */
     get(): Promise<LinodeConfig>;
     /**
-     * https://developers.linode.com/api/v4#operation/updateLinodeConfig
+     * https://developers.linode.com/api/v4/#operation/updateLinodeConfig
  *
      * Updates a Configuration profile.
      */
     update(data: LinodeConfig): Promise<LinodeConfig>;
     /**
-     * https://developers.linode.com/api/v4#operation/deleteLinodeConfig
+     * https://developers.linode.com/api/v4/#operation/deleteLinodeConfig
  *
      * Deletes the specified Configuration profile from the specified Linode.
      */
@@ -4630,7 +4952,7 @@ export interface ConfigsClass {
 }
 export interface IDisks {
     /**
-     * https://developers.linode.com/api/v4#operation/getLinodeDisks
+     * https://developers.linode.com/api/v4/#operation/getLinodeDisks
  *
      * View Disk information for Disks associated with this Linode.
      */
@@ -4640,13 +4962,13 @@ export interface IDisks {
     list(page: number, filter: Filter<DiskFilter>): Promise<LinodeResponse<Disk>>;
     list(page: number, page_size: number, filter: Filter<DiskFilter>): Promise<LinodeResponse<Disk>>;
     /**
-     * https://developers.linode.com/api/v4#operation/addLinodeDisk
+     * https://developers.linode.com/api/v4/#operation/addLinodeDisk
  *
-     * Adds a new Disk to a Linode. You can optionally create a Disk from an Image (see [/images](/#operation/getImages) for a list of available public images, or use one of your own), and optionally provide a StackScript to deploy with this Disk.
+     * Adds a new Disk to a Linode. You can optionally create a Disk from an Image (see [/images](#operation/getImages) for a list of available public images, or use one of your own), and optionally provide a StackScript to deploy with this Disk.
      */
     create(data: DiskRequest): Promise<Disk>;
     /**
-     * https://developers.linode.com/api/v4#operation/getLinodeDisk
+     * https://developers.linode.com/api/v4/#operation/getLinodeDisk
  *
      * View Disk information for a Disk associated with this Linode.
      */
@@ -4654,32 +4976,38 @@ export interface IDisks {
 }
 export interface DisksClass {
     /**
-     * https://developers.linode.com/api/v4#operation/getLinodeDisk
+     * https://developers.linode.com/api/v4/#operation/getLinodeDisk
  *
      * View Disk information for a Disk associated with this Linode.
      */
     get(): Promise<Disk>;
     /**
-     * https://developers.linode.com/api/v4#operation/updateDisk
+     * https://developers.linode.com/api/v4/#operation/updateDisk
  *
      * Updates a Disk that you have permission to `read_write`.
      */
     update(data: Disk): Promise<Disk>;
     /**
-     * https://developers.linode.com/api/v4#operation/deleteDisk
+     * https://developers.linode.com/api/v4/#operation/deleteDisk
  *
      * Deletes a Disk you have permission to `read_write`.
      * **Deleting a Disk is a destructive action and cannot be undone.**
      */
     delete(): Promise<any>;
     /**
-     * https://developers.linode.com/api/v4#operation/resetDiskPassword
+     * https://developers.linode.com/api/v4/#operation/cloneLinodeDisk
+ *
+     * Copies a disk, byte-for-byte, into a new Disk belonging to the same Linode. The Linode must have enough storage space available to accept a new Disk of the same size as this one or this operation will fail.
+     */
+    clone(): Promise<Disk>;
+    /**
+     * https://developers.linode.com/api/v4/#operation/resetDiskPassword
  *
      * Resets the password of a Disk you have permission to `read_write`.
      */
     password(data: any): Promise<any>;
     /**
-     * https://developers.linode.com/api/v4#operation/resizeDisk
+     * https://developers.linode.com/api/v4/#operation/resizeDisk
  *
      * Resizes a Disk you have permission to `read_write`.
      * The Linode this Disk is attached to must be shut down for resizing to take effect.
@@ -4689,19 +5017,19 @@ export interface DisksClass {
 }
 export interface IIps {
     /**
-     * https://developers.linode.com/api/v4#operation/getLinodeIPs
+     * https://developers.linode.com/api/v4/#operation/getLinodeIPs
  *
      * Returns networking information for a single Linode.
      */
     get(): Promise<any>;
     /**
-     * https://developers.linode.com/api/v4#operation/addLinodeIP
+     * https://developers.linode.com/api/v4/#operation/addLinodeIP
  *
-     * Allocates a public or private IPv4 address to a Linode. Public IP Addresses, after the one included with each Linode, incur an additional monthly charge. If you need an additional public IP Address you must request one - please [open a support ticket](/#operation/createTicket). You may not add more than one private IPv4 address to a single Linode.
+     * Allocates a public or private IPv4 address to a Linode. Public IP Addresses, after the one included with each Linode, incur an additional monthly charge. If you need an additional public IP Address you must request one - please [open a support ticket](#operation/createTicket). You may not add more than one private IPv4 address to a single Linode.
      */
     create(data: any): Promise<IPAddress>;
     /**
-     * https://developers.linode.com/api/v4#operation/getLinodeIP
+     * https://developers.linode.com/api/v4/#operation/getLinodeIP
  *
      * View information about the specified IP address associated with the specified Linode.
      */
@@ -4709,19 +5037,19 @@ export interface IIps {
 }
 export interface IpsClass {
     /**
-     * https://developers.linode.com/api/v4#operation/getLinodeIP
+     * https://developers.linode.com/api/v4/#operation/getLinodeIP
  *
      * View information about the specified IP address associated with the specified Linode.
      */
     get(): Promise<IPAddress>;
     /**
-     * https://developers.linode.com/api/v4#operation/updateLinodeIP
+     * https://developers.linode.com/api/v4/#operation/updateLinodeIP
  *
      * Updates a particular IP Address associated with this Linode. Only allows setting/resetting reverse DNS.
      */
     update(data: any): Promise<IPAddress>;
     /**
-     * https://developers.linode.com/api/v4#operation/removeLinodeIP
+     * https://developers.linode.com/api/v4/#operation/removeLinodeIP
  *
      * Deletes a public IPv4 address associated with this Linode. This will fail if it is the Linode's last remaining public IPv4 address. Private IPv4 addresses cannot be removed via this endpoint.
      */
@@ -4729,13 +5057,13 @@ export interface IpsClass {
 }
 export interface IStats {
     /**
-     * https://developers.linode.com/api/v4#operation/getLinodeStats
+     * https://developers.linode.com/api/v4/#operation/getLinodeStats
  *
      * Returns CPU, IO, IPv4, and IPv6 statistics for your Linode for the past 24 hours.
      */
     get(): Promise<LinodeStats>;
     /**
-     * https://developers.linode.com/api/v4#operation/getLinodeStatsByYearMonth
+     * https://developers.linode.com/api/v4/#operation/getLinodeStatsByYearMonth
  *
      * Returns statistics for a specific month. The year/month values must be either a date in the past, or the current month. If the current month, statistics will be retrieved for the past 30 days.
      */
@@ -4743,7 +5071,7 @@ export interface IStats {
 }
 export interface IVolumes {
     /**
-     * https://developers.linode.com/api/v4#operation/getLinodeVolumes
+     * https://developers.linode.com/api/v4/#operation/getLinodeVolumes
  *
      * View Block Storage Volumes attached to this Linode.
      */
@@ -4755,7 +5083,7 @@ export interface IVolumes {
 }
 export interface IKernels {
     /**
-     * https://developers.linode.com/api/v4#operation/getKernels
+     * https://developers.linode.com/api/v4/#operation/getKernels
  *
      * Lists available Kernels.
      */
@@ -4765,7 +5093,7 @@ export interface IKernels {
     list(page: number, filter: Filter<KernelFilter>): Promise<LinodeResponse<Kernel>>;
     list(page: number, page_size: number, filter: Filter<KernelFilter>): Promise<LinodeResponse<Kernel>>;
     /**
-     * https://developers.linode.com/api/v4#operation/getKernel
+     * https://developers.linode.com/api/v4/#operation/getKernel
  *
      * Returns information about a single Kernel.
      */
@@ -4773,7 +5101,7 @@ export interface IKernels {
 }
 export interface KernelsClass {
     /**
-     * https://developers.linode.com/api/v4#operation/getKernel
+     * https://developers.linode.com/api/v4/#operation/getKernel
  *
      * Returns information about a single Kernel.
      */
@@ -4781,10 +5109,10 @@ export interface KernelsClass {
 }
 export interface IStackscripts {
     /**
-     * https://developers.linode.com/api/v4#operation/getStackScripts
+     * https://developers.linode.com/api/v4/#operation/getStackScripts
  *
      * If the request is not authenticated, only public StackScripts are returned.
-     * For more information on StackScripts, please read our guide: [Automate Deployment with StackScripts](https://linode.com/docs/platform/stackscripts/).
+     * For more information on StackScripts, please read our guide: <a target="_top" href="https://linode.com/docs/platform/stackscripts/">Automate Deployment with StackScripts</a>.
      */
     list(page?: number): Promise<LinodeResponse<StackScript>>;
     list(page: number, page_size: number): Promise<LinodeResponse<StackScript>>;
@@ -4792,13 +5120,13 @@ export interface IStackscripts {
     list(page: number, filter: Filter<StackScriptFilter>): Promise<LinodeResponse<StackScript>>;
     list(page: number, page_size: number, filter: Filter<StackScriptFilter>): Promise<LinodeResponse<StackScript>>;
     /**
-     * https://developers.linode.com/api/v4#operation/addStackScript
+     * https://developers.linode.com/api/v4/#operation/addStackScript
  *
      * Creates a StackScript in your Account.
      */
-    create(data: StackScript): Promise<StackScript>;
+    create(data: any): Promise<StackScript>;
     /**
-     * https://developers.linode.com/api/v4#operation/getStackScript
+     * https://developers.linode.com/api/v4/#operation/getStackScript
  *
      * Returns all of the information about a specified StackScript, including the contents of the script.
      */
@@ -4806,20 +5134,20 @@ export interface IStackscripts {
 }
 export interface StackscriptsClass {
     /**
-     * https://developers.linode.com/api/v4#operation/getStackScript
+     * https://developers.linode.com/api/v4/#operation/getStackScript
  *
      * Returns all of the information about a specified StackScript, including the contents of the script.
      */
     get(): Promise<StackScript>;
     /**
-     * https://developers.linode.com/api/v4#operation/updateStackScript
+     * https://developers.linode.com/api/v4/#operation/updateStackScript
  *
      * Updates a StackScript.
      * **Once a StackScript is made public, it cannot be made private.**
      */
     update(data: StackScript): Promise<StackScript>;
     /**
-     * https://developers.linode.com/api/v4#operation/deleteStackScript
+     * https://developers.linode.com/api/v4/#operation/deleteStackScript
  *
      * Deletes a private StackScript you have permission to `read_write`. You cannot delete a public StackScript.
      */
@@ -4827,9 +5155,9 @@ export interface StackscriptsClass {
 }
 export interface ITypes {
     /**
-     * https://developers.linode.com/api/v4#operation/getLinodeTypes
+     * https://developers.linode.com/api/v4/#operation/getLinodeTypes
  *
-     * Returns collection of Linode Types, including pricing and specifications for each Type. These are used when [creating](/#operation/createLinodeInstance) or [resizing](/#operation/resizeLinodeInstance) Linodes.
+     * Returns collection of Linode Types, including pricing and specifications for each Type. These are used when [creating](#operation/createLinodeInstance) or [resizing](#operation/resizeLinodeInstance) Linodes.
      */
     list(page?: number): Promise<LinodeResponse<LinodeType>>;
     list(page: number, page_size: number): Promise<LinodeResponse<LinodeType>>;
@@ -4837,17 +5165,17 @@ export interface ITypes {
     list(page: number, filter: Filter<LinodeTypeFilter>): Promise<LinodeResponse<LinodeType>>;
     list(page: number, page_size: number, filter: Filter<LinodeTypeFilter>): Promise<LinodeResponse<LinodeType>>;
     /**
-     * https://developers.linode.com/api/v4#operation/getLinodeType
+     * https://developers.linode.com/api/v4/#operation/getLinodeType
  *
-     * Returns information about a specific Linode Type, including pricing and specifications. This is used when [creating](/#operation/createLinodeInstance) or [resizing](/#operation/resizeLinodeInstance) Linodes.
+     * Returns information about a specific Linode Type, including pricing and specifications. This is used when [creating](#operation/createLinodeInstance) or [resizing](#operation/resizeLinodeInstance) Linodes.
      */
     (typeId: string): TypesClass;
 }
 export interface TypesClass {
     /**
-     * https://developers.linode.com/api/v4#operation/getLinodeType
+     * https://developers.linode.com/api/v4/#operation/getLinodeType
  *
-     * Returns information about a specific Linode Type, including pricing and specifications. This is used when [creating](/#operation/createLinodeInstance) or [resizing](/#operation/resizeLinodeInstance) Linodes.
+     * Returns information about a specific Linode Type, including pricing and specifications. This is used when [creating](#operation/createLinodeInstance) or [resizing](#operation/resizeLinodeInstance) Linodes.
      */
     get(): Promise<LinodeType>;
 }
@@ -4857,7 +5185,7 @@ export interface ILongview {
 }
 export interface IClients {
     /**
-     * https://developers.linode.com/api/v4#operation/getLongviewClients
+     * https://developers.linode.com/api/v4/#operation/getLongviewClients
  *
      * Returns a paginated list of Longview Clients you have access to. Longview Client is used to monitor stats on your Linode with the help of the Longview Client application.
      */
@@ -4867,13 +5195,13 @@ export interface IClients {
     list(page: number, filter: Filter<LongviewClientFilter>): Promise<LinodeResponse<LongviewClient>>;
     list(page: number, page_size: number, filter: Filter<LongviewClientFilter>): Promise<LinodeResponse<LongviewClient>>;
     /**
-     * https://developers.linode.com/api/v4#operation/createLongviewClient
+     * https://developers.linode.com/api/v4/#operation/createLongviewClient
  *
      * Creates a Longview Client.  This Client will not begin monitoring the status of your server until you configure the Longview Client application on your Linode using the returning `install_code` and `api_key`.
      */
     create(data: LongviewClient): Promise<LongviewClient>;
     /**
-     * https://developers.linode.com/api/v4#operation/getLongviewClient
+     * https://developers.linode.com/api/v4/#operation/getLongviewClient
  *
      * Returns a single Longview Client you can access.
      */
@@ -4881,19 +5209,19 @@ export interface IClients {
 }
 export interface ClientsClass {
     /**
-     * https://developers.linode.com/api/v4#operation/getLongviewClient
+     * https://developers.linode.com/api/v4/#operation/getLongviewClient
  *
      * Returns a single Longview Client you can access.
      */
     get(): Promise<LongviewClient>;
     /**
-     * https://developers.linode.com/api/v4#operation/updateLongviewClient
+     * https://developers.linode.com/api/v4/#operation/updateLongviewClient
  *
      * Updates a Longview Client.  This cannot update how it monitors your server; use the Longview Client application on your Linode for monitoring configuration.
      */
     update(data: LongviewClient): Promise<LongviewClient>;
     /**
-     * https://developers.linode.com/api/v4#operation/deleteLongviewClient
+     * https://developers.linode.com/api/v4/#operation/deleteLongviewClient
  *
      * Deletes a Longview Client from your Account.
      * **All information stored for this client will be lost.**
@@ -4903,14 +5231,14 @@ export interface ClientsClass {
 }
 export interface ISubscriptions {
     /**
-     * https://developers.linode.com/api/v4#operation/getLongviewSubscriptions
+     * https://developers.linode.com/api/v4/#operation/getLongviewSubscriptions
  *
      * Returns a paginated list of available Longview Subscriptions. This is a public endpoint and requires no authentication.
      */
     list(page?: number): Promise<LinodeResponse<LongviewSubscription>>;
     list(page: number, page_size: number): Promise<LinodeResponse<LongviewSubscription>>;
     /**
-     * https://developers.linode.com/api/v4#operation/getLongviewSubscription
+     * https://developers.linode.com/api/v4/#operation/getLongviewSubscription
  *
      * Returns a single LongviewSubscription object.  This is a public endpoint and requires no authentication.
      */
@@ -4918,7 +5246,7 @@ export interface ISubscriptions {
 }
 export interface SubscriptionsClass {
     /**
-     * https://developers.linode.com/api/v4#operation/getLongviewSubscription
+     * https://developers.linode.com/api/v4/#operation/getLongviewSubscription
  *
      * Returns a single LongviewSubscription object.  This is a public endpoint and requires no authentication.
      */
@@ -4933,7 +5261,7 @@ export interface IManaged {
 }
 export interface IContacts {
     /**
-     * https://developers.linode.com/api/v4#operation/getManagedContacts
+     * https://developers.linode.com/api/v4/#operation/getManagedContacts
  *
      * Returns a paginated list of Managed Contacts on your Account.
      */
@@ -4943,13 +5271,13 @@ export interface IContacts {
     list(page: number, filter: Filter<ManagedContactFilter>): Promise<LinodeResponse<ManagedContact>>;
     list(page: number, page_size: number, filter: Filter<ManagedContactFilter>): Promise<LinodeResponse<ManagedContact>>;
     /**
-     * https://developers.linode.com/api/v4#operation/createManagedContact
+     * https://developers.linode.com/api/v4/#operation/createManagedContact
  *
      * Creates a Managed Contact.  A Managed Contact is someone Linode special forces can contact in the course of attempting to resolve an issue with a Managed Service.
      */
     create(data: ManagedContact): Promise<ManagedContact>;
     /**
-     * https://developers.linode.com/api/v4#operation/getManagedContact
+     * https://developers.linode.com/api/v4/#operation/getManagedContact
  *
      * Returns a single Managed Contact.
      */
@@ -4957,19 +5285,19 @@ export interface IContacts {
 }
 export interface ContactsClass {
     /**
-     * https://developers.linode.com/api/v4#operation/getManagedContact
+     * https://developers.linode.com/api/v4/#operation/getManagedContact
  *
      * Returns a single Managed Contact.
      */
     get(): Promise<ManagedContact>;
     /**
-     * https://developers.linode.com/api/v4#operation/updateManagedContact
+     * https://developers.linode.com/api/v4/#operation/updateManagedContact
  *
      * Updates information about a Managed Contact.
      */
     update(data: ManagedContact): Promise<ManagedContact>;
     /**
-     * https://developers.linode.com/api/v4#operation/deleteManagedContact
+     * https://developers.linode.com/api/v4/#operation/deleteManagedContact
  *
      * Deletes a Managed Contact.
      */
@@ -4977,20 +5305,20 @@ export interface ContactsClass {
 }
 export interface ICredentials {
     /**
-     * https://developers.linode.com/api/v4#operation/getManagedCredentials
+     * https://developers.linode.com/api/v4/#operation/getManagedCredentials
  *
      * Returns a paginated list of Managed Credentials on your Account.
      */
     list(page?: number): Promise<LinodeResponse<ManagedCredential>>;
     list(page: number, page_size: number): Promise<LinodeResponse<ManagedCredential>>;
     /**
-     * https://developers.linode.com/api/v4#operation/createManagedCredential
+     * https://developers.linode.com/api/v4/#operation/createManagedCredential
  *
      * Creates a Managed Credential. A Managed Credential is stored securely to allow Linode special forces to access your Managed Services and resolve issues.
      */
     create(data: any): Promise<ManagedCredential>;
     /**
-     * https://developers.linode.com/api/v4#operation/getManagedCredential
+     * https://developers.linode.com/api/v4/#operation/getManagedCredential
  *
      * Returns a single Managed Credential.
      */
@@ -4998,19 +5326,19 @@ export interface ICredentials {
 }
 export interface CredentialsClass {
     /**
-     * https://developers.linode.com/api/v4#operation/getManagedCredential
+     * https://developers.linode.com/api/v4/#operation/getManagedCredential
  *
      * Returns a single Managed Credential.
      */
     get(): Promise<ManagedCredential>;
     /**
-     * https://developers.linode.com/api/v4#operation/updateManagedCredential
+     * https://developers.linode.com/api/v4/#operation/updateManagedCredential
  *
      * Updates information about a Managed Credential.
      */
     update(data: ManagedCredential): Promise<ManagedCredential>;
     /**
-     * https://developers.linode.com/api/v4#operation/deleteManagedCredential
+     * https://developers.linode.com/api/v4/#operation/deleteManagedCredential
  *
      * Deletes a Managed Credential.  Linode special forces will no longer have access to this Credential when attempting to resolve issues.
      */
@@ -5018,14 +5346,14 @@ export interface CredentialsClass {
 }
 export interface IIssues {
     /**
-     * https://developers.linode.com/api/v4#operation/getManagedIssues
+     * https://developers.linode.com/api/v4/#operation/getManagedIssues
  *
      * Returns a paginated list of recent and ongoing issues detected on your Managed Services.
      */
     list(page?: number): Promise<LinodeResponse<ManagedIssue>>;
     list(page: number, page_size: number): Promise<LinodeResponse<ManagedIssue>>;
     /**
-     * https://developers.linode.com/api/v4#operation/getManagedIssue
+     * https://developers.linode.com/api/v4/#operation/getManagedIssue
  *
      * Returns a single Issue that is impacting or did impact one of your Managed Services.
      */
@@ -5033,7 +5361,7 @@ export interface IIssues {
 }
 export interface IssuesClass {
     /**
-     * https://developers.linode.com/api/v4#operation/getManagedIssue
+     * https://developers.linode.com/api/v4/#operation/getManagedIssue
  *
      * Returns a single Issue that is impacting or did impact one of your Managed Services.
      */
@@ -5041,14 +5369,14 @@ export interface IssuesClass {
 }
 export interface ILinodeSettings {
     /**
-     * https://developers.linode.com/api/v4#operation/getManagedLinodeSettings
+     * https://developers.linode.com/api/v4/#operation/getManagedLinodeSettings
  *
      * Returns a paginated list of Managed Settings for your Linodes. There will be one entry per Linode on your Account.
      */
     list(page?: number): Promise<LinodeResponse<ManagedLinodeSettings>>;
     list(page: number, page_size: number): Promise<LinodeResponse<ManagedLinodeSettings>>;
     /**
-     * https://developers.linode.com/api/v4#operation/getManagedLinodeSetting
+     * https://developers.linode.com/api/v4/#operation/getManagedLinodeSetting
  *
      * Returns a single Linode's Managed settings.
      */
@@ -5056,13 +5384,13 @@ export interface ILinodeSettings {
 }
 export interface LinodeSettingsClass {
     /**
-     * https://developers.linode.com/api/v4#operation/getManagedLinodeSetting
+     * https://developers.linode.com/api/v4/#operation/getManagedLinodeSetting
  *
      * Returns a single Linode's Managed settings.
      */
     get(): Promise<ManagedLinodeSettings>;
     /**
-     * https://developers.linode.com/api/v4#operation/updateManagedLinodeSetting
+     * https://developers.linode.com/api/v4/#operation/updateManagedLinodeSetting
  *
      * Updates a single Linode's Managed settings.
      */
@@ -5070,20 +5398,20 @@ export interface LinodeSettingsClass {
 }
 export interface IServices {
     /**
-     * https://developers.linode.com/api/v4#operation/getManagedServices
+     * https://developers.linode.com/api/v4/#operation/getManagedServices
  *
      * Returns a paginated list of Managed Services on your Account. These are the services Linode Managed is monitoring and will report and attempt to resolve issues with.
      */
     list(page?: number): Promise<LinodeResponse<ManagedService>>;
     list(page: number, page_size: number): Promise<LinodeResponse<ManagedService>>;
     /**
-     * https://developers.linode.com/api/v4#operation/createManagedService
+     * https://developers.linode.com/api/v4/#operation/createManagedService
  *
      * Creates a Managed Service. Linode Managed will being monitoring this service and reporting and attempting to resolve any Issues.
      */
     create(data: any): Promise<ManagedService>;
     /**
-     * https://developers.linode.com/api/v4#operation/getManagedService
+     * https://developers.linode.com/api/v4/#operation/getManagedService
  *
      * Returns information about a single Managed Service on your Account.
      */
@@ -5091,44 +5419,44 @@ export interface IServices {
 }
 export interface ServicesClass {
     /**
-     * https://developers.linode.com/api/v4#operation/getManagedService
+     * https://developers.linode.com/api/v4/#operation/getManagedService
  *
      * Returns information about a single Managed Service on your Account.
      */
     get(): Promise<ManagedService>;
     /**
-     * https://developers.linode.com/api/v4#operation/updateManagedService
+     * https://developers.linode.com/api/v4/#operation/updateManagedService
  *
      * Updates information about a Managed Service.
      */
     update(data: ManagedService): Promise<ManagedService>;
     /**
-     * https://developers.linode.com/api/v4#operation/deleteManagedService
+     * https://developers.linode.com/api/v4/#operation/deleteManagedService
  *
      * Deletes a Managed Service.  This service will no longer be monitored by Linode Managed.
      */
     delete(): Promise<any>;
     /**
-     * https://developers.linode.com/api/v4#operation/disableManagedService
+     * https://developers.linode.com/api/v4/#operation/disableManagedService
  *
      * Temporarily disables monitoring of a Managed Service.
      */
     disable(): Promise<ManagedService>;
     /**
-     * https://developers.linode.com/api/v4#operation/enableManagedService
+     * https://developers.linode.com/api/v4/#operation/enableManagedService
  *
      * Enables monitoring of a Managed Service.
      */
     enable(): Promise<ManagedService>;
 }
 export interface INetworking {
-    ips: IIps;
+    ips: INetworkingIps;
     ipv4: IIpv4;
     ipv6: IIpv6;
 }
-export interface IIps {
+export interface INetworkingIps {
     /**
-     * https://developers.linode.com/api/v4#operation/getIPs
+     * https://developers.linode.com/api/v4/#operation/getIPs
  *
      * Returns a paginated list of IP Addresses on your Account, excluding private addresses.
      */
@@ -5138,27 +5466,27 @@ export interface IIps {
     list(page: number, filter: Filter<IPAddressFilter>): Promise<LinodeResponse<IPAddress>>;
     list(page: number, page_size: number, filter: Filter<IPAddressFilter>): Promise<LinodeResponse<IPAddress>>;
     /**
-     * https://developers.linode.com/api/v4#operation/allocateIP
+     * https://developers.linode.com/api/v4/#operation/allocateIP
  *
-     * Allocates a new IPv4 Address on your Account. The Linode must be configured to support additional addresses - please [open a support ticket](/#operation/createTicket) requesting additional addresses before attempting allocation.
+     * Allocates a new IPv4 Address on your Account. The Linode must be configured to support additional addresses - please [open a support ticket](#operation/createTicket) requesting additional addresses before attempting allocation.
      */
     create(data: any): Promise<IPAddress>;
     /**
-     * https://developers.linode.com/api/v4#operation/getIP
+     * https://developers.linode.com/api/v4/#operation/getIP
  *
      * Returns information about a single IP Address on your Account.
      */
-    (address: string): IpsClass;
+    (address: string): NetworkingIpsClass;
 }
-export interface IpsClass {
+export interface NetworkingIpsClass {
     /**
-     * https://developers.linode.com/api/v4#operation/getIP
+     * https://developers.linode.com/api/v4/#operation/getIP
  *
      * Returns information about a single IP Address on your Account.
      */
     get(): Promise<IPAddress>;
     /**
-     * https://developers.linode.com/api/v4#operation/updateIP
+     * https://developers.linode.com/api/v4/#operation/updateIP
  *
      * Sets RDNS on an IP Address. Forward DNS must already be set up for reverse DNS to be applied. If you set the RDNS to `null` for public IPv4 addresses, it will be reset to the default _members.linode.com_ RDNS value.
      */
@@ -5166,13 +5494,13 @@ export interface IpsClass {
 }
 export interface IIpv4 {
     /**
-     * https://developers.linode.com/api/v4#operation/assignIPs
+     * https://developers.linode.com/api/v4/#operation/assignIPs
  *
      * Assign multiple IPs to multiple Linodes in one Region. This allows swapping, shuffling, or otherwise reorganizing IPv4 Addresses to your Linodes.  When the assignment is finished, all Linodes must end up with at least one public IPv4 and no more than one private IPv4.
      */
     assign(data: any): Promise<any>;
     /**
-     * https://developers.linode.com/api/v4#operation/shareIPs
+     * https://developers.linode.com/api/v4/#operation/shareIPs
  *
      * Configure shared IPs.  A shared IP may be brought up on a Linode other than the one it lists in its response.  This can be used to allow one Linode to begin serving requests should another become unresponsive.
      */
@@ -5184,7 +5512,7 @@ export interface IIpv6 {
 }
 export interface IPools {
     /**
-     * https://developers.linode.com/api/v4#operation/getIPv6Pools
+     * https://developers.linode.com/api/v4/#operation/getIPv6Pools
  *
      * Displays the IPv6 pools on your Account.
      */
@@ -5193,7 +5521,7 @@ export interface IPools {
 }
 export interface IRanges {
     /**
-     * https://developers.linode.com/api/v4#operation/getIPv6Ranges
+     * https://developers.linode.com/api/v4/#operation/getIPv6Ranges
  *
      * Displays the IPv6 ranges on your Account.
      */
@@ -5202,7 +5530,7 @@ export interface IRanges {
 }
 export interface INodebalancers {
     /**
-     * https://developers.linode.com/api/v4#operation/getNodeBalancers
+     * https://developers.linode.com/api/v4/#operation/getNodeBalancers
  *
      * Returns a paginated list of NodeBalancers you have access to.
      */
@@ -5212,13 +5540,13 @@ export interface INodebalancers {
     list(page: number, filter: Filter<NodeBalancerFilter>): Promise<LinodeResponse<NodeBalancer>>;
     list(page: number, page_size: number, filter: Filter<NodeBalancerFilter>): Promise<LinodeResponse<NodeBalancer>>;
     /**
-     * https://developers.linode.com/api/v4#operation/createNodeBalancer
+     * https://developers.linode.com/api/v4/#operation/createNodeBalancer
  *
      * Creates a NodeBalancer in the requested Region. This NodeBalancer will not start serving requests until it is configured.
      */
     create(data: any): Promise<NodeBalancer>;
     /**
-     * https://developers.linode.com/api/v4#operation/getNodeBalancer
+     * https://developers.linode.com/api/v4/#operation/getNodeBalancer
  *
      * Returns a single NodeBalancer you can access.
      */
@@ -5226,30 +5554,34 @@ export interface INodebalancers {
 }
 export interface NodebalancersClass {
     /**
-     * https://developers.linode.com/api/v4#operation/getNodeBalancer
+     * https://developers.linode.com/api/v4/#operation/getNodeBalancer
  *
      * Returns a single NodeBalancer you can access.
      */
     get(): Promise<NodeBalancer>;
     /**
-     * https://developers.linode.com/api/v4#operation/updateNodeBalancer
+     * https://developers.linode.com/api/v4/#operation/updateNodeBalancer
  *
      * Updates information about a NodeBalancer you can access.
      */
     update(data: NodeBalancer): Promise<NodeBalancer>;
     /**
-     * https://developers.linode.com/api/v4#operation/deleteNodeBalancer
+     * https://developers.linode.com/api/v4/#operation/deleteNodeBalancer
  *
      * Deletes a NodeBalancer.
      * **This is a destructive action and cannot be undone.**
      * Deleting a NodeBalancer will also delete all associated Configs and Nodes, although the backend servers represented by the Nodes will not be changed or removed. Deleting a NodeBalancer will cause you to lose access to the IP Addresses assigned to this NodeBalancer.
      */
     delete(): Promise<any>;
-    configs: IConfigs;
-}
-export interface IConfigs {
     /**
-     * https://developers.linode.com/api/v4#operation/getNodeBalancerConfigs
+     * Returns detailed statistics about the requested NodeBalancer.
+     */
+    stats(): Promise<NodeBalancerStats>;
+    configs: INodebalancersConfigs;
+}
+export interface INodebalancersConfigs {
+    /**
+     * https://developers.linode.com/api/v4/#operation/getNodeBalancerConfigs
  *
      * Returns a paginated list of NodeBalancer Configs associated with this NodeBalancer. NodeBalancer Configs represent individual ports that this NodeBalancer will accept traffic on, one Config per port.
      * For example, if you wanted to accept standard HTTP traffic, you would need a Config listening on port 80.
@@ -5257,57 +5589,63 @@ export interface IConfigs {
     list(page?: number): Promise<LinodeResponse<NodeBalancerConfig>>;
     list(page: number, page_size: number): Promise<LinodeResponse<NodeBalancerConfig>>;
     /**
-     * https://developers.linode.com/api/v4#operation/createNodeBalancerConfig
+     * https://developers.linode.com/api/v4/#operation/createNodeBalancerConfig
  *
      * Creates a NodeBalancer Config, which allows the NodeBalancer to accept traffic on a new port. You will need to add NodeBalancer Nodes to the new Config before it can actually serve requests.
      */
     create(data: NodeBalancerConfig): Promise<NodeBalancerConfig>;
     /**
-     * https://developers.linode.com/api/v4#operation/getNodeBalancerConfig
+     * https://developers.linode.com/api/v4/#operation/getNodeBalancerConfig
  *
      * Returns configuration information for a single port of this NodeBalancer.
      */
-    (configId: number): ConfigsClass;
+    (configId: number): NodebalancersConfigsClass;
 }
-export interface ConfigsClass {
+export interface NodebalancersConfigsClass {
     /**
-     * https://developers.linode.com/api/v4#operation/getNodeBalancerConfig
+     * https://developers.linode.com/api/v4/#operation/getNodeBalancerConfig
  *
      * Returns configuration information for a single port of this NodeBalancer.
      */
     get(): Promise<NodeBalancerConfig>;
     /**
-     * https://developers.linode.com/api/v4#operation/updateNodeBalancerConfig
+     * https://developers.linode.com/api/v4/#operation/updateNodeBalancerConfig
  *
      * Updates the configuration for a single port on a NodeBalancer.
      */
     update(data: NodeBalancerConfig): Promise<NodeBalancerConfig>;
     /**
-     * https://developers.linode.com/api/v4#operation/deleteNodeBalancerConfig
+     * https://developers.linode.com/api/v4/#operation/deleteNodeBalancerConfig
  *
      * Deletes the Config for a port of this NodeBalancer.
      * **This cannot be undone.**
      * Once completed, this NodeBalancer will no longer respond to requests on the given port. This also deletes all associated NodeBalancerNodes, but the Linodes they were routing traffic to will be unchanged and will not be removed.
      */
     delete(): Promise<any>;
+    /**
+     * https://developers.linode.com/api/v4/#operation/rebuildNodeBalancerConfig
+ *
+     * Rebuilds a NodeBalancer Config and its Nodes that you have permission to modify.
+     */
+    rebuild(data: any): Promise<NodeBalancer>;
     nodes: INodes;
 }
 export interface INodes {
     /**
-     * https://developers.linode.com/api/v4#operation/getNodeBalancerConfigNodes
+     * https://developers.linode.com/api/v4/#operation/getNodeBalancerConfigNodes
  *
      * Returns a paginated list of NodeBalancer nodes associated with this Config. These are the backends that will be sent traffic for this port.
      */
     list(page?: number): Promise<LinodeResponse<NodeBalancerNode>>;
     list(page: number, page_size: number): Promise<LinodeResponse<NodeBalancerNode>>;
     /**
-     * https://developers.linode.com/api/v4#operation/createNodeBalancerNode
+     * https://developers.linode.com/api/v4/#operation/createNodeBalancerNode
  *
      * Creates a NodeBalancer Node, a backend that can accept traffic for this NodeBalancer Config. Nodes are routed requests on the configured port based on their status.
      */
     create(data: any): Promise<NodeBalancerNode>;
     /**
-     * https://developers.linode.com/api/v4#operation/getNodeBalancerNode
+     * https://developers.linode.com/api/v4/#operation/getNodeBalancerNode
  *
      * Returns information about a single Node, a backend for this NodeBalancer's configured port.
      */
@@ -5315,19 +5653,19 @@ export interface INodes {
 }
 export interface NodesClass {
     /**
-     * https://developers.linode.com/api/v4#operation/getNodeBalancerNode
+     * https://developers.linode.com/api/v4/#operation/getNodeBalancerNode
  *
      * Returns information about a single Node, a backend for this NodeBalancer's configured port.
      */
     get(): Promise<NodeBalancerNode>;
     /**
-     * https://developers.linode.com/api/v4#operation/updateNodeBalancerNode
+     * https://developers.linode.com/api/v4/#operation/updateNodeBalancerNode
  *
      * Updates information about a Node, a backend for this NodeBalancer's configured port.
      */
     update(data: NodeBalancerNode): Promise<NodeBalancerNode>;
     /**
-     * https://developers.linode.com/api/v4#operation/deleteNodeBalancerConfigNode
+     * https://developers.linode.com/api/v4/#operation/deleteNodeBalancerConfigNode
  *
      * Deletes a Node from this Config. This backend will no longer receive traffic for the configured port of this NodeBalancer.
      * This does not change or remove the Linode whose address was used in the creation of this Node.
@@ -5336,20 +5674,20 @@ export interface NodesClass {
 }
 export interface IProfile {
     /**
-     * https://developers.linode.com/api/v4#operation/getProfile
+     * https://developers.linode.com/api/v4/#operation/getProfile
  *
      * Returns information about the current User. This can be used to see who is acting in applications where more than one token is managed. For example, in third-party OAuth applications.
      * This endpoint is always accessible, no matter what OAuth scopes the acting token has.
      */
     get(): Promise<Profile>;
     /**
-     * https://developers.linode.com/api/v4#operation/updateProfile
+     * https://developers.linode.com/api/v4/#operation/updateProfile
  *
-     * Update information in your Profile.  This option is _not_ available to all third-party clients.
+     * Update information in your Profile.  This endpoint requires the "account:read_write" OAuth Scope.
      */
     update(data: Profile): Promise<Profile>;
     /**
-     * https://developers.linode.com/api/v4#operation/getProfileGrants
+     * https://developers.linode.com/api/v4/#operation/getProfileGrants
  *
      * This returns a GrantsResponse describing what the acting User has been granted access to.  For unrestricted users, this will return a  204 and no body because unrestricted users have access to everything without grants.  This will not return information about entities you do not have access to.  This endpoint is useful when writing third-party OAuth applications to see what options you should present to the acting User.
      * For example, if they do not have `global.add_linodes`, you might not display a button to deploy a new Linode.
@@ -5357,29 +5695,31 @@ export interface IProfile {
      */
     grants(): Promise<GrantsResponse>;
     /**
-     * https://developers.linode.com/api/v4#operation/tfaDisable
+     * https://developers.linode.com/api/v4/#operation/tfaDisable
  *
      * Disables Two Factor Authentication for your User. Once successful, login attempts from untrusted computers will only require a password before being successful. This is less secure, and is discouraged.
      */
     tfaDisable(): Promise<any>;
     /**
-     * https://developers.linode.com/api/v4#operation/tfaEnable
+     * https://developers.linode.com/api/v4/#operation/tfaEnable
  *
-     * Generates a Two Factor secret for your User. TFA will not be enabled until you have successfully confirmed the code you were given with [tfa-enable-confirm](/#operation/tfaConfirm) (see below). Once enabled, logins from untrusted computers will be required to provide a TFA code before they are successful.
+     * Generates a Two Factor secret for your User. TFA will not be enabled until you have successfully confirmed the code you were given with [tfa-enable-confirm](#operation/tfaConfirm) (see below). Once enabled, logins from untrusted computers will be required to provide a TFA code before they are successful.
      */
     tfaEnable(): Promise<any>;
     /**
-     * https://developers.linode.com/api/v4#operation/tfaConfirm
+     * https://developers.linode.com/api/v4/#operation/tfaConfirm
  *
      * Confirms that you can successfully generate Two Factor codes and enables TFA on your Account. Once this is complete, login attempts from untrusted computers will be required to provide a Two Factor code before they are successful.
      */
     tfaEnableConfirm(data: any): Promise<any>;
     apps: IApps;
     tokens: ITokens;
+    devices: IDevices;
+    sshkeys: ISshkeys;
 }
 export interface IApps {
     /**
-     * https://developers.linode.com/api/v4#operation/getProfileApps
+     * https://developers.linode.com/api/v4/#operation/getProfileApps
  *
      * This is a collection of OAuth apps that you've given access to your Account, and includes the level of access granted.
      */
@@ -5389,7 +5729,7 @@ export interface IApps {
     list(page: number, filter: Filter<AuthorizedAppFilter>): Promise<LinodeResponse<AuthorizedApp>>;
     list(page: number, page_size: number, filter: Filter<AuthorizedAppFilter>): Promise<LinodeResponse<AuthorizedApp>>;
     /**
-     * https://developers.linode.com/api/v4#operation/getProfileApp
+     * https://developers.linode.com/api/v4/#operation/getProfileApp
  *
      * Returns information about a single app you've authorized to access your Account.
      */
@@ -5397,13 +5737,13 @@ export interface IApps {
 }
 export interface AppsClass {
     /**
-     * https://developers.linode.com/api/v4#operation/getProfileApp
+     * https://developers.linode.com/api/v4/#operation/getProfileApp
  *
      * Returns information about a single app you've authorized to access your Account.
      */
     get(): Promise<AuthorizedApp>;
     /**
-     * https://developers.linode.com/api/v4#operation/deleteProfileApp
+     * https://developers.linode.com/api/v4/#operation/deleteProfileApp
  *
      * Expires this app token. This token may no longer be used to access your Account.
      */
@@ -5411,7 +5751,7 @@ export interface AppsClass {
 }
 export interface ITokens {
     /**
-     * https://developers.linode.com/api/v4#operation/getPersonalAccessTokens
+     * https://developers.linode.com/api/v4/#operation/getPersonalAccessTokens
  *
      * Returns a paginated list of Personal Access Tokens currently active for your User.
      */
@@ -5421,13 +5761,13 @@ export interface ITokens {
     list(page: number, filter: Filter<PersonalAccessTokenFilter>): Promise<LinodeResponse<PersonalAccessToken>>;
     list(page: number, page_size: number, filter: Filter<PersonalAccessTokenFilter>): Promise<LinodeResponse<PersonalAccessToken>>;
     /**
-     * https://developers.linode.com/api/v4#operation/createPersonalAccessToken
+     * https://developers.linode.com/api/v4/#operation/createPersonalAccessToken
  *
      * Creates a Personal Access Token for your User. The raw token will be returned in the response, but will never be returned again afterward so be sure to take note of it. You may create a token with _at most_ the scopes of your current token. The created token will be able to access your Account until the given expiry, or until it is revoked.
      */
     create(data: any): Promise<PersonalAccessToken>;
     /**
-     * https://developers.linode.com/api/v4#operation/getPersonalAccessToken
+     * https://developers.linode.com/api/v4/#operation/getPersonalAccessToken
  *
      * Returns a single Personal Access Token.
      */
@@ -5435,27 +5775,98 @@ export interface ITokens {
 }
 export interface TokensClass {
     /**
-     * https://developers.linode.com/api/v4#operation/getPersonalAccessToken
+     * https://developers.linode.com/api/v4/#operation/getPersonalAccessToken
  *
      * Returns a single Personal Access Token.
      */
     get(): Promise<PersonalAccessToken>;
     /**
-     * https://developers.linode.com/api/v4#operation/updatePersonalAccessToken
+     * https://developers.linode.com/api/v4/#operation/updatePersonalAccessToken
  *
      * Updates a Personal Access Token.
      */
     update(data: PersonalAccessToken): Promise<PersonalAccessToken>;
     /**
-     * https://developers.linode.com/api/v4#operation/deletePersonalAccessToken
+     * https://developers.linode.com/api/v4/#operation/deletePersonalAccessToken
  *
      * Revokes a Personal Access Token. The token will be invalidated immediately, and requests using that token will fail with a 401. It is possible to revoke access to the token making the request to revoke a token, but keep in mind that doing so could lose you access to the api and require you to create a new token through some other means.
      */
     delete(): Promise<any>;
 }
+export interface IDevices {
+    /**
+     * https://developers.linode.com/api/v4/#operation/getDevices
+ *
+     * Returns a paginated list of active TrustedDevices for your User. Browsers with an active Remember Me Session are logged into your account until the session expires or is revoked.
+     */
+    list(page?: number): Promise<LinodeResponse<TrustedDevice>>;
+    list(page: number, page_size: number): Promise<LinodeResponse<TrustedDevice>>;
+    /**
+     * https://developers.linode.com/api/v4/#operation/getTrustedDevice
+ *
+     * Returns a single active TrustedDevice for your User.
+     */
+    (deviceId: number): ProfileDevicesClass;
+}
+export interface ProfileDevicesClass {
+    /**
+     * https://developers.linode.com/api/v4/#operation/getTrustedDevice
+ *
+     * Returns a single active TrustedDevice for your User.
+     */
+    get(): Promise<TrustedDevice>;
+    /**
+     * https://developers.linode.com/api/v4/#operation/revokeTrustedDevice
+ *
+     * Revoke an active TrustedDevice for your User.  Once a TrustedDevice is revoked, this device will have to log in again before accessing your Linode account.
+     */
+    delete(): Promise<any>;
+}
+export interface ISshkeys {
+    /**
+     * https://developers.linode.com/api/v4/#operation/getSSHKeys
+ *
+     * Returns a collection of SSH Keys you've added to your Profile.
+     */
+    list(page?: number): Promise<LinodeResponse<SSHKey>>;
+    list(page: number, page_size: number): Promise<LinodeResponse<SSHKey>>;
+    /**
+     * https://developers.linode.com/api/v4/#operation/addSSHKey
+ *
+     * Adds an SSH Key to your Account profile.
+     */
+    create(data: SSHKeyRequest): Promise<SSHKey>;
+    /**
+     * https://developers.linode.com/api/v4/#operation/getSSHKey
+ *
+     * Returns a single SSH Key object identified by `id` that you have access to view.
+     */
+    (sshKeyId: number): SshkeysClass;
+}
+export interface SshkeysClass {
+    /**
+     * https://developers.linode.com/api/v4/#operation/getSSHKey
+ *
+     * Returns a single SSH Key object identified by `id` that you have access to view.
+     */
+    get(): Promise<SSHKey>;
+    /**
+     * https://developers.linode.com/api/v4/#operation/updateSSHKey
+ *
+     * Updates an SSH Key that you have permission to `read_write`.
+     */
+    update(data: SSHKey): Promise<SSHKey>;
+    /**
+     * https://developers.linode.com/api/v4/#operation/deleteSSHKey
+ *
+     * Deletes an SSH Key you have access to.
+     * **Note:** deleting an SSH Key will *not* remove it from any Linode or Disk that was deployed with `authorized_keys`. In those cases, the keys must be manually deleted on the Linode or Disk. This endpoint will only delete the key's association from your Profile.
+     */
+    delete(): Promise<any>;
+}
 export interface IRegions {
     /**
-     * https://developers.linode.com/api/v4#operation/getRegions
+     * https://developers.linode.com/api/v4/#operation/getRegions
  *
      * Lists the Regions available for Linode services. Not all services are guaranteed to be
      * available in all Regions.
@@ -5463,7 +5874,7 @@ export interface IRegions {
     list(page?: number): Promise<LinodeResponse<Region>>;
     list(page: number, page_size: number): Promise<LinodeResponse<Region>>;
     /**
-     * https://developers.linode.com/api/v4#operation/getRegion
+     * https://developers.linode.com/api/v4/#operation/getRegion
  *
      * Returns a single Region.
      */
@@ -5471,7 +5882,7 @@ export interface IRegions {
 }
 export interface RegionsClass {
     /**
-     * https://developers.linode.com/api/v4#operation/getRegion
+     * https://developers.linode.com/api/v4/#operation/getRegion
  *
      * Returns a single Region.
      */
@@ -5482,7 +5893,7 @@ export interface ISupport {
 }
 export interface ITickets {
     /**
-     * https://developers.linode.com/api/v4#operation/getTickets
+     * https://developers.linode.com/api/v4/#operation/getTickets
  *
      * Returns a collection of Support Tickets on your Account. Support Tickets can be both tickets you open with Linode for support, as well as tickets generated by Linode regarding your Account.
      * This collection includes all Support Tickets generated on your Account, with open tickets returned first.
@@ -5493,14 +5904,14 @@ export interface ITickets {
     list(page: number, filter: Filter<SupportTicketFilter>): Promise<LinodeResponse<SupportTicket>>;
     list(page: number, page_size: number, filter: Filter<SupportTicketFilter>): Promise<LinodeResponse<SupportTicket>>;
     /**
-     * https://developers.linode.com/api/v4#operation/createTicket
+     * https://developers.linode.com/api/v4/#operation/createTicket
  *
      * Open a Support Ticket.
      * Only one of the ID attributes (`linode_id`, `domain_id`, etc.) can be set on a single Support Ticket.
      */
     create(data: SupportTicketRequest): Promise<SupportTicket>;
     /**
-     * https://developers.linode.com/api/v4#operation/getTicket
+     * https://developers.linode.com/api/v4/#operation/getTicket
  *
      * Returns a Support Ticket under your Account.
      */
@@ -5508,37 +5919,82 @@ export interface ITickets {
 }
 export interface TicketsClass {
     /**
-     * https://developers.linode.com/api/v4#operation/getTicket
+     * https://developers.linode.com/api/v4/#operation/getTicket
  *
      * Returns a Support Ticket under your Account.
      */
     get(): Promise<SupportTicket>;
     /**
-     * https://developers.linode.com/api/v4#operation/createTicketAttachment
+     * https://developers.linode.com/api/v4/#operation/createTicketAttachment
  *
      * Adds a file attachment to an existing Support Ticket on your Account. File attachments are used to assist our Support team in resolving your Ticket. Examples of attachments are screen shots and text files that provide additional information.
+     * Note: Accepted file extensions include: .gif, .jpg, .jpeg, .pjpg, .pjpeg, .tif, .tiff, .png, .pdf, or .txt.
      */
     attachments(): Promise<any>;
+    /**
+     * https://developers.linode.com/api/v4/#operation/closeTicket
+ *
+     * Closes a Support Ticket you have access to modify.
+     */
+    close(): Promise<any>;
     replies: IReplies;
 }
 export interface IReplies {
     /**
-     * https://developers.linode.com/api/v4#operation/getTicketReplies
+     * https://developers.linode.com/api/v4/#operation/getTicketReplies
  *
      * Returns a collection of replies to a Support Ticket on your Account.
      */
     list(page?: number): Promise<LinodeResponse<SupportTicketReply>>;
     list(page: number, page_size: number): Promise<LinodeResponse<SupportTicketReply>>;
     /**
-     * https://developers.linode.com/api/v4#operation/createTicketReply
+     * https://developers.linode.com/api/v4/#operation/createTicketReply
  *
      * Adds a reply to an existing Support Ticket.
      */
     create(data: any): Promise<SupportTicketReply>;
 }
+export interface ITags {
+    /**
+     * https://developers.linode.com/api/v4/#operation/getTags
+ *
+     * Tags are User-defined labels attached to objects in your Account, such as Linodes. They are used for specifying and grouping attributes of objects that are relevant to the User.
+     * This endpoint returns a paginated list of Tags on your account.
+     */
+    list(page?: number): Promise<LinodeResponse<Tag>>;
+    list(page: number, page_size: number): Promise<LinodeResponse<Tag>>;
+    /**
+     * https://developers.linode.com/api/v4/#operation/createTag
+ *
+     * Creates a new Tag and optionally tags requested objects with it immediately.
+     * **Important**: You must be an unrestricted User in order to add or modify Tags.
+     */
+    create(data: any): Promise<Tag>;
+    /**
+     * https://developers.linode.com/api/v4/#operation/getTaggedObjects
+ *
+     * Returns a paginated list of all objects you've tagged with the requested Tag. This is a mixed collection of all object types.
+     */
+    (label: string): TagsClass;
+}
+export interface TagsClass {
+    /**
+     * https://developers.linode.com/api/v4/#operation/getTaggedObjects
+ *
+     * Returns a paginated list of all objects you've tagged with the requested Tag. This is a mixed collection of all object types.
+     */
+    get(): Promise<unknown>;
+    /**
+     * https://developers.linode.com/api/v4/#operation/deleteTag
+ *
+     * Remove a Tag from all objects and delete it.
+     * **Important**: You must be an unrestricted User in order to add or modify Tags.
+     */
+    delete(): Promise<any>;
+}
 export interface IVolumes {
     /**
-     * https://developers.linode.com/api/v4#operation/getVolumes
+     * https://developers.linode.com/api/v4/#operation/getVolumes
  *
      * Returns a paginated list of Volumes you have permission to view.
      */
@@ -5548,14 +6004,13 @@ export interface IVolumes {
     list(page: number, filter: Filter<VolumeFilter>): Promise<LinodeResponse<Volume>>;
     list(page: number, page_size: number, filter: Filter<VolumeFilter>): Promise<LinodeResponse<Volume>>;
     /**
-     * https://developers.linode.com/api/v4#operation/createVolume
+     * https://developers.linode.com/api/v4/#operation/createVolume
  *
      * Creates a Volume on your Account. In order for this to complete successfully, your User must have the `add_volumes` grant. Creating a new Volume will start accruing additional charges on your account.
-     * Volume service may not be available in all Regions. See [/regions](/#operation/getRegions) for a list of available Regions you deploy your Volume in.
      */
     create(data: any): Promise<Volume>;
     /**
-     * https://developers.linode.com/api/v4#operation/getVolume
+     * https://developers.linode.com/api/v4/#operation/getVolume
  *
      * Get information about a single Volume.
      */
@@ -5563,19 +6018,19 @@ export interface IVolumes {
 }
 export interface VolumesClass {
     /**
-     * https://developers.linode.com/api/v4#operation/getVolume
+     * https://developers.linode.com/api/v4/#operation/getVolume
  *
      * Get information about a single Volume.
      */
     get(): Promise<Volume>;
     /**
-     * https://developers.linode.com/api/v4#operation/updateVolume
+     * https://developers.linode.com/api/v4/#operation/updateVolume
  *
      * Updates a Volume that you have permission to `read_write`.
      */
     update(data: any): Promise<Volume>;
     /**
-     * https://developers.linode.com/api/v4#operation/deleteVolume
+     * https://developers.linode.com/api/v4/#operation/deleteVolume
  *
      * Deletes a Volume you have permission to `read_write`.
      * **Deleting a Volume is a destructive action and cannot be undone.**
@@ -5584,25 +6039,25 @@ export interface VolumesClass {
      */
     delete(): Promise<any>;
     /**
-     * https://developers.linode.com/api/v4#operation/attachVolume
+     * https://developers.linode.com/api/v4/#operation/attachVolume
  *
      * Attaches a Volume on your Account to an existing Linode on your Account. In order for this request to complete successfully, your User must have `read_only` or `read_write` permission to the Volume and `read_write` permission to the Linode. Additionally, the Volume and Linode must be located in the same Region.
      */
-    attach(data: any): Promise<any>;
+    attach(data: any): Promise<Volume>;
     /**
-     * https://developers.linode.com/api/v4#operation/cloneVolume
+     * https://developers.linode.com/api/v4/#operation/cloneVolume
  *
      * Creates a Volume on your Account. In order for this request to complete successfully, your User must have the `add_volumes` grant. The new Volume will have the same size and data as the source Volume. Creating a new Volume will incur a charge on your Account.
      */
     clone(data: any): Promise<any>;
     /**
-     * https://developers.linode.com/api/v4#operation/detachVolume
+     * https://developers.linode.com/api/v4/#operation/detachVolume
  *
      * Detaches a Volume on your Account from a Linode on your Account. In order for this request to complete successfully, your User must have `read_write` access to the Volume and `read_write` access to the Linode.
      */
     detach(): Promise<any>;
     /**
-     * https://developers.linode.com/api/v4#operation/resizeVolume
+     * https://developers.linode.com/api/v4/#operation/resizeVolume
  *
      * Resize an existing Volume on your Account. In order for this request to complete successfully, your User must have the `read_write` permissions to the Volume.
      * * Volumes can only be resized up.

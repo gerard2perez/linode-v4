@@ -20,6 +20,22 @@
 			"cwd": "${workspaceRoot}",
 			"protocol": "inspector",
 			"port":47174
+		},
+		{
+			"type": "node",
+			"request": "launch",
+			"name": "API Call Test",
+			// "program": "${workspaceFolder}/src/generator/openapi-to-node-client.ts",
+			"args": [
+				"--nolazy",
+				"-r",
+				"ts-node/register/transpile-only",
+				"--inspect-brk=47174",
+				"./api_call_test.ts"
+			],
+			"cwd": "${workspaceRoot}",
+			"protocol": "inspector",
+			"port":47174
 		}
     ]
 }
