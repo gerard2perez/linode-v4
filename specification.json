@@ -163,17 +163,14 @@
             {
               "Name": "list",
               "fnName": "list",
-              "QueryParameters": [
-                "page",
-                "page_size"
-              ],
+              "QueryParameters": [],
               "PathParameters": [],
               "HeaderParameters": [
                 "Authorization"
               ],
               "RequiredArgs": 0,
               "Verb": "get",
-              "TotalArgs": 2,
+              "TotalArgs": 0,
               "Keep": false,
               "RelativeRoute": ""
             }
@@ -830,6 +827,20 @@
           "TotalArgs": 1,
           "Keep": false,
           "RelativeRoute": ""
+        },
+        {
+          "Name": "import",
+          "fnName": "import",
+          "QueryParameters": [],
+          "PathParameters": [],
+          "HeaderParameters": [
+            "Authorization"
+          ],
+          "RequiredArgs": 1,
+          "Verb": "post",
+          "TotalArgs": 1,
+          "Keep": true,
+          "RelativeRoute": ""
         }
       ],
       "Route": "/domains",
@@ -1178,6 +1189,20 @@
                       "RelativeRoute": ""
                     },
                     {
+                      "Name": "clone",
+                      "fnName": "clone",
+                      "QueryParameters": [],
+                      "PathParameters": [],
+                      "HeaderParameters": [
+                        "Authorization"
+                      ],
+                      "RequiredArgs": 0,
+                      "Verb": "post",
+                      "TotalArgs": 0,
+                      "Keep": true,
+                      "RelativeRoute": ""
+                    },
+                    {
                       "Name": "password",
                       "fnName": "password",
                       "QueryParameters": [],
@@ -1485,6 +1510,20 @@
                 "RelativeRoute": ""
               },
               {
+                "Name": "migrate",
+                "fnName": "migrate",
+                "QueryParameters": [],
+                "PathParameters": [],
+                "HeaderParameters": [
+                  "Authorization"
+                ],
+                "RequiredArgs": 0,
+                "Verb": "post",
+                "TotalArgs": 0,
+                "Keep": true,
+                "RelativeRoute": ""
+              },
+              {
                 "Name": "mutate",
                 "fnName": "mutate",
                 "QueryParameters": [],
@@ -1506,9 +1545,9 @@
                 "HeaderParameters": [
                   "Authorization"
                 ],
-                "RequiredArgs": 0,
+                "RequiredArgs": 1,
                 "Verb": "post",
-                "TotalArgs": 0,
+                "TotalArgs": 1,
                 "Keep": true,
                 "RelativeRoute": ""
               },
@@ -1785,10 +1824,7 @@
             {
               "Name": "list",
               "fnName": "list",
-              "QueryParameters": [
-                "page",
-                "page_size"
-              ],
+              "QueryParameters": [],
               "PathParameters": [],
               "HeaderParameters": [
                 "Authorization",
@@ -1796,7 +1832,7 @@
               ],
               "RequiredArgs": 0,
               "Verb": "get",
-              "TotalArgs": 2,
+              "TotalArgs": 0,
               "Keep": false,
               "RelativeRoute": ""
             }
@@ -2343,17 +2379,14 @@
             {
               "Name": "list",
               "fnName": "list",
-              "QueryParameters": [
-                "page",
-                "page_size"
-              ],
+              "QueryParameters": [],
               "PathParameters": [],
               "HeaderParameters": [
                 "Authorization"
               ],
               "RequiredArgs": 0,
               "Verb": "get",
-              "TotalArgs": 2,
+              "TotalArgs": 0,
               "Keep": false,
               "RelativeRoute": ""
             },
@@ -2428,10 +2461,7 @@
             {
               "Name": "list",
               "fnName": "list",
-              "QueryParameters": [
-                "page",
-                "page_size"
-              ],
+              "QueryParameters": [],
               "PathParameters": [],
               "HeaderParameters": [
                 "Authorization",
@@ -2439,7 +2469,7 @@
               ],
               "RequiredArgs": 0,
               "Verb": "get",
-              "TotalArgs": 2,
+              "TotalArgs": 0,
               "Keep": false,
               "RelativeRoute": ""
             },
@@ -2704,6 +2734,20 @@
                   "TotalArgs": 0,
                   "Keep": false,
                   "RelativeRoute": ""
+                },
+                {
+                  "Name": "rebuild",
+                  "fnName": "rebuild",
+                  "QueryParameters": [],
+                  "PathParameters": [],
+                  "HeaderParameters": [
+                    "Authorization"
+                  ],
+                  "RequiredArgs": 1,
+                  "Verb": "post",
+                  "TotalArgs": 1,
+                  "Keep": true,
+                  "RelativeRoute": ""
                 }
               ],
               "Route": "/{configId}",
@@ -2790,6 +2834,20 @@
             "Verb": "delete",
             "TotalArgs": 0,
             "Keep": false,
+            "RelativeRoute": ""
+          },
+          {
+            "Name": "stats",
+            "fnName": "stats",
+            "QueryParameters": [],
+            "PathParameters": [],
+            "HeaderParameters": [
+              "Authorization"
+            ],
+            "RequiredArgs": 0,
+            "Verb": "get",
+            "TotalArgs": 0,
+            "Keep": true,
             "RelativeRoute": ""
           }
         ],
@@ -2962,14 +3020,162 @@
             {
               "Name": "list",
               "fnName": "list",
+              "QueryParameters": [],
+              "PathParameters": [],
+              "HeaderParameters": [
+                "Authorization",
+                "X-Filter"
+              ],
+              "RequiredArgs": 0,
+              "Verb": "get",
+              "TotalArgs": 0,
+              "Keep": false,
+              "RelativeRoute": ""
+            },
+            {
+              "Name": "create",
+              "fnName": "create",
+              "QueryParameters": [],
+              "PathParameters": [],
+              "HeaderParameters": [
+                "Authorization"
+              ],
+              "RequiredArgs": 1,
+              "Verb": "post",
+              "TotalArgs": 1,
+              "Keep": false,
+              "RelativeRoute": ""
+            }
+          ],
+          "Route": "/tokens",
+          "PathParameter": []
+        },
+        {
+          "FormatName": "devices",
+          "Class": {
+            "FormatName": "devices",
+            "Properties": [],
+            "Methods": [
+              {
+                "Name": "get",
+                "fnName": "get",
+                "QueryParameters": [],
+                "PathParameters": [],
+                "HeaderParameters": [
+                  "Authorization"
+                ],
+                "RequiredArgs": 0,
+                "Verb": "get",
+                "TotalArgs": 0,
+                "Keep": false,
+                "RelativeRoute": ""
+              },
+              {
+                "Name": "delete",
+                "fnName": "delete",
+                "QueryParameters": [],
+                "PathParameters": [],
+                "HeaderParameters": [
+                  "Authorization"
+                ],
+                "RequiredArgs": 0,
+                "Verb": "delete",
+                "TotalArgs": 0,
+                "Keep": false,
+                "RelativeRoute": ""
+              }
+            ],
+            "Route": "/{deviceId}",
+            "PathParameter": [
+              "deviceId"
+            ]
+          },
+          "Properties": [],
+          "Methods": [
+            {
+              "Name": "list",
+              "fnName": "list",
+              "QueryParameters": [],
+              "PathParameters": [],
+              "HeaderParameters": [
+                "Authorization"
+              ],
+              "RequiredArgs": 0,
+              "Verb": "get",
+              "TotalArgs": 0,
+              "Keep": false,
+              "RelativeRoute": ""
+            }
+          ],
+          "Route": "/devices",
+          "PathParameter": []
+        },
+        {
+          "FormatName": "sshkeys",
+          "Class": {
+            "FormatName": "sshkeys",
+            "Properties": [],
+            "Methods": [
+              {
+                "Name": "get",
+                "fnName": "get",
+                "QueryParameters": [],
+                "PathParameters": [],
+                "HeaderParameters": [
+                  "Authorization"
+                ],
+                "RequiredArgs": 0,
+                "Verb": "get",
+                "TotalArgs": 0,
+                "Keep": false,
+                "RelativeRoute": ""
+              },
+              {
+                "Name": "update",
+                "fnName": "update",
+                "QueryParameters": [],
+                "PathParameters": [],
+                "HeaderParameters": [
+                  "Authorization"
+                ],
+                "RequiredArgs": 1,
+                "Verb": "put",
+                "TotalArgs": 1,
+                "Keep": false,
+                "RelativeRoute": ""
+              },
+              {
+                "Name": "delete",
+                "fnName": "delete",
+                "QueryParameters": [],
+                "PathParameters": [],
+                "HeaderParameters": [
+                  "Authorization"
+                ],
+                "RequiredArgs": 0,
+                "Verb": "delete",
+                "TotalArgs": 0,
+                "Keep": false,
+                "RelativeRoute": ""
+              }
+            ],
+            "Route": "/{sshKeyId}",
+            "PathParameter": [
+              "sshKeyId"
+            ]
+          },
+          "Properties": [],
+          "Methods": [
+            {
+              "Name": "list",
+              "fnName": "list",
               "QueryParameters": [
                 "page",
                 "page_size"
               ],
               "PathParameters": [],
               "HeaderParameters": [
-                "Authorization",
-                "X-Filter"
+                "Authorization"
               ],
               "RequiredArgs": 0,
               "Verb": "get",
@@ -2992,7 +3198,7 @@
               "RelativeRoute": ""
             }
           ],
-          "Route": "/tokens",
+          "Route": "/sshkeys",
           "PathParameter": []
         }
       ],
@@ -3116,17 +3322,14 @@
         {
           "Name": "list",
           "fnName": "list",
-          "QueryParameters": [
-            "page",
-            "page_size"
-          ],
+          "QueryParameters": [],
           "PathParameters": [],
           "HeaderParameters": [
             "Authorization"
           ],
           "RequiredArgs": 0,
           "Verb": "get",
-          "TotalArgs": 2,
+          "TotalArgs": 0,
           "Keep": false,
           "RelativeRoute": ""
         }
@@ -3210,6 +3413,20 @@
                 "TotalArgs": 0,
                 "Keep": true,
                 "RelativeRoute": ""
+              },
+              {
+                "Name": "close",
+                "fnName": "close",
+                "QueryParameters": [],
+                "PathParameters": [],
+                "HeaderParameters": [
+                  "Authorization"
+                ],
+                "RequiredArgs": 0,
+                "Verb": "post",
+                "TotalArgs": 0,
+                "Keep": true,
+                "RelativeRoute": ""
               }
             ],
             "Route": "/{ticketId}",
@@ -3261,6 +3478,86 @@
       "PathParameter": []
     },
     {
+      "FormatName": "tags",
+      "Class": {
+        "FormatName": "tags",
+        "Properties": [],
+        "Methods": [
+          {
+            "Name": "get",
+            "fnName": "get",
+            "QueryParameters": [
+              "page",
+              "page_size"
+            ],
+            "PathParameters": [],
+            "HeaderParameters": [
+              "Authorization"
+            ],
+            "RequiredArgs": 0,
+            "Verb": "get",
+            "TotalArgs": 2,
+            "Keep": false,
+            "RelativeRoute": ""
+          },
+          {
+            "Name": "delete",
+            "fnName": "delete",
+            "QueryParameters": [],
+            "PathParameters": [],
+            "HeaderParameters": [
+              "Authorization"
+            ],
+            "RequiredArgs": 0,
+            "Verb": "delete",
+            "TotalArgs": 0,
+            "Keep": false,
+            "RelativeRoute": ""
+          }
+        ],
+        "Route": "/{label}",
+        "PathParameter": [
+          "label"
+        ]
+      },
+      "Properties": [],
+      "Methods": [
+        {
+          "Name": "list",
+          "fnName": "list",
+          "QueryParameters": [
+            "page",
+            "page_size"
+          ],
+          "PathParameters": [],
+          "HeaderParameters": [
+            "Authorization"
+          ],
+          "RequiredArgs": 0,
+          "Verb": "get",
+          "TotalArgs": 2,
+          "Keep": false,
+          "RelativeRoute": ""
+        },
+        {
+          "Name": "create",
+          "fnName": "create",
+          "QueryParameters": [],
+          "PathParameters": [],
+          "HeaderParameters": [
+            "Authorization"
+          ],
+          "RequiredArgs": 1,
+          "Verb": "post",
+          "TotalArgs": 1,
+          "Keep": false,
+          "RelativeRoute": ""
+        }
+      ],
+      "Route": "/tags",
+      "PathParameter": []
+    },
+    {
       "FormatName": "volumes",
       "Class": {
         "FormatName": "volumes",
@@ -3269,14 +3566,17 @@
           {
             "Name": "get",
             "fnName": "get",
-            "QueryParameters": [],
+            "QueryParameters": [
+              "page",
+              "page_size"
+            ],
             "PathParameters": [],
             "HeaderParameters": [
               "Authorization"
             ],
             "RequiredArgs": 0,
             "Verb": "get",
-            "TotalArgs": 0,
+            "TotalArgs": 2,
             "Keep": false,
             "RelativeRoute": ""
           },

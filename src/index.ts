@@ -1,4 +1,4 @@
-import {IAccount, IDomains, IImages, ILinode, ILongview, IManaged, INetworking, INodebalancers, IProfile, IRegions, ISupport, IVolumes} from './interfaces';
+import {IAccount, IDomains, IImages, ILinode, ILongview, IManaged, INetworking, INodebalancers, IProfile, IRegions, ISupport, IVolumes, ITags} from './interfaces';
 import { APIService, APIPreSend } from "./APIMaker";
 
 const API = require('./specification.json');
@@ -27,6 +27,8 @@ class Linodev4 {
 	support:ISupport
 	//@ts-ignore
 	volumes:IVolumes
+	//@ts-ignore
+	tags:ITags
 	constructor(key:string, fn?:APIPreSend) {
 		return new APIService(API.remote_server, key, API, fn) as any;
 	}

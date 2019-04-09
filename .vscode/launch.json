@@ -1,0 +1,25 @@
+{
+    // Use IntelliSense para saber los atributos posibles.
+    // Mantenga el puntero para ver las descripciones de los existentes atributos
+    // Para más información, visite: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+		{
+			"type": "node",
+			"request": "launch",
+			"name": "Launch Program",
+			// "program": "${workspaceFolder}/src/generator/openapi-to-node-client.ts",
+			"args": [
+				"--nolazy",
+				"-r",
+				"ts-node/register/transpile-only",
+				"--inspect-brk=47174",
+				"./src/generator/openapi-to-node-client.ts",
+				"def"
+			],
+			"cwd": "${workspaceRoot}",
+			"protocol": "inspector",
+			"port":47174
+		}
+    ]
+}
