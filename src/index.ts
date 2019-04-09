@@ -1,5 +1,6 @@
 import {IAccount, IDomains, IImages, ILinode, ILongview, IManaged, INetworking, INodebalancers, IProfile, IRegions, ISupport, IVolumes, ITags} from './interfaces';
 import { APIService, APIPreSend } from "./APIMaker";
+import { AxiosRequestConfig } from 'axios';
 
 const API = require('./specification.json');
 class Linodev4 {
@@ -29,8 +30,8 @@ class Linodev4 {
 	volumes:IVolumes
 	//@ts-ignore
 	tags:ITags
-	constructor(key:string, fn?:APIPreSend) {
-		return new APIService(API.remote_server, key, API, fn) as any;
+	constructor(key:string, config:AxiosRequestConfig={}, fn?:APIPreSend) {
+		return new APIService(API.remote_server, key, API, fn, config) as any;
 	}
 }
 

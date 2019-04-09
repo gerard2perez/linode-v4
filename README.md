@@ -38,6 +38,11 @@ The project comes with d.ts files, so If you use and editor compatible with this
 
 As I mention this package is generated automatically, that inclues tests, I've checked really carefully that every function will reach the correct url with the correct parameters (headers, body, query, verbs), since I actually use this package in production; but I did not test every command to the the actual linode servers.
 
+## Request
+This packages uses [Axios](https://github.com/axios/axios) to manage the request, yo can pass and AxiosRequestConfig as the second argument of the constructor in order to modify the request configuration.
+
+This is useful is you want to set your proxy in order to make the requests.
+
 ## Commands
 Here you will find a complete list of all the command and their link to the actual linode website.
 

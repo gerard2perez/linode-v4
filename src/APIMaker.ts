@@ -54,15 +54,15 @@ export class APIService {
 			if ( data.headers['X-Filter'] ) {
 				headers['X-Filter'] = JSON.stringify(data.headers['X-Filter']);
 			}
-			let config:AxiosRequestConfig = {
+			let config:AxiosRequestConfig = Object.assign({}, this.axios_config, {
 				method: data.verb,
 				url,
 				headers,
 				data: data.body
-			};
+			});
 			return axios(config).then(res => res.data).catch(err => err.response.data );
 	}
-	constructor(private server:string, private personalKey:string, API:SNode, preSend?:APIPreSend)  {
+	constructor(private server:string, private personalKey:string, API:SNode, preSend?:APIPreSend, private axios_config:AxiosRequestConfig = {})  {
 		this.personalKey = `Bearer ${this.personalKey}`;
 		this.preSend = preSend || this.send;
 		return this.toFinal(API, server);
