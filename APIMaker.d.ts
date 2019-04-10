@@ -1,3 +1,4 @@
+import { AxiosRequestConfig } from 'axios';
 export interface SMethod {
     Name: string;
     fnName: string;
@@ -29,10 +30,11 @@ export declare type APIPreSend = (data: IAPICall) => Promise<any>;
 export declare class APIService {
     private server;
     private personalKey;
+    private axios_config;
     private preSend;
     fnHandler(route: string, method: SMethod, personalKey: string, ...args: any[]): Promise<any>;
     send(data: IAPICall): Promise<any>;
-    constructor(server: string, personalKey: string, API: SNode, preSend?: APIPreSend);
+    constructor(server: string, personalKey: string, API: SNode, preSend?: APIPreSend, axios_config?: AxiosRequestConfig);
     checkListArgs(args: any[]): any[];
     validateArgs(fnName: string, args: any[], required: number, total: number): any[];
     getQuery(method: string, QueryParameters: string[], args: any[]): any;

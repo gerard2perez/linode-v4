@@ -29,5 +29,6 @@ install:
 script:
   - npm run cover
 after_success:
+  - npx tsc
   - npm run codeclimate:report
   - npm run semantic-release

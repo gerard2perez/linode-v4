@@ -3,9 +3,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const util_1 = require("util");
 const axios_1 = require("axios");
 class APIService {
-    constructor(server, personalKey, API, preSend) {
+    constructor(server, personalKey, API, preSend, axios_config = {}) {
         this.server = server;
         this.personalKey = personalKey;
+        this.axios_config = axios_config;
         this.personalKey = `Bearer ${this.personalKey}`;
         this.preSend = preSend || this.send;
         return this.toFinal(API, server);
@@ -36,12 +37,12 @@ class APIService {
         if (data.headers['X-Filter']) {
             headers['X-Filter'] = JSON.stringify(data.headers['X-Filter']);
         }
-        let config = {
+        let config = Object.assign({}, this.axios_config, {
             method: data.verb,
             url,
             headers,
             data: data.body
-        };
+        });
         return axios_1.default(config).then(res => res.data).catch(err => err.response.data);
     }
     checkListArgs(args) {
