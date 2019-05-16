@@ -6,3 +6,5 @@ api_call_test.ts
 node_modules/
 *.tgz
 _readme.md
+*.js
+*.d.ts
